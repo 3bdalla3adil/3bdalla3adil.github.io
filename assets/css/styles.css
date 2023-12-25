@@ -13,6 +13,14 @@ body {
   overflow:hidden;
 }
 
+#vid {
+  width:100%;
+  height:450px;
+  margin:0 auto;
+  position:relative;
+  overflow:hidden;
+}
+
 #ocean {
   background:#FF4500;
   width:100%;
