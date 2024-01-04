@@ -1,6 +1,15 @@
 body {
   /*background:orange;*/
   font-family: Roboto,San Serif;
+  background-color: #ffffff; /* Light background color */
+    color: #333333; /* Light text color */
+    /* Add other light mode styles */
+}
+
+.dark-mode {
+    background-color: #333333; /* Dark background color */
+    color: #ffffff; /* Dark text color */
+    /* Add other dark mode styles */
 }
 
 #pic {
