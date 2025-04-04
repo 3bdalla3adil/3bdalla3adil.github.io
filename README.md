@@ -2,6 +2,6 @@
 # <div>
 ## who am I ? 
 ### My Name is Abdulla Adil Hassan Bashir,
-### I'm Software Developer
+### I'm An IT Application Developer
 ## And This is My Portfolio Website
 # </div>
