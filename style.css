@@ -1,0 +1,28 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+}
+
+h2, h3 {
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 1.2rem;
+}
+
+.card {
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.carousel-inner img {
+  border-radius: 10px;
+  height: 400px;
+  object-fit: cover;
+}
