@@ -1,6 +1,209 @@
-
-<!--====================================================================================================================================================  --> 
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        function switchLanguage(language) {
+            var elements = document.querySelectorAll("[data-lang]");
+            elements.forEach(function (element) {
+                var key = element.getAttribute("data-lang");
+                element.textContent = languageData[key][language];
+            });
+        }
+
+        var languageData = {
+            "serviceTitle": {
+                "en": "What Service I Provide :",
+                "ar": "الخدمات التي أقدمها :"
+            },
+            "serviceText": {
+                "en": "I am a skilled Python developer with 5+ years of experience in designing, developing, and maintaining Python-based applications. I have a strong understanding of Odoo (ERP System) and can create custom modules for specific business needs. I am also proficient in working with databases and creating user interfaces. I have experience deploying new releases and troubleshooting and debugging problems.",
+                "ar": "أنا مطور بايثون ماهر مع أكثر من 5 سنوات من الخبرة في تصميم وتطوير وصيانة التطبيقات المعتمدة على بايثون. لدي فهم قوي لنظام Odoo (نظام ERP) ويمكنني إنشاء وحدات مخصصة لتلبية احتياجات الأعمال الخاصة. أنا أيضًا ماهر في العمل مع قواعد البيانات وإنشاء واجهات المستخدم. لدي خبرة في نشر الإصدارات الجديدة واستكشاف الأخطاء وإصلاحها."
+            },
+            // Add other language key-value pairs for other content
+            // Example:
+            "odooModuleTitle": {
+                "en": "Odoo Modules",
+                "ar": "وحدات Odoo"
+            },
+            "pythonModulesTitle": {
+                "en": "Python Modules",
+                "ar": "وحدات بايثون"
+            },
+            "systemAdminTitle": {
+                "en": "System Administration",
+                "ar": "إدارة الأنظمة"
+            },
+            "androidDevTitle": {
+                "en": "Android Development",
+                "ar": "تطوير الأندرويد"
+            },
+            "learningProgressTitle": {
+                "en": "My Learning Progress",
+                "ar": "تقدمي في التعلم"
+            }
+        };
+    </script>
+</head>
+<body>
+    <div style="margin:10px;margin-top:31px;">
+        <!-- Language Switcher Buttons -->
+        <div class="text-center mb-3">
+            <button class="btn btn-primary" onclick="switchLanguage('en')">English</button>
+            <button class="btn btn-primary" onclick="switchLanguage('ar')">Arabic</button>
+        </div>
+
+        <div class="container bg-light">
+            <div class="row">
+                <div style="margin:10px;margin-top:31px;">
+    <div class="container bg-light">
+        <div class="row">
+            <!-- Service Card 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">What Service I Provide :</h5>
+                        <p class="card-text">
+                            I am a skilled Python developer with 5+ years of experience in designing, developing,
+                            and maintaining Python-based applications. I have a strong understanding of Odoo (ERP System)
+                            and can create custom modules for specific business needs. I am also proficient in working with
+                            databases and creating user interfaces. I have experience deploying new releases and troubleshooting
+                            and debugging problems.
+                        </p>
+                        <ul>
+                            <li>Designing, developing, and maintaining Python-based applications</li>
+                            <li>Creating custom modules for Odoo (ERP System)</li>
+                            <li>Working with databases</li>
+                            <li>Creating user interfaces</li>
+                            <li>Deploying new releases</li>
+                            <li>Troubleshooting and debugging problems</li>
+                        </ul>
+                        <p>
+                            I am also a skilled system administrator with experience in Linux and Windows. I can set up websites,
+                            domain names, web servers, VPN servers, load-balancing servers, AWS EC2, ECS, EKS, Lambda, S3,
+                            EBS, Cloud Watch, etc. I can also set up Django with Gunicorn, WSGI, and ASGI, and Develop and Support
+                            Django code. I can also set up RDBMS like MySQL and PostgreSQL for Django/Odoo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Odoo Modules</h5>
+                        <p class="card-text">
+                            I have created an Odoo module that allows automatic attendance for specified employees, TeleWork Odoo
+                            API & HR modules, and Payroll with accounting Customization. To enhance the testing phase, I use the Odoo
+                            interactive shell, which increases reliability and efficiency. The core idea is to deliver employees' data to
+                            an external system and much more!
+                        </p>
+                        <p>
+                            I've made an API for integrating B2B client Odoo websites with teleworker reports, which uses Odoo controllers
+                            and database data retrieval with basic HTML and JavaScript skills. At Al Hulool Soft as an Odoo developer, I
+                            worked on existing apps and modules, checking the latest algorithms to enhance performance and efficiency.
+                        </p>
+                        <p>
+                            Recently, I have been managing multiple Odoo server instances with multiple sub-domains and Dockerized them
+                            all with the help of a special script written in Bash language.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Python Modules</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Chat App for Raspberry Pi Clients and Server</h6>
+                        <p class="card-text">
+                            I developed a chat application for a French client, and they were very satisfied with the efficiency of the
+                            app.
+                        </p>
+                        <h6 class="card-subtitle mb-2 text-muted">Cybersecurity Tool for Information Gathering</h6>
+                        <p class="card-text">
+                            This project was for a cybersecurity tool developed by an American client. I ported Golang code to Python
+                            without using any Python package. The package needed to accept a text keyword as input and output a JSON
+                            response for an API, and I used Django Rest Framework and a web framework to populate the database with the
+                            keywords.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Service Card 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">System Administration</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">VPN Server Software Installation</h6>
+                        <p class="card-text">
+                            I successfully installed and tested my very first VPN server (SoftEther VPN) for an English client. They
+                            were satisfied, and that's why they continue to hire me for administration tasks.
+                        </p>
+                        <h6 class="card-subtitle mb-2 text-muted">Efood Multi-Vendor Website</h6>
+                        <ul>
+                            <li>Purchased a DigitalOcean droplet with a Laravel pre-installed image.</li>
+                            <li>Purchased a domain name and created a subdomain.</li>
+                            <li>Created MySQL database and database user.</li>
+                            <li>Configured Nginx as a reverse proxy service.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Android Development</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Android Prayer Times App</h6>
+                        <p class="card-text">
+                            An innovative Android application designed to facilitate timely prayer reminders, assist users in determining
+                            the Qibla direction through API integration, and provide both Hijri and Gregorian calendars. The app
+                            computes prayer times and uses the Android device's magnetometer to measure the Earth's magnetic field,
+                            enhancing the user experience.
+                        </p>
+                        <h6 class="card-subtitle mb-2 text-muted">Android Digital Queue App</h6>
+                        <p class="card-text">
+                            An innovative Android application designed to facilitate bakery queue management in a local bakery based in
+                            Bahry. It saves SQLite database data in a timely manner to serve first-come-first-serve consumers, reducing
+                            conflicts between customers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- </div> -->
+            <h1 data-lang="learningProgressTitle">My Learning Progress</h1>
+            <!-- Certificates Section -->
+            <div class="row">
+                <div class="col-md-4" style="width: 400px; height: 400px; overflow: hidden;">
+                    <img src="/assets/img/linux_cert.png" alt="linux_fundamentals_cert" style="width: 100%; height: auto;">
+                </div>
+                <!-- Add other certificate images here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer-basic">
+        <footer>
+            <p class="copyright">AAHB© 2023</p>
+        </footer>
+    </div>
+
+</body>
+</html>
+<!--====================================================================================================================================================  --> 
+<!-- <!DOCTYPE html>
 <html>
 
 	<head>
@@ -318,7 +521,7 @@
     
         
 		<!-- ===========================Certificates=================================================== -->
-		<div class="row">
+<!-- 		<div class="row">
 			<div class="carousel col-md-4 m-1" style="width:500px;height: 400px; overflow: hidden;"> 
 			    <div class="carousel-item"> 
 			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
@@ -355,9 +558,6 @@
 			url('/assets/img/linux_specialization_cert.png');"> 
 			      </div> 
 			    </div>
-<!-- 			</div> -->
-<!-- 			<br> -->
-<!-- 			<div class="carousel col-md-4 m-1" style="width:500px;height: 400px; overflow: hidden;"> -->
 			    <div class="carousel-item"> 
 			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
 			url('/assets/img/operating_system_foundation_cert.png');"> 
@@ -378,9 +578,6 @@
 			url('/assets/img/cybersecurity_policy_foundation_cert.png');"> 
 			      </div> 
 			    </div> 
-<!-- 			  </div> -->
-<!-- 			<br> -->
-<!-- 			  <div class="carousel col-md-4 m-1" style="width:500px;height: 400px;"> -->
 			    <div class="carousel-item"> 
 			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
 			url('/assets/img/brand_cert.png');"> 
@@ -412,14 +609,6 @@
 					</svg>
 				</div>
 			</div> 
-<!-- 			 <div class="col-md-4" style="width: 400px; height: 400px; overflow: hidden;"> -->
-<!-- 			    <img src="/assets/img/linux_cloud_and_devops_cert.png" alt="linux_cloud_devops_cert" style="width: 100%; height: auto;"> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-4" style="width: 400px; height: 400px; overflow: hidden;"> -->
-<!-- 			    <img src="/assets/img/linux_specialization_cert.png" alt="linux_specialization_cert" style="width: 100%; height: auto;"> -->
-<!-- 			</div> -->
-		      
-		       
 		</div>
 		<div class="col">
 		    <div>
@@ -442,4 +631,4 @@
 		<script src="assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
 	        <script src="assets/js/auto_slider.js"></script>
 	</body>
-</html> 
+</html>  --> 
