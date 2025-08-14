@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploying Odoo on Digital Ocean | Abdulla Bashir</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-code"></i>
+                <span class="logo-text">Abdulla Bashir</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="blog-post-header">
+        <div class="container">
+            <div class="post-header-content">
+                <div class="blog-tag">Odoo Deployment</div>
+                <h1>Deploying Odoo on Digital Ocean: A Step-by-Step Guide</h1>
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> October 15, 2023</span>
+                    <span><i class="far fa-user"></i> Abdulla Bashir</span>
+                    <span><i class="far fa-clock"></i> 8 min read</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-post-content">
+        <div class="container">
+            <div class="post-content">
+                <div class="post-image">
+                    <img src="images/placeholder.jpg" alt="Deploying Odoo">
+                </div>
+                
+                <div class="post-text">
+                    <h2>Introduction</h2>
+                    <p>Deploying Odoo ERP on Digital Ocean provides a scalable, cost-effective solution for businesses of all sizes. With its straightforward droplet system and competitive pricing, Digital Ocean is an excellent choice for hosting your Odoo instance.</p>
+                    
+                    <h2>Why Choose Digital Ocean?</h2>
+                    <p>Digital Ocean offers several advantages for Odoo deployment:</p>
+                    <ul>
+                        <li>Affordable pricing with predictable costs</li>
+                        <li>Simple setup and management</li>
+                        <li>Scalable resources as your business grows</li>
+                        <li>Global data centers for optimal performance</li>
+                        <li>Robust security features</li>
+                    </ul>
+                    
+                    <h2>Step 1: Create a Digital Ocean Account</h2>
+                    <p>If you don't already have one, sign up for a Digital Ocean account. They offer a $100 credit for new users, which is more than enough to get started.</p>
+                    
+                    <h2>Step 2: Create a New Droplet</h2>
+                    <p>Navigate to the Droplets section in your Digital Ocean dashboard and click "Create Droplet". Choose the following options:</p>
+                    <ul>
+                        <li>Ubuntu 20.04 LTS</li>
+                        <li>Regular Intel with SSD (Choose plan based on your needs)</li>
+                        <li>Datacenter region closest to your users</li>
+                        <li>Add your SSH keys for secure access</li>
+                    </ul>
+                    
+                    <h2>Step 3: Install Required Dependencies</h2>
+                    <p>Once your droplet is created, SSH into your server and run the following commands:</p>
+                    <pre><code>sudo apt update
+sudo apt upgrade -y
+sudo apt install -y git python3-pip build-essential wget python3-dev python3-venv \
+python3-wheel libfreetype6-dev libxml2-dev libzip-dev libldap2-dev libsasl2-dev \
+python3-setuptools node-less libjpeg-dev zlib1g-dev libpq-dev \
+libxslt1-dev libldap2-dev libtiff5-dev libjpeg8-dev libopenjp2-7-dev \
+liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev</code></pre>
+                    
+                    <h2>Step 4: Install PostgreSQL</h2>
+                    <p>Odoo requires PostgreSQL as its database backend:</p>
+                    <pre><code>sudo apt install -y postgresql postgresql-client
+sudo -u postgres psql -c "CREATE USER odoo WITH CREATEDB PASSWORD 'strongpassword';"
+sudo -u postgres createdb odoo</code></pre>
+                    
+                    <h2>Step 5: Install Odoo</h2>
+                    <p>Now we'll install Odoo in a virtual environment:</p>
+                    <pre><code>sudo useradd -m -d /opt/odoo -U -r -s /bin/bash odoo
+sudo su - odoo -s /bin/bash
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /opt/odoo/odoo
+cd /opt/odoo
+python3 -m venv odoo-venv
+source odoo-venv/bin/activate
+pip install -r odoo/requirements.txt
+deactivate
+exit</code></pre>
+                    
+                    <h2>Step 6: Configure Odoo</h2>
+                    <p>Create a configuration file for Odoo:</p>
+                    <pre><code>sudo nano /etc/odoo.conf</code></pre>
+                    <p>Add the following configuration:</p>
+                    <pre><code>[options]
+admin_passwd = superadmin_password
+db_host = localhost
+db_port = 5432
+db_user = odoo
+db_password = strongpassword
+addons_path = /opt/odoo/odoo/addons
+logfile = /var/log/odoo/odoo.log</code></pre>
+                    
+                    <h2>Step 7: Create a Systemd Service</h2>
+                    <p>Create a service file to manage Odoo:</p>
+                    <pre><code>sudo nano /etc/systemd/system/odoo.service</code></pre>
+                    <p>Add the following content:</p>
+                    <pre><code>[Unit]
+Description=Odoo
+After=postgresql.service
+
+[Service]
+Type=simple
+User=odoo
+Group=odoo
+ExecStart=/opt/odoo/odoo-venv/bin/python3 /opt/odoo/odoo/odoo-bin -c /etc/odoo.conf
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+                    
+                    <h2>Step 8: Start Odoo Service</h2>
+                    <p>Finally, start and enable your Odoo service:</p>
+                    <pre><code>sudo systemctl daemon-reload
+sudo systemctl start odoo
+sudo systemctl enable odoo</code></pre>
+                    
+                    <h2>Conclusion</h2>
+                    <p>You now have a fully functional Odoo instance running on Digital Ocean! Access it through your browser using your server's IP address on port 8069 (http://your_server_ip:8069). Remember to configure your domain name and SSL certificate for production use.</p>
+                    
+                    <div class="post-navigation">
+                        <a href="blog.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                        <a href="odoo-erp.html" class="btn">Next Post: Understanding Odoo ERP <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Abdulla Bashir</h3>
+                    <p>Professional Python developer specializing in Odoo ERP, custom module development, and system integration.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/3bdalla3adil" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/abdulla-bashir-2a4311169/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/3bdalloz" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/3bdalloz/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Odoo Modules</a></li>
+                        <li><a href="index.html#services">Python Development</a></li>
+                        <li><a href="index.html#services">System Administration</a></li>
+                        <li><a href="index.html#services">Database Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Abdulla Bashir. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
