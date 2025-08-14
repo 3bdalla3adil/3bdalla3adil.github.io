@@ -1,234 +1,604 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script>
-        function switchLanguage(language) {
-            var elements = document.querySelectorAll("[data-lang]");
-            elements.forEach(function (element) {
-                var key = element.getAttribute("data-lang");
-                element.textContent = languageData[key][language];
-            });
-        }
-
-        var languageData = {
-            "serviceTitle": {
-                "en": "What Service I Provide :",
-                "ar": "الخدمات التي أقدمها :"
-            },
-            "serviceText": {
-                "en": "I am a skilled Python developer with 5+ years of experience in designing, developing, and maintaining Python-based applications. I have a strong understanding of Odoo (ERP System) and can create custom modules for specific business needs. I am also proficient in working with databases and creating user interfaces. I have experience deploying new releases and troubleshooting and debugging problems.",
-                "ar": "أنا مطور بايثون ماهر مع أكثر من 5 سنوات من الخبرة في تصميم وتطوير وصيانة التطبيقات المعتمدة على بايثون. لدي فهم قوي لنظام Odoo (نظام ERP) ويمكنني إنشاء وحدات مخصصة لتلبية احتياجات الأعمال الخاصة. أنا أيضًا ماهر في العمل مع قواعد البيانات وإنشاء واجهات المستخدم. لدي خبرة في نشر الإصدارات الجديدة واستكشاف الأخطاء وإصلاحها."
-            },
-            // Add other language key-value pairs for other content
-            // Example:
-            "odooModuleTitle": {
-                "en": "Odoo Modules",
-                "ar": "وحدات Odoo"
-            },
-            "pythonModulesTitle": {
-                "en": "Python Modules",
-                "ar": "وحدات بايثون"
-            },
-            "systemAdminTitle": {
-                "en": "System Administration",
-                "ar": "إدارة الأنظمة"
-            },
-            "androidDevTitle": {
-                "en": "Android Development",
-                "ar": "تطوير الأندرويد"
-            },
-            "learningProgressTitle": {
-                "en": "My Learning Progress",
-                "ar": "تقدمي في التعلم"
-            }
-        };
-    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AAHB | Portfolio</title>
+  <meta name="description" content="Portfolio of Abdulla B. — Python & Odoo developer, Linux admin, Android apps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --card: #111418;
+      --text: #e8edf2;
+      --muted:#a6b0bb;
+      --brand:#4f46e5;
+      --brand-2:#06b6d4;
+      --ring: rgba(79,70,229,.35);
+      --border:#1f242b;
+      --chip:#0f1720;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    :root[data-theme="light"]{
+      --bg:#f7f8fa;
+      --card:#ffffff;
+      --text:#0e1116;
+      --muted:#4b5563;
+      --brand:#4338ca;
+      --brand-2:#0ea5e9;
+      --ring: rgba(14,165,233,.25);
+      --border:#e5e7eb;
+      --chip:#eef2ff;
+      --shadow: 0 8px 24px rgba(15,23,42,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%,rgba(79,70,229,.25),transparent 40%),
+                  radial-gradient(1000px 600px at 110% -20%,rgba(14,165,233,.20),transparent 45%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{width:min(1120px,92vw); margin-inline:auto}
+    header.nav{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:saturate(140%) blur(10px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:.85rem 0}
+    .brand{display:flex; gap:.75rem; align-items:center}
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:0 6px 20px var(--ring);
+    }
+    .brand h1{font-size:1.05rem;margin:0;font-weight:800;letter-spacing:.4px}
+    .nav-actions{display:flex; gap:.5rem; align-items:center}
+    .btn{
+      appearance:none; cursor:pointer; border:1px solid var(--border); color:var(--text);
+      background:linear-gradient(180deg, color-mix(in srgb, var(--card) 94%, transparent), var(--card));
+      padding:.6rem .9rem; border-radius:999px; font-weight:600;
+      transition:transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      box-shadow:var(--shadow);
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 32px rgba(0,0,0,.18)}
+    .btn.primary{background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 92%, transparent), var(--brand));
+      border-color:color-mix(in srgb, var(--brand) 80%, var(--border)); color:white}
+    .btn.chip{background:var(--chip); border-color:color-mix(in srgb, var(--brand) 25%, var(--border)); color:inherit}
+    .hero{
+      padding: clamp(2rem, 4vw + 1rem, 4rem) 0 2rem;
+      display:grid; gap:2rem; grid-template-columns:1.1fr .9fr; align-items:center;
+    }
+    @media (max-width: 980px){.hero{grid-template-columns:1fr}}
+    .badge{
+      display:inline-flex; align-items:center; gap:.5rem; padding:.4rem .7rem; border-radius:999px;
+      border:1px dashed color-mix(in srgb, var(--brand) 50%, var(--border));
+      background: color-mix(in srgb, var(--brand) 10%, transparent);
+      color: color-mix(in srgb, var(--brand) 85%, var(--text));
+      font-weight:700; letter-spacing:.3px; font-size:.8rem;
+    }
+    .title{font-size: clamp(1.8rem, 1.2rem + 2.6vw, 3.2rem); margin:.6rem 0 .4rem; line-height:1.2}
+    .subtitle{color:var(--muted); font-size:1.05rem; margin-bottom:1.2rem}
+    .hero-actions{display:flex; gap:.75rem; flex-wrap:wrap}
+    .card{
+      background:linear-gradient(180deg, color-mix(in srgb, var(--card) 96%, transparent), var(--card));
+      border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem;
+      box-shadow:var(--shadow);
+    }
+    section{padding:2rem 0}
+    .section-head{display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1rem}
+    .section-head h2{margin:0; font-size: clamp(1.25rem, .9rem + 1.2vw, 1.6rem)}
+    .grid{display:grid; gap:1rem}
+    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
+    @media (max-width: 980px){.grid.cols-3{grid-template-columns:1fr 1fr}}
+    @media (max-width: 680px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+    .item h3{margin:.3rem 0 .25rem; font-size:1.05rem}
+    .item p{margin:0; color:var(--muted)}
+    .list{margin:.6rem 0 0; padding-left:1.2rem}
+    .list li{margin:.25rem 0}
+    .project .pill{
+      display:inline-block; font-size:.78rem; padding:.25rem .55rem; margin:.25rem .35rem .25rem 0;
+      border-radius:999px; border:1px solid var(--border); background:var(--chip)
+    }
+    .kpi{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; margin-top:.6rem
+    }
+    .kpi .box{border:1px solid var(--border); border-radius:12px; padding:.7rem .8rem; text-align:center}
+    .kpi .big{font-weight:800; font-size:1.15rem}
+    .certs{display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem}
+    @media (max-width: 820px){.certs{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 520px){.certs{grid-template-columns:1fr}}
+    .cert{overflow:hidden; border-radius:12px; border:1px solid var(--border); background:var(--card)}
+    .cert img{width:100%; display:block; aspect-ratio: 4 / 3; object-fit:cover; transition:transform .6s ease}
+    .cert:hover img{transform:scale(1.04)}
+    .footer{
+      border-top:1px solid var(--border); margin-top:2rem; padding:1.4rem 0; color:var(--muted); font-size:.95rem
+    }
+    .row{display:flex; gap:.6rem; flex-wrap:wrap}
+    .input{width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text)}
+    .input:focus{outline:none; box-shadow:0 0 0 6px var(--ring)}
+    .contact-grid{display:grid; gap:.8rem; grid-template-columns:1fr 1fr}
+    @media (max-width:700px){.contact-grid{grid-template-columns:1fr}}
+    .tools{display:flex; flex-wrap:wrap; gap:.5rem}
+    .chip{padding:.35rem .6rem; border-radius:999px; background:var(--chip); border:1px solid var(--border); font-size:.85rem}
+    .muted{color:var(--muted)}
+    /* RTL support when Arabic is active */
+    :root[dir="rtl"] .row, :root[dir="rtl"] .hero-actions{flex-direction: row-reverse}
+    :root[dir="rtl"] .list{padding-left:0; padding-right:1.2rem}
+  </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-	    <div class="container">
-	      <a class="navbar-brand" href="#" id="nameLabel">عبد الله عادل</a>
-	      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="navbar-toggler-icon"></span>
-	      </button>
-	      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-	        <ul class="navbar-nav">
-	          <li class="nav-item">
-	            <a class="nav-link" href="#about" id="navAbout">من أنا</a>
-	          </li>
-	          <li class="nav-item">
-	            <a class="nav-link" href="#skills" id="navSkills">المهارات</a>
-	          </li>
-	          <li class="nav-item">
-	            <a class="nav-link" href="#projects" id="navProjects">الأعمال</a>
-	          </li>
-	          <li class="nav-item">
-	            <a class="nav-link" href="#contact" id="navContact">تواصل</a>
-	          </li>
-	          <li class="nav-item">
-	            <button class="btn btn-sm btn-outline-primary" onclick="toggleLanguage()">EN / AR</button>
-	          </li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <div style="margin:10px;margin-top:31px;">
-        <!-- Language Switcher Buttons -->
-        <div class="text-center mb-3">
-            <button class="btn btn-primary" onclick="switchLanguage('en')">English</button>
-            <button class="btn btn-primary" onclick="switchLanguage('ar')">Arabic</button>
-        </div>
-
-        <div class="container bg-light">
-            <div class="row">
-                <div style="margin:10px;margin-top:31px;">
-    <div class="container bg-light">
-        <div class="row">
-            <!-- Service Card 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">What Service I Provide :</h5>
-                        <p class="card-text">
-                            I am a skilled Python developer with 5+ years of experience in designing, developing,
-                            and maintaining Python-based applications. I have a strong understanding of Odoo (ERP System)
-                            and can create custom modules for specific business needs. I am also proficient in working with
-                            databases and creating user interfaces. I have experience deploying new releases and troubleshooting
-                            and debugging problems.
-                        </p>
-                        <ul>
-                            <li>Designing, developing, and maintaining Python-based applications</li>
-                            <li>Creating custom modules for Odoo (ERP System)</li>
-                            <li>Working with databases</li>
-                            <li>Creating user interfaces</li>
-                            <li>Deploying new releases</li>
-                            <li>Troubleshooting and debugging problems</li>
-                        </ul>
-                        <p>
-                            I am also a skilled system administrator with experience in Linux and Windows. I can set up websites,
-                            domain names, web servers, VPN servers, load-balancing servers, AWS EC2, ECS, EKS, Lambda, S3,
-                            EBS, Cloud Watch, etc. I can also set up Django with Gunicorn, WSGI, and ASGI, and Develop and Support
-                            Django code. I can also set up RDBMS like MySQL and PostgreSQL for Django/Odoo.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Odoo Modules</h5>
-                        <p class="card-text">
-                            I have created an Odoo module that allows automatic attendance for specified employees, TeleWork Odoo
-                            API & HR modules, and Payroll with accounting Customization. To enhance the testing phase, I use the Odoo
-                            interactive shell, which increases reliability and efficiency. The core idea is to deliver employees' data to
-                            an external system and much more!
-                        </p>
-                        <p>
-                            I've made an API for integrating B2B client Odoo websites with teleworker reports, which uses Odoo controllers
-                            and database data retrieval with basic HTML and JavaScript skills. At Al Hulool Soft as an Odoo developer, I
-                            worked on existing apps and modules, checking the latest algorithms to enhance performance and efficiency.
-                        </p>
-                        <p>
-                            Recently, I have been managing multiple Odoo server instances with multiple sub-domains and Dockerized them
-                            all with the help of a special script written in Bash language.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Python Modules</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Chat App for Raspberry Pi Clients and Server</h6>
-                        <p class="card-text">
-                            I developed a chat application for a French client, and they were very satisfied with the efficiency of the
-                            app.
-                        </p>
-                        <h6 class="card-subtitle mb-2 text-muted">Cybersecurity Tool for Information Gathering</h6>
-                        <p class="card-text">
-                            This project was for a cybersecurity tool developed by an American client. I ported Golang code to Python
-                            without using any Python package. The package needed to accept a text keyword as input and output a JSON
-                            response for an API, and I used Django Rest Framework and a web framework to populate the database with the
-                            keywords.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Service Card 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">System Administration</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">VPN Server Software Installation</h6>
-                        <p class="card-text">
-                            I successfully installed and tested my very first VPN server (SoftEther VPN) for an English client. They
-                            were satisfied, and that's why they continue to hire me for administration tasks.
-                        </p>
-                        <h6 class="card-subtitle mb-2 text-muted">Efood Multi-Vendor Website</h6>
-                        <ul>
-                            <li>Purchased a DigitalOcean droplet with a Laravel pre-installed image.</li>
-                            <li>Purchased a domain name and created a subdomain.</li>
-                            <li>Created MySQL database and database user.</li>
-                            <li>Configured Nginx as a reverse proxy service.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card 5 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Android Development</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Android Prayer Times App</h6>
-                        <p class="card-text">
-                            An innovative Android application designed to facilitate timely prayer reminders, assist users in determining
-                            the Qibla direction through API integration, and provide both Hijri and Gregorian calendars. The app
-                            computes prayer times and uses the Android device's magnetometer to measure the Earth's magnetic field,
-                            enhancing the user experience.
-                        </p>
-                        <h6 class="card-subtitle mb-2 text-muted">Android Digital Queue App</h6>
-                        <p class="card-text">
-                            An innovative Android application designed to facilitate bakery queue management in a local bakery based in
-                            Bahry. It saves SQLite database data in a timely manner to serve first-come-first-serve consumers, reducing
-                            conflicts between customers.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        
-            <!-- </div> -->
-            <h1 data-lang="learningProgressTitle">My Learning Progress</h1>
-            <!-- Certificates Section -->
-            <div class="row">
-                <div class="col-md-4" style="width: 400px; height: 400px; overflow: hidden;">
-                    <img src="/assets/img/linux_cert.png" alt="linux_fundamentals_cert" style="width: 100%; height: auto;">
-                </div>
-                <!-- Add other certificate images here -->
-            </div>
-        </div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1 id="brandName">AAHB</h1>
+      </div>
+      <nav class="nav-actions">
+        <a class="btn chip" href="mailto:3bdalla995@gmail.com"><i class="fa-solid fa-envelope"></i> <span class="t" data-key="email">Email</span></a>
+        <a class="btn chip" href="tel:+97471203694"><i class="fa-solid fa-phone"></i> <span>+974 71203694</span></a>
+        <a class="btn chip" target="_blank" href="https://linkedin.com/in/abdulla-bashir-2a4311169"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <button class="btn" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <button class="btn primary" id="langToggle" aria-label="Toggle language">AR</button>
+      </nav>
     </div>
+  </header>
 
-    <!-- Footer Section -->
-    <div class="footer-basic">
-        <footer>
-            <p class="copyright">AAHB© 2023</p>
-        </footer>
-    </div>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge"><i class="fa-solid fa-code"></i> <span class="t" data-key="role">Python & Odoo Developer • Linux Admin • Android</span></span>
+        <h2 class="title" id="name">عبد الله عادل</h2>
+        <p class="subtitle t" data-key="intro">
+          I’m a seasoned digital transportation professional with 3+ years building Python applications and customizing Odoo ERP.
+          I ship robust backends, clean UIs, and dependable deployments—then keep them humming with solid Linux administration.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary t" data-key="viewProjects">View Projects</a>
+          <a href="https://github.com/3bdalla3adil" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="cv.pdf" class="btn" download><i class="fa-solid fa-file-arrow-down"></i> <span class="t" data-key="downloadCV">Download CV</span></a>
+        </div>
+        <div class="kpi">
+          <div class="box"><div class="big">5+</div><div class="muted t" data-key="years">Years in Python</div></div>
+          <div class="box"><div class="big">10+</div><div class="muted t" data-key="projects">Shipped Modules & Apps</div></div>
+          <div class="box"><div class="big">100%</div><div class="muted t" data-key="clientHappy">Client Satisfaction</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="t" data-key="servicesTitle">What Services I Provide</h3>
+        <p class="muted t" data-key="servicesText">
+          Designing, developing, and maintaining Python-based applications. Custom Odoo modules, clean UIs,
+          database design, deployments, troubleshooting and debugging.
+        </p>
+        <ul class="list">
+          <li class="t" data-key="srv1">Python apps (APIs, automation, backends)</li>
+          <li class="t" data-key="srv2">Odoo modules & report customization</li>
+          <li class="t" data-key="srv3">Databases (PostgreSQL/MySQL)</li>
+          <li class="t" data-key="srv4">UI development</li>
+          <li class="t" data-key="srv5">Deployments & CI/CD</li>
+          <li class="t" data-key="srv6">Troubleshooting & debugging</li>
+        </ul>
+        <div style="margin-top:.8rem">
+          <div class="muted t" data-key="alsoAdmin">Also a Linux/Windows system administrator:</div>
+          <div class="tools" style="margin-top:.5rem">
+            <span class="chip">Nginx</span><span class="chip">Docker</span><span class="chip">AWS (EC2/ECS/EKS/Lambda/S3)</span>
+            <span class="chip">Gunicorn/WSGI/ASGI</span><span class="chip">VPN</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- PROJECTS / CASES -->
+    <section id="projects">
+      <div class="section-head">
+        <h2 class="t" data-key="projectsTitle">Highlighted Projects</h2>
+        <a href="mailto:3bdalla995@gmail.com" class="muted t" data-key="hireMe">Available for freelance work →</a>
+      </div>
+
+      <div class="grid cols-3">
+        <!-- Odoo Modules - Assembly/Disassembly -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-solid fa-cubes"></i> Odoo 16</span>
+          <h3 class="t" data-key="odooAsm">Assembly/Disassembly Module</h3>
+          <p class="muted t" data-key="odooAsmDesc">
+            Simplifies creating and breaking down product bundles (e.g., 2 LED batteries → 1 pack),
+            precise quantity tracking, full action history to boost inventory accuracy.
+          </p>
+          <div>
+            <span class="pill">Odoo 16</span><span class="pill">Inventory</span><span class="pill">Python</span>
+          </div>
+        </article>
+
+        <!-- Odoo 17 Report Filter contribution -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-solid fa-filter"></i> Odoo 17</span>
+          <h3 class="t" data-key="odooFilter">Account Reports Filter</h3>
+          <p class="muted t" data-key="odooFilterDesc">
+            Added a new report filter to select accounts and show/hide per admin preference—merged into the default Odoo 17 framework.
+          </p>
+          <div>
+            <span class="pill">Reporting</span><span class="pill">Odoo</span><span class="pill">Python</span>
+          </div>
+        </article>
+
+        <!-- Odoo Attendance + APIs -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-solid fa-user-check"></i> HR/Payroll</span>
+          <h3 class="t" data-key="odooAttendance">Automatic Attendance + TeleWork API</h3>
+          <p class="muted t" data-key="odooAttendanceDesc">
+            Automated attendance for selected employees, TeleWork API & HR modules, payroll with accounting customization.
+            Tested via Odoo shell for reliable integrations.
+          </p>
+          <div>
+            <span class="pill">Odoo</span><span class="pill">REST</span><span class="pill">PostgreSQL</span>
+          </div>
+        </article>
+
+        <!-- Python Chat App -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-solid fa-comments"></i> Python</span>
+          <h3 class="t" data-key="piChat">Raspberry Pi Chat (Client/Server)</h3>
+          <p class="muted t" data-key="piChatDesc">
+            Built a chat app for a French client—delivered on time, optimized UX and performance; earned 5-star review and recommendation letter.
+          </p>
+          <div>
+            <span class="pill">Sockets</span><span class="pill">Linux</span><span class="pill">Raspberry Pi</span>
+          </div>
+        </article>
+
+        <!-- Cybersecurity Tool -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-solid fa-shield-halved"></i> Security</span>
+          <h3 class="t" data-key="cyberTool">Info-Gathering Cybersecurity Tool</h3>
+          <p class="muted t" data-key="cyberToolDesc">
+            Ported Go to pure Python (no external packages). JSON API output via Django REST; background jobs populate DB from keyword inputs.
+          </p>
+          <div>
+            <span class="pill">Python</span><span class="pill">Django REST</span><span class="pill">PostgreSQL</span>
+          </div>
+        </article>
+
+        <!-- Linux Admin / DevOps -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-solid fa-server"></i> DevOps</span>
+          <h3 class="t" data-key="linuxOps">Linux Administration & Deployments</h3>
+          <p class="muted t" data-key="linuxOpsDesc">
+            Managed multiple Odoo instances with sub-domains, Dockerized with Bash scripts, redesigned invoice layout (Arabic font: TAJAWAL).
+          </p>
+          <div>
+            <span class="pill">Docker</span><span class="pill">Nginx</span><span class="pill">Bash</span>
+          </div>
+        </article>
+
+        <!-- Android Prayer Times -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-brands fa-android"></i> Android</span>
+          <h3 class="t" data-key="androidPrayer">Prayer Times App</h3>
+          <p class="muted t" data-key="androidPrayerDesc">
+            Prayer reminders, Qibla via API, Hijri & Gregorian calendars; leverages device magnetometer for accurate direction experience.
+          </p>
+          <div>
+            <span class="pill">Android</span><span class="pill">Kotlin/Java</span><span class="pill">APIs</span>
+          </div>
+        </article>
+
+        <!-- Android Queue App -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-brands fa-android"></i> Android</span>
+          <h3 class="t" data-key="androidQueue">Digital Queue App</h3>
+          <p class="muted t" data-key="androidQueueDesc">
+            Built for a local bakery in Bahry—first-come, first-served flow with SQLite; reduced customer conflicts and wait friction.
+          </p>
+          <div>
+            <span class="pill">Android</span><span class="pill">SQLite</span><span class="pill">UX</span>
+          </div>
+        </article>
+
+        <!-- VPN & Efood setup -->
+        <article class="card item project">
+          <span class="badge"><i class="fa-solid fa-network-wired"></i> Infra</span>
+          <h3 class="t" data-key="vpnEfood">VPN & Efood Multivendor Setup</h3>
+          <p class="muted t" data-key="vpnEfoodDesc">
+            Installed SoftEther VPN (excellent client feedback). Deployed Efood on DigitalOcean:
+            domain & subdomain, MySQL, Nginx reverse proxy, PHP 7 on Ubuntu 20.04, Docker reverse proxy.
+          </p>
+          <div>
+            <span class="pill">SoftEther</span><span class="pill">DigitalOcean</span><span class="pill">Nginx</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES (detailed) -->
+    <section id="services">
+      <div class="section-head">
+        <h2 class="t" data-key="stackTitle">Technical Stack</h2>
+        <span class="muted">Python • Odoo • Django • PostgreSQL • Docker • Nginx • AWS</span>
+      </div>
+      <div class="grid cols-3">
+        <div class="card item">
+          <h3><i class="fa-solid fa-python"></i> Python</h3>
+          <p class="muted">APIs, automation, socket servers, data processing, REST backends.</p>
+          <ul class="list">
+            <li>Django, DRF, FastAPI (can adapt)</li>
+            <li>Auth, JWT, RBAC</li>
+            <li>Testing & CI/CD</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3><i class="fa-solid fa-boxes-stacked"></i> Odoo</h3>
+          <p class="muted">Custom modules, reporting, HR/Payroll, Inventory, controllers, integrations.</p>
+          <ul class="list">
+            <li>Odoo 16/17 modules</li>
+            <li>Report customization</li>
+            <li>Shell & migration</li>
+          </ul>
+        </div>
+        <div class="card item">
+          <h3><i class="fa-solid fa-server"></i> DevOps</h3>
+          <p class="muted">Linux, Docker, Nginx, SSL, domains, VPS/cloud, monitoring and scaling.</p>
+          <ul class="list">
+            <li>DigitalOcean & AWS</li>
+            <li>Gunicorn / WSGI / ASGI</li>
+            <li>Backups & security hardening</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certs">
+      <div class="section-head">
+        <h2 class="t" data-key="certsTitle">Certificates</h2>
+        <span class="muted t" data-key="certsNote">Replace these paths with your real images.</span>
+      </div>
+      <div class="certs">
+        <a class="cert" href="/assets/img/linux_cert.png" target="_blank" title="Linux Fundamentals">
+          <img src="/assets/img/linux_cert.png" alt="Linux Fundamentals certificate" />
+        </a>
+        <a class="cert" href="/assets/img/backend_cert.png" target="_blank" title="Backend">
+          <img src="/assets/img/backend_cert.png" alt="Backend certificate" />
+        </a>
+        <a class="cert" href="/assets/img/isc2_cert.png" target="_blank" title="ISC2">
+          <img src="/assets/img/isc2_cert.png" alt="ISC2 certificate" />
+        </a>
+        <a class="cert" href="/assets/img/linux_cloud_and_devops_cert.png" target="_blank" title="Linux Cloud & DevOps">
+          <img src="/assets/img/linux_cloud_and_devops_cert.png" alt="Linux Cloud & DevOps certificate" />
+        </a>
+        <a class="cert" href="/assets/img/managing_linux_system_cert.png" target="_blank" title="Managing Linux Systems">
+          <img src="/assets/img/managing_linux_system_cert.png" alt="Managing Linux Systems certificate" />
+        </a>
+        <a class="cert" href="/assets/img/securing_linux_system_cert.png" target="_blank" title="Securing Linux Systems">
+          <img src="/assets/img/securing_linux_system_cert.png" alt="Securing Linux Systems certificate" />
+        </a>
+        <a class="cert" href="/assets/img/linux_specialization_cert.png" target="_blank" title="Linux Specialization">
+          <img src="/assets/img/linux_specialization_cert.png" alt="Linux Specialization certificate" />
+        </a>
+        <a class="cert" href="/assets/img/operating_system_foundation_cert.png" target="_blank" title="OS Foundations">
+          <img src="/assets/img/operating_system_foundation_cert.png" alt="Operating System Foundation certificate" />
+        </a>
+        <a class="cert" href="/assets/img/python_flask_cert.png" target="_blank" title="Python Flask">
+          <img src="/assets/img/python_flask_cert.png" alt="Python Flask certificate" />
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <h2 class="t" data-key="contactTitle">Contact</h2>
+        <span class="muted">3bdalla995@gmail.com • +974 71203694</span>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <form onsubmit="handleContact(event)">
+            <div class="contact-grid">
+              <input class="input" type="text" name="name" placeholder="Your Name" required />
+              <input class="input" type="email" name="email" placeholder="Your Email" required />
+            </div>
+            <textarea class="input" name="message" rows="6" placeholder="Tell me about your project..." style="margin-top:.8rem"></textarea>
+            <div class="row" style="justify-content:space-between; align-items:center; margin-top:.8rem">
+              <div class="muted"><i class="fa-solid fa-lock"></i> <span class="t" data-key="privacy">Your info stays private. This form opens an email draft.</span></div>
+              <button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> <span class="t" data-key="send">Send</span></button>
+            </div>
+          </form>
+        </div>
+        <div class="card">
+          <h3 class="t" data-key="quickLinks">Quick Links</h3>
+          <ul class="list">
+            <li><a target="_blank" href="https://github.com/3bdalla3adil"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            <li><a target="_blank" href="https://linkedin.com/in/abdulla-bashir-2a4311169"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="mailto:3bdalla995@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
+            <li><a href="tel:+97471203694"><i class="fa-solid fa-phone"></i> Phone</a></li>
+          </ul>
+          <h3 style="margin-top:1rem" class="t" data-key="techILove">Tech I enjoy</h3>
+          <div class="tools">
+            <span class="chip">Python</span><span class="chip">Odoo</span><span class="chip">Django</span>
+            <span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Nginx</span>
+            <span class="chip">AWS</span><span class="chip">Android</span><span class="chip">Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="row" style="justify-content:space-between">
+        <div>AAHB © <span id="year"></span></div>
+        <div class="muted">Built with ❤️ — <a href="#projects">see my work</a></div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ===== Theme Toggle =====
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark');
+    root.setAttribute('data-theme', savedTheme);
+    themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      themeToggle.innerHTML = next === 'light' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+      localStorage.setItem('theme', next);
+    });
+
+    // ===== Language (EN/AR) =====
+    const langToggle = document.getElementById('langToggle');
+    const tElems = Array.from(document.querySelectorAll('.t'));
+    const nameEl = document.getElementById('name');
+    const brandName = document.getElementById('brandName');
+
+    const i18n = {
+      en: {
+        email: "Email",
+        role: "Python & Odoo Developer • Linux Admin • Android",
+        intro: "I’m a seasoned digital transportation professional with 3+ years building Python applications and customizing Odoo ERP. I ship robust backends, clean UIs, and dependable deployments—then keep them humming with solid Linux administration.",
+        viewProjects: "View Projects",
+        downloadCV: "Download CV",
+        years: "Years in Python",
+        projects: "Shipped Modules & Apps",
+        clientHappy: "Client Satisfaction",
+        servicesTitle: "What Services I Provide",
+        servicesText: "Designing, developing, and maintaining Python-based applications. Custom Odoo modules, clean UIs, database design, deployments, troubleshooting and debugging.",
+        srv1:"Python apps (APIs, automation, backends)",
+        srv2:"Odoo modules & report customization",
+        srv3:"Databases (PostgreSQL/MySQL)",
+        srv4:"UI development",
+        srv5:"Deployments & CI/CD",
+        srv6:"Troubleshooting & debugging",
+        alsoAdmin:"Also a Linux/Windows system administrator:",
+        projectsTitle:"Highlighted Projects",
+        hireMe:"Available for freelance work →",
+        odooAsm:"Assembly/Disassembly Module",
+        odooAsmDesc:"Simplifies creating and breaking down product bundles (e.g., 2 LED batteries → 1 pack), precise quantity tracking, full action history to boost inventory accuracy.",
+        odooFilter:"Account Reports Filter",
+        odooFilterDesc:"Added a new report filter to select accounts and show/hide per admin preference—merged into the default Odoo 17 framework.",
+        odooAttendance:"Automatic Attendance + TeleWork API",
+        odooAttendanceDesc:"Automated attendance for selected employees, TeleWork API & HR modules, payroll with accounting customization. Tested via Odoo shell for reliable integrations.",
+        piChat:"Raspberry Pi Chat (Client/Server)",
+        piChatDesc:"Built a chat app for a French client—delivered on time, optimized UX and performance; earned 5-star review and recommendation letter.",
+        cyberTool:"Info-Gathering Cybersecurity Tool",
+        cyberToolDesc:"Ported Go to pure Python (no external packages). JSON API output via Django REST; background jobs populate DB from keyword inputs.",
+        linuxOps:"Linux Administration & Deployments",
+        linuxOpsDesc:"Managed multiple Odoo instances with sub-domains, Dockerized with Bash scripts, redesigned invoice layout (Arabic font: TAJAWAL).",
+        androidPrayer:"Prayer Times App",
+        androidPrayerDesc:"Prayer reminders, Qibla via API, Hijri & Gregorian calendars; leverages device magnetometer for accurate direction experience.",
+        androidQueue:"Digital Queue App",
+        androidQueueDesc:"Built for a local bakery in Bahry—first-come, first-served flow with SQLite; reduced customer conflicts and wait friction.",
+        vpnEfood:"VPN & Efood Multivendor Setup",
+        vpnEfoodDesc:"Installed SoftEther VPN (excellent client feedback). Deployed Efood on DigitalOcean: domain & subdomain, MySQL, Nginx reverse proxy, PHP 7 on Ubuntu 20.04, Docker reverse proxy.",
+        stackTitle:"Technical Stack",
+        certsTitle:"Certificates",
+        certsNote:"Replace these paths with your real images.",
+        contactTitle:"Contact",
+        privacy:"Your info stays private. This form opens an email draft.",
+        send:"Send",
+        quickLinks:"Quick Links",
+        techILove:"Tech I enjoy"
+      },
+      ar: {
+        email:"البريد",
+        role:"مطور بايثون و أودو • مسؤول لينكس • أندرويد",
+        intro:"أنا متخصص في التحول الرقمي بمجال النقل، لدي +3 سنوات في تطوير تطبيقات بايثون وتخصيص نظام أودو ERP. أبني خلفيات قوية وواجهات نظيفة ونشر موثوق، مع إدارة لينكس لضمان الاستقرار.",
+        viewProjects:"عرض الأعمال",
+        downloadCV:"تحميل السيرة الذاتية",
+        years:"سنوات في بايثون",
+        projects:"وحدات وتطبيقات منجزة",
+        clientHappy:"رضا العملاء",
+        servicesTitle:"الخدمات التي أقدمها",
+        servicesText:"تصميم وتطوير وصيانة تطبيقات بايثون. إنشاء وحدات أودو مخصصة، واجهات مستخدم نظيفة، تصميم قواعد البيانات، النشر، استكشاف الأخطاء وإصلاحها.",
+        srv1:"تطبيقات بايثون (واجهات برمجية، أتمتة، خلفيات)",
+        srv2:"وحدات أودو وتخصيص التقارير",
+        srv3:"قواعد البيانات (PostgreSQL/MySQL)",
+        srv4:"تطوير واجهات المستخدم",
+        srv5:"النشر وخطوط CI/CD",
+        srv6:"استكشاف الأخطاء وإصلاحها",
+        alsoAdmin:"كما أنني مسؤول أنظمة لينكس/ويندوز:",
+        projectsTitle:"أعمال مميزة",
+        hireMe:"متاح لأعمال حرة →",
+        odooAsm:"وحدة التجميع/التفكيك",
+        odooAsmDesc:"تبسّط إنشاء الحزم وتفكيكها (مثال: بطاريتان LED → عبوة واحدة)، تتبع كميات دقيق وسجل شامل لتحسين الجرد.",
+        odooFilter:"فلتر تقارير الحسابات",
+        odooFilterDesc:"إضافة فلتر لتحديد الحسابات مع خيار الإظهار/الإخفاء للمشرف—أُدرج ضمن إطار أودو 17 الافتراضي.",
+        odooAttendance:"الحضور الآلي + واجهة TeleWork",
+        odooAttendanceDesc:"حضور آلي لموظفين محددين، وحدات الموارد البشرية والرواتب مع تخصيص محاسبي. تم الاختبار عبر Odoo shell لدمج موثوق.",
+        piChat:"دردشة Raspberry Pi (عميل/خادم)",
+        piChatDesc:"تطبيق دردشة لعميل فرنسي—تسليم في الوقت وتحسين تجربة الاستخدام؛ تقييم 5 نجوم وخطاب توصية.",
+        cyberTool:"أداة أمن معلومات لجمع البيانات",
+        cyberToolDesc:"تحويل كود Go إلى بايثون خالص. مخرجات JSON عبر Django REST؛ مهام خلفية لملء قاعدة البيانات من الكلمات المفتاحية.",
+        linuxOps:"إدارة لينكس والنشر",
+        linuxOpsDesc:"إدارة عدة مثيلات أودو مع نطاقات فرعية، Docker عبر سكربت Bash، تصميم فاتورة بخط عربي (Tajawal).",
+        androidPrayer:"تطبيق أوقات الصلاة",
+        androidPrayerDesc:"تذكير الصلوات، تحديد القبلة عبر API، تقويم هجري وميلادي؛ استخدام حساس المغناطيسية للدقة.",
+        androidQueue:"تطبيق طابور رقمي",
+        androidQueueDesc:"لمخبز محلي في بحري—خدمة الأسبقية مع SQLite؛ تقليل الاحتكاك والخلافات.",
+        vpnEfood:"إعداد VPN و Efood متعدد التجار",
+        vpnEfoodDesc:"تثبيت SoftEther VPN (رضا ممتاز). نشر Efood على DigitalOcean: نطاق/فرعي، MySQL، Nginx عاكس، PHP7 على Ubuntu 20.04، عاكس Docker.",
+        stackTitle:"المكدس التقني",
+        certsTitle:"الشهادات",
+        certsNote:"استبدل المسارات بصورك الحقيقية.",
+        contactTitle:"تواصل",
+        privacy:"بياناتك خاصة. هذا النموذج يفتح بريدًا جاهزًا.",
+        send:"إرسال",
+        quickLinks:"روابط سريعة",
+        techILove:"تقنيات أحبها"
+      }
+    };
+
+    function setLang(lang){
+      const isArabic = lang === 'ar';
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
+      tElems.forEach(el=>{
+        const k = el.dataset.key;
+        if(i18n[lang][k]) el.textContent = i18n[lang][k];
+      });
+      // Name and brand unchanged (keep Arabic brand by request)
+      nameEl.textContent = isArabic ? 'عبد الله عادل' : 'Abdulla Adel';
+      brandName.textContent = 'AAHB';
+      langToggle.textContent = isArabic ? 'EN' : 'AR';
+      localStorage.setItem('lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('lang') || 'ar'; // start with AR per your header
+    setLang(savedLang);
+
+    langToggle.addEventListener('click', ()=>{
+      const next = document.documentElement.getAttribute('lang') === 'ar' ? 'en' : 'ar';
+      setLang(next);
+    });
+
+    // ===== Contact handler (opens mailto) =====
+    function handleContact(e){
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const msg = form.message.value.trim();
+      const subject = encodeURIComponent(`New project inquiry from ${name}`);
+      const body = encodeURIComponent(`From: ${name} <${email}>\n\n${msg}\n\n— Sent from portfolio`);
+      window.location.href = `mailto:3bdalla995@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
 <!--====================================================================================================================================================  --> 
 <!-- <!DOCTYPE html>
 <html>
