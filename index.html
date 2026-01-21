@@ -1,371 +1,452 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdulla AAHB Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>AAHB Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- External CSS and Icons -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abdulla AAHB - Digital Transportation Professional | Python & Odoo Developer | Linux Administrator | Android Developer">
+  <title>Abdulla AAHB - Portfolio</title>
+  
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Critical CSS - Load first -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  
+  <!-- Component CSS -->
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/bento-grid.css">
+  <link rel="stylesheet" href="css/glassmorphism.css">
+  
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-<<<<<<< HEAD
-    <div class="container-fluid background-light" style="background-color:orange;">
-        <div class="row no-gutters">
-            <div class="col" style="text-align:right;">
-                 <span> <i class="fa-regular " 
-			width="40" height="40" viewBox="0 0 40 40" fill="none">Email -> <strong>3bdalla995@gmail.com</strong> </i> </span>
-	            <span> <i class="fa-brands " 
-			width="40" height="40" viewBox="0 0 40 40" fill="none"> Tel & Whatsapp -> <strong>+974 71203694 - +249 114648721</strong> </i> </span>
-	    </div>
-        </div>
+  <!-- Skip to main content link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <!-- Top Bar -->
+  <div class="top-bar" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 0.5rem 0; font-size: 0.9rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div class="container">
+      <div style="text-align: right;">
+        <a href="mailto:3bdalla995@gmail.com" style="color: white; text-decoration: none; margin: 0 1rem; transition: opacity 0.3s;">
+          <i class="fas fa-envelope" aria-hidden="true"></i> 3bdalla995@gmail.com
+        </a>
+        <a href="tel:+97471203694" style="color: white; text-decoration: none; margin: 0 1rem; transition: opacity 0.3s;">
+          <i class="fas fa-phone" aria-hidden="true"></i> +974 71203694
+        </a>
+        <a href="https://linkedin.com/in/abdulla-bashir-2a4311169" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none; margin: 0 1rem; transition: opacity 0.3s;">
+          <i class="fab fa-linkedin" aria-hidden="true"></i> Follow me on LinkedIn
+        </a>
+      </div>
     </div>
-    <div>
-        <div class="header-dark">
-		<input type="button" id="toggleContrast" class="material-symbols-outlined" title="Contrast" alt="toggleContrast">
-            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                <div class="container"><a class="navbar-brand" href="#" style="color:rgb(231,230,231);font-family:Corbel, Corbel Bold;font-size:29px;">
-			AAHB©</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span>
-			<span class="navbar-toggler-icon"></span></button>
-                    <div
-                        class="collapse navbar-collapse" id="navcol-1"><span class="navbar-text"><button class="button" type="button" data-hover="Lets See!"><span>
-<a href="work.html" id ="linking-work">WANNA SEE MY WORK?</a></span></button></span><span class="ml-auto navbar-text"><a href="https://www.upwork.com/freelancers/~010a74a632446c07c1?mp_source=share"
-															 class="login">Mentorship</a></span>
-			    <a class="btn btn-light action-button" role="button" href="https://www.upwork.com/freelancers/~010a74a632446c07c1?mp_source=share">Hire Me</a></div>
-        </div>
-        </nav>
-        <div class="container hero">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <h1 class="text-center">Spend Time Gaining Knowledge!</h1>
-			<video id="vid" muted="" playsinline="" preload="true"
-				autoplay="" loop="" src="portfolio_bg_video1.mp4"
-				data-uw-rm-av="vi"></video>
-                </div>
-            </div>
-        </div>
+  </div>
+  
+  <!-- Header -->
+  <header class="header glass-nav" role="banner">
+    <div class="header__inner">
+      <a href="/" class="brand" aria-label="Home">
+        <span class="brand__logo" aria-hidden="true">AAHB</span>
+      </a>
+      
+      <nav class="nav" id="mobile-menu" role="navigation" aria-label="Main navigation">
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#certificates" class="nav__link">Certificates</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <a href="https://www.freelancer.com/u/Abdullaosman995" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-left: var(--space-md);">Hire Me</a>
+        <button class="btn btn--ghost" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+      </nav>
+      
+      <button class="mobile-menu-toggle btn btn--ghost" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
-    </div>
-    <div class="jumbotron jumbotron-fluid jumbotron-main">
-	    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
-            <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
-    <div id="particles-js">
-	<canvas class="particles-js-canvas-el" width="1409" height="319" style="width: 100%; height: 100%;"></canvas>
-	</div>
-        <div class="container center-vertically-holder" style="margin-top:-20px;">
-            <div class="row center-vertically">
-                <div class="col-md-8 offset-sm-0 offset-md-2 text-center" style="margin-top:100px;margin-bottom:100px;">
-                    <h1 style="font-family:Corbel, Corbel-Bold;"><strong>Abdulla Bashir</strong><br><br></h1>
-                    <hr style="border-top:1px;color:rgba(255,255,255,0.2);width:60%;margin:0px;margin-top:-50px;margin-bottom:10px;margin-left:20%;">
-                    <p style="font-size:27px;font-family:'Roboto Slab',San serif;">IT Supervisor, Scientific Writer (LaTeX), Digital Transformation Professional</p>
-                    <p style="font-size:27px;font-family:'Roboto Slab',San serif;">
-			    <br/>
-			    Commencing my Linux internship in 2016 marked the inception of a journey where I have
-			    undertaken remote assignments for esteemed companies, provided consulting services to 
-			    individuals, and engaged in collaborations with highly skilled professionals to drive
-			    digital transformation for diverse business and Lead odoo digital Transformation professionally
-			    I carry a quiet confidence, an innate curiosity, and an unwavering commitment to the 
-			    continuous enhancement of my skills
-		    </p>
-                </div>
-            </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main" role="main">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__content animate-on-scroll">
+        <h1 id="hero-title" class="hero__title">Digital Transportation Professional</h1>
+        <p class="hero__subtitle">
+          I'm a seasoned digital transportation professional with 3+ years building Python applications and customizing Odoo ERP.
+          I ship robust backends, clean UIs, and dependable deployments—then keep them humming with solid Linux administration.
+        </p>
+        <div class="hero__actions flex flex--center flex--gap-md" style="margin-top: 2rem;">
+          <a href="work.html" class="btn btn--primary btn--lg">
+            <i class="fas fa-briefcase" aria-hidden="true"></i>
+            <span>View My Work Experience</span>
+          </a>
+          <a href="https://github.com/3bdalla3adil" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--lg">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="resume.html" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg">
+            <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
+            <span>Download CV</span>
+          </a>
         </div>
-    </div>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="jumbotron">
-                        <h1>Skills Set</h1>
-                        <p>Multi talented containing wide range of skills and curious to Learn.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-				    <th>Skills</th>
-                                    <th>frameworks</th>
-                                    <th>Databases</th>
-				    <th>web</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-				    <td>Information Security</td>
-                                    <td>Odoo (OpenERP)</td>
-                                    <td>Postman</td>
-				    <td rowspan=",">HTML,XML,Qweb</td>
-                                </tr>
-                                <tr>
-				    <td>Cybersecurity, Microsoft Office Suite</td>
-                                    <td>Django and RestFramework</td>
-                                    <td>MySql</td>
-				    <td>CSS</td>
-                                </tr>
-                                <tr>
-				    <td rowspan=",">Problem Solving,Leadership,Project Management</td>	
-                                    <td rowspan=",">Web Scrapping  BeautifulSoup,Selenium </td>
-                                    <td>PostgreSQL</td>
-			            <td>Bootstrap</td>
-                                </tr>
-                                <tr>
-				    <td rowspan=",">Graphic Design, Business Writing</td>
-                                    <td rowspan=",">Urllibe, Requests ,Argparse</td>
-                                    <td>SQLite</td>
-                                    <td> </td>
-                                </tr>
-                                <tr>
-				    <td rowspan=",">IT Management, Digital Transformation</td>
-                                    <td rowspan=",">Core Python, Java</td>
-                                    <td>Linux, Macos, Windows</td>
-                                    <td></td>
-                                </tr>
-                                <tr style="font-size:17px;font-weight:700;">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>   
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <!-- KPI Metrics -->
+        <div class="kpi-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+          <div style="text-align: center; padding: var(--space-lg); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-xs);">5+</div>
+            <div style="opacity: 0.9; font-size: 0.9rem;">Years in Python</div>
+          </div>
+          <div style="text-align: center; padding: var(--space-lg); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-xs);">10+</div>
+            <div style="opacity: 0.9; font-size: 0.9rem;">Shipped Modules & Apps</div>
+          </div>
+          <div style="text-align: center; padding: var(--space-lg); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.2);">
+            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-xs);">100%</div>
+            <div style="opacity: 0.9; font-size: 0.9rem;">Client Satisfaction</div>
+          </div>
         </div>
+      </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title" class="section-title">Featured Projects</h2>
+        
+        <!-- Project Filters -->
+        <div class="project-filters flex flex--center flex--wrap flex--gap-md" style="margin-bottom: var(--space-xl);" role="group" aria-label="Filter projects">
+          <button class="filter-btn filter-btn--active" data-category="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-category="python" aria-pressed="false">Python</button>
+          <button class="filter-btn" data-category="odoo" aria-pressed="false">Odoo</button>
+          <button class="filter-btn" data-category="android" aria-pressed="false">Android</button>
+          <button class="filter-btn" data-category="devops" aria-pressed="false">DevOps</button>
+        </div>
+        
+        <!-- Search Input -->
+        <div class="project-search" style="max-width: 400px; margin: 0 auto var(--space-xl);">
+          <input 
+            type="search" 
+            id="project-search" 
+            class="input" 
+            placeholder="Search projects..."
+            aria-label="Search projects">
+        </div>
+        
+        <!-- Bento Grid Container -->
+        <div class="bento-grid" role="list" aria-label="Projects list">
+          <!-- Projects will be dynamically rendered here by ui-renderer.js -->
+        </div>
+      </div>
+    </section>
+    
+    <!-- About/Profile Section -->
+    <section id="about" class="section" aria-labelledby="about-title" style="background: var(--color-bg-secondary);">
+      <div class="container">
+        <h2 id="about-title" class="section-title">About Me</h2>
+        <div class="grid grid--cols-2" style="max-width: 1000px; margin: 0 auto;">
+          <div class="card glass-card">
+            <h3 style="margin-bottom: var(--space-md);">Profile</h3>
+            <p style="color: var(--color-text-muted); line-height: var(--line-height-relaxed);">
+              Software developer and Odoo technical consultant with hands‑on experience building Python backends,
+              Linux-based infrastructure and Android apps. Comfortable taking ownership across the stack:
+              from APIs and ERP customizations to deployments, monitoring, and support for production systems.
+            </p>
+          </div>
+          <div class="card glass-card">
+            <h3 style="margin-bottom: var(--space-md);">Education</h3>
+            <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-xs);">Bachelor of Science</p>
+            <p style="color: var(--color-text-muted); margin-bottom: var(--space-xs);">University of Khartoum</p>
+            <p style="color: var(--color-text-muted); margin-bottom: var(--space-xs);">Faculty of Mathematical Sciences & Informatics</p>
+            <p style="color: var(--color-text-light); font-size: var(--font-size-sm); margin-top: var(--space-sm);">2014 – 2021</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-	<section class="section blog-preview" id="blog-preview">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Latest from the Blog</h2>
-                <p class="section-subtitle">Technical insights and tutorials</p>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://miro.medium.com/v2/resize:fit:869/1*Rb6VuLl-T4Jl2aBZipp5vA.jpeg" alt="Deploying Odoo">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> Oct 15, 2023</span>
-                        </div>
-                        <div class="blog-tag">Odoo Deployment</div>
-                        <h3 class="blog-title">Deploying Odoo on Digital Ocean</h3>
-                        <p class="blog-excerpt">Step-by-step guide to deploying Odoo ERP on Digital Ocean for optimal performance and scalability.</p>
-                        <a href="odo-deployment.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="images/odoo.png" alt="Odoo ERP">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> Sep 28, 2023</span>
-                        </div>
-                        <div class="blog-tag">ERP Fundamentals</div>
-                        <h3 class="blog-title">Understanding Odoo ERP</h3>
-                        <p class="blog-excerpt">Comprehensive guide to the Odoo ERP system and its business applications.</p>
-                        <a href="odoo-erp.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center" style="margin-top: 3rem;">
-                <a href="blog.html" class="btn">View All Posts</a>
-            </div>
+    <!-- Services Section -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="section-title">What Services I Provide</h2>
+        <div class="grid grid--cols-2">
+          <div class="card glass-card">
+            <h3 style="margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-sm);">
+              <i class="fas fa-code" aria-hidden="true"></i>
+              Python Development
+            </h3>
+            <p style="color: var(--color-text-muted); margin-bottom: var(--space-md);">
+              I am a seasoned Digital Transportation Professional with extensive experience in Python development and system architecture.
+            </p>
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Designing, developing, and maintaining Python-based applications
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Creating custom modules for Odoo (ERP System)
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Working with databases (MySQL, PostgreSQL, SQLite)
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Creating user interfaces
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Customizing Odoo Reports
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Deploying new releases
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Troubleshooting and debugging problems
+              </li>
+            </ul>
+            <p style="color: var(--color-text-muted); margin-top: var(--space-md);">
+              I am also a skilled system administrator with expertise in Linux server management, cloud infrastructure (AWS, DigitalOcean), 
+              Docker, Nginx, Gunicorn/WSGI/ASGI, and VPN setup.
+            </p>
+          </div>
+          <div class="card glass-card">
+            <h3 style="margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-sm);">
+              <i class="fas fa-cube" aria-hidden="true"></i>
+              Odoo Modules & DevOps
+            </h3>
+            <p style="color: var(--color-text-muted); margin-bottom: var(--space-md);">
+              Specialized in Odoo ERP customization and system administration for production environments.
+            </p>
+            <h4 style="margin-top: var(--space-lg); margin-bottom: var(--space-sm);">Odoo Expertise:</h4>
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Odoo 16/17 module development
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Report customization
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                HR/Payroll integrations
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                REST API development
+              </li>
+            </ul>
+            <h4 style="margin-top: var(--space-lg); margin-bottom: var(--space-sm);">DevOps Services:</h4>
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Linux server administration
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Docker containerization
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                AWS & DigitalOcean deployment
+              </li>
+              <li style="padding: var(--space-xs) 0; padding-left: 1.5rem; position: relative; color: var(--color-text-muted);">
+                <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">✓</span>
+                Nginx reverse proxy configuration
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-
-    <div class="jumbotron-triangular-addon-wrapper">
-        <div class="jumbotron-addon jumbotron-addon-top jumbotron-addon-triangular">
-            <div class="bg-primary addon-triangular-inner addon-triangular-inner-top">
-		    <i class="fa fa-star"></i>
-	    </div>
+    <!-- Skills Section -->
+    <section id="skills" class="section" aria-labelledby="skills-title" style="background: var(--color-bg-secondary);">
+      <div class="container">
+        <h2 id="skills-title" class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <!-- Skills will be dynamically rendered here by ui-renderer.js -->
         </div>
-        <div class="jumbotron">
-            <h1>Wait I didn't Finished yet !</h1>
-            <p>Click here to see my creative and artistic work&nbsp;</p>
-            <p><a class="btn btn-light" role="button" href="work.html">Visit</a></p>
+      </div>
+    </section>
+    
+    <!-- Certificates Section -->
+    <section id="certificates" class="section" aria-labelledby="certificates-title" style="background: linear-gradient(135deg, var(--dark-bg, #1e293b) 0%, #0f172a 100%); color: white;">
+      <div class="container">
+        <h2 id="certificates-title" class="section-title" style="color: white;">My Learning Progress</h2>
+        <div class="certificates-grid" role="list" aria-label="Certificates list">
+          <!-- Certificates will be dynamically rendered here by ui-renderer.js -->
         </div>
-    </div>
-    <div class="footer-basic">
-        <footer>
-            <p class="copyright">AAHB© 2025</p>
-        </footer>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
-</body>
-=======
->>>>>>> ac1c22c (added more files)
-
-<!-- Top Bar -->
-<div class="container-fluid" style="background-color: orange;">
-    <input type="button" id="toggleContrast" class="material-symbols-outlined" title="Contrast" alt="toggleContrast">
-    <div class="row no-gutters">
-        <div class="col text-end">
-            <span><i class="fa-regular"> 3bdalla995@gmail.com </i></span>
-            <span><i class="fa-brands"> +974 71203694 </i></span>
-            <span><a href="https://linkedin.com/in/abdulla-bashir-2a4311169"> Follow me on LinkedIn </a></span>
-        </div>
-    </div>
-</div>
-
-<!-- Navbar -->
-<div class="header-dark">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-        <div class="container">
-            <a class="navbar-brand text-white" href="#">AAHB</a>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <span class="ml-auto navbar-text"></span>
-                <a class="btn btn-light action-button" href="https://www.freelancer.com/u/Abdullaosman995">Hire Me</a>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section" aria-labelledby="contact-title" style="background: var(--color-bg-secondary);">
+      <div class="container">
+        <h2 id="contact-title" class="section-title">Get In Touch</h2>
+        <div class="grid grid--cols-2" style="max-width: 800px; margin: 0 auto;">
+          <!-- Contact Form -->
+          <div class="card glass-card">
+            <h3 style="margin-bottom: var(--space-md);">Send a Message</h3>
+            <form id="contact-form" aria-label="Contact form">
+              <div style="margin-bottom: var(--space-md);">
+                <label for="contact-name" class="sr-only">Your Name</label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  class="input" 
+                  placeholder="Your Name"
+                  required
+                  aria-required="true">
+              </div>
+              <div style="margin-bottom: var(--space-md);">
+                <label for="contact-email" class="sr-only">Your Email</label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  class="input" 
+                  placeholder="Your Email"
+                  required
+                  aria-required="true">
+              </div>
+              <div style="margin-bottom: var(--space-md);">
+                <label for="contact-message" class="sr-only">Message</label>
+                <textarea 
+                  id="contact-message" 
+                  name="message" 
+                  class="input" 
+                  rows="6" 
+                  placeholder="Your Message"
+                  required
+                  aria-required="true"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width: 100%;">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+          
+          <!-- Contact Info -->
+          <div class="card glass-card">
+            <h3 style="margin-bottom: var(--space-md);">Contact Information</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  Email
+                </h4>
+                <a href="mailto:3bdalla995@gmail.com" class="nav__link">3bdalla995@gmail.com</a>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">
+                  <i class="fas fa-phone" aria-hidden="true"></i>
+                  Phone
+                </h4>
+                <a href="tel:+97471203694" class="nav__link">+974 71203694</a>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i>
+                  LinkedIn
+                </h4>
+                <a href="https://linkedin.com/in/abdulla-bashir-2a4311169" target="_blank" rel="noopener noreferrer" class="nav__link">Connect on LinkedIn</a>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                  GitHub
+                </h4>
+                <a href="https://github.com/3bdalla3adil" target="_blank" rel="noopener noreferrer" class="nav__link">View on GitHub</a>
+              </div>
             </div>
+          </div>
         </div>
-    </nav>
-</div>
+      </div>
+    </section>
 
-<!-- Services Section -->
-<div class="container my-4 bg-light p-4 rounded">
-    <div class="row">
-        <div class="col-md-6">
-            <h1>What Services I Provide</h1>
-            <p>I am a seasoned Digital Transportation Professional...</p>
-            <ul>
-                <li>Designing, developing, and maintaining Python-based applications</li>
-                <li>Creating custom modules for Odoo (ERP System)</li>
-                <li>Working with databases</li>
-                <li>Creating user interfaces</li>
-                <li>Customizing Odoo Reports</li>
-                <li>Deploying new releases</li>
-                <li>Troubleshooting and debugging problems</li>
-            </ul>
-            <p>I am also a skilled system administrator...</p>
+    <!-- Call to Action Section -->
+    <section class="cta-section" style="padding: 5rem 0; background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);">
+      <div class="container">
+        <div class="cta-card" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); border-radius: 24px; padding: 3rem; box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3); color: white; position: relative; overflow: hidden;">
+          <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-xl); align-items: center;">
+            <div style="position: relative; z-index: 1;">
+              <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem; color: white;">Explore My Work Experience</h2>
+              <p style="font-size: 1.1rem; opacity: 0.95; line-height: 1.8; margin: 0;">
+                Discover detailed projects, case studies, and the impact I've made in Python development, Odoo customization, and system administration.
+              </p>
+            </div>
+            <div style="text-align: right; position: relative; z-index: 1;">
+              <a href="work.html" class="btn" style="background: white; color: var(--color-primary); padding: 1.1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); display: inline-flex; align-items: center; gap: 0.75rem;">
+                <span>View My Work</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-md-6">
-            <h1>Odoo Modules</h1>
-            <p>I’ve successfully completed a brand-new Odoo 16 module...</p>
-            <h3>Module Highlights:</h3>
-            <ul>
-                <li>Seamless Assembly/Disassembly</li>
-                <li>Precise Quantity Tracking</li>
-                <li>Comprehensive History</li>
-            </ul>
-        </div>
+    <!-- GitHub Link Section -->
+    <section class="github-section" style="background: var(--color-surface); padding: 3rem 0; text-align: center;">
+      <div class="container">
+        <a href="https://github.com/3bdalla3adil" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 1rem; font-size: 1.2rem; color: var(--color-primary); text-decoration: none; padding: 1rem 2rem; border: 2px solid var(--color-primary); border-radius: 50px; transition: all 0.3s ease; font-weight: 600;">
+          <i class="fas fa-code" aria-hidden="true"></i>
+          <span>View Source Code on GitHub</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo" style="background: var(--color-bg-secondary); padding: var(--space-xl) 0; margin-top: var(--space-3xl); border-top: 1px solid var(--color-border); text-align: center;">
+    <div class="container">
+      <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+        And More Since Keep Learning...
+      </h3>
+      <p style="opacity: 0.8; margin-bottom: var(--space-md);">Continuous learning and growth drive my passion for technology</p>
+      <div style="border-top: 1px solid var(--color-border); padding-top: var(--space-lg); margin-top: var(--space-lg);">
+        <p>AAHB © <span id="current-year"></span></p>
+        <p style="margin-top: var(--space-sm); color: var(--color-text-muted); font-size: 0.9rem;">
+          Built with modern web technologies • Vanilla JavaScript • ES6+ Modules
+        </p>
+      </div>
     </div>
-
-    <!-- Additional Odoo Work -->
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h1>Odoo Modules</h1>
-            <p>I've successfully created a new filter for Account Reports in Odoo 17...</p>
-            <ul>
-                <li>Select accounts from a list</li>
-                <li>Filter reports based on selected accounts</li>
-                <li>Admins can hide/display this filter</li>
-            </ul>
-        </div>
-
-        <div class="col-md-6">
-            <p>I have created an Odoo module that allows automatic attendance...</p>
-            <p>I’ve made an API for integrating B2B client Odoo site...</p>
-            <p>Recently, I have been managing multiple Odoo server instances...</p>
-        </div>
+  </footer>
+  
+  <!-- Certificate Modal -->
+  <div id="cert-modal" class="cert-modal" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title" aria-hidden="true">
+    <button class="cert-modal__close" aria-label="Close certificate view">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <div class="cert-modal__content">
+      <h3 id="cert-modal-title" class="sr-only">Certificate</h3>
+      <img id="cert-modal-image" class="cert-modal__image" src="" alt="Certificate">
     </div>
-
-    <!-- Python Projects -->
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h1>Python Modules</h1>
-            <h3>Chat App for Raspberry Pi</h3>
-            <p>I worked on a chat application for a French client...</p>
-        </div>
-        <div class="col-md-6">
-            <h1>Python Modules</h1>
-            <h3>Cybersecurity Info Gathering Tool</h3>
-            <p>This was for an American client; I ported Golang code to Python...</p>
-        </div>
-    </div>
-
-    <!-- Linux and Android Projects -->
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h1>Linux Administration</h1>
-            <h3>VPN Server Setup</h3>
-            <p>Installed and configured SoftEther VPN for a client...</p>
-            <h3>Efood Multi-Vendor Site</h3>
-            <ul>
-                <li>MySQL DB setup</li>
-                <li>Nginx reverse proxy</li>
-                <li>PHP 7 on Ubuntu</li>
-                <li>Dockerized Nginx setup</li>
-            </ul>
-        </div>
-
-        <div class="col-md-6">
-            <h1>Android Development</h1>
-            <h3>Prayer Times App</h3>
-            <p>An Android app for prayer times, Qibla direction, Hijri calendar, etc.</p>
-            <h3>Digital Queue App</h3>
-            <p>A queue app for a local bakery in Bahry using SQLite3 to manage queue order.</p>
-        </div>
-    </div>
-</div>
-
-<!-- Learning Progress -->
-<div class="container my-4">
-    <h1>My Learning Progress</h1>
-</div>
-
-<!-- Certificates Carousel -->
-<div class="row">
-    <div class="carousel col-md-4 m-1" style="width:500px; height:400px; overflow:hidden;">
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/isc2_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/backend_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/linux_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/managing_linux_system_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/securing_linux_system_cert.png');"></div></div>
-        <div class="carousel-item active"><div class="slide-image" style="background-image:url('/assets/img/linux_cloud_and_devops_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/linux_specialization_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/operating_system_foundation_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/computer_hardware_and_software_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/cybersecurity_foundations_specialization_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/cybersecurity_policy_foundation_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/brand_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/comptia_project_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/canva_cert.png');"></div></div>
-        <div class="carousel-item"><div class="slide-image" style="background-image:url('/assets/img/python_flask_cert.png');"></div></div>
-    </div>
-</div>
-
-<!-- Source Code Link -->
-<div class="col text-center my-4">
-    <i class="fa-solid fa-code fa-spin"></i>
-    <p>Source Code: <a href="https://github.com/3bdalla3adil">GitHub Link</a></p>
-</div>
-
-<!-- Footer -->
-<div class="jumbotron">
-    <h1>And More Since Keep Learning...</h1>
-</div>
-<div class="footer-basic">
-    <footer>
-        <p class="copyright">AAHB© 2025</p>
-    </footer>
-</div>
-
+  </div>
+  
+  <!-- ARIA Live Region for Screen Readers -->
+  <div id="aria-live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  
+  <!-- Main App Script -->
+  <script type="module" src="js/app.js"></script>
+  
+  <!-- Set current year -->
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -133,38 +132,78 @@
       background:rgba(0,0,0,.9);
       align-items:center;
       justify-content:center;
+      padding:2rem;
+      overflow-y:auto;
+      overflow-x:hidden;
     }
     .cert-modal.show{display:flex}
     .cert-modal-content{
       position:relative;
-      max-width:90vw;
-      max-height:90vh;
+      width:100%;
+      max-width:95vw;
+      max-height:95vh;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       animation:zoomIn .25s ease-out;
     }
     .cert-modal-image{
       width:100%;
-      height:100%;
+      height:auto;
+      max-width:100%;
+      max-height:95vh;
       object-fit:contain;
       border-radius:12px;
       box-shadow:0 18px 45px rgba(0,0,0,.6);
+      display:block;
     }
     .cert-modal-close{
-      position:absolute;
-      top:-40px;
-      right:0;
-      font-size:2rem;
+      position:fixed;
+      top:1rem;
+      right:1rem;
+      font-size:2.5rem;
       color:#fff;
       cursor:pointer;
       text-shadow:0 2px 10px rgba(0,0,0,.8);
       transition:transform .15s ease, color .2s ease;
+      z-index:1001;
+      background:rgba(0,0,0,.5);
+      border-radius:50%;
+      width:3rem;
+      height:3rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      line-height:1;
     }
     .cert-modal-close:hover{
       transform:scale(1.1);
       color:#f97373;
+      background:rgba(0,0,0,.7);
     }
     @keyframes zoomIn{
       from{transform:scale(.75); opacity:0}
       to{transform:scale(1); opacity:1}
+    }
+    @media (max-width: 768px){
+      .cert-modal{
+        padding:1rem;
+      }
+      .cert-modal-content{
+        max-width:100vw;
+        max-height:100vh;
+      }
+      .cert-modal-image{
+        max-height:90vh;
+      }
+      .cert-modal-close{
+        top:.5rem;
+        right:.5rem;
+        width:2.5rem;
+        height:2.5rem;
+        font-size:2rem;
+      }
     }
     .footer{
       border-top:1px solid var(--border); margin-top:2rem; padding:1.4rem 0; color:var(--muted); font-size:.95rem
@@ -212,7 +251,7 @@
         <div class="hero-actions">
           <a href="#projects" class="btn primary t" data-key="viewProjects">View Projects</a>
           <a href="https://github.com/3bdalla3adil" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="cv.pdf" class="btn" download><i class="fa-solid fa-file-arrow-down"></i> <span class="t" data-key="downloadCV">Download CV</span></a>
+          <a href="resume.html" class="btn" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> <span class="t" data-key="downloadCV">Download CV</span></a>
         </div>
         <div class="kpi">
           <div class="box"><div class="big">5+</div><div class="muted t" data-key="years">Years in Python</div></div>
@@ -744,40 +783,435 @@
     })();
   </script>
 </body>
-=======
-<!DOCTYPE html> 
-<html> 
-
-<head> 
-  <title>Autoplay Carousel</title> 
-  <link rel="stylesheet" href="styles.css"> 
-</head> 
-
-<body> 
-  <div class="carousel"> 
-    <div class="carousel-item"> 
-      <div class="slide-image"
-        style="width:500px;background-image: 
-url('abdalla.png');"> 
-      </div> 
-    </div> 
-    <div class="carousel-item"> 
-      <div class="slide-image"
-        style="width:500px;background-image: 
-url('abdalla.png');"> 
-      </div> 
-    </div> 
-    <div class="carousel-item"> 
-      <div class="slide-image"
-        style="width:500px;background-image: 
-url('abdalla.png');"> 
-      </div> 
-    </div> 
-    
-  </div> 
-
-  <script src="./scripts.js"></script> 
-</body> 
-
->>>>>>> ac1c22c (added more files)
 </html>
+
+<!--====================================================================================================================================================  --> 
+<!-- <!DOCTYPE html>
+<html>
+
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Portfolio | AAHB</title>
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/all.min.css">	  
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.2/dist/css/bootstrap.min.css" 
+	    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">   
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700">
+	    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js.css">
+	    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js1.css">
+	    <link rel="stylesheet" href="assets/css/Button-Change-Text-on-Hover.css">
+	    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+	    <link rel="stylesheet" href="assets/css/Header-Dark.css">
+	    <link rel="stylesheet" href="assets/css/Jumbotron-Triangular-Addon.css">
+	    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+	    <link rel="stylesheet" href="assets/css/sticky-dark-top-nav-with-dropdown.css">
+	    <link rel="stylesheet" href="assets/css/styles.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<style>
+		@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+		/* {
+		//  box-sizing: border-box;
+		}*/
+		
+		/*body {
+		//  font-family: "Muli", sans-serif;
+		//  display: flex;
+		//  align-items: center;
+		//  justify-content: center;
+		//  height: 100vh;
+		//  overflow: hidden;
+		//  margin: 0;
+		}
+		
+		//.container {
+		//  display: flex;
+		//  width: 90vw;
+		//} */
+
+		.panel {
+		  background-size: auto 100%;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  height: 80vh;
+		  border-radius: 50px;
+		  color: #fff;
+		  cursor: pointer;
+		  flex: 0.5;
+		  margin: 10px;
+		  position: relative;
+		  transition: flex 0.7s ease-in;
+		  -webkit-transition: all 700ms ease-in;
+		}
+		
+		.panel h3 {
+		  font-size: 24px;
+		  position: absolute;
+		  bottom: 20px;
+		  left: 20px;
+		  margin: 0;
+		  opacity: 0;
+		}
+		
+		.panel.active {
+		  flex: 5;
+		}
+		
+		.panel.active h3 {
+		  opacity: 1;
+		  transition: opacity 0.3s ease-in 0.4s;
+		}
+		
+		/*@media (max-width: 480px) {
+		  .container {
+		    width: 100vw;
+		  }*/
+		
+		  .panel:nth-of-type(4),
+		  .panel:nth-of-type(5) {
+		    display: none;
+		  }
+/* 		} */
+                 /* =====================================================PDF Iframe Viewer=============================================================== */
+			
+		.jss540 {
+		  width: 100%;
+		  height: 100%;
+		  border: 0;
+		  position: absolute;
+		}
+		.jss541 {
+		  margin: 0 auto;
+		  position: relative;
+		}
+		.jss542 {
+		  width: 100%;
+		  height: auto;
+		  position: relative;
+		  padding-bottom: 75%;
+		}
+		.jss543 {
+		  margin: 0.5rem 0;
+		  padding: 0;
+		}
+		.jss544 {
+		  margin: auto;
+		  padding: 16px 0px;
+		  font-size: 2.4rem;
+		}
+		.jss545 {
+		  width: 100%;
+		  overflow: hidden;
+		  border-bottom: 1px solid #e0e0e0;
+		}
+		.jss546 {
+		  width: 100%;
+		  height: 100%;
+		  min-height: 150px;
+		  line-height: 150px;
+		}
+		.jss547 > div {
+		  padding-bottom: 16px;
+		}
+		.jss547 > div:last-child {
+		  padding-bottom: 0;
+		}
+		.jss548 {
+		  padding: 0;
+		}
+		.jss549 {
+		  padding: 5px 0px 0px 0px;
+		  justify-content: space-between;
+		}
+		.jss550 {
+		  padding-left: 8px;
+		}
+		.jss551 {
+		  top: 0;
+		  gap: 12px;
+		  right: 0;
+		  padding: 0.5rem;
+		  display: flex;
+		  z-index: 10;
+		  position: fixed;
+		  flex-direction: row;
+		}
+		.jss552 {
+		  color: #eaeaea;
+		  font-size: 22pt;
+		}
+		.jss553 {
+		  top: 4.6%;
+		  right: 0;
+		  padding: 0.5rem;
+		  display: none;
+		  z-index: 10;
+		  position: fixed;
+		  box-shadow: 4px 3px 8px 1px #969696;
+		  background-color: #eaeaea;
+		}
+		.jss554 {
+		  width: 100%;
+		  bottom: 1.5rem;
+		  z-index: 10;
+		  padding: 0.5rem;
+		  display: none;
+		  position: fixed;
+		  border-radius: 2px;
+		}
+		.jss555 {
+		  width: 50%;
+		  color: #A8A8A8;
+		  font-size: 1.4rem;
+		  text-align: center;
+		}
+
+		</style>
+	    <div class="container-fluid" style="background-color:orange;">
+		    <input type="button" id="toggleContrast" class="material-symbols-outlined" title="Contrast" alt="toggleContrast">
+		<div class="row no-gutters">
+		    <div class="col" style="text-align:right;">
+			 <span> <i class="fa-regular" 
+			width="40" height="40" viewBox="0 0 40 40" fill="none"> 3bdalla995@gmail.com </i> </span>
+			    <span> <i class="fa-brands" 
+			width="40" height="40" viewBox="0 0 40 40" fill="none"> +974 71203694 </i> </span>
+			    <span><a href="https://linkedin.com/in/abdulla-bashir-2a4311169" > Follow me on LinkedIn: </a></span>
+		    </div>
+		</div>
+	    </div>
+    		<div>
+			<div class="header-dark">
+			    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+			        <div class="container">
+			            <a class="navbar-brand" href="#" style="color:rgb(231,231,231); font-family:Corbel; font-size:29px;">AAHB</a>
+			            <div class="collapse navbar-collapse" id="navcol-1">
+			                <span class="ml-auto navbar-text"></span>
+			                <a class="btn btn-light action-button" role="button" href="https://www.freelancer.com/u/Abdullaosman995">Hire Me</a>
+			            </div>
+			        </div>
+			    </nav>
+			</div>
+			
+			<div class="container my-4 bg-light p-4 rounded">
+			    <div class="row">
+			        <div class="col-md-6">
+			            <h1>What Services I Provide</h1>
+			            <p>I am a seasoned Digital Transportation Professional with over 3 years of experience
+					    in designing, developing, and maintaining Python-based applications. My expertise 
+					    extends to customizing and optimizing Odoo ERP systems, allowing me to tailor 
+					    solutions to meet specific business requirements effectively. I bring a proven 
+					    track record of successful digital transformations, leveraging my skills to drive
+					    business innovation and efficiency.</p>
+			            <ul>
+			                <li>Designing, developing, and maintaining Python-based applications</li>
+			                <li>Creating custom modules for Odoo (ERP System)</li>
+			                <li>Working with databases</li>
+			                <li>Creating user interfaces</li>
+			                <li>Customizing Odoo Reports</li>
+			                <li>Deploying new releases</li>
+			                <li>Troubleshooting and debugging problems</li>
+			            </ul>
+			            <p>I am also a skilled system administrator with experience in Linux and Windows. I can setup websites, domain names, web servers, VPN servers, load-balancing servers, AWS EC2, ECS, EKS, Lambda, S3, EBS, Cloud Watch, etc. I can also setup Django with Gunicorn, WSGI, and ASGI, and I can develop and support Django code. I can also setup RDBMS like MySQL and PostgreSQL database services and configure them for Django/Odoo.</p>
+			        </div>
+			        <div class="col-md-6">
+			            <h1>Odoo Modules</h1>
+			            <p>I’ve successfully completed a brand-new Odoo 16 module designed to revolutionize the assembly and disassembly processes for products.</p>
+			            <h3>Module Highlights:</h3>
+			            <p>Seamless Assembly/Disassembly: Simplifies the creation and breakdown of product bundles. For example, users can easily bundle 2 LED batteries into a single 2 pc/pack product.</p>
+			            <p>Precise Quantity Tracking: Accurately calculates and tracks the quantity of assembled and disassembled products, ensuring inventory accuracy.</p>
+			            <p>Comprehensive History: Monitors and records every assembly and disassembly action, maintaining a detailed history for enhanced traceability. This innovative module enhances inventory management by providing a user-friendly interface for managing product bundles and ensuring precise quantity calculations. It’s designed to boost operational efficiency and accuracy for businesses.</p>
+			        </div>
+			    </div>
+    <div class="col-md-6">
+            <h1>Odoo Modules</h1>
+            <p>I've successfully created a new filter for the Account Reports module in the Odoo 17 framework! This new feature allows users to:</p>
+            <ul>
+                <li>Select accounts from a list</li>
+                <li>Filter reports based on the selected accounts</li>
+                <li>Admins can choose whether to display or hide this filter in reports</li>
+            </ul>
+            <p>I'm proud that this contribution has been added to the default Odoo 17 framework, enhancing its functionality for all users.</p>
+        </div>
+        <div class="col-md-6">
+            <p>I have created an Odoo module that allows automatic attendance for specified employees. TeleWork Odoo API &amp; HR modules &amp; Payroll with accounting customization.</p>
+            <p>To enhance the testing phase, I use the Odoo interactive shell, which increases reliability and efficiency. The core idea is to deliver employees' data to an external system and much more!</p>
+            <p>I've made an API for integrating B2B client Odoo website with teleworkers' reports, using Odoo controller and database for data retrieval and basic HTML and JavaScript skills.</p>
+            <p>Recently, I have been managing multiple Odoo server instances with multiple sub-domains and dockerized them all with the help of a special script written in Bash language. Moreover, I have redesigned an invoice layout with an Arabic font (TAJAWAL).</p>
+        </div>
+                <div class="row my-4">
+        <div class="col-md-6">
+            <h1>Python Modules</h1>
+            <h3>Chat App for 2 Raspberry Pi (Electronic device) clients and server</h3>
+            <p>I had the opportunity to work on a chat application for a client in France. 
+		    Throughout the development process, I ensured that the application met 
+		    the client's requirements and delivered it on time. Upon completion, 
+		    the client expressed their satisfaction with the application's performance and user interface. They even gave me a glowing review of five stars and provided a well-written recommendation letter, which attested to my skills and expertise. Overall, this experience helped me hone my Python development skills and provided me with a sense of satisfaction in knowing that my work had made a positive impact on the client's business.</p>
+        </div>
+        <div class="col-md-6">
+            <h1>Python Modules</h1>
+            <h3>A Brand Cybersecurity Tool For Information Gathering Purposes</h3>
+            <p>This project was for a cybersecurity tool developed by an American client. I’ve ported Golang code to Python without using any Python package. The package needed to get a text keyword as input and output a JSON response for an API, and I used Django REST framework and web framework to populate the database with the keywords.</p>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-md-6">
+            <h1>Linux Administration</h1>
+            <h3>VPN Server Software Installation</h3>
+            <p>I had the opportunity to install and test a SoftEther VPN server for an English client. The installation process was seamless, and I was able to configure the server to meet the client's requirements. After testing the server, the client expressed their satisfaction with the performance and reliability of the VPN.</p>
+            <p>"SoftEther" means "Software Ethernet" and is one of the world's most powerful and easy-to-use multi-protocol VPN software. It runs 
+				
+				</p><h3>Efood Multi-Vendor Website using digital ocean</h3> 
+				<p>
+				</p><li> Created mysql database, and database user</li> 
+				<li> Configured nginx service to act as reverse proxy</li>
+				<li> installed php 7 on ubuntu 20.04 LTS</li> 
+				<li> Configured docker container to act as nginx reverse proxy</li>
+				<p></p>
+			</div>
+			<div class="col-md-4">
+			    <h1>Android Developement</h1> 
+				<h3>Android Prayer Times App</h3>
+				<p> An innovative Android application designed to facilitate timely prayer reminders,
+				assist users in determining the Qibla direction through API integration, and 
+				provide both Hijri and Gregorian calendars. The application meticulously computes
+				prayer times and harnesses the capabilities of the user's Android device magnetometer,
+				which measures fluctuations in the Earth's magnetic field, enhancing the overall user 
+				experience.
+				</p>
+				<h3>Android Digital Queue App</h3>
+				<p> 
+				An innovative Android application designed to facilitate Baker Queue on local Bakery
+				Based in Bahry ,it simply save sqlie3 database data in timely maner to facilitate serving
+				first Consumers that decrease Conflicts between customers.
+				</p>
+			</div>
+		</div>
+		<h1>My Learning progress </h1>
+			
+			<div class="row my-4">
+</div>
+
+    
+        
+		<!-- ===========================Certificates=================================================== -->
+<!-- 		<div class="row">
+			<div class="carousel col-md-4 m-1" style="width:500px;height: 400px; overflow: hidden;"> 
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/isc2_cert.png');"> 
+			      </div> 
+			    </div>
+			    <div class="carousel-item"> 
+				<div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/backend_cert.png');"> 
+				</div> 
+			    </div>
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/linux_cert.png');"> 
+			      </div> 
+			    </div> 
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/managing_linux_system_cert.png');"> 
+			      </div> 
+			    </div> 
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/securing_linux_system_cert.png');"> 
+			      </div> 
+			    </div> 
+			    <div class="carousel-item active"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/linux_cloud_and_devops_cert.png');"> 
+			      </div> 
+			    </div>
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/linux_specialization_cert.png');"> 
+			      </div> 
+			    </div>
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/operating_system_foundation_cert.png');"> 
+			      </div> 
+			    </div> 
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/computer_hardware_and_software_cert.png');"> 
+			      </div> 
+			    </div>
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/cybersecurity_foundations_specialization_cert.png');"> 
+			      </div> 
+			    </div>
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/cybersecurity_policy_foundation_cert.png');"> 
+			      </div> 
+			    </div> 
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/brand_cert.png');"> 
+			      </div> 
+			    </div> 
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/comptia_project_cert.png');"> 
+			      </div> 
+			    </div>
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/canva_cert.png');"> 
+			      </div> 
+			    </div>
+			    <div class="carousel-item"> 
+			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
+			url('/assets/img/python_flask_cert.png');"> 
+			      </div> 
+			    </div> 
+			  </div>
+			</div>
+			<div class="jss542 _4-1">
+				<iframe class="jss540" src="" frameborder="0" scrolling="no" style="display: block;">
+				</iframe><div class="jss530 jss533 jss532" role="progressbar" style="width: 60px; height: 60px; display: none; position: absolute; left: 45%; top: 42%;">
+					<svg class="jss535" viewBox="22 22 44 44">
+						<circle class="jss536 jss538" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6">
+						</circle>
+					</svg>
+				</div>
+			</div> 
+		</div>
+		<div class="col">
+		    <div>
+			<i class="fa-thin fa-code fa-spin"><p>Source Code:&nbsp;<a href="https://github.com/3bdalla3adil">github link</a></p></i>
+		    </div>
+		</div>
+	     </div>
+		<div class="jumbotron">
+		<h1>And More Since Keep Learning &nbsp;...</h1>
+	       </div>
+		<div class="footer-basic">
+		<footer>
+		    <p class="copyright">AAHB© 2025</p>
+		</footer>
+	
+		</div>
+	    
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
+	        <script src="assets/js/auto_slider.js"></script>
+	</body>
+</html>  --> 

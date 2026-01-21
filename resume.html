@@ -1,209 +1,399 @@
-
 <html lang="en-us">
 <head>
-    <title > Resume | Abdulla CV</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    
-    <!-- <link rel="stylesheet" href="main.css"> -->
-    <style type="text/css">
-      .firstdiv{
-  background-color: #e1c675;
-  /*border-top-right-radius: 25%;*/
-  /*border-bottom-left-radius: 5%;*/
-}
-.seconddiv{
-  background-color: #73a5ef;
-  border-radius: 10%;
-  /*text-decoration-color: #73a5ef;*/
-}
-.headers{
-  text-decoration-color: gray;
-  font-size: 1em;
-}
-#linkedin:hover{
-    text-decoration-color:yellow;
-        }
-
-/*============================================================================================*/
-/*============================TimeLine Beggining======================================*/
-.timeline {
-  border-left: 1px solid hsl(0, 0%, 90%);
-  position: relative;
-  list-style: none;
-}
-
-.timeline .timeline-item {
-  position: relative;
-}
-
-.timeline .timeline-item:after {
-  position: absolute;
-  display: block;
-  top: 0;
-}
-
-.timeline .timeline-item:after {
-  background-color: hsl(0, 0%, 90%);
-  left: -38px;
-  border-radius: 50%;
-  height: 11px;
-  width: 11px;
-  content: "";
-}
-    </style>
+  <meta charset="utf-8" />
+  <title>Resume | Abdulla Bashir</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#101626;
+      --accent:#fbbf24;
+      --accent-soft:rgba(251,191,36,.16);
+      --accent-2:#38bdf8;
+      --border:#1f2937;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --pill:#111827;
+      --shadow:0 24px 70px rgba(0,0,0,.75);
+      --radius-lg:20px;
+      --radius-md:12px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      background:
+        radial-gradient(1200px 800px at 10% -10%,rgba(251,191,36,.22),transparent 55%),
+        radial-gradient(1000px 700px at 110% -20%,rgba(56,189,248,.20),transparent 55%),
+        var(--bg);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1.5rem;
+    }
+    .resume-shell{
+      width:min(1120px,100%);
+      background:linear-gradient(145deg,#020617 0%,#020617 32%,#030712 100%);
+      border-radius:32px;
+      padding:1px;
+      box-shadow:var(--shadow);
+      position:relative;
+    }
+    .resume-inner{
+      display:grid;
+      grid-template-columns:0.95fr 1.55fr;
+      background:radial-gradient(circle at top left,rgba(148,163,184,.18),transparent 50%),var(--card);
+      border-radius:30px;
+      overflow:hidden;
+    }
+    @media (max-width:900px){
+      .resume-inner{grid-template-columns:1fr}
+    }
+    .sidebar{
+      padding:1.75rem 1.6rem 1.8rem;
+      background:radial-gradient(circle at top left,rgba(55,65,81,.8),#020617);
+      border-right:1px solid rgba(31,41,55,.9);
+    }
+    @media (max-width:900px){
+      .sidebar{
+        border-right:none;
+        border-bottom:1px solid rgba(31,41,55,.9);
+      }
+    }
+    .avatar-ring{
+      width:112px;
+      height:112px;
+      border-radius:999px;
+      padding:3px;
+      background:conic-gradient(from 200deg,var(--accent),var(--accent-2),var(--accent));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:1.1rem;
+    }
+    .avatar{
+      width:100%;
+      height:100%;
+      border-radius:999px;
+      background:radial-gradient(circle at 30% 20%,#f9fafb,#e5e7eb 40%,#9ca3af 85%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:2.1rem;
+      color:#111827;
+    }
+    .tagline-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      padding:.28rem .6rem;
+      border-radius:999px;
+      background:var(--accent-soft;
+      color:var(--accent);
+      font-size:.78rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-weight:700;
+      margin-bottom:.75rem;
+    }
+    .name{
+      font-size:1.4rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .role{
+      font-size:.95rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+      margin-top:.35rem;
+      padding-bottom:1.1rem;
+      border-bottom:1px dashed rgba(75,85,99,.8);
+      margin-bottom:1.1rem;
+    }
+    .section-title{
+      font-size:.82rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.6rem;
+    }
+    .section-title span{
+      color:var(--accent);
+    }
+    .info-line{
+      font-size:.9rem;
+      margin-bottom:.15rem;
+      color:var(--text);
+    }
+    .info-line a{
+      color:var(--accent-2);
+      text-decoration:none;
+    }
+    .info-line a:hover{opacity:.9}
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.35rem;
+      margin-top:.25rem;
+      margin-bottom:.5rem;
+    }
+    .pill{
+      padding:.2rem .55rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--pill);
+      font-size:.78rem;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .list-plain{
+      list-style:none;
+      margin-top:.35rem;
+    }
+    .list-plain li{
+      font-size:.88rem;
+      color:var(--muted);
+      margin:.15rem 0;
+    }
+    .content{
+      padding:1.8rem 2rem 1.9rem;
+    }
+    @media (max-width:900px){
+      .content{padding:1.55rem 1.4rem 1.7rem}
+    }
+    .summary{
+      margin-bottom:1.5rem;
+    }
+    .summary-title{
+      font-size:.82rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.35rem;
+    }
+    .summary-text{
+      font-size:.9rem;
+      color:var(--muted);
+      max-width:40rem;
+    }
+    .experience-section{
+      margin-top:1.2rem;
+    }
+    .experience-title{
+      font-size:.9rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.9rem;
+    }
+    .timeline{
+      position:relative;
+      list-style:none;
+      padding-left:0;
+      margin:0;
+    }
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:10px;
+      top:3px;
+      bottom:4px;
+      width:1px;
+      background:linear-gradient(to bottom,rgba(75,85,99,.3),rgba(75,85,99,.9));
+    }
+    .timeline-item{
+      position:relative;
+      padding-left:2.25rem;
+      padding-bottom:1.1rem;
+    }
+    .timeline-item:last-child{padding-bottom:.2rem}
+    .timeline-dot{
+      position:absolute;
+      left:6px;
+      top:3px;
+      width:9px;
+      height:9px;
+      border-radius:999px;
+      background:radial-gradient(circle at 30% 20%,#fef9c3,#facc15);
+      box-shadow:0 0 0 4px rgba(250,204,21,.16);
+    }
+    .timeline-role{
+      font-size:.96rem;
+      font-weight:600;
+      color:var(--text);
+    }
+    .timeline-meta{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+      margin-top:.15rem;
+      margin-bottom:.4rem;
+    }
+    .timeline-desc{
+      font-size:.86rem;
+      color:var(--muted);
+      max-width:38rem;
+    }
+    @media print{
+      body{background:#fff;box-shadow:none;padding:0}
+      .resume-shell{box-shadow:none;border-radius:0}
+      .resume-inner{border-radius:0}
+    }
+  </style>
 </head>
 <body>
-  
-  <div class= "row text-break p-2">
-    <!-- =================================================================================== -->
-    <!-- ============================= First  ============================================== -->
-    <!-- ============================= Column ============================================== -->
-    <!-- =================================================================================== -->
-      <div class="col-xs-6 firstdiv w-25 h-auto p-1">
-      	<!-- <img src="/assets/images/abdalla.png" alt="CV Image" class="rounded-circle w-75 h-auto p-2"/> -->
-        <hr class="my-2 w-50">
-        <h1 class ="headers text-uppercase fw-bold">Contacts</h1>
-        
-        <hr class=" w-25"> 
-        
-        <h1 class="headers fst-italic p-1">3bdalla995@gmail.com</h1>
-        <h5><a class="headers" href="https://www.linkedin.com/in/abdulla-bashir-2a4311169/">LinkedIn Profile</a></h5>
-        <h1 class="headers fst-italic p-1"> <a href="tel:+974-71203694">+974-71203694</a></h1>
-        <h1 class="headers fst-italic p-1">Doha, Qatar</h1>
-        <!-- </div> -->
-        <hr class="my-3">
-        <h1 class ="headers text-uppercase fw-bold">Education</h1>
-        <hr class=" w-25">
-        <h1 class ="headers text-uppercase fw-semibold">Bachelor of Science</h1>
-        <h1 class ="headers ">
-        <span class="headers fst-italic p-1">University of Khartoum</span>,
-        <span class="headers fst-italic p-1"> Faculty of Mathematical (Computer Sciences)</span>
-        <span class="headers fst-italic p-1">Sciences and Informatics </span>
-        / 2014 - 2021</h1>
-        <hr class="my-3 ">
-        <h1 class ="headers text-uppercase fw-bold">Skills</h1>
-        <hr class=" w-25 " >
-        <ul >
-          <div class="row">
-            <div class="col-xs-6 "><li class="headers fw-semibold">Python</li></div>
-           <div class="col-xs-6 "><li class="headers fw-semibold">xml</li></div>
-           <div class="col-xs-6 "><li class="headers fw-semibold">linux</li></div>
-         </div>
-           <div class="row">
-            <div class="col-xs-6 "><li class="headers fw-semibold">Nginx</li></div>
-           <div class="col-xs-6 "><li class="headers fw-semibold">Postman</li></div>
-           <div class="col-xs-6 "><li class="headers fw-semibold">Openssh</li></div>
-         </div>   
-        </ul>
-        <hr class="my-3 ">
-        <h1 class ="headers text-uppercase fw-bold">Hobbies</h1>
-        <hr class=" w-25 " >
-        <ul >
-           <li class="headers fw-semibold">Gaming</li>
-           <li class="headers fw-semibold">Reading</li>
-           <li class="headers fw-semibold">Cycling</li> 
-        </ul>
-      </div> 
-    <!-- =================================================================================== -->
-    <!-- ============================= Second ============================================== -->
-    <!-- ============================= Column ============================================== -->
-    <!-- =================================================================================== -->
+  <main class="resume-shell" aria-label="Resume of Abdulla Bashir">
+    <section class="resume-inner">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="avatar-ring">
+          <div class="avatar">AB</div>
+        </div>
+        <div class="tagline-pill">
+          <span>Python • Odoo • DevOps</span>
+        </div>
+        <h1 class="name">Abdulla&nbsp;Bashir</h1>
+        <p class="role">Sudanese &nbsp;|&nbsp; Software Developer</p>
 
-      <div class=" col-xs-6 w-75">
-        <div class="container h-auto">
-        <div class="container ">
-          <h1 class="text-uppercase font-semibold">Abdulla Bashir</h1>
-        </div>
-        <div class="container h-auto">
-          <h1 class="headers text-uppercase font-semibold">Sudanese | Software Developer</h1>
-        </div>
-    <!--     <h1 class=" headers text-uppercase fw-bold">Personal Information</h1>
-        <div class="container ">
-          <p class="headers fw-semibold">
-           I do awsome things !!
+        <!-- Contact -->
+        <section style="margin-bottom:1.3rem">
+          <h2 class="section-title"><span>Contact</span></h2>
+          <p class="info-line">3bdalla995@gmail.com</p>
+          <p class="info-line"><a href="https://www.linkedin.com/in/abdulla-bashir-2a4311169/" target="_blank" rel="noreferrer">LinkedIn / abdulla-bashir-2a4311169</a></p>
+          <p class="info-line">+249&nbsp;114&nbsp;648&nbsp;721</p>
+          <p class="info-line">Port Sudan, Sudan</p>
+        </section>
+
+        <!-- Education -->
+        <section style="margin-bottom:1.3rem">
+          <h2 class="section-title"><span>Education</span></h2>
+          <p class="info-line" style="font-weight:600">Bachelor of Science</p>
+          <p class="info-line">University of Khartoum</p>
+          <p class="info-line">Faculty of Mathematical Sciences &amp; Informatics</p>
+          <p class="info-line" style="color:var(--muted);font-size:.8rem;margin-top:.2rem">2014 &ndash; 2021</p>
+        </section>
+
+        <!-- Skills -->
+        <section style="margin-bottom:1.3rem">
+          <h2 class="section-title"><span>Skills</span></h2>
+          <div class="pill-row">
+            <span class="pill">Python</span>
+            <span class="pill">XML</span>
+            <span class="pill">Linux</span>
+            <span class="pill">Nginx</span>
+            <span class="pill">Postman</span>
+            <span class="pill">OpenSSH</span>
+          </div>
+        </section>
+
+        <!-- Hobbies -->
+        <section>
+          <h2 class="section-title"><span>Hobbies</span></h2>
+          <ul class="list-plain">
+            <li>Gaming</li>
+            <li>Reading</li>
+            <li>Cycling</li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- Main content -->
+      <section class="content">
+        <!-- Summary -->
+        <section class="summary">
+          <h2 class="summary-title">Profile</h2>
+          <p class="summary-text">
+            Software developer and Odoo technical consultant with hands‑on experience building Python backends,
+            Linux-based infrastructure and Android apps. Comfortable taking ownership across the stack:
+            from APIs and ERP customizations to deployments, monitoring, and support for production systems.
           </p>
-        </div> -->
-        </div>
-        <div class="container h-auto">
-        <h1 class=" headers text-uppercase fw-bold">Work Experience</h1>
-        </div>
-        <div class="row container">
-        <div class="col-xs-6 stepper"></div>
-          <div class="container ">
-            <section class="py-3">
-              <ul class="timeline">
-                   <li class="timeline-item mb-5">
-                 <h5 class="fw-bold">Odoo ERP Technical Developer ~ Partime-Upwork</h5>
-                  <hr class=" w-25 " >
-                  <p class="text-muted mb-2 fw-bold">(Nov-2022 - PRESENT)</p>
-                 <!--  <p class="fw-semibold">-I have developed an odoo </p> -->
-                 
-                 
-                
-            
-                  <h5 class="fw-bold">Odoo ERP Technical Developer ~ Ingaz Group</h5>
-                  <hr class=" w-25 " >
-                  <p class="text-muted mb-2 fw-bold">(JUL-2022– Nov-2022)</p>
-                 <!--  <p class="fw-semibold">-I have developed an odoo api that allows user to send employees data to an external system</p>
-                 <p class="fw-semibold">-I have created an odoo module that allow user to generate a random date between two given 
-                 dates as an employee check-in/checkout 
-                 </p>
-                 <p class="fw-semibold">-I have created an odoo module that allow user to send an e-mail with an attachment</p>-->
-                </li> 
-                <li class="timeline-item mb-5">
-                  <h5 class="fw-bold"> Django Backend Developer ~ CyberMEStudio</h5>
-                  <hr class=" w-25 " >
-                  <p class="text-muted mb-2 fw-bold">(JUN-2022 – JUL-2022)</p>
-                 <!-- <p class="text-muted">
-                    -I have developed a python library that facilitate dealing with arabic keyword and its translation 
-                    beside a django rest api endpoint that allow the user to
-                    populate arabic keyword with it translations to the database
-                  </p>-->
-                  </li>
-                  
-                <li class="timeline-item mb-5">
-                  <h5 class="fw-bold">Linux Server Admin ~ Freelancer.com</h5>
-                  <hr class=" w-25 " >
-                  <p class="text-muted mb-2 fw-bold">(MAY-2022 – JUN-2022)</p>
-                 <!-- <p class="text-muted">
-                   -I have configured a vpn server for a UK Based client to secure his network traffic
-                  </p> -->
-                </li>
+        </section>
 
-               <li class="timeline-item mb-5">
-                  <h5 class="fw-bold">Python Developer ~ Freelancer.com</h5>
-                  <hr class=" w-25 " >
-                  <p class="text-muted mb-2 fw-bold">(APR-2022 – MAY-2022)</p>
-                  <!-- <p class="text-muted">
-                   -I have developed a python script that allow user to chat with another user within the same lan
-                  </p> -->
-               </li>
-                <li class="timeline-item mb-3">
-                  <h5 class="fw-bold">Android Developer ~ Volunteer</h5>
-                    <hr class=" w-25 " >
-                  <p class="text-muted mb-2 fw-bold">(SEP-2021– OCT-2021)</p>
-                 <!-- <p class="text-muted">
-                    I have developed a simple app interface for a local bakery that organizes bread line as a using  database operations assuming that every person has a unique card number
-                  </p> -->
-                </li>
-                <li class="timeline-item mb-1">
-                  <h5 class="fw-bold">IT Support Specialist ~ Bash Group Sudan</h5>
-                    <hr class=" w-25 " >
-                  <p class="text-muted mb-2 fw-bold">(APR-2019 – AUG-2019)</p>
-                <!--   <p class="text-muted">
-                    I have managed "AutoBash Inc" odoo ESXI Server and 
-                    configured software and hardware 
-                  </p> -->
-                </li>
+        <!-- Experience -->
+        <section class="experience-section">
+          <h2 class="experience-title">Experience</h2>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-role">Odoo ERP Technical Developer &mdash; Part‑time, Upwork</div>
+              <div class="timeline-meta">(Nov&nbsp;2022 &ndash; Present)</div>
+              <p class="timeline-desc">
+                Implementing and maintaining custom Odoo modules for international clients, focusing on inventory,
+                HR, and accounting workflows while ensuring smooth upgrades between versions.
+              </p>
+            </li>
 
-                
-             
-              </ul>
-            </section>
-        </div>
-    </div>
-  </div>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-role">Odoo ERP Technical Developer &mdash; Ingaz Group</div>
+              <div class="timeline-meta">(Jul&nbsp;2022 &ndash; Nov&nbsp;2022)</div>
+              <p class="timeline-desc">
+                Developed Odoo features and internal tools, including data integration utilities and automation
+                around employee attendance and reporting.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-role">Django Backend Developer &mdash; CyberMEStudio</div>
+              <div class="timeline-meta">(Jun&nbsp;2022 &ndash; Jul&nbsp;2022)</div>
+              <p class="timeline-desc">
+                Built REST APIs with Django for cybersecurity tooling, including Arabic keyword processing and
+                data ingestion pipelines backed by relational databases.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-role">Linux Server Administrator &mdash; Freelancer.com</div>
+              <div class="timeline-meta">(May&nbsp;2022 &ndash; Jun&nbsp;2022)</div>
+              <p class="timeline-desc">
+                Deployed and secured Linux servers for clients, configuring VPNs, reverse proxies and basic
+                monitoring to harden and stabilize their infrastructure.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-role">Python Developer &mdash; Freelancer.com</div>
+              <div class="timeline-meta">(Apr&nbsp;2022 &ndash; May&nbsp;2022)</div>
+              <p class="timeline-desc">
+                Delivered custom Python utilities and LAN communication tools, collaborating closely with
+                clients and iterating based on real‑world feedback.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-role">Android Developer &mdash; Volunteer</div>
+              <div class="timeline-meta">(Sep&nbsp;2021 &ndash; Oct&nbsp;2021)</div>
+              <p class="timeline-desc">
+                Created a digital queue app for a local bakery using SQLite, streamlining customer flow and
+                reducing conflicts in high‑traffic hours.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div class="timeline-role">IT Support Specialist &mdash; Bash Group Sudan</div>
+              <div class="timeline-meta">(Apr&nbsp;2019 &ndash; Aug&nbsp;2019)</div>
+              <p class="timeline-desc">
+                Supported on‑premise infrastructure, including AutoBash Inc. Odoo ESXi servers, handling
+                day‑to‑day hardware and software troubleshooting.
+              </p>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </section>
+  </main>
 </body>
 </html>

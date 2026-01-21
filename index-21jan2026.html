@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdulla AAHB Portfolio | Digital Transportation Professional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #6366f1;
+      --secondary-color: #8b5cf6;
+      --accent-color: #f59e0b;
+      --dark-bg: #1e293b;
+      --light-bg: #f8fafc;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: opacity 0.3s;
+    }
+
+    .top-bar a:hover {
+      opacity: 0.8;
+    }
+
+    .top-bar i {
+      margin-right: 0.5rem;
+    }
+
+    /* Navbar */
+    .navbar-custom {
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-toggler {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 0.5rem 0.75rem;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+    }
+
+    .btn-hire {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border: none;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-hire:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6rem 0;
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-actions {
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .btn-work {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-work:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-work i {
+      font-size: 1.2rem;
+    }
+
+    .btn-work i:last-child {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-work:hover i:last-child {
+      transform: translateX(5px);
+    }
+
+    .btn-work-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-work-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px);
+      color: white;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--text-dark);
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .service-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--primary-color);
+    }
+
+    .service-card h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .service-card h2 i {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .service-card ul li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-light);
+    }
+
+    .service-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* Carousel Section */
+    .certificates-section {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: white;
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .certificates-section .section-title {
+      color: white;
+    }
+
+    .certificates-section .section-title::after {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .carousel-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 450px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      background: white;
+    }
+
+    .carousel-item {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 100%;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 20px;
+    }
+
+    .carousel-item.active {
+      left: 0;
+    }
+
+    .carousel-item .slide-image {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.3s ease;
+      border-radius: 20px;
+    }
+
+    .carousel-item:hover .slide-image {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .cert-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      animation: fadeIn 0.3s;
+      padding: 2rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .cert-modal.show {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cert-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 95vw;
+      max-height: 95vh;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: zoomIn 0.3s;
+    }
+
+    .cert-modal-image {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      display: block;
+    }
+
+    .cert-modal-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1001;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .cert-modal-close:hover {
+      color: #ff6b6b;
+      transform: scale(1.1) rotate(90deg);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Call to Action Section */
+    .cta-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.3;
+      }
+    }
+
+    .cta-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-text {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.1rem 2.5rem;
+      background: white;
+      color: var(--primary-color);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      color: var(--primary-color);
+    }
+
+    .btn-cta i {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-cta:hover i {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+      .cta-card {
+        padding: 2rem;
+      }
+
+      .cta-title {
+        font-size: 1.8rem;
+      }
+
+      .cta-text {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-cta {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* GitHub Link Section */
+    .github-section {
+      background: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border: 2px solid var(--primary-color);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .github-link:hover {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    }
+
+    .github-link i {
+      font-size: 1.5rem;
+    }
+
+    /* Footer */
+    .footer-section {
+      background: var(--dark-bg);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .footer-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-basic {
+      background: #0f172a;
+      padding: 2rem 0;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-basic .copyright {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .service-card {
+        padding: 1.5rem;
+      }
+
+      .carousel {
+        height: 350px;
+      }
+
+      .cert-modal {
+        padding: 1rem;
+      }
+
+      .cert-modal-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 2rem;
+      }
+
+      .top-bar {
+        font-size: 0.75rem;
+      }
+
+      .top-bar a {
+        margin: 0 0.5rem;
+      }
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-end">
+        <a href="mailto:3bdalla995@gmail.com"><i class="fas fa-envelope"></i> 3bdalla995@gmail.com</a>
+        <a href="tel:+97471203694"><i class="fas fa-phone"></i> +974 71203694</a>
+        <a href="https://linkedin.com/in/abdulla-bashir-2a4311169" target="_blank"><i class="fab fa-linkedin"></i> Follow me on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">AAHB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="ms-auto">
+        <a class="btn btn-hire" href="https://www.freelancer.com/u/abdullao3" target="_blank">Hire Me</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto text-center hero-content">
+        <h1 class="hero-title">Digital Transportation Professional</h1>
+        <p class="hero-subtitle">I design, develop, and maintain Python-based applications with expertise in Odoo ERP, system administration, and modern web technologies. Let's build something amazing together.</p>
+        <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="work.html" class="btn-work">
+            <i class="fas fa-briefcase"></i>
+            <span>View My Work Experience</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="https://github.com/3bdalla3adil" target="_blank" class="btn-work-secondary">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What Services I Provide</h2>
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="service-card">
+          <h2><i class="fas fa-code"></i> Python Development</h2>
+          <p>I am a seasoned Digital Transportation Professional with extensive experience in Python development and system architecture.</p>
+          <ul>
+            <li>Designing, developing, and maintaining Python-based applications</li>
+            <li>Creating custom modules for Odoo (ERP System)</li>
+            <li>Working with databases (MySQL, PostgreSQL, SQLite)</li>
+            <li>Creating user interfaces</li>
+            <li>Customizing Odoo Reports</li>
+            <li>Deploying new releases</li>
+            <li>Troubleshooting and debugging problems</li>
+          </ul>
+          <p>I am also a skilled system administrator with expertise in Linux server management and cloud infrastructure.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="service-card">
+          <h2><i class="fas fa-cube"></i> Odoo Modules</h2>
+          <p>I've successfully completed a brand-new Odoo 16 module for assembly and disassembly management, revolutionizing how companies handle product lifecycle operations.</p>
+          <h3>Module Highlights:</h3>
+          <ul>
+            <li>Seamless Assembly/Disassembly</li>
+            <li>Precise Quantity Tracking</li>
+            <li>Comprehensive History</li>
+          </ul>
+          <h3>Additional Odoo Work</h3>
+          <p>I've successfully created a new filter for Account Reports in Odoo 17 that allows users to:</p>
+          <ul>
+            <li>Select accounts from a list</li>
+            <li>Filter reports based on selected accounts</li>
+            <li>Admins can hide/display this filter</li>
+          </ul>
+          <p>I have created an Odoo module that allows automatic attendance tracking, built APIs for B2B client integration, and managed multiple Odoo server instances.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-lg-6 mb-4">
+        <div class="service-card">
+          <h2><i class="fab fa-python"></i> Python Projects</h2>
+          <h3>Chat App for Raspberry Pi</h3>
+          <p>I worked on a chat application for a French client, implementing real-time communication features and optimized performance for Raspberry Pi hardware.</p>
+          
+          <h3>Cybersecurity Info Gathering Tool</h3>
+          <p>This was for an American client; I ported Golang code to Python, creating a powerful cybersecurity information gathering tool with enhanced features and better maintainability.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <div class="service-card">
+          <h2><i class="fas fa-server"></i> Linux Administration</h2>
+          <h3>VPN Server Setup</h3>
+          <p>Installed and configured SoftEther VPN for a client, ensuring secure remote access and network connectivity.</p>
+          
+          <h3>Efood Multi-Vendor Site</h3>
+          <ul>
+            <li>MySQL DB setup and optimization</li>
+            <li>Nginx reverse proxy configuration</li>
+            <li>PHP 7 on Ubuntu server management</li>
+            <li>Dockerized Nginx setup for scalability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-lg-6 mb-4 mx-auto">
+        <div class="service-card">
+          <h2><i class="fab fa-android"></i> Android Development</h2>
+          <h3>Prayer Times App</h3>
+          <p>An Android app for prayer times, Qibla direction, Hijri calendar, and Islamic features with accurate calculations and beautiful UI.</p>
+          
+          <h3>Digital Queue App</h3>
+          <p>A queue app for a local bakery in Bahry using SQLite3 to manage queue order, providing seamless customer experience and efficient service management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h2 class="cta-title">Explore My Work Experience</h2>
+          <p class="cta-text">Discover detailed projects, case studies, and the impact I've made in Python development, Odoo customization, and system administration.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end text-center">
+          <a href="work.html" class="btn-cta">
+            <span>View My Work</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certificates Section -->
+<section class="certificates-section">
+  <div class="container">
+    <h2 class="section-title">My Learning Progress</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-item" data-image="/assets/img/isc2_cert.png"><div class="slide-image" style="background-image:url('/assets/img/isc2_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/backend_cert.png"><div class="slide-image" style="background-image:url('/assets/img/backend_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/linux_cert.png"><div class="slide-image" style="background-image:url('/assets/img/linux_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/managing_linux_system_cert.png"><div class="slide-image" style="background-image:url('/assets/img/managing_linux_system_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/securing_linux_system_cert.png"><div class="slide-image" style="background-image:url('/assets/img/securing_linux_system_cert.png');"></div></div>
+        <div class="carousel-item active" data-image="/assets/img/linux_cloud_and_devops_cert.png"><div class="slide-image" style="background-image:url('/assets/img/linux_cloud_and_devops_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/linux_specialization_cert.png"><div class="slide-image" style="background-image:url('/assets/img/linux_specialization_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/operating_system_foundation_cert.png"><div class="slide-image" style="background-image:url('/assets/img/operating_system_foundation_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/computer_hardware_and_software_cert.png"><div class="slide-image" style="background-image:url('/assets/img/computer_hardware_and_software_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/cybersecurity_foundations_specialization_cert.png"><div class="slide-image" style="background-image:url('/assets/img/cybersecurity_foundations_specialization_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/cybersecurity_policy_foundation_cert.png"><div class="slide-image" style="background-image:url('/assets/img/cybersecurity_policy_foundation_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/brand_cert.png"><div class="slide-image" style="background-image:url('/assets/img/brand_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/comptia_project_cert.png"><div class="slide-image" style="background-image:url('/assets/img/comptia_project_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/canva_cert.png"><div class="slide-image" style="background-image:url('/assets/img/canva_cert.png');"></div></div>
+        <div class="carousel-item" data-image="/assets/img/python_flask_cert.png"><div class="slide-image" style="background-image:url('/assets/img/python_flask_cert.png');"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certificate Modal -->
+<div id="certModal" class="cert-modal">
+  <span class="cert-modal-close">&times;</span>
+  <div class="cert-modal-content">
+    <img id="modalImage" class="cert-modal-image" src="" alt="Certificate">
+  </div>
+</div>
+
+<!-- GitHub Link Section -->
+<section class="github-section">
+  <div class="container">
+    <a href="https://github.com/3bdalla3adil" target="_blank" class="github-link">
+      <i class="fas fa-code"></i>
+      <span>View Source Code on GitHub</span>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<section class="footer-section">
+  <div class="container">
+    <h3 class="footer-title">And More Since Keep Learning...</h3>
+    <p style="opacity: 0.8; margin-bottom: 0;">Continuous learning and growth drive my passion for technology</p>
+  </div>
+</section>
+
+<div class="footer-basic">
+  <footer>
+    <p class="copyright">AAHB© 2025</p>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
+<script>
+// Certificate modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('certModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.cert-modal-close');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+
+    // Open modal when clicking on a carousel item
+    carouselItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-image');
+            modalImage.src = imageUrl;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal when clicking the close button
+    closeBtn.addEventListener('click', function() {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Navbar scroll effect
+    let lastScroll = 0;
+    const navbar = document.querySelector('.navbar-custom');
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 100) {
+            navbar.style.background = 'rgba(30, 41, 59, 0.98)';
+            navbar.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+        } else {
+            navbar.style.background = 'rgba(30, 41, 59, 0.95)';
+            navbar.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        }
+        lastScroll = currentScroll;
+    });
+});
+</script>
+
+</body>
+</html>
