@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio |AAHB©</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS StyleSheet -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js1.css">
+    <link rel="stylesheet" href="assets/css/Button-Change-Text-on-Hover.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Header-Dark.css">
+    <link rel="stylesheet" href="assets/css/Jumbotron-Triangular-Addon.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/sticky-dark-top-nav-with-dropdown.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+	.thirddiv{
+		font-size:16px;
+		font-family:Alegreya, serif;color:rgb(177,184,191);
+		margin:0px;
+		margin-left:99;
+		margin-top:0px;
+		padding:0px;
+		padding-top:0px;}
+      </style>
+</head>
+
+<body>
+    <div class="container-fluid background-light" style="background-color:orange;">
+        <div class="row no-gutters">
+            <div class="col" style="text-align:right;">
+                 <span> <i class="fa-regular " 
+			width="40" height="40" viewBox="0 0 40 40" fill="none">Email -> <strong>3bdalla995@gmail.com</strong> </i> </span>
+	            <span> <i class="fa-brands " 
+			width="40" height="40" viewBox="0 0 40 40" fill="none"> Tel & Whatsapp -> <strong>+974 71203694</strong> </i> </span>
+	    </div>
+        </div>
+    </div>
+    <div>
+        <div class="header-dark">
+		<input type="button" id="toggleContrast" class="material-symbols-outlined" title="Contrast" alt="toggleContrast">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                <div class="container"><a class="navbar-brand" href="#" style="color:rgb(231,230,231);font-family:Corbel, Corbel Bold;font-size:29px;">
+			AAHB©</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span>
+			<span class="navbar-toggler-icon"></span></button>
+                    <div
+                        class="collapse navbar-collapse" id="navcol-1"><span class="navbar-text"><button class="button" type="button" data-hover="Lets See!"><span>
+<a href="work.html" id ="linking-work">WANNA SEE MY WORK?</a></span></button></span><span class="ml-auto navbar-text"><a href="https://www.freelancer.com/u/Abdallaosman995"
+															 class="login">Mentorship</a></span>
+			    <a class="btn btn-light action-button" role="button" href="https://www.freelancer.com/u/Abdullaosman995">Hire Me</a></div>
+        </div>
+        </nav>
+        <div class="container hero">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1 class="text-center">Spend Time Gaining Knowledge!</h1>
+			<video id="vid" muted="" playsinline="" preload="true"
+				autoplay="" loop="" src="portfolio_bg_video1.mp4"
+				data-uw-rm-av="vi"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid jumbotron-main">
+	    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+            <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+    <div id="particles-js">
+	<canvas class="particles-js-canvas-el" width="1409" height="319" style="width: 100%; height: 100%;"></canvas>
+	</div>
+        <div class="container center-vertically-holder" style="margin-top:-20px;">
+            <div class="row center-vertically">
+                <div class="col-md-8 offset-sm-0 offset-md-2 text-center" style="margin-top:100px;margin-bottom:100px;">
+                    <h1 style="font-family:Corbel, Corbel-Bold;"><strong>Abdulla Bashir</strong><br><br></h1>
+                    <hr style="border-top:1px;color:rgba(255,255,255,0.2);width:60%;margin:0px;margin-top:-50px;margin-bottom:10px;margin-left:20%;">
+                    <p style="font-size:27px;font-family:'Roboto Slab', serif;">Developer, Scientific Writer</p>
+                    <p style="font-size:27px;font-family:'Roboto Slab', serif;">
+			    <br/>
+			    Commencing my Linux internship in 2016 marked the inception of a journey where I have
+			    undertaken remote assignments for esteemed companies, provided consulting services to 
+			    individuals, and engaged in collaborations with highly skilled professionals to drive
+			    digital transformation for diverse business and consumer applications. I carry a quiet
+			    confidence, an innate curiosity, and an unwavering commitment to the continuous enhancement
+			    of my skills
+		    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="jumbotron">
+                        <h1>Skills Set</h1>
+                        <p>Multi talented containing wide range of skills and curious to Learn.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>frameworks</th>
+                                    <th>Databases</th>
+				    <th>web</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Odoo (OpenERP)</td>
+                                    <td>Postman</td>
+				    <td>HTML</td>
+                                </tr>
+                                <tr>
+                                    <td>Django and restframework</td>
+                                    <td>MySql</td>
+				    <td>CSS</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan=",">Web Scrapping  BeautifulSoup,Selenium </td>
+                                    <td>PostgreSQL</td>
+			            <td>Bootstrap</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan=",">Urllibe, Requests ,Argparse</td>
+                                    <td>SQLite</td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>Core Python</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="font-size:17px;font-weight:700;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>   
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  <div class="carousel"> 
+    <div class="carousel-item"> 
+      <div class="slide-image"
+        style="background-image: 
+url('abdalla.png');"> 
+      </div> 
+    </div> 
+    <div class="carousel-item"> 
+      <div class="slide-image"
+        style="background-image: 
+url('abdalla.png');"> 
+      </div> 
+    </div> 
+    <div class="carousel-item"> 
+      <div class="slide-image"
+        style="background-image: 
+url('abdalla.png');"> 
+      </div> 
+    </div> 
+    
+  </div> 
+
+  <script src="./scripts.js"></script> 
+    </section>
+    <div class="jumbotron-triangular-addon-wrapper">
+        <div class="jumbotron-addon jumbotron-addon-top jumbotron-addon-triangular">
+            <div class="bg-primary addon-triangular-inner addon-triangular-inner-top">
+		    <i class="fa fa-star"></i>
+	    </div>
+        </div>
+        <div class="jumbotron">
+            <h1>Wait I didn't Finished yet !</h1>
+            <p>Click here to see my creative and artistic work&nbsp;</p>
+            <p><a class="btn btn-light" role="button" href="work.html">Visit</a></p>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <p class="copyright">AAHB© 2023</p>
+        </footer>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Popper Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script>
+    <!-- Jumbotron -->
+    <script src="assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
+</body>
+
+</html>
