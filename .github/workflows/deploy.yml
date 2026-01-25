@@ -18,11 +18,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    # 🔑 REQUIRED by GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Optional: basic validation
       - name: Validate entry file
         run: |
           test -f index.html
@@ -36,4 +40,5 @@ jobs:
           path: .
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
