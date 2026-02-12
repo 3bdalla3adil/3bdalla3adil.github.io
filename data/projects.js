@@ -24,17 +24,17 @@ export const projects = [
   },
   {
     id: 'odoo-account-filter',
-    title: 'Odoo 17 Account Reports Filter',
-    description: 'New report filter feature for Account Reports module, merged into default Odoo 17 framework.',
+    title: 'Account Reports Filter',
+    description: 'New report filter feature for Account Reports module, merged into default Odoo 17 & 18 & 19 framework.',
     longDescription: 'Successfully created a new filter for the Account Reports module in Odoo 17. Allows users to select accounts from a list, filter reports based on selected accounts, and admins can choose whether to display or hide this filter. This contribution has been added to the default Odoo 17 framework.',
     category: 'odoo',
-    tags: ['Odoo 17', 'Reporting', 'Python', 'Contributor'],
+    tags: ['Odoo', 'Reporting', 'Python', 'Contributor'],
     image: '/assets/img/odoo-filter.jpg',
-    github: 'https://github.com/3bdalla3adil/product-odoo-restrictions',
-    demo: null,
-    featured: false,
+    github: 'https://apps.odoo.com/apps/modules/17.0/finance-odoo-filter',
+    demo: "https://youtu.be/mu1i4l5taLg" ,
+    featured: true,
     year: 2024,
-    client: 'Odoo Community',
+    client: 'Odoo Enterprise',
     status: 'completed'
   },
   {
@@ -45,10 +45,10 @@ export const projects = [
     category: 'odoo',
     tags: ['Odoo', 'REST API', 'HR', 'Payroll', 'PostgreSQL'],
     image: '/assets/img/odoo-hr.jpg',
-    github: null,
+    github: 'https://github.com/3bdalla3adil/odoo_attendance_custom',
     demo: null,
     featured: false,
-    year: 2024,
+    year: 2022,
     client: 'Corporate Client',
     status: 'completed'
   },
@@ -63,7 +63,7 @@ export const projects = [
     github: null,
     demo: null,
     featured: true,
-    year: 2023,
+    year: 2022,
     client: 'French Client',
     status: 'completed'
   },
@@ -74,11 +74,11 @@ export const projects = [
     longDescription: 'Ported Golang code to pure Python without using any external Python packages. The tool accepts text keywords as input and outputs JSON responses via API. Built with Django REST framework to populate database with keywords and provide web framework for data retrieval.',
     category: 'python',
     tags: ['Python', 'Django REST', 'PostgreSQL', 'Cybersecurity', 'API'],
-    image: '/assets/img/cyber-tool.jpg',
-    github: null,
+    image: '/images/cybermestudio.png',
+    github: 'https://github.com/3bdalla3adil/DjangoArabicTranslation_API',
     demo: null,
     featured: false,
-    year: 2023,
+    year: 2022,
     client: 'American Client',
     status: 'completed'
   },
@@ -90,10 +90,10 @@ export const projects = [
     category: 'devops',
     tags: ['Docker', 'Nginx', 'Bash', 'Linux', 'DevOps'],
     image: '/assets/img/linux-odoo.jpg',
-    github: null,
-    demo: null,
+    github: 'huloolsoft.com',
+    demo: 'huloolsoft.com',
     featured: false,
-    year: 2024,
+    year: 2023,
     client: 'Multiple Clients',
     status: 'completed'
   },
@@ -105,7 +105,7 @@ export const projects = [
     category: 'android',
     tags: ['Android', 'Kotlin', 'Java', 'API Integration', 'Mobile'],
     image: '/assets/img/prayer-app.jpg',
-    github: null,
+    github: 'https://github.com/3bdalla3adil/AndroidPrayerTimesApp',
     demo: null,
     featured: true,
     year: 2023,
@@ -123,8 +123,8 @@ export const projects = [
     github: null,
     demo: null,
     featured: false,
-    year: 2023,
-    client: 'Local Business',
+    year: 2021,
+    client: 'Local Bakry',
     status: 'completed'
   },
   {
@@ -165,9 +165,9 @@ export const skills = [
 export const certificates = [
   {
     id: 'isc2',
-    title: 'ISC2 Certificate',
-    issuer: 'ISC2',
-    date: '2024-01-01',
+    title: 'ISC2 Certificate From Coursera',
+    issuer: 'Coursera',
+    date: '2025-04-29',
     image: '/assets/img/isc2_cert.png',
     url: null
   },
@@ -175,7 +175,7 @@ export const certificates = [
     id: 'backend-cert',
     title: 'Backend Development Certificate',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2024-05-01',
     image: '/assets/img/backend_cert.png',
     url: null
   },
@@ -191,7 +191,7 @@ export const certificates = [
     id: 'linux-cloud-devops',
     title: 'Linux Cloud & DevOps',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2023-07-01',
     image: '/assets/img/linux_cloud_and_devops_cert.png',
     url: null
   },
@@ -199,7 +199,7 @@ export const certificates = [
     id: 'managing-linux',
     title: 'Managing Linux Systems',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2023-08-01',
     image: '/assets/img/managing_linux_system_cert.png',
     url: null
   },
@@ -207,7 +207,7 @@ export const certificates = [
     id: 'securing-linux',
     title: 'Securing Linux Systems',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2023-09-01',
     image: '/assets/img/securing_linux_system_cert.png',
     url: null
   },
@@ -215,7 +215,7 @@ export const certificates = [
     id: 'linux-specialization',
     title: 'Linux Specialization',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2023-10-01',
     image: '/assets/img/linux_specialization_cert.png',
     url: null
   },
@@ -223,7 +223,7 @@ export const certificates = [
     id: 'os-foundation',
     title: 'Operating System Foundation',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/operating_system_foundation_cert.png',
     url: null
   },
@@ -231,7 +231,7 @@ export const certificates = [
     id: 'hardware-software',
     title: 'Computer Hardware and Software',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/computer_hardware_and_software_cert.png',
     url: null
   },
@@ -239,7 +239,7 @@ export const certificates = [
     id: 'cybersecurity-foundations',
     title: 'Cybersecurity Foundations Specialization',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/cybersecurity_foundations_specialization_cert.png',
     url: null
   },
@@ -247,7 +247,7 @@ export const certificates = [
     id: 'cybersecurity-policy',
     title: 'Cybersecurity Policy Foundation',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/cybersecurity_policy_foundation_cert.png',
     url: null
   },
@@ -255,7 +255,7 @@ export const certificates = [
     id: 'brand-cert',
     title: 'Brand Certificate',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/brand_cert.png',
     url: null
   },
@@ -263,7 +263,7 @@ export const certificates = [
     id: 'comptia-project',
     title: 'CompTIA Project+ Certificate',
     issuer: 'CompTIA',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/comptia_project_cert.png',
     url: null
   },
@@ -271,7 +271,7 @@ export const certificates = [
     id: 'canva',
     title: 'Canva Certificate',
     issuer: 'Canva',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/canva_cert.png',
     url: null
   },
@@ -279,7 +279,7 @@ export const certificates = [
     id: 'python-flask',
     title: 'Python Flask Certificate',
     issuer: 'Educational Institution',
-    date: '2023-01-01',
+    date: '2024-01-01',
     image: '/assets/img/python_flask_cert.png',
     url: null
   }
