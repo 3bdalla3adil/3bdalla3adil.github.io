@@ -11,7 +11,7 @@ export const projects = [
     tags: ['Odoo 18', 'Python', 'Sales Management', 'ERP'],
     image: '/assets/img/odoo-module.jpg',
     github: 'https://apps.odoo.com/apps/modules/18.0/petro_integration',
-    demo: 'https://youtu.be/mu1i4l5taLg',
+    demo: 'https://youtu.be/qlh95tVgi98',
     featured: true,
     year: 2026,
     client: 'Enterprise Client',
