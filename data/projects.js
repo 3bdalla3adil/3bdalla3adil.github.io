@@ -3,6 +3,26 @@
 
 export const projects = [
   {
+    id: 'odoo-petro-integration',
+    title: 'Odoo petro integration API Module',
+    description: 'Revolutionary Odoo 18 module for managing fuel bundles with precise quantity tracking and comprehensive history.',
+    longDescription: 'A brand-new Odoo 18 api module designed to revolutionize sales transaction and tank measurement processes for fuel. Simplifies and automating creating sales information, with accurate quantity calculations and detailed action history for enhanced traceability.',
+    category: 'odoo',
+    tags: ['Odoo 18', 'Python', 'Sales Management', 'ERP'],
+    image: '/assets/img/odoo-module.jpg',
+    github: 'https://apps.odoo.com/apps/modules/18.0/petro_integration',
+    demo: 'https://youtu.be/mu1i4l5taLg',
+    featured: true,
+    year: 2026,
+    client: 'Enterprise Client',
+    status: 'completed',
+    highlights: [
+      'Seamless petro integration API operations',
+      'Precise matrices Tracking',
+      'Comprehensive sales transaction History monitoring'
+    ]
+  },
+  {
     id: 'odoo-assembly-disassembly',
     title: 'Odoo Assembly/Disassembly Module',
     description: 'Revolutionary Odoo 16 module for managing product bundles with precise quantity tracking and comprehensive history.',
@@ -108,7 +128,7 @@ export const projects = [
     github: 'https://github.com/3bdalla3adil/AndroidPrayerTimesApp',
     demo: null,
     featured: true,
-    year: 2023,
+    year: 2021,
     client: 'Personal Project',
     status: 'completed'
   },
@@ -241,7 +261,7 @@ export const certificates = [
     issuer: 'Educational Institution',
     date: '2024-01-01',
     image: '/assets/img/cybersecurity_foundations_specialization_cert.png',
-    url: null
+    url: 'https://www.coursera.org/account/accomplishments/verify/ODJOL2ZIV396?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course'
   },
   {
     id: 'cybersecurity-policy',
@@ -275,6 +295,15 @@ export const certificates = [
     image: '/assets/img/canva_cert.png',
     url: null
   },
+  {
+    id: 'Successful-presentation',
+    title: 'Successful Presentation Certificate',
+    issuer: 'Educational Institution',
+    date: '2026-01-01',
+    image: null,
+    url: 'https://coursera.org/share/c20cd7c345a07f20f7f0c04da09df947'
+  }
+  ,
   {
     id: 'python-flask',
     title: 'Python Flask Certificate',
