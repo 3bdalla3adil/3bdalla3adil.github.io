@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quotation Estimation Form Flowchart | مخطط نموذج التسعيرة</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ffffff; font-family: 'Segoe UI', Arial, sans-serif; color: #222; }
+    header {
+      background: linear-gradient(135deg, #1a5276, #2e86c1);
+      color: white; padding: 24px 32px; text-align: center;
+    }
+    header h1 { font-size: 1.8rem; margin-bottom: 6px; }
+    header h2 { font-size: 1.2rem; font-weight: 400; opacity: 0.85; direction: rtl; }
+    .toolbar {
+      display: flex; justify-content: flex-end;
+      padding: 12px 24px; background: #f4f6f7; border-bottom: 1px solid #ddd;
+    }
+    .btn-print {
+      background: #2e86c1; color: white; border: none;
+      padding: 9px 22px; border-radius: 6px; font-size: 0.95rem; cursor: pointer;
+    }
+    .btn-print:hover { background: #1a5276; }
+    .chart-wrapper { width: 100%; overflow-x: auto; padding: 32px 16px; min-height: 400px; }
+    .mermaid { min-width: 100%; display: block; }
+    .legend { padding: 28px 32px 40px; background: #f9f9f9; border-top: 2px solid #e0e0e0; }
+    .legend h3 { font-size: 1.1rem; margin-bottom: 16px; color: #1a5276; }
+    .legend-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; min-width: 260px; }
+    .legend-color { width: 22px; height: 22px; border-radius: 4px; border: 1px solid #bbb; flex-shrink: 0; }
+    @media print { .toolbar { display: none; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Quotation Estimation Form Flowchart</h1>
+  <h2>مخطط نموذج التسعيرة — تصنيع / تشغيل / خزانات / أعمال موقع</h2>
+</header>
+
+<!--<div class="toolbar">
+  <button class="btn-print" onclick="window.print()"> Print / طباعة</button>
+</div>-->
+
+<div class="chart-wrapper">
+<div class="mermaid">
+flowchart TD
+    START([ START / البداية]):::startEnd
+
+    subgraph S1[" S1 — بيانات الطلب الأساسية | Basic Request Data"]
+        direction TB
+        S1A[" RFQ Number [Mandatory]"]:::s1
+        S1B[" Client Name / اسم العميل [Mandatory]"]:::s1
+        S1C[" Request Date / تاريخ الطلب [Mandatory]"]:::s1
+        S1D[" Estimator Name / اسم المسعّر [Mandatory]"]:::s1
+        S1E{" Work Nature? / طبيعة العمل؟"}:::s1d
+        S1E_N["Normal / عادي"]:::s1
+        S1E_U["Urgent / عاجل"]:::s1
+        S1F{" Work Location? / موقع العمل؟"}:::s1d
+        S1F_I["Inside Factory / داخل المصنع"]:::s1
+        S1F_C["Client Site / موقع العميل"]:::s1
+        S1G{" Work Type? / نوع العمل؟"}:::s1d
+        S1G1["Machining / تشغيل"]:::s1
+        S1G2["Fabrication / تصنيع"]:::s1
+        S1G3["Civil / مدني"]:::s1
+        S1G4["Piping / أنابيب"]:::s1
+        S1G5["Tank / خزانات"]:::s1
+        S1G6["Maintenance / صيانة"]:::s1
+        S1G7["Other / أخرى"]:::s1
+    end
+
+    subgraph S2[" S2 — ظروف الموقع | Site Conditions"]
+        direction TB
+        S2A{" Building Type? / نوع المبنى؟"}:::s2d
+        S2A1["Low / منخفض"]:::s2
+        S2A2["Medium / متوسط"]:::s2
+        S2A3["High / مرتفع"]:::s2
+        S2B{" Site Difficulty? / صعوبة الموقع؟"}:::s2d
+        S2B1["Easy / سهل"]:::s2
+        S2B2["Medium / متوسط"]:::s2
+        S2B3["Hard / صعب"]:::s2
+        S2C{" Requires Shutdown?"}:::s2d
+        S2C_Y["Yes → Note Shutdown / نعم → تسجيل الإيقاف"]:::s2
+        S2C_N["No / لا"]:::s2
+        S2D{" Work Permit? / تصريح عمل؟"}:::s2d
+        S2D1["Yes / نعم"]:::s2
+        S2D2["No / لا"]:::s2
+        S2E{" Safety Requirements?"}:::s2d
+        S2E1["Yes / نعم"]:::s2
+        S2E2["No / لا"]:::s2
+        S2F{" Scaffolding Needed? / سقالات؟"}:::s2d
+        S2F1["Yes / نعم"]:::s2
+        S2F2["No / لا"]:::s2
+        S2G{" Crane / Forklift / Manlift?"}:::s2d
+        S2G1["Yes / نعم"]:::s2
+        S2G2["No / لا"]:::s2
+        S2H{" Rental Equipment? / معدات مستأجرة؟"}:::s2d
+        S2H_Y["Yes → Type + Days + Daily Cost\nنعم → النوع + الأيام + التكلفة اليومية"]:::s2
+        S2H_N["No / لا"]:::s2
+    end
+
+    subgraph S3[" S3 — نوع التنفيذ | Execution Type"]
+        direction TB
+        S3A{" Outsourced? / تنفيذ خارجي؟"}:::s3d
+        S3A_Y["Yes → Supplier Name + Work Type\n+ Cost + Duration + Notes"]:::s3
+        S3A_N["No — In-House / تنفيذ داخلي"]:::s3
+    end
+
+    subgraph S4[" S4 — بيانات المواد | Material Data"]
+        direction TB
+        S4A{" Material Type? / نوع المادة؟"}:::s4d
+        S4A1["MS / فولاذ عادي"]:::s4
+        S4A2["SS304"]:::s4
+        S4A3["SS316"]:::s4
+        S4A4["Aluminum / ألومنيوم"]:::s4
+        S4A5["Brass / نحاس"]:::s4
+        S4A6["Other / أخرى"]:::s4
+        S4B[" Dimensions: Thickness | Diameter | Length | Width | Height | Qty"]:::s4
+        S4C{" Materials from Client? / من العميل؟"}:::s4d
+        S4C1["Yes / نعم"]:::s4
+        S4C2["No / لا"]:::s4
+        S4D{" Materials from Factory? / من المصنع؟"}:::s4d
+        S4D1["Yes / نعم"]:::s4
+        S4D2["No / لا"]:::s4
+        S4E[" Expected Material Cost / التكلفة المتوقعة"]:::s4
+        S4F[" Waste % / نسبة الهدر"]:::s4
+    end
+
+    subgraph S5[" S5 — نموذج الخزانات | Tank Form"]
+        direction TB
+        S5_CHK{"Work Type = Tank?"}:::s5d
+        S5A{" Tank Shape? / شكل الخزان؟"}:::s5d
+        S5_SQ["Square Tank:\nL + W + H + Wall Thickness\n+ Bottom Thickness + Top Cover\n+ Material + Finish + Attachments"]:::s5
+        S5_RD["Round Tank:\nDiameter + H + Wall Thickness\n+ Bottom Thickness + Top Cover\n+ Material + Finish + Attachments"]:::s5
+        S5_SKIP["Skip Tank Form / تخطي"]:::s5
+    end
+
+    subgraph S6[" S6 — خطوات العمل | Work Steps & Cost"]
+        direction TB
+        S6_HDR[" Table: Operation | Workers | Hours | Rate | Cost"]:::s6
+        S6_OPS["Cutting | Rolling | Welding | Grinding | Polishing\nDrilling | Machining | Assembly | Testing | Painting | Delivery"]:::s6
+        S6_FORM[" Cost = Workers × Hours × Hourly Rate"]:::s6
+    end
+
+    subgraph S7[" S7 — أسعار الساعة | Hourly Rates"]
+        direction TB
+        S7A["Normal / عادي: 60–80 SAR/hr"]:::s7
+        S7B["Urgent / عاجل: 120+ SAR/hr"]:::s7
+        S7C["Heavy Machine / آلات ثقيلة: 150+ SAR/hr"]:::s7
+        S7D["Precision / High Risk: 85+ SAR/hr"]:::s7
+        S7E["External Site / موقع خارجي: + Allowance"]:::s7
+    end
+
+    subgraph S8[" S8 — مصاريف إضافية | Additional Costs"]
+        direction TB
+        S8A[" Transport / نقل"]:::s8
+        S8B[" Loading & Unloading"]:::s8
+        S8C[" Crane / رافعة"]:::s8
+        S8D[" Scaffolding / سقالات"]:::s8
+        S8E[" Rental Equipment"]:::s8
+        S8F[" Consumables / مستهلكات"]:::s8
+        S8G[" Gas: Argon / Oxygen"]:::s8
+        S8H[" Grinding Discs"]:::s8
+        S8I[" Welding Rods"]:::s8
+        S8J[" Painting Materials"]:::s8
+        S8K[" Third Party Inspection"]:::s8
+        S8L[" Testing / اختبارات"]:::s8
+        S8M[" Packaging / تغليف"]:::s8
+    end
+
+    subgraph S9[" S9 — ملخص التسعيرة | Final Summary"]
+        direction TB
+        S9F[" TOTAL COST = Material + Labor\n+ Equipment + Outsource + Additional\nإجمالي التكلفة"]:::s9
+        S9G[" Profit % → Final Price for Client\nنسبة الربح → السعر النهائي"]:::s9
+        S9H[" Execution Duration / مدة التنفيذ"]:::s9
+        S9I[" Expected Delivery Date / تاريخ التسليم"]:::s9
+    end
+
+    subgraph S10[" S10 — الحقول الإلزامية والموافقة | Mandatory Fields & Approval"]
+        direction TB
+        S10A{" All Mandatory Fields Filled?\nهل جميع الحقول الإلزامية مكتملة؟"}:::s10d
+        S10_RETURN[" Return to Fill Missing Fields\nالعودة لإكمال الحقول الناقصة"]:::s10
+        S10B{" Manager Approval? / موافقة المدير؟"}:::s10d
+        S10_PENDING[" PENDING / قيد الانتظار"]:::s10
+        S10_SUBMIT[" SUBMIT / إرسال"]:::s10
+    end
+
+    END_NODE([ END — APPROVED & SUBMITTED\nتمت الموافقة والإرسال]):::startEnd
+
+    START --> S1A
+    S1A --> S1B --> S1C --> S1D --> S1E
+    S1E --> S1E_N & S1E_U
+    S1E_N & S1E_U --> S1F
+    S1F --> S1F_I & S1F_C
+    S1F_I & S1F_C --> S1G
+    S1G --> S1G1 & S1G2 & S1G3 & S1G4 & S1G5 & S1G6 & S1G7
+    S1G1 & S1G2 & S1G3 & S1G4 & S1G5 & S1G6 & S1G7 --> S2A
+    S2A --> S2A1 & S2A2 & S2A3
+    S2A1 & S2A2 & S2A3 --> S2B
+    S2B --> S2B1 & S2B2 & S2B3
+    S2B1 & S2B2 & S2B3 --> S2C
+    S2C -->|Yes| S2C_Y
+    S2C -->|No| S2C_N
+    S2C_Y & S2C_N --> S2D
+    S2D --> S2D1 & S2D2
+    S2D1 & S2D2 --> S2E
+    S2E --> S2E1 & S2E2
+    S2E1 & S2E2 --> S2F
+    S2F --> S2F1 & S2F2
+    S2F1 & S2F2 --> S2G
+    S2G --> S2G1 & S2G2
+    S2G1 & S2G2 --> S2H
+    S2H -->|Yes| S2H_Y
+    S2H -->|No| S2H_N
+    S2H_Y & S2H_N --> S3A
+    S3A -->|Yes| S3A_Y
+    S3A -->|No| S3A_N
+    S3A_Y & S3A_N --> S4A
+    S4A --> S4A1 & S4A2 & S4A3 & S4A4 & S4A5 & S4A6
+    S4A1 & S4A2 & S4A3 & S4A4 & S4A5 & S4A6 --> S4B
+    S4B --> S4C
+    S4C --> S4C1 & S4C2
+    S4C1 & S4C2 --> S4D
+    S4D --> S4D1 & S4D2
+    S4D1 & S4D2 --> S4E --> S4F
+    S4F --> S5_CHK
+    S5_CHK -->|Yes - Tank| S5A
+    S5_CHK -->|No| S5_SKIP
+    S5A -->|Square| S5_SQ
+    S5A -->|Round| S5_RD
+    S5_SQ & S5_RD & S5_SKIP --> S6_HDR
+    S6_HDR --> S6_OPS --> S6_FORM
+    S6_FORM --> S7A & S7B & S7C & S7D & S7E
+    S7A & S7B & S7C & S7D & S7E --> S8A
+    S8A --> S8B --> S8C --> S8D --> S8E --> S8F --> S8G --> S8H --> S8I --> S8J --> S8K --> S8L --> S8M
+    S8M --> S9F --> S9G --> S9H --> S9I
+    S9I --> S10A
+    S10A -->|No| S10_RETURN
+    S10_RETURN --> S10A
+    S10A -->|Yes| S10B
+    S10B -->|No| S10_PENDING
+    S10B -->|Yes| S10_SUBMIT
+    S10_SUBMIT --> END_NODE
+
+    classDef startEnd fill:#1a5276,stroke:#0d2b45,color:#fff,font-weight:bold
+    classDef s1  fill:#AED6F1,stroke:#5dade2,color:#1a252f
+    classDef s1d fill:#AED6F1,stroke:#2e86c1,color:#1a252f,font-weight:bold
+    classDef s2  fill:#A9DFBF,stroke:#52be80,color:#1a252f
+    classDef s2d fill:#A9DFBF,stroke:#27ae60,color:#1a252f,font-weight:bold
+    classDef s3  fill:#FAD7A0,stroke:#f39c12,color:#1a252f
+    classDef s3d fill:#FAD7A0,stroke:#e67e22,color:#1a252f,font-weight:bold
+    classDef s4  fill:#F9E79F,stroke:#f1c40f,color:#1a252f
+    classDef s4d fill:#F9E79F,stroke:#d4ac0d,color:#1a252f,font-weight:bold
+    classDef s5  fill:#D7BDE2,stroke:#a569bd,color:#1a252f
+    classDef s5d fill:#D7BDE2,stroke:#8e44ad,color:#1a252f,font-weight:bold
+    classDef s6  fill:#A2D9CE,stroke:#45b39d,color:#1a252f
+    classDef s7  fill:#F5CBA7,stroke:#e59866,color:#1a252f
+    classDef s8  fill:#D5D8DC,stroke:#aab7b8,color:#1a252f
+    classDef s9  fill:#F8C471,stroke:#f39c12,color:#1a252f
+    classDef s10 fill:#F1948A,stroke:#e74c3c,color:#1a252f
+    classDef s10d fill:#F1948A,stroke:#c0392b,color:#1a252f,font-weight:bold
+</div>
+</div>
+
+<div class="legend">
+  <h3> Section Color Legend / دليل ألوان الأقسام</h3>
+  <div class="legend-grid">
+    <div class="legend-item"><div class="legend-color" style="background:#AED6F1"></div><span><strong>S1</strong> — بيانات الطلب الأساسية | Basic Request Data</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#A9DFBF"></div><span><strong>S2</strong> — ظروف الموقع | Site Conditions</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#FAD7A0"></div><span><strong>S3</strong> — نوع التنفيذ | Execution Type</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#F9E79F"></div><span><strong>S4</strong> — بيانات المواد | Material Data</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#D7BDE2"></div><span><strong>S5</strong> — نموذج الخزانات | Tank Form</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#A2D9CE"></div><span><strong>S6</strong> — خطوات العمل | Work Steps & Cost</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#F5CBA7"></div><span><strong>S7</strong> — أسعار الساعة | Hourly Rates</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#D5D8DC"></div><span><strong>S8</strong> — مصاريف إضافية | Additional Costs</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#F8C471"></div><span><strong>S9</strong> — ملخص التسعيرة | Final Summary</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#F1948A"></div><span><strong>S10</strong> — الحقول الإلزامية والموافقة | Mandatory Fields & Approval</span></div>
+  </div>
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'default',
+    flowchart: { useMaxWidth: false, htmlLabels: true, curve: 'basis' },
+    securityLevel: 'loose'
+  });
+</script>
+</body>
+</html>
