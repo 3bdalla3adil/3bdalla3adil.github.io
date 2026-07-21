@@ -1,1227 +1,571 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AAHB | Portfolio</title>
-  <meta name="description" content="Portfolio of Abdulla B. — Python & Odoo developer, Linux admin, Android apps." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abdulla Bashir — Python & Odoo Developer</title>
+  <meta name="description" content="Portfolio of Abdulla B. — Python & Odoo developer, Linux admin, Android apps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{
-      --bg: #0b0d10;
-      --card: #111418;
-      --text: #e8edf2;
-      --muted:#a6b0bb;
-      --brand:#4f46e5;
-      --brand-2:#06b6d4;
-      --ring: rgba(79,70,229,.35);
-      --border:#1f242b;
-      --chip:#0f1720;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
+    /* ─── Design Tokens ─── */
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --border: #d2d2d7;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 5rem;
+      --max-width: 980px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    :root[data-theme="light"]{
-      --bg:#f7f8fa;
-      --card:#ffffff;
-      --text:#0e1116;
-      --muted:#4b5563;
-      --brand:#4338ca;
-      --brand-2:#0ea5e9;
-      --ring: rgba(14,165,233,.25);
-      --border:#e5e7eb;
-      --chip:#eef2ff;
-      --shadow: 0 8px 24px rgba(15,23,42,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-      background: radial-gradient(1200px 600px at 10% -10%,rgba(79,70,229,.25),transparent 40%),
-                  radial-gradient(1000px 600px at 110% -20%,rgba(14,165,233,.20),transparent 45%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
-    a{color:var(--brand);text-decoration:none}
-    a:hover{opacity:.9}
-    .container{width:min(1120px,92vw); margin-inline:auto}
-    header.nav{
-      position:sticky; top:0; z-index:100;
-      backdrop-filter:saturate(140%) blur(10px);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      border-bottom:1px solid var(--border);
-    }
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:.85rem 0}
-    .brand{display:flex; gap:.75rem; align-items:center}
-    .logo{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg,var(--brand),var(--brand-2));
-      box-shadow:0 6px 20px var(--ring);
-    }
-    .brand h1{font-size:1.05rem;margin:0;font-weight:800;letter-spacing:.4px}
-    .nav-actions{display:flex; gap:.5rem; align-items:center}
-    .btn{
-      appearance:none; cursor:pointer; border:1px solid var(--border); color:var(--text);
-      background:linear-gradient(180deg, color-mix(in srgb, var(--card) 94%, transparent), var(--card));
-      padding:.6rem .9rem; border-radius:999px; font-weight:600;
-      transition:transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
-      box-shadow:var(--shadow);
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 32px rgba(0,0,0,.18)}
-    .btn.primary{background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 92%, transparent), var(--brand));
-      border-color:color-mix(in srgb, var(--brand) 80%, var(--border)); color:white}
-    .btn.chip{background:var(--chip); border-color:color-mix(in srgb, var(--brand) 25%, var(--border)); color:inherit}
-    .hero{
-      padding: clamp(2rem, 4vw + 1rem, 4rem) 0 2rem;
-      display:grid; gap:2rem; grid-template-columns:1.1fr .9fr; align-items:center;
-    }
-    @media (max-width: 980px){.hero{grid-template-columns:1fr}}
-    .badge{
-      display:inline-flex; align-items:center; gap:.5rem; padding:.4rem .7rem; border-radius:999px;
-      border:1px dashed color-mix(in srgb, var(--brand) 50%, var(--border));
-      background: color-mix(in srgb, var(--brand) 10%, transparent);
-      color: color-mix(in srgb, var(--brand) 85%, var(--text));
-      font-weight:700; letter-spacing:.3px; font-size:.8rem;
-    }
-    .title{font-size: clamp(1.8rem, 1.2rem + 2.6vw, 3.2rem); margin:.6rem 0 .4rem; line-height:1.2}
-    .subtitle{color:var(--muted); font-size:1.05rem; margin-bottom:1.2rem}
-    .hero-actions{display:flex; gap:.75rem; flex-wrap:wrap}
-    .card{
-      background:linear-gradient(180deg, color-mix(in srgb, var(--card) 96%, transparent), var(--card));
-      border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem;
-      box-shadow:var(--shadow);
-    }
-    section{padding:2rem 0}
-    .section-head{display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1rem}
-    .section-head h2{margin:0; font-size: clamp(1.25rem, .9rem + 1.2vw, 1.6rem)}
-    .grid{display:grid; gap:1rem}
-    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
-    @media (max-width: 980px){.grid.cols-3{grid-template-columns:1fr 1fr}}
-    @media (max-width: 680px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
-    .item h3{margin:.3rem 0 .25rem; font-size:1.05rem}
-    .item p{margin:0; color:var(--muted)}
-    .list{margin:.6rem 0 0; padding-left:1.2rem}
-    .list li{margin:.25rem 0}
-    .project .pill{
-      display:inline-block; font-size:.78rem; padding:.25rem .55rem; margin:.25rem .35rem .25rem 0;
-      border-radius:999px; border:1px solid var(--border); background:var(--chip)
-    }
-    .kpi{
-      display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; margin-top:.6rem
-    }
-    .kpi .box{border:1px solid var(--border); border-radius:12px; padding:.7rem .8rem; text-align:center}
-    .kpi .big{font-weight:800; font-size:1.15rem}
-    .certs{display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem}
-    @media (max-width: 820px){.certs{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width: 520px){.certs{grid-template-columns:1fr}}
-    .cert{overflow:hidden; border-radius:12px; border:1px solid var(--border); background:var(--card); cursor:pointer}
-    .cert img{width:100%; display:block; aspect-ratio: 4 / 3; object-fit:cover; transition:transform .6s ease}
-    .cert:hover img{transform:scale(1.04)}
 
-    /* Certificate modal */
-    .cert-modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      z-index:1000;
-      background:rgba(0,0,0,.9);
-      align-items:center;
-      justify-content:center;
-      padding:2rem;
-      overflow-y:auto;
-      overflow-x:hidden;
-    }
-    .cert-modal.show{display:flex}
-    .cert-modal-content{
-      position:relative;
-      width:100%;
-      max-width:95vw;
-      max-height:95vh;
-      margin:auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      animation:zoomIn .25s ease-out;
-    }
-    .cert-modal-image{
-      width:100%;
-      height:auto;
-      max-width:100%;
-      max-height:95vh;
-      object-fit:contain;
-      border-radius:12px;
-      box-shadow:0 18px 45px rgba(0,0,0,.6);
-      display:block;
-    }
-    .cert-modal-close{
-      position:fixed;
-      top:1rem;
-      right:1rem;
-      font-size:2.5rem;
-      color:#fff;
-      cursor:pointer;
-      text-shadow:0 2px 10px rgba(0,0,0,.8);
-      transition:transform .15s ease, color .2s ease;
-      z-index:1001;
-      background:rgba(0,0,0,.5);
-      border-radius:50%;
-      width:3rem;
-      height:3rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      line-height:1;
-    }
-    .cert-modal-close:hover{
-      transform:scale(1.1);
-      color:#f97373;
-      background:rgba(0,0,0,.7);
-    }
-    @keyframes zoomIn{
-      from{transform:scale(.75); opacity:0}
-      to{transform:scale(1); opacity:1}
-    }
-    @media (max-width: 768px){
-      .cert-modal{
-        padding:1rem;
-      }
-      .cert-modal-content{
-        max-width:100vw;
-        max-height:100vh;
-      }
-      .cert-modal-image{
-        max-height:90vh;
-      }
-      .cert-modal-close{
-        top:.5rem;
-        right:.5rem;
-        width:2.5rem;
-        height:2.5rem;
-        font-size:2rem;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --surface: #1d1d1f;
+        --text: #f5f5f7;
+        --muted: #a1a1a6;
+        --border: #424245;
       }
     }
-    .footer{
-      border-top:1px solid var(--border); margin-top:2rem; padding:1.4rem 0; color:var(--muted); font-size:.95rem
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+      font-weight: 400;
     }
-    .row{display:flex; gap:.6rem; flex-wrap:wrap}
-    .input{width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text)}
-    .input:focus{outline:none; box-shadow:0 0 0 6px var(--ring)}
-    .contact-grid{display:grid; gap:.8rem; grid-template-columns:1fr 1fr}
-    @media (max-width:700px){.contact-grid{grid-template-columns:1fr}}
-    .tools{display:flex; flex-wrap:wrap; gap:.5rem}
-    .chip{padding:.35rem .6rem; border-radius:999px; background:var(--chip); border:1px solid var(--border); font-size:.85rem}
-    .muted{color:var(--muted)}
-    /* RTL support when Arabic is active */
-    :root[dir="rtl"] .row, :root[dir="rtl"] .hero-actions{flex-direction: row-reverse}
-    :root[dir="rtl"] .list{padding-left:0; padding-right:1.2rem}
+
+    /* ─── Typography ─── */
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+    h3 { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; }
+    p { color: var(--muted); font-size: 1.0625rem; line-height: 1.6; max-width: 65ch; }
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    /* ─── Layout ─── */
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); }
+    section { padding: var(--space-xl) 0; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* ─── Navigation ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 250, 250, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    @media (prefers-color-scheme: dark) {
+      nav { background: rgba(0, 0, 0, 0.8); }
+    }
+    nav.scrolled { border-color: var(--border); }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .logo { font-weight: 700; font-size: 1.25rem; color: var(--text); letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: var(--space-md); align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--text);
+      opacity: 0.8;
+      font-weight: 500;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-cta {
+      background: var(--accent);
+      color: white !important;
+      padding: 0.5rem 1rem;
+      border-radius: 980px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      opacity: 1 !important;
+    }
+    .nav-cta:hover { background: var(--accent-hover); opacity: 1 !important; }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: var(--space-xl) 0 var(--space-lg);
+      text-align: center;
+    }
+    .hero h1 { margin-bottom: var(--space-md); }
+    .hero > p {
+      margin: 0 auto var(--space-lg);
+      font-size: 1.25rem;
+      max-width: 55ch;
+    }
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 980px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--accent-hover); opacity: 1; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      box-shadow: inset 0 0 0 1.5px var(--accent);
+    }
+    .btn-secondary:hover { background: var(--accent); color: white; opacity: 1; }
+
+    /* ─── Projects ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-lg);
+    }
+    .project-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      .project-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    }
+    .project-thumb {
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #e8e8ed 0%, #d2d2d7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--muted);
+    }
+    .project-info { padding: var(--space-md); }
+    .project-info h3 { margin-bottom: var(--space-xs); }
+    .project-info p { font-size: 0.9375rem; margin-bottom: var(--space-sm); color: var(--muted); }
+    .project-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      background: rgba(0,113,227,0.1);
+      color: var(--accent);
+      border-radius: 980px;
+    }
+    .project-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* ─── Skills ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: var(--space-sm);
+    }
+    .skill-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: background 0.2s;
+    }
+    .skill-item:hover { background: var(--border); }
+
+    /* ─── About ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+
+    /* ─── Contact ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    
+    .form-group { margin-bottom: var(--space-md); }
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 1rem;
+      background: var(--surface);
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 120px; }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .contact-link:hover { background: var(--border); opacity: 1; }
+    .contact-link i { color: var(--accent); width: 20px; text-align: center; }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: var(--space-lg) 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+    footer a { margin: 0 0.75rem; color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    /* ─── Utilities ─── */
+    .text-center { text-align: center; }
+    .mb-sm { margin-bottom: var(--space-sm); }
+    .mb-md { margin-bottom: var(--space-md); }
+    .mb-lg { margin-bottom: var(--space-lg); }
+    .mb-xl { margin-bottom: var(--space-xl); }
+
+    /* ─── Mobile ─── */
+    .mobile-toggle { display: none; background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--text); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); flex-direction: column; padding: var(--space-md); border-bottom: 1px solid var(--border); gap: var(--space-sm); }
+      .nav-links.active { display: flex; }
+      .mobile-toggle { display: block; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-actions .btn { width: 100%; max-width: 280px; justify-content: center; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <h1 id="brandName">AAHB</h1>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#" class="logo">AAHB</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:3bdalla995@gmail.com" class="nav-cta">Hire Me</a>
       </div>
-      <nav class="nav-actions">
-        <a class="btn chip" href="mailto:3bdalla995@gmail.com"><i class="fa-solid fa-envelope"></i> <span class="t" data-key="email">Email</span></a>
-        <a class="btn chip" href="tel:+97471203694"><i class="fa-solid fa-phone"></i> <span>+974 71203694</span></a>
-        <a class="btn chip" target="_blank" href="https://linkedin.com/in/abdulla-bashir-2a4311169"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <button class="btn" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
-        <button class="btn primary" id="langToggle" aria-label="Toggle language">AR</button>
-      </nav>
+      <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-  </header>
+  </nav>
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <span class="badge"><i class="fa-solid fa-code"></i> <span class="t" data-key="role">Python & Odoo Developer • Linux Admin • Android</span></span>
-        <h2 class="title" id="name">عبد الله بشير</h2>
-        <p class="subtitle t" data-key="intro">
-          I’m a seasoned digital transportation professional with 3+ years building Python applications and customizing Odoo ERP.
-          I ship robust backends, clean UIs, and dependable deployments—then keep them humming with solid Linux administration.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn primary t" data-key="viewProjects">View Projects</a>
-          <a href="https://github.com/3bdalla3adil" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="resume.html" class="btn" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> <span class="t" data-key="downloadCV">Download CV</span></a>
-        </div>
-        <div class="kpi">
-          <div class="box"><div class="big">5+</div><div class="muted t" data-key="years">Years in Python</div></div>
-          <div class="box"><div class="big">10+</div><div class="muted t" data-key="projects">Shipped Modules & Apps</div></div>
-          <div class="box"><div class="big">100%</div><div class="muted t" data-key="clientHappy">Client Satisfaction</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3 class="t" data-key="servicesTitle">What Services I Provide</h3>
-        <p class="muted t" data-key="servicesText">
-          Designing, developing, and maintaining Python-based applications. Custom Odoo modules, clean UIs,
-          database design, deployments, troubleshooting and debugging.
-        </p>
-        <ul class="list">
-          <li class="t" data-key="srv1">Python apps (APIs, automation, backends)</li>
-          <li class="t" data-key="srv2">Odoo modules & report customization</li>
-          <li class="t" data-key="srv3">Databases (PostgreSQL/MySQL)</li>
-          <li class="t" data-key="srv4">UI development</li>
-          <li class="t" data-key="srv5">Deployments & CI/CD</li>
-          <li class="t" data-key="srv6">Troubleshooting & debugging</li>
-        </ul>
-        <div style="margin-top:.8rem">
-          <div class="muted t" data-key="alsoAdmin">Also a Linux/Windows system administrator:</div>
-          <div class="tools" style="margin-top:.5rem">
-            <span class="chip">Nginx</span><span class="chip">Docker</span><span class="chip">AWS (EC2/ECS/EKS/Lambda/S3)</span>
-            <span class="chip">Gunicorn/WSGI/ASGI</span><span class="chip">VPN</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS / CASES -->
-    <section id="projects">
-      <div class="section-head">
-        <h2 class="t" data-key="projectsTitle">Highlighted Projects</h2>
-        <a href="mailto:3bdalla995@gmail.com" class="muted t" data-key="hireMe">Available for freelance work →</a>
-      </div>
-
-      <div class="grid cols-3">
-        <!-- Odoo Modules - Assembly/Disassembly -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-solid fa-cubes"></i> Odoo 16</span>
-          <h3 class="t" data-key="odooAsm">Assembly/Disassembly Module</h3>
-          <p class="muted t" data-key="odooAsmDesc">
-            Simplifies creating and breaking down product bundles (e.g., 2 LED batteries → 1 pack),
-            precise quantity tracking, full action history to boost inventory accuracy.
-          </p>
-       <div>
-		   <div>
-			   <a href="https://apps.odoo.com/apps/modules/16.0/product-odoo-da"/>
-		   </div>
-            <span class="pill">Odoo 16</span><span class="pill">Inventory</span><span class="pill">Python</span>
-          </div>
-        </article>
-
-        <!-- Odoo 17 Report Filter contribution -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-solid fa-filter"></i> Odoo 17 </i> Odoo 18</span>
-          <h3 class="t" data-key="odooFilter">Account Reports Filter</h3>
-          <p class="muted t" data-key="odooFilterDesc">
-            Added a new report filter to select accounts and show/hide per admin preference—merged into the default Odoo 17 & 18 framework.
-			coming soon later versions
-          </p>
-          <div>
-            <span class="pill">Reporting</span><span class="pill">Odoo</span><span class="pill">Python</span>
-          </div>
-		   <div>
-			   <a href="https://apps.odoo.com/apps/modules/17.0/finance-odoo-filter"/>
-		   </div>
-        </article>
-
-        <!-- Odoo Attendance + APIs -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-solid fa-user-check"></i> HR/Payroll</span>
-          <h3 class="t" data-key="odooAttendance">Automatic Attendance + TeleWork API</h3>
-          <p class="muted t" data-key="odooAttendanceDesc">
-            Automated attendance for selected employees, TeleWork API & HR modules, payroll with accounting customization.
-            Tested via Odoo shell for reliable integrations.
-          </p>
-          <div>
-            <span class="pill">Odoo</span><span class="pill">REST</span><span class="pill">PostgreSQL</span>
-          </div>
-        </article>
-
-        <!-- Python Chat App -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-solid fa-comments"></i> Python</span>
-          <h3 class="t" data-key="piChat">Raspberry Pi Chat (Client/Server)</h3>
-          <p class="muted t" data-key="piChatDesc">
-            Built a chat app for a French client—delivered on time, optimized UX and performance; earned 5-star review and recommendation letter.
-          </p>
-          <div>
-            <span class="pill">Sockets</span><span class="pill">Linux</span><span class="pill">Raspberry Pi</span>
-          </div>
-        </article>
-
-        <!-- Cybersecurity Tool -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-solid fa-shield-halved"></i> Security</span>
-          <h3 class="t" data-key="cyberTool">Info-Gathering Cybersecurity Tool</h3>
-          <p class="muted t" data-key="cyberToolDesc">
-            Ported Go to pure Python (no external packages). JSON API output via Django REST; background jobs populate DB from keyword inputs.
-          </p>
-          <div>
-            <span class="pill">Python</span><span class="pill">Django REST</span><span class="pill">PostgreSQL</span>
-          </div>
-        </article>
-
-        <!-- Linux Admin / DevOps -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-solid fa-server"></i> DevOps</span>
-          <h3 class="t" data-key="linuxOps">Linux Administration & Deployments</h3>
-          <p class="muted t" data-key="linuxOpsDesc">
-            Managed multiple Odoo instances with sub-domains, Dockerized with Bash scripts, redesigned invoice layout (Arabic font: TAJAWAL).
-          </p>
-          <div>
-            <span class="pill">Docker</span><span class="pill">Nginx</span><span class="pill">Bash</span>
-          </div>
-        </article>
-
-        <!-- Android Prayer Times -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-brands fa-android"></i> Android</span>
-          <h3 class="t" data-key="androidPrayer">Prayer Times App</h3>
-          <p class="muted t" data-key="androidPrayerDesc">
-            Prayer reminders, Qibla via API, Hijri & Gregorian calendars; leverages device magnetometer for accurate direction experience.
-          </p>
-          <div>
-            <span class="pill">Android</span><span class="pill">Kotlin/Java</span><span class="pill">APIs</span>
-          </div>
-        </article>
-
-        <!-- Android Queue App -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-brands fa-android"></i> Android</span>
-          <h3 class="t" data-key="androidQueue">Digital Queue App</h3>
-          <p class="muted t" data-key="androidQueueDesc">
-            Built for a local bakery in Bahry—first-come, first-served flow with SQLite; reduced customer conflicts and wait friction.
-          </p>
-          <div>
-            <span class="pill">Android</span><span class="pill">SQLite</span><span class="pill">UX</span>
-          </div>
-        </article>
-
-        <!-- VPN & Efood setup -->
-        <article class="card item project">
-          <span class="badge"><i class="fa-solid fa-network-wired"></i> Infra</span>
-          <h3 class="t" data-key="vpnEfood">VPN & Efood Multivendor Setup</h3>
-          <p class="muted t" data-key="vpnEfoodDesc">
-            Installed SoftEther VPN (excellent client feedback). Deployed Efood on DigitalOcean:
-            domain & subdomain, MySQL, Nginx reverse proxy, PHP 7 on Ubuntu 20.04, Docker reverse proxy.
-          </p>
-          <div>
-            <span class="pill">SoftEther</span><span class="pill">DigitalOcean</span><span class="pill">Nginx</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SERVICES (detailed) -->
-    <section id="services">
-      <div class="section-head">
-        <h2 class="t" data-key="stackTitle">Technical Stack</h2>
-        <span class="muted t" data-key="stackSubtitle">Python • Odoo • Django • PostgreSQL • Docker • Nginx • AWS</span>
-      </div>
-      <div class="grid cols-3">
-        <div class="card item">
-          <h3><i class="fa-solid fa-python"></i> <span class="t" data-key="stackPythonTitle">Python</span></h3>
-          <p class="muted t" data-key="stackPythonDesc">APIs, automation, socket servers, data processing, REST backends.</p>
-          <ul class="list">
-            <li class="t" data-key="stackPython1">Django, DRF, FastAPI (can adapt)</li>
-            <li class="t" data-key="stackPython2">Auth, JWT, RBAC</li>
-            <li class="t" data-key="stackPython3">Testing & CI/CD</li>
-          </ul>
-        </div>
-        <div class="card item">
-          <h3><i class="fa-solid fa-boxes-stacked"></i> <span class="t" data-key="stackOdooTitle">Odoo</span></h3>
-          <p class="muted t" data-key="stackOdooDesc">Custom modules, reporting, HR/Payroll, Inventory, controllers, integrations.</p>
-          <ul class="list">
-            <li class="t" data-key="stackOdoo1">Odoo 16/17 modules</li>
-            <li class="t" data-key="stackOdoo2">Report customization</li>
-            <li class="t" data-key="stackOdoo3">Shell & migration</li>
-          </ul>
-        </div>
-        <div class="card item">
-          <h3><i class="fa-solid fa-server"></i> <span class="t" data-key="stackDevopsTitle">DevOps</span></h3>
-          <p class="muted t" data-key="stackDevopsDesc">Linux, Docker, Nginx, SSL, domains, VPS/cloud, monitoring and scaling.</p>
-          <ul class="list">
-            <li class="t" data-key="stackDevops1">DigitalOcean & AWS</li>
-            <li class="t" data-key="stackDevops2">Gunicorn / WSGI / ASGI</li>
-            <li class="t" data-key="stackDevops3">Backups & security hardening</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-    <section id="certs">
-      <div class="section-head">
-        <h2 class="t" data-key="certsTitle">Certificates</h2>
-        <span class="muted t" data-key="certsNote">Certificates Board.</span>
-      </div>
-      <div class="certs">
-		  <a class="cert" href="/assets/img/lfs101.png" target="_blank" title="Linux Foundation">
-          <img src="/assets/img/lfs101.png" alt="The Linux Foundation certificate" />
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="section-label">Python & Odoo Developer</div>
+      <h1>Abdulla Bashir</h1>
+      <p>I build robust backends, customize ERP systems, and keep infrastructure running. 5+ years shipping production Python and Odoo solutions.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/3bdalla3adil" target="_blank" class="btn btn-secondary">
+          <i class="fab fa-github"></i> GitHub
         </a>
-        <a class="cert" href="/assets/img/linux_cert.png" target="_blank" title="Linux Fundamentals">
-          <img src="/assets/img/linux_cert.png" alt="Linux Fundamentals certificate" />
-        </a>
-        <a class="cert" href="/assets/img/backend_cert.png" target="_blank" title="Backend">
-          <img src="/assets/img/backend_cert.png" alt="Backend certificate" />
-        </a>
-        <a class="cert" href="/assets/img/isc2_cert.png" target="_blank" title="ISC2">
-          <img src="/assets/img/isc2_cert.png" alt="ISC2 certificate" />
-        </a>
-        <a class="cert" href="/assets/img/linux_cloud_and_devops_cert.png" target="_blank" title="Linux Cloud & DevOps">
-          <img src="/assets/img/linux_cloud_and_devops_cert.png" alt="Linux Cloud & DevOps certificate" />
-        </a>
-        <a class="cert" href="/assets/img/managing_linux_system_cert.png" target="_blank" title="Managing Linux Systems">
-          <img src="/assets/img/managing_linux_system_cert.png" alt="Managing Linux Systems certificate" />
-        </a>
-        <a class="cert" href="/assets/img/securing_linux_system_cert.png" target="_blank" title="Securing Linux Systems">
-          <img src="/assets/img/securing_linux_system_cert.png" alt="Securing Linux Systems certificate" />
-        </a>
-        <a class="cert" href="/assets/img/linux_specialization_cert.png" target="_blank" title="Linux Specialization">
-          <img src="/assets/img/linux_specialization_cert.png" alt="Linux Specialization certificate" />
-        </a>
-        <a class="cert" href="/assets/img/operating_system_foundation_cert.png" target="_blank" title="OS Foundations">
-          <img src="/assets/img/operating_system_foundation_cert.png" alt="Operating System Foundation certificate" />
-        </a>
-        <a class="cert" href="/assets/img/python_flask_cert.png" target="_blank" title="Python Flask">
-          <img src="/assets/img/python_flask_cert.png" alt="Python Flask certificate" />
-        </a>
-      </div>
-    </section>
-
-    <!-- Certificate Modal -->
-    <div id="certModal" class="cert-modal" aria-hidden="true">
-      <div class="cert-modal-content">
-        <span class="cert-modal-close" aria-label="Close certificate view">&times;</span>
-        <img id="modalImage" class="cert-modal-image" src="" alt="Certificate" />
       </div>
     </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-head">
-        <h2 class="t" data-key="contactTitle">Contact</h2>
-        <span class="muted">3bdalla995@gmail.com • +974 71203694</span>
+  <!-- Projects -->
+  <section id="work" style="background: var(--surface);">
+    <div class="container">
+      <p class="section-label">Selected Work</p>
+      <h2 class="mb-xl">Projects</h2>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Populated by JS -->
       </div>
-      <div class="grid cols-2">
-        <div class="card">
-          <form onsubmit="handleContact(event)">
-            <div class="contact-grid">
-              <input class="input" type="text" name="name" placeholder="Your Name" required />
-              <input class="input" type="email" name="email" placeholder="Your Email" required />
-            </div>
-            <textarea class="input" name="message" rows="6" placeholder="Tell me about your project..." style="margin-top:.8rem"></textarea>
-            <div class="row" style="justify-content:space-between; align-items:center; margin-top:.8rem">
-              <div class="muted"><i class="fa-solid fa-lock"></i> <span class="t" data-key="privacy">Your info stays private. This form opens an email draft.</span></div>
-              <button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> <span class="t" data-key="send">Send</span></button>
-            </div>
-          </form>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Capabilities</p>
+      <h2 class="mb-xl">Technical Skills</h2>
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="background: var(--surface);">
+    <div class="container">
+      <p class="section-label">Background</p>
+      <h2 class="mb-xl">About</h2>
+      <div class="about-grid">
+        <div>
+          <p class="mb-md">Software developer and Odoo technical consultant with hands-on experience building Python backends, Linux infrastructure, and Android apps. Comfortable across the full stack — from APIs and ERP customizations to deployments and production support.</p>
+          <p>Previously built and shipped 10+ Odoo modules for clients in logistics, HR, and retail. Experienced with AWS, DigitalOcean, Docker, and Nginx.</p>
         </div>
-        <div class="card">
-          <h3 class="t" data-key="quickLinks">Quick Links</h3>
-          <ul class="list">
-            <li><a target="_blank" href="https://github.com/3bdalla3adil"><i class="fa-brands fa-github"></i> <span class="t" data-key="linkGithub">GitHub</span></a></li>
-            <li><a target="_blank" href="https://linkedin.com/in/abdulla-bashir-2a4311169"><i class="fa-brands fa-linkedin"></i> <span class="t" data-key="linkLinkedIn">LinkedIn</span></a></li>
-            <li><a href="mailto:3bdalla995@gmail.com"><i class="fa-solid fa-envelope"></i> <span class="t" data-key="linkEmail">Email</span></a></li>
-            <li><a href="tel:+97471203694"><i class="fa-solid fa-phone"></i> <span class="t" data-key="linkPhone">Phone</span></a></li>
-          </ul>
-          <h3 style="margin-top:1rem" class="t" data-key="techILove">Tech I enjoy</h3>
-          <div class="tools">
-            <span class="chip">Python</span><span class="chip">Odoo</span><span class="chip">Django</span>
-            <span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Nginx</span>
-            <span class="chip">AWS</span><span class="chip">Android</span><span class="chip">Linux</span>
+        <div>
+          <h3 class="mb-md">Education</h3>
+          <p class="mb-sm"><strong>Bachelor of Science</strong></p>
+          <p class="mb-sm">University of Khartoum</p>
+          <p class="mb-md">Faculty of Mathematical Sciences & Informatics</p>
+          <p style="font-size: 0.9375rem; color: var(--muted);">2014 — 2021</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="mb-xl">Contact</h2>
+      <div class="contact-grid">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Name" required>
           </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+        <div class="contact-links">
+          <a href="mailto:3bdalla995@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i>
+            <span>3bdalla995@gmail.com</span>
+          </a>
+          <a href="tel:+249114648721" class="contact-link">
+            <i class="fas fa-phone"></i>
+            <span>+249 114 648 721</span>
+          </a>
+          <a href="https://linkedin.com/in/abdulla-bashir-2a4311169" target="_blank" class="contact-link">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/3bdalla3adil" target="_blank" class="contact-link">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="footer">
-      <div class="row" style="justify-content:space-between">
-        <div>AAHB © <span id="year"></span></div>
-        <div class="muted">
-          <span class="t" data-key="footerBuilt">Built with ❤️ —</span>
-          <a href="#projects" class="t" data-key="footerSeeWork">see my work</a>
-        </div>
-      </div>
-    </footer>
-  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="mb-md">
+        <a href="https://github.com/3bdalla3adil" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/abdulla-bashir-2a4311169" target="_blank">LinkedIn</a>
+        <a href="mailto:3bdalla995@gmail.com">Email</a>
+      </p>
+      <p>AAHB © <span id="year"></span></p>
+    </div>
+  </footer>
 
   <script>
-    // ===== Theme Toggle =====
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark');
-    root.setAttribute('data-theme', savedTheme);
-    themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
-    themeToggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      themeToggle.innerHTML = next === 'light' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
-      localStorage.setItem('theme', next);
+    // Project Data
+    const projects = [
+      {
+        title: "Assembly/Disassembly Module",
+        desc: "Simplifies creating and breaking down product bundles. Precise quantity tracking with full action history for inventory accuracy.",
+        tags: ["Odoo 16", "Inventory", "Python"],
+        icon: "fa-cubes",
+        link: "https://apps.odoo.com/apps/modules/16.0/product-odoo-da"
+      },
+      {
+        title: "Account Reports Filter",
+        desc: "New report filter merged into Odoo 17 & 18 framework. Select accounts and show/hide per admin preference.",
+        tags: ["Odoo 17", "Reporting", "Python"],
+        icon: "fa-filter",
+        link: "https://apps.odoo.com/apps/modules/17.0/finance-odoo-filter"
+      },
+      {
+        title: "Automatic Attendance + TeleWork API",
+        desc: "Automated attendance for selected employees. HR modules, payroll with accounting customization. Tested via Odoo shell.",
+        tags: ["Odoo", "REST", "PostgreSQL"],
+        icon: "fa-user-check",
+        link: null
+      },
+      {
+        title: "Raspberry Pi Chat",
+        desc: "Client/server chat app for a French client. Delivered on time with optimized UX. Earned 5-star review and recommendation.",
+        tags: ["Sockets", "Linux", "Raspberry Pi"],
+        icon: "fa-comments",
+        link: null
+      },
+      {
+        title: "Cybersecurity Info-Gathering Tool",
+        desc: "Ported Go to pure Python. JSON API output via Django REST. Background jobs populate DB from keyword inputs.",
+        tags: ["Python", "Django REST", "PostgreSQL"],
+        icon: "fa-shield-halved",
+        link: null
+      },
+      {
+        title: "Linux Administration & Deployments",
+        desc: "Managed multiple Odoo instances with sub-domains. Dockerized with Bash scripts. Redesigned invoice layout with Arabic font.",
+        tags: ["Docker", "Nginx", "Bash"],
+        icon: "fa-server",
+        link: null
+      },
+      {
+        title: "Prayer Times App",
+        desc: "Prayer reminders, Qibla via API, Hijri & Gregorian calendars. Leverages device magnetometer for accurate direction.",
+        tags: ["Android", "Kotlin", "APIs"],
+        icon: "fa-mobile-screen",
+        link: null
+      },
+      {
+        title: "Digital Queue App",
+        desc: "Built for a local bakery in Bahry. First-come, first-served flow with SQLite. Reduced customer conflicts and wait friction.",
+        tags: ["Android", "SQLite", "UX"],
+        icon: "fa-list-ol",
+        link: null
+      },
+      {
+        title: "VPN & Efood Multivendor Setup",
+        desc: "SoftEther VPN installation. Deployed Efood on DigitalOcean with domain, MySQL, Nginx reverse proxy, PHP 7 on Ubuntu 20.04.",
+        tags: ["SoftEther", "DigitalOcean", "Nginx"],
+        icon: "fa-network-wired",
+        link: null
+      }
+    ];
+
+    const skills = [
+      "Python", "Odoo", "Django", "FastAPI", 
+      "PostgreSQL", "MySQL", "Docker", "Linux",
+      "AWS", "Nginx", "Git", "Android",
+      "JavaScript", "REST APIs", "QWeb", "Bash"
+    ];
+
+    // Render Projects
+    const projectsGrid = document.getElementById('projectsGrid');
+    projectsGrid.innerHTML = projects.map(p => `
+      <article class="project-card">
+        <div class="project-thumb">
+          <i class="fas ${p.icon}"></i>
+        </div>
+        <div class="project-info">
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="project-meta">
+            <div>
+              ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            </div>
+            ${p.link ? `<a href="${p.link}" target="_blank" class="project-link">View <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a>` : ''}
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    // Render Skills
+    document.getElementById('skillsGrid').innerHTML = skills.map(s => 
+      `<div class="skill-item">${s}</div>`
+    ).join('');
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
     });
 
-    // ===== Language (EN/AR) =====
-    const langToggle = document.getElementById('langToggle');
-    const tElems = Array.from(document.querySelectorAll('.t'));
-    const nameEl = document.getElementById('name');
-    const brandName = document.getElementById('brandName');
-
-    const i18n = {
-      en: {
-        email: "Email",
-        role: "Python & Odoo Developer • Linux Admin • Android",
-        intro: "I’m a seasoned digital transportation professional with 3+ years building Python applications and customizing Odoo ERP. I ship robust backends, clean UIs, and dependable deployments—then keep them humming with solid Linux administration.",
-        viewProjects: "View Projects",
-        downloadCV: "Download CV",
-        years: "Years in Python",
-        projects: "Shipped Modules & Apps",
-        clientHappy: "Client Satisfaction",
-        servicesTitle: "What Services I Provide",
-        servicesText: "Designing, developing, and maintaining Python-based applications. Custom Odoo modules, clean UIs, database design, deployments, troubleshooting and debugging.",
-        srv1:"Python apps (APIs, automation, backends)",
-        srv2:"Odoo modules & report customization",
-        srv3:"Databases (PostgreSQL/MySQL)",
-        srv4:"UI development",
-        srv5:"Deployments & CI/CD",
-        srv6:"Troubleshooting & debugging",
-        alsoAdmin:"Also a Linux/Windows system administrator:",
-        projectsTitle:"Highlighted Projects",
-        hireMe:"Available for freelance work →",
-        odooAsm:"Assembly/Disassembly Module",
-        odooAsmDesc:"Simplifies creating and breaking down product bundles (e.g., 2 LED batteries → 1 pack), precise quantity tracking, full action history to boost inventory accuracy.",
-        odooFilter:"Account Reports Filter",
-        odooFilterDesc:"Added a new report filter to select accounts and show/hide per admin preference—merged into the default Odoo 17 framework.",
-        odooAttendance:"Automatic Attendance + TeleWork API",
-        odooAttendanceDesc:"Automated attendance for selected employees, TeleWork API & HR modules, payroll with accounting customization. Tested via Odoo shell for reliable integrations.",
-        piChat:"Raspberry Pi Chat (Client/Server)",
-        piChatDesc:"Built a chat app for a French client—delivered on time, optimized UX and performance; earned 5-star review and recommendation letter.",
-        cyberTool:"Info-Gathering Cybersecurity Tool",
-        cyberToolDesc:"Ported Go to pure Python (no external packages). JSON API output via Django REST; background jobs populate DB from keyword inputs.",
-        linuxOps:"Linux Administration & Deployments",
-        linuxOpsDesc:"Managed multiple Odoo instances with sub-domains, Dockerized with Bash scripts, redesigned invoice layout (Arabic font: TAJAWAL).",
-        androidPrayer:"Prayer Times App",
-        androidPrayerDesc:"Prayer reminders, Qibla via API, Hijri & Gregorian calendars; leverages device magnetometer for accurate direction experience.",
-        androidQueue:"Digital Queue App",
-        androidQueueDesc:"Built for a local bakery in Bahry—first-come, first-served flow with SQLite; reduced customer conflicts and wait friction.",
-        vpnEfood:"VPN & Efood Multivendor Setup",
-        vpnEfoodDesc:"Installed SoftEther VPN (excellent client feedback). Deployed Efood on DigitalOcean: domain & subdomain, MySQL, Nginx reverse proxy, PHP 7 on Ubuntu 20.04, Docker reverse proxy.",
-        stackTitle:"Technical Stack",
-        certsTitle:"Certificates",
-        certsNote:"Replace these paths with your real images.",
-        contactTitle:"Contact",
-        privacy:"Your info stays private. This form opens an email draft.",
-        send:"Send",
-        quickLinks:"Quick Links",
-        techILove:"Tech I enjoy",
-        stackSubtitle:"Python • Odoo • Django • PostgreSQL • Docker • Nginx • AWS",
-        stackPythonTitle:"Python",
-        stackPythonDesc:"APIs, automation, socket servers, data processing, REST backends.",
-        stackPython1:"Django, DRF, FastAPI (can adapt)",
-        stackPython2:"Auth, JWT, RBAC",
-        stackPython3:"Testing & CI/CD",
-        stackOdooTitle:"Odoo",
-        stackOdooDesc:"Custom modules, reporting, HR/Payroll, Inventory, controllers, integrations.",
-        stackOdoo1:"Odoo 16/17 modules",
-        stackOdoo2:"Report customization",
-        stackOdoo3:"Shell & migration",
-        stackDevopsTitle:"DevOps",
-        stackDevopsDesc:"Linux, Docker, Nginx, SSL, domains, VPS/cloud, monitoring and scaling.",
-        stackDevops1:"DigitalOcean & AWS",
-        stackDevops2:"Gunicorn / WSGI / ASGI",
-        stackDevops3:"Backups & security hardening",
-        certsNote:"Certificates Board.",
-        linkGithub:"GitHub",
-        linkLinkedIn:"LinkedIn",
-        linkEmail:"Email",
-        linkPhone:"Phone",
-        footerBuilt:"Built with ❤️ —",
-        footerSeeWork:"see my work"
-      },
-      ar: {
-        email:"البريد",
-        role:"مطور بايثون و أودو • مسؤول لينكس • أندرويد",
-        intro:"أنا متخصص في التحول الرقمي بمجال النقل، لدي +3 سنوات في تطوير تطبيقات بايثون وتخصيص نظام أودو ERP. أبني خلفيات قوية وواجهات نظيفة ونشر موثوق، مع إدارة لينكس لضمان الاستقرار.",
-        viewProjects:"عرض الأعمال",
-        downloadCV:"تحميل السيرة الذاتية",
-        years:"سنوات في بايثون",
-        projects:"وحدات وتطبيقات منجزة",
-        clientHappy:"رضا العملاء",
-        servicesTitle:"الخدمات التي أقدمها",
-        servicesText:"تصميم وتطوير وصيانة تطبيقات بايثون. إنشاء وحدات أودو مخصصة، واجهات مستخدم نظيفة، تصميم قواعد البيانات، النشر، استكشاف الأخطاء وإصلاحها.",
-        srv1:"تطبيقات بايثون (واجهات برمجية، أتمتة، خلفيات)",
-        srv2:"وحدات أودو وتخصيص التقارير",
-        srv3:"قواعد البيانات (PostgreSQL/MySQL)",
-        srv4:"تطوير واجهات المستخدم",
-        srv5:"النشر وخطوط CI/CD",
-        srv6:"استكشاف الأخطاء وإصلاحها",
-        alsoAdmin:"كما أنني مسؤول أنظمة لينكس/ويندوز:",
-        projectsTitle:"أعمال مميزة",
-        hireMe:"متاح لأعمال حرة →",
-        odooAsm:"وحدة التجميع/التفكيك",
-        odooAsmDesc:"تبسّط إنشاء الحزم وتفكيكها (مثال: بطاريتان LED → عبوة واحدة)، تتبع كميات دقيق وسجل شامل لتحسين الجرد.",
-        odooFilter:"فلتر تقارير الحسابات",
-        odooFilterDesc:"إضافة فلتر لتحديد الحسابات مع خيار الإظهار/الإخفاء للمشرف—أُدرج ضمن إطار أودو 17 الافتراضي.",
-        odooAttendance:"الحضور الآلي + واجهة TeleWork",
-        odooAttendanceDesc:"حضور آلي لموظفين محددين، وحدات الموارد البشرية والرواتب مع تخصيص محاسبي. تم الاختبار عبر Odoo shell لدمج موثوق.",
-        piChat:"دردشة Raspberry Pi (عميل/خادم)",
-        piChatDesc:"تطبيق دردشة لعميل فرنسي—تسليم في الوقت وتحسين تجربة الاستخدام؛ تقييم 5 نجوم وخطاب توصية.",
-        cyberTool:"أداة أمن معلومات لجمع البيانات",
-        cyberToolDesc:"تحويل كود Go إلى بايثون خالص. مخرجات JSON عبر Django REST؛ مهام خلفية لملء قاعدة البيانات من الكلمات المفتاحية.",
-        linuxOps:"إدارة لينكس والنشر",
-        linuxOpsDesc:"إدارة عدة مثيلات أودو مع نطاقات فرعية، Docker عبر سكربت Bash، تصميم فاتورة بخط عربي (Tajawal).",
-        androidPrayer:"تطبيق أوقات الصلاة",
-        androidPrayerDesc:"تذكير الصلوات، تحديد القبلة عبر API، تقويم هجري وميلادي؛ استخدام حساس المغناطيسية للدقة.",
-        androidQueue:"تطبيق طابور رقمي",
-        androidQueueDesc:"لمخبز محلي في بحري—خدمة الأسبقية مع SQLite؛ تقليل الاحتكاك والخلافات.",
-        vpnEfood:"إعداد VPN و Efood متعدد التجار",
-        vpnEfoodDesc:"تثبيت SoftEther VPN (رضا ممتاز). نشر Efood على DigitalOcean: نطاق/فرعي، MySQL، Nginx عاكس، PHP7 على Ubuntu 20.04، عاكس Docker.",
-        stackTitle:"المكدس التقني",
-        certsTitle:"الشهادات",
-        certsNote:"استبدل المسارات بصورك الحقيقية.",
-        contactTitle:"تواصل",
-        privacy:"بياناتك خاصة. هذا النموذج يفتح بريدًا جاهزًا.",
-        send:"إرسال",
-        quickLinks:"روابط سريعة",
-        techILove:"تقنيات أحبها",
-        stackSubtitle:"بايثون • أودو • جانغو • بوستجري إس كيو إل • دوكر • إنجن إكس • خدمات سحابية",
-        stackPythonTitle:"بايثون",
-        stackPythonDesc:"واجهات برمجية، أتمتة، خوادم مقبس، معالجة بيانات، خلفيات REST.",
-        stackPython1:"Django و DRF و FastAPI (مرن في التعلّم)",
-        stackPython2:"صلاحيات، JWT، تحكم في الأدوار (RBAC)",
-        stackPython3:"اختبارات وخطوط CI/CD",
-        stackOdooTitle:"أودو",
-        stackOdooDesc:"وحدات مخصصة، تقارير، موارد بشرية ورواتب، مخزون، متحكمات، تكاملات.",
-        stackOdoo1:"وحدات أودو 16/17",
-        stackOdoo2:"تخصيص التقارير",
-        stackOdoo3:"الـ Shell والهجرة بين الإصدارات",
-        stackDevopsTitle:"ديف أوبس",
-        stackDevopsDesc:"لينكس، دوكر، إنجن إكس، شهادات SSL، النطاقات، VPS/سحابة، المراقبة والتوسّع.",
-        stackDevops1:"DigitalOcean و AWS",
-        stackDevops2:"Gunicorn / WSGI / ASGI",
-        stackDevops3:"نسخ احتياطي وتشديد أمني",
-        certsNote:"لوحة الشهادات.",
-        linkGithub:"جيت هب",
-        linkLinkedIn:"لينكدإن",
-        linkEmail:"البريد الإلكتروني",
-        linkPhone:"الهاتف",
-        footerBuilt:"صُمِّم بحب ❤️ —",
-        footerSeeWork:"شاهد أعمالي"
-      }
-    };
-
-    function setLang(lang){
-      const isArabic = lang === 'ar';
-      document.documentElement.setAttribute('lang', lang);
-      document.documentElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
-      tElems.forEach(el=>{
-        const k = el.dataset.key;
-        if(i18n[lang][k]) el.textContent = i18n[lang][k];
-      });
-      // Name and brand unchanged (keep Arabic brand by request)
-      nameEl.textContent = isArabic ? 'عبد الله بشير' : 'Abdulla Bashir';
-      brandName.textContent = 'AAHB';
-      langToggle.textContent = isArabic ? 'EN' : 'AR';
-      localStorage.setItem('lang', lang);
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
     }
 
-    const savedLang = localStorage.getItem('lang') || 'ar'; // start with AR per your header
-    setLang(savedLang);
-
-    langToggle.addEventListener('click', ()=>{
-      const next = document.documentElement.getAttribute('lang') === 'ar' ? 'en' : 'ar';
-      setLang(next);
-    });
-
-    // ===== Contact handler (opens mailto) =====
-    function handleContact(e){
+    // Contact form - opens email draft
+    function handleSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       const msg = form.message.value.trim();
-      const subject = encodeURIComponent(`New project inquiry from ${name}`);
-      const body = encodeURIComponent(`From: ${name} <${email}>\n\n${msg}\n\n— Sent from portfolio`);
+      const subject = encodeURIComponent(`Project inquiry from ${name}`);
+      const body = encodeURIComponent(`From: ${name} <${email}>\n\n${msg}`);
       window.location.href = `mailto:3bdalla995@gmail.com?subject=${subject}&body=${body}`;
     }
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ===== Certificate modal (certificates section) =====
-    (function setupCertModal(){
-      const modal = document.getElementById('certModal');
-      const modalImg = document.getElementById('modalImage');
-      const closeBtn = document.querySelector('.cert-modal-close');
-      const certLinks = document.querySelectorAll('.certs .cert');
-
-      if (!modal || !modalImg || !closeBtn || !certLinks.length) return;
-
-      function openModal(src, alt){
-        modalImg.src = src;
-        modalImg.alt = alt || 'Certificate';
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        modal.setAttribute('aria-hidden', 'false');
-      }
-
-      function closeModal(){
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-        modal.setAttribute('aria-hidden', 'true');
-      }
-
-      certLinks.forEach(link => {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const img = link.querySelector('img');
-          const src = img ? img.src : link.href;
-          const alt = img ? img.alt : link.title;
-          openModal(src, alt);
-        });
-      });
-
-      closeBtn.addEventListener('click', closeModal);
-
-      modal.addEventListener('click', e => {
-        if (e.target === modal) closeModal();
-      });
-
-      document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-          closeModal();
-        }
-      });
-    })();
   </script>
 </body>
 </html>
-
-<!--====================================================================================================================================================  --> 
-<!-- <!DOCTYPE html>
-<html>
-
-	<head>
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>Portfolio | AAHB</title>
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/all.min.css">	  
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.2/dist/css/bootstrap.min.css" 
-	    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">   
-	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
-	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya">
-	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
-	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400">
-	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700">
-	    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js.css">
-	    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js1.css">
-	    <link rel="stylesheet" href="assets/css/Button-Change-Text-on-Hover.css">
-	    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
-	    <link rel="stylesheet" href="assets/css/Header-Dark.css">
-	    <link rel="stylesheet" href="assets/css/Jumbotron-Triangular-Addon.css">
-	    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-	    <link rel="stylesheet" href="assets/css/sticky-dark-top-nav-with-dropdown.css">
-	    <link rel="stylesheet" href="assets/css/styles.css">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<style>
-		@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
-
-		/* {
-		//  box-sizing: border-box;
-		}*/
-		
-		/*body {
-		//  font-family: "Muli", sans-serif;
-		//  display: flex;
-		//  align-items: center;
-		//  justify-content: center;
-		//  height: 100vh;
-		//  overflow: hidden;
-		//  margin: 0;
-		}
-		
-		//.container {
-		//  display: flex;
-		//  width: 90vw;
-		//} */
-
-		.panel {
-		  background-size: auto 100%;
-		  background-position: center;
-		  background-repeat: no-repeat;
-		  height: 80vh;
-		  border-radius: 50px;
-		  color: #fff;
-		  cursor: pointer;
-		  flex: 0.5;
-		  margin: 10px;
-		  position: relative;
-		  transition: flex 0.7s ease-in;
-		  -webkit-transition: all 700ms ease-in;
-		}
-		
-		.panel h3 {
-		  font-size: 24px;
-		  position: absolute;
-		  bottom: 20px;
-		  left: 20px;
-		  margin: 0;
-		  opacity: 0;
-		}
-		
-		.panel.active {
-		  flex: 5;
-		}
-		
-		.panel.active h3 {
-		  opacity: 1;
-		  transition: opacity 0.3s ease-in 0.4s;
-		}
-		
-		/*@media (max-width: 480px) {
-		  .container {
-		    width: 100vw;
-		  }*/
-		
-		  .panel:nth-of-type(4),
-		  .panel:nth-of-type(5) {
-		    display: none;
-		  }
-/* 		} */
-                 /* =====================================================PDF Iframe Viewer=============================================================== */
-			
-		.jss540 {
-		  width: 100%;
-		  height: 100%;
-		  border: 0;
-		  position: absolute;
-		}
-		.jss541 {
-		  margin: 0 auto;
-		  position: relative;
-		}
-		.jss542 {
-		  width: 100%;
-		  height: auto;
-		  position: relative;
-		  padding-bottom: 75%;
-		}
-		.jss543 {
-		  margin: 0.5rem 0;
-		  padding: 0;
-		}
-		.jss544 {
-		  margin: auto;
-		  padding: 16px 0px;
-		  font-size: 2.4rem;
-		}
-		.jss545 {
-		  width: 100%;
-		  overflow: hidden;
-		  border-bottom: 1px solid #e0e0e0;
-		}
-		.jss546 {
-		  width: 100%;
-		  height: 100%;
-		  min-height: 150px;
-		  line-height: 150px;
-		}
-		.jss547 > div {
-		  padding-bottom: 16px;
-		}
-		.jss547 > div:last-child {
-		  padding-bottom: 0;
-		}
-		.jss548 {
-		  padding: 0;
-		}
-		.jss549 {
-		  padding: 5px 0px 0px 0px;
-		  justify-content: space-between;
-		}
-		.jss550 {
-		  padding-left: 8px;
-		}
-		.jss551 {
-		  top: 0;
-		  gap: 12px;
-		  right: 0;
-		  padding: 0.5rem;
-		  display: flex;
-		  z-index: 10;
-		  position: fixed;
-		  flex-direction: row;
-		}
-		.jss552 {
-		  color: #eaeaea;
-		  font-size: 22pt;
-		}
-		.jss553 {
-		  top: 4.6%;
-		  right: 0;
-		  padding: 0.5rem;
-		  display: none;
-		  z-index: 10;
-		  position: fixed;
-		  box-shadow: 4px 3px 8px 1px #969696;
-		  background-color: #eaeaea;
-		}
-		.jss554 {
-		  width: 100%;
-		  bottom: 1.5rem;
-		  z-index: 10;
-		  padding: 0.5rem;
-		  display: none;
-		  position: fixed;
-		  border-radius: 2px;
-		}
-		.jss555 {
-		  width: 50%;
-		  color: #A8A8A8;
-		  font-size: 1.4rem;
-		  text-align: center;
-		}
-
-		</style>
-	    <div class="container-fluid" style="background-color:orange;">
-		    <input type="button" id="toggleContrast" class="material-symbols-outlined" title="Contrast" alt="toggleContrast">
-		<div class="row no-gutters">
-		    <div class="col" style="text-align:right;">
-			 <span> <i class="fa-regular" 
-			width="40" height="40" viewBox="0 0 40 40" fill="none"> 3bdalla995@gmail.com </i> </span>
-			    <span> <i class="fa-brands" 
-			width="40" height="40" viewBox="0 0 40 40" fill="none"> +974 71203694 </i> </span>
-			    <span><a href="https://linkedin.com/in/abdulla-bashir-2a4311169" > Follow me on LinkedIn: </a></span>
-		    </div>
-		</div>
-	    </div>
-    		<div>
-			<div class="header-dark">
-			    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-			        <div class="container">
-			            <a class="navbar-brand" href="#" style="color:rgb(231,231,231); font-family:Corbel; font-size:29px;">AAHB</a>
-			            <div class="collapse navbar-collapse" id="navcol-1">
-			                <span class="ml-auto navbar-text"></span>
-			                <a class="btn btn-light action-button" role="button" href="https://www.freelancer.com/u/Abdullaosman995">Hire Me</a>
-			            </div>
-			        </div>
-			    </nav>
-			</div>
-			
-			<div class="container my-4 bg-light p-4 rounded">
-			    <div class="row">
-			        <div class="col-md-6">
-			            <h1>What Services I Provide</h1>
-			            <p>I am a seasoned Digital Transportation Professional with over 3 years of experience
-					    in designing, developing, and maintaining Python-based applications. My expertise 
-					    extends to customizing and optimizing Odoo ERP systems, allowing me to tailor 
-					    solutions to meet specific business requirements effectively. I bring a proven 
-					    track record of successful digital transformations, leveraging my skills to drive
-					    business innovation and efficiency.</p>
-			            <ul>
-			                <li>Designing, developing, and maintaining Python-based applications</li>
-			                <li>Creating custom modules for Odoo (ERP System)</li>
-			                <li>Working with databases</li>
-			                <li>Creating user interfaces</li>
-			                <li>Customizing Odoo Reports</li>
-			                <li>Deploying new releases</li>
-			                <li>Troubleshooting and debugging problems</li>
-			            </ul>
-			            <p>I am also a skilled system administrator with experience in Linux and Windows. I can setup websites, domain names, web servers, VPN servers, load-balancing servers, AWS EC2, ECS, EKS, Lambda, S3, EBS, Cloud Watch, etc. I can also setup Django with Gunicorn, WSGI, and ASGI, and I can develop and support Django code. I can also setup RDBMS like MySQL and PostgreSQL database services and configure them for Django/Odoo.</p>
-			        </div>
-			        <div class="col-md-6">
-			            <h1>Odoo Modules</h1>
-			            <p>I’ve successfully completed a brand-new Odoo 16 module designed to revolutionize the assembly and disassembly processes for products.</p>
-			            <h3>Module Highlights:</h3>
-			            <p>Seamless Assembly/Disassembly: Simplifies the creation and breakdown of product bundles. For example, users can easily bundle 2 LED batteries into a single 2 pc/pack product.</p>
-			            <p>Precise Quantity Tracking: Accurately calculates and tracks the quantity of assembled and disassembled products, ensuring inventory accuracy.</p>
-			            <p>Comprehensive History: Monitors and records every assembly and disassembly action, maintaining a detailed history for enhanced traceability. This innovative module enhances inventory management by providing a user-friendly interface for managing product bundles and ensuring precise quantity calculations. It’s designed to boost operational efficiency and accuracy for businesses.</p>
-			        </div>
-			    </div>
-    <div class="col-md-6">
-            <h1>Odoo Modules</h1>
-            <p>I've successfully created a new filter for the Account Reports module in the Odoo 17 framework! This new feature allows users to:</p>
-            <ul>
-                <li>Select accounts from a list</li>
-                <li>Filter reports based on the selected accounts</li>
-                <li>Admins can choose whether to display or hide this filter in reports</li>
-            </ul>
-            <p>I'm proud that this contribution has been added to the default Odoo 17 framework, enhancing its functionality for all users.</p>
-        </div>
-        <div class="col-md-6">
-            <p>I have created an Odoo module that allows automatic attendance for specified employees. TeleWork Odoo API &amp; HR modules &amp; Payroll with accounting customization.</p>
-            <p>To enhance the testing phase, I use the Odoo interactive shell, which increases reliability and efficiency. The core idea is to deliver employees' data to an external system and much more!</p>
-            <p>I've made an API for integrating B2B client Odoo website with teleworkers' reports, using Odoo controller and database for data retrieval and basic HTML and JavaScript skills.</p>
-            <p>Recently, I have been managing multiple Odoo server instances with multiple sub-domains and dockerized them all with the help of a special script written in Bash language. Moreover, I have redesigned an invoice layout with an Arabic font (TAJAWAL).</p>
-        </div>
-                <div class="row my-4">
-        <div class="col-md-6">
-            <h1>Python Modules</h1>
-            <h3>Chat App for 2 Raspberry Pi (Electronic device) clients and server</h3>
-            <p>I had the opportunity to work on a chat application for a client in France. 
-		    Throughout the development process, I ensured that the application met 
-		    the client's requirements and delivered it on time. Upon completion, 
-		    the client expressed their satisfaction with the application's performance and user interface. They even gave me a glowing review of five stars and provided a well-written recommendation letter, which attested to my skills and expertise. Overall, this experience helped me hone my Python development skills and provided me with a sense of satisfaction in knowing that my work had made a positive impact on the client's business.</p>
-        </div>
-        <div class="col-md-6">
-            <h1>Python Modules</h1>
-            <h3>A Brand Cybersecurity Tool For Information Gathering Purposes</h3>
-            <p>This project was for a cybersecurity tool developed by an American client. I’ve ported Golang code to Python without using any Python package. The package needed to get a text keyword as input and output a JSON response for an API, and I used Django REST framework and web framework to populate the database with the keywords.</p>
-        </div>
-    </div>
-
-    <div class="row my-4">
-        <div class="col-md-6">
-            <h1>Linux Administration</h1>
-            <h3>VPN Server Software Installation</h3>
-            <p>I had the opportunity to install and test a SoftEther VPN server for an English client. The installation process was seamless, and I was able to configure the server to meet the client's requirements. After testing the server, the client expressed their satisfaction with the performance and reliability of the VPN.</p>
-            <p>"SoftEther" means "Software Ethernet" and is one of the world's most powerful and easy-to-use multi-protocol VPN software. It runs 
-				
-				</p><h3>Efood Multi-Vendor Website using digital ocean</h3> 
-				<p>
-				</p><li> Created mysql database, and database user</li> 
-				<li> Configured nginx service to act as reverse proxy</li>
-				<li> installed php 7 on ubuntu 20.04 LTS</li> 
-				<li> Configured docker container to act as nginx reverse proxy</li>
-				<p></p>
-			</div>
-			<div class="col-md-4">
-			    <h1>Android Developement</h1> 
-				<h3>Android Prayer Times App</h3>
-				<p> An innovative Android application designed to facilitate timely prayer reminders,
-				assist users in determining the Qibla direction through API integration, and 
-				provide both Hijri and Gregorian calendars. The application meticulously computes
-				prayer times and harnesses the capabilities of the user's Android device magnetometer,
-				which measures fluctuations in the Earth's magnetic field, enhancing the overall user 
-				experience.
-				</p>
-				<h3>Android Digital Queue App</h3>
-				<p> 
-				An innovative Android application designed to facilitate Baker Queue on local Bakery
-				Based in Bahry ,it simply save sqlie3 database data in timely maner to facilitate serving
-				first Consumers that decrease Conflicts between customers.
-				</p>
-			</div>
-		</div>
-		<h1>My Learning progress </h1>
-			
-			<div class="row my-4">
-</div>
-
-    
-        
-		<!-- ===========================Certificates=================================================== -->
-<!-- 		<div class="row">
-			<div class="carousel col-md-4 m-1" style="width:500px;height: 400px; overflow: hidden;"> 
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/isc2_cert.png');"> 
-			      </div> 
-			    </div>
-			    <div class="carousel-item"> 
-				<div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/backend_cert.png');"> 
-				</div> 
-			    </div>
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/linux_cert.png');"> 
-			      </div> 
-			    </div> 
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/managing_linux_system_cert.png');"> 
-			      </div> 
-			    </div> 
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/securing_linux_system_cert.png');"> 
-			      </div> 
-			    </div> 
-			    <div class="carousel-item active"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/linux_cloud_and_devops_cert.png');"> 
-			      </div> 
-			    </div>
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/linux_specialization_cert.png');"> 
-			      </div> 
-			    </div>
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/operating_system_foundation_cert.png');"> 
-			      </div> 
-			    </div> 
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/computer_hardware_and_software_cert.png');"> 
-			      </div> 
-			    </div>
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/cybersecurity_foundations_specialization_cert.png');"> 
-			      </div> 
-			    </div>
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/cybersecurity_policy_foundation_cert.png');"> 
-			      </div> 
-			    </div> 
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/brand_cert.png');"> 
-			      </div> 
-			    </div> 
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/comptia_project_cert.png');"> 
-			      </div> 
-			    </div>
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/canva_cert.png');"> 
-			      </div> 
-			    </div>
-			    <div class="carousel-item"> 
-			      <div class="slide-image" style="width:500px;height: 400px;background-image: 
-			url('/assets/img/python_flask_cert.png');"> 
-			      </div> 
-			    </div> 
-			  </div>
-			</div>
-			<div class="jss542 _4-1">
-				<iframe class="jss540" src="" frameborder="0" scrolling="no" style="display: block;">
-				</iframe><div class="jss530 jss533 jss532" role="progressbar" style="width: 60px; height: 60px; display: none; position: absolute; left: 45%; top: 42%;">
-					<svg class="jss535" viewBox="22 22 44 44">
-						<circle class="jss536 jss538" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6">
-						</circle>
-					</svg>
-				</div>
-			</div> 
-		</div>
-		<div class="col">
-		    <div>
-			<i class="fa-thin fa-code fa-spin"><p>Source Code:&nbsp;<a href="https://github.com/3bdalla3adil">github link</a></p></i>
-		    </div>
-		</div>
-	     </div>
-		<div class="jumbotron">
-		<h1>And More Since Keep Learning &nbsp;...</h1>
-	       </div>
-		<div class="footer-basic">
-		<footer>
-		    <p class="copyright">AAHB© 2025</p>
-		</footer>
-	
-		</div>
-	    
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
-	        <script src="assets/js/auto_slider.js"></script>
-	</body>
-</html>  --> 
