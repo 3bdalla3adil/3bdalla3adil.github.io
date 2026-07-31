@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* ─── Design Tokens ─── */
     :root {
       --bg: #fafafa;
       --surface: #ffffff;
@@ -39,7 +38,6 @@
       }
     }
 
-    /* ─── Reset ─── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
@@ -50,7 +48,6 @@
       font-weight: 400;
     }
 
-    /* ─── Typography ─── */
     h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
     h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
     h3 { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; }
@@ -58,7 +55,6 @@
     a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
     a:hover { opacity: 0.8; }
 
-    /* ─── Layout ─── */
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); }
     section { padding: var(--space-xl) 0; }
     .section-label {
@@ -233,6 +229,170 @@
     }
     @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
 
+    /* ─── Certificates ─── */
+    .cert-section {
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .cert-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .cert-header h2 { margin: 0; }
+    .cert-count {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Auto-scroll carousel */
+    .cert-carousel-wrapper {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      overflow: hidden;
+      padding: var(--space-sm) 0;
+    }
+    .cert-track {
+      display: flex;
+      gap: var(--space-md);
+      width: max-content;
+      animation: scroll 40s linear infinite;
+    }
+    .cert-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .cert-card {
+      flex-shrink: 0;
+      width: 320px;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    }
+    @media (prefers-color-scheme: dark) {
+      .cert-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
+    }
+    .cert-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #e8e8ed 0%, #d2d2d7 100%);
+    }
+    .cert-card-info {
+      padding: var(--space-sm) var(--space-md);
+    }
+    .cert-card-info h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cert-card-info p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Certificate Modal */
+    .cert-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+    .cert-modal.show { display: flex; }
+    .cert-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      animation: zoomIn 0.25s ease-out;
+    }
+    .cert-modal-image {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .cert-modal-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      backdrop-filter: blur(10px);
+    }
+    .cert-modal-close:hover { background: rgba(255,255,255,0.3); }
+    .cert-modal-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      backdrop-filter: blur(10px);
+    }
+    .cert-modal-nav:hover { background: rgba(255,255,255,0.3); }
+    .cert-modal-prev { left: 1.5rem; }
+    .cert-modal-next { right: 1.5rem; }
+    .cert-modal-counter {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
     /* ─── Contact ─── */
     .contact-grid {
       display: grid;
@@ -290,13 +450,6 @@
     footer a { margin: 0 0.75rem; color: var(--muted); }
     footer a:hover { color: var(--text); }
 
-    /* ─── Utilities ─── */
-    .text-center { text-align: center; }
-    .mb-sm { margin-bottom: var(--space-sm); }
-    .mb-md { margin-bottom: var(--space-md); }
-    .mb-lg { margin-bottom: var(--space-lg); }
-    .mb-xl { margin-bottom: var(--space-xl); }
-
     /* ─── Mobile ─── */
     .mobile-toggle { display: none; background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--text); }
     @media (max-width: 768px) {
@@ -308,18 +461,21 @@
       .projects-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
+      .cert-card { width: 280px; }
+      .cert-modal-nav { display: none; }
     }
   </style>
 </head>
 <body>
 
   <!-- Navigation -->
-   <nav id="navbar">
+  <nav id="navbar">
     <div class="container">
       <a href="#" class="logo">AAHB</a>
       <div class="nav-links" id="navLinks">
         <a href="#work">Work</a>
         <a href="#skills">Skills</a>
+        <a href="#certs">Certificates</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="mailto:3bdalla995@gmail.com" class="nav-cta">Hire Me</a>
@@ -328,7 +484,7 @@
         <i class="fas fa-bars"></i>
       </button>
     </div>
-  </nav> 
+  </nav>
 
   <!-- Hero -->
   <section class="hero">
@@ -341,40 +497,63 @@
         <a href="https://github.com/3bdalla3adil" target="_blank" class="btn btn-secondary">
           <i class="fab fa-github"></i> GitHub
         </a>
-		  <div class="hero-actions">
-        <a href="work.html" class="btn btn-primary">View Projects</a>
-        <a href="https://github.com/3bdalla3adil" target="_blank" class="btn btn-secondary">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-      </div>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="work" style="background: var(--surface);">
+  <section id="work">
     <div class="container">
       <p class="section-label">Selected Work</p>
       <h2 class="mb-xl">Projects</h2>
-      <div class="projects-grid" id="projectsGrid">
-        <!-- Populated by JS -->
-      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills">
+  <section id="skills" style="background: var(--surface);">
     <div class="container">
       <p class="section-label">Capabilities</p>
       <h2 class="mb-xl">Technical Skills</h2>
-      <div class="skills-grid" id="skillsGrid">
-        <!-- Populated by JS -->
-      </div>
+      <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
 
+  <!-- Certificates -->
+  <section id="certs" class="cert-section">
+    <div class="container">
+      <div class="cert-header">
+        <div>
+          <p class="section-label">Credentials</p>
+          <h2>Certificates</h2>
+        </div>
+        <span class="cert-count" id="certCount">10 certificates</span>
+      </div>
+    </div>
+    <div class="cert-carousel-wrapper">
+      <div class="cert-track" id="certTrack"></div>
+    </div>
+  </section>
+
+  <!-- Certificate Modal -->
+  <div id="certModal" class="cert-modal" aria-hidden="true">
+    <button class="cert-modal-close" onclick="closeModal()" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+    <button class="cert-modal-nav cert-modal-prev" onclick="prevCert()" aria-label="Previous">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="cert-modal-nav cert-modal-next" onclick="nextCert()" aria-label="Next">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="cert-modal-content">
+      <img id="modalImage" class="cert-modal-image" src="" alt="Certificate">
+    </div>
+    <div class="cert-modal-counter" id="modalCounter">1 / 10</div>
+  </div>
+
   <!-- About -->
-  <section id="about" style="background: var(--surface);">
+  <section id="about">
     <div class="container">
       <p class="section-label">Background</p>
       <h2 class="mb-xl">About</h2>
@@ -395,7 +574,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" style="background: var(--surface);">
     <div class="container">
       <p class="section-label">Get in Touch</p>
       <h2 class="mb-xl">Contact</h2>
@@ -449,7 +628,7 @@
   </footer>
 
   <script>
-    // Project Data
+    // ─── Data ───
     const projects = [
       {
         title: "Assembly/Disassembly Module",
@@ -523,9 +702,21 @@
       "JavaScript", "REST APIs", "QWeb", "Bash"
     ];
 
-    // Render Projects
-    const projectsGrid = document.getElementById('projectsGrid');
-    projectsGrid.innerHTML = projects.map(p => `
+    const certificates = [
+      { title: "Linux Foundation", org: "LFS101", img: "/assets/img/lfs101.png" },
+      { title: "Linux Fundamentals", org: "Cisco / NDG", img: "/assets/img/linux_cert.png" },
+      { title: "Backend Development", org: "Meta / Coursera", img: "/assets/img/backend_cert.png" },
+      { title: "Cybersecurity", org: "ISC2", img: "/assets/img/isc2_cert.png" },
+      { title: "Linux Cloud & DevOps", org: "Linux Foundation", img: "/assets/img/linux_cloud_and_devops_cert.png" },
+      { title: "Managing Linux Systems", org: "Cisco / NDG", img: "/assets/img/managing_linux_system_cert.png" },
+      { title: "Securing Linux Systems", org: "Cisco / NDG", img: "/assets/img/securing_linux_system_cert.png" },
+      { title: "Linux Specialization", org: "Cisco / NDG", img: "/assets/img/linux_specialization_cert.png" },
+      { title: "OS Foundations", org: "Cisco / NDG", img: "/assets/img/operating_system_foundation_cert.png" },
+      { title: "Python Flask", org: "Coursera", img: "/assets/img/python_flask_cert.png" }
+    ];
+
+    // ─── Render Projects ───
+    document.getElementById('projectsGrid').innerHTML = projects.map(p => `
       <article class="project-card">
         <div class="project-thumb">
           <i class="fas ${p.icon}"></i>
@@ -543,22 +734,89 @@
       </article>
     `).join('');
 
-    // Render Skills
+    // ─── Render Skills ───
     document.getElementById('skillsGrid').innerHTML = skills.map(s => 
       `<div class="skill-item">${s}</div>`
     ).join('');
 
-    // Navbar scroll effect
+    // ─── Render Certificates ───
+    const certTrack = document.getElementById('certTrack');
+    const certCount = document.getElementById('certCount');
+    certCount.textContent = `${certificates.length} certificates`;
+
+    // Duplicate certificates for infinite scroll effect
+    const allCerts = [...certificates, ...certificates];
+    
+    certTrack.innerHTML = allCerts.map((c, i) => `
+      <div class="cert-card" onclick="openModal(${i % certificates.length})">
+        <img src="${c.img}" alt="${c.title}" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#e8e8ed,#d2d2d7)';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.innerHTML='<i class=\\'fas fa-certificate\\' style=\\'font-size:3rem;color:var(--muted)\\'></i>';">
+        <div class="cert-card-info">
+          <h4>${c.title}</h4>
+          <p>${c.org}</p>
+        </div>
+      </div>
+    `).join('');
+
+    // ─── Certificate Modal ───
+    let currentCertIndex = 0;
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalCounter = document.getElementById('modalCounter');
+
+    function openModal(index) {
+      currentCertIndex = index;
+      updateModal();
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    function updateModal() {
+      const cert = certificates[currentCertIndex];
+      modalImg.src = cert.img;
+      modalImg.alt = cert.title;
+      modalCounter.textContent = `${currentCertIndex + 1} / ${certificates.length}`;
+    }
+
+    function nextCert() {
+      currentCertIndex = (currentCertIndex + 1) % certificates.length;
+      updateModal();
+    }
+
+    function prevCert() {
+      currentCertIndex = (currentCertIndex - 1 + certificates.length) % certificates.length;
+      updateModal();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('show')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') nextCert();
+      if (e.key === 'ArrowLeft') prevCert();
+    });
+
+    // Click outside to close
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ─── Navbar ───
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
     });
 
-    // Mobile menu
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
 
-    // Contact form - opens email draft
+    // ─── Contact ───
     function handleSubmit(e) {
       e.preventDefault();
       const form = e.target;
@@ -570,7 +828,7 @@
       window.location.href = `mailto:3bdalla995@gmail.com?subject=${subject}&body=${body}`;
     }
 
-    // Year
+    // ─── Year ───
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
