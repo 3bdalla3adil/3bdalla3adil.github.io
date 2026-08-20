@@ -12,13 +12,15 @@ import {
 } from './animations.js';
 import { setupThemeToggle, setupMobileMenu, setupSmoothScroll } from './utils.js';
 import { projects, skills, certificates, getProjectsByCategory, getFeaturedProjects } from '../data/projects.js';
+import { aahbCaseStudy } from '../data/aahb-case-study.js';
 
 /**
  * Main Portfolio Application Class
  */
 class PortfolioApp {
   constructor() {
-    this.projects = projects;
+    // Keep the existing portfolio data source and add the new hands-on case study.
+    this.projects = [...projects, aahbCaseStudy];
     this.skills = skills;
     this.certificates = certificates;
     this.activeFilter = 'all';
@@ -50,7 +52,6 @@ class PortfolioApp {
    * Render all UI components
    */
   renderUI() {
-    // Render all projects initially (can be filtered later)
     renderProjects(this.projects);
     renderSkills(this.skills);
     renderCertificates(this.certificates);
@@ -66,7 +67,6 @@ class PortfolioApp {
     initHoverEffects();
     initCounters();
     
-    // Only init parallax if hero exists
     if (document.querySelector('.hero')) {
       initParallax();
     }
@@ -105,13 +105,12 @@ class PortfolioApp {
         if (category === 'all') {
           renderProjects(this.projects);
         } else {
-          const filtered = getProjectsByCategory(category);
+          const filtered = this.projects.filter(project => project.category === category);
           renderProjects(filtered);
         }
         
         updateFilterButtons(category);
         
-        // Smooth scroll to projects section
         const projectsSection = document.querySelector('#projects');
         if (projectsSection) {
           projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -133,7 +132,7 @@ class PortfolioApp {
       if (query === '') {
         const projectsToShow = this.activeFilter === 'all' 
           ? this.projects 
-          : getProjectsByCategory(this.activeFilter);
+          : this.projects.filter(project => project.category === this.activeFilter);
         renderProjects(projectsToShow);
         return;
       }
@@ -170,12 +169,10 @@ class PortfolioApp {
       const email = formData.get('email');
       const message = formData.get('message');
       
-      // Create mailto link
       const subject = encodeURIComponent(`Portfolio Contact: ${name}`);
       const body = encodeURIComponent(`From: ${name} <${email}>\n\n${message}\n\n---\nSent from portfolio website`);
       const mailtoLink = `mailto:3bdalla995@gmail.com?subject=${subject}&body=${body}`;
       
-      // Open email client
       window.location.href = mailtoLink;
     });
   }
@@ -184,7 +181,6 @@ class PortfolioApp {
    * Initialize accessibility features
    */
   initAccessibility() {
-    // Skip link focus handling
     const skipLink = document.querySelector('.skip-link');
     if (skipLink) {
       skipLink.addEventListener('click', (e) => {
@@ -197,7 +193,6 @@ class PortfolioApp {
       });
     }
 
-    // Keyboard navigation for cards
     const cards = document.querySelectorAll('.bento-card, .cert-card');
     cards.forEach(card => {
       card.setAttribute('tabindex', '0');
@@ -209,12 +204,11 @@ class PortfolioApp {
       });
     });
 
-    // Announce dynamic content changes to screen readers
     this.setupAriaLive();
   }
 
   /**
-   * Setup ARIA live regions for dynamic content
+   * Setup ARIA live regions for screen readers
    */
   setupAriaLive() {
     const ariaLive = document.createElement('div');
@@ -225,10 +219,6 @@ class PortfolioApp {
     document.body.appendChild(ariaLive);
   }
 
-  /**
-   * Announce message to screen readers
-   * @param {string} message - Message to announce
-   */
   announceToScreenReader(message) {
     const ariaLive = document.getElementById('aria-live-region');
     if (ariaLive) {
@@ -240,17 +230,14 @@ class PortfolioApp {
   }
 }
 
-// Initialize app when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     const app = new PortfolioApp();
     app.init();
   });
 } else {
-  // DOM already loaded
   const app = new PortfolioApp();
   app.init();
 }
 
-// Export for potential external use
 export default PortfolioApp;

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AAHB Brand — Odoo POS Arabic Kitchen Printing | Abdulla Bashir</title>
+<meta name="description" content="Hands-on Odoo 19 POS engineering case study: Arabic kitchen receipt rendering, LAN print bridge, ESC/POS raster printing, dynamic order types and browser-to-Rongta RP325 integration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090d;--surface:#10141b;--surface2:#151b24;--text:#f5f7fa;--muted:#9da7b5;--line:#27303c;--accent:#7dd3fc;--accent2:#a78bfa;--max:1120px;--r:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0%,#172238 0,transparent 32%),radial-gradient(circle at 90% 10%,#251b3d 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{max-width:var(--max);margin:auto;padding:0 24px}.nav{position:sticky;top:0;z-index:20;background:#07090dcc;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}.navin{height:64px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:.02em}.back{color:var(--muted);font-size:.9rem}.hero{padding:92px 0 70px}.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid #ffffff18;border-radius:999px;color:var(--accent);background:#ffffff08;font-size:.8rem;font-weight:700}.hero h1{font-size:clamp(2.7rem,7vw,5.8rem);line-height:.98;letter-spacing:-.055em;max-width:900px;margin:22px 0}.hero p{max-width:760px;color:var(--muted);font-size:1.18rem}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}.tag{border:1px solid var(--line);background:#ffffff06;border-radius:999px;padding:7px 12px;color:#cbd5e1;font-size:.82rem}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin:30px 0}.card{background:linear-gradient(180deg,#ffffff08,#ffffff03);border:1px solid var(--line);border-radius:var(--r);padding:28px}.wide{grid-column:span 8}.side{grid-column:span 4}.card h2{margin:0 0 12px;font-size:1.45rem}.card p,.card li{color:var(--muted)}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.metric{padding:18px;border:1px solid var(--line);border-radius:16px;background:#ffffff05}.metric strong{display:block;font-size:1.7rem}.metric span{color:var(--muted);font-size:.8rem}.receipt-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.receipt{background:#fff;color:#111;padding:28px 22px;width:100%;max-width:390px;margin:auto;box-shadow:0 25px 80px #0008;font-family:"Noto Naskh Arabic",serif;font-size:20px;direction:rtl}.receipt .center{text-align:center;font-weight:700}.receipt .big{font-size:30px}.receipt .order{font-size:26px;font-weight:700;border-block:2px solid #111;padding:9px 0;margin:10px 0}.receipt table{width:100%;border-collapse:collapse;font-size:18px}.receipt th,.receipt td{padding:7px 3px;border-bottom:1px dashed #777}.receipt th{font-weight:700}.receipt .note{font-size:16px}.code{background:#05070a;border:1px solid #26303b;border-radius:16px;padding:20px;overflow:auto;color:#c4f1ff;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{padding:16px;border:1px solid var(--line);border-radius:14px;background:#ffffff04}.step b{display:block;color:var(--accent);margin-bottom:5px}.arabic{font-family:"Noto Naskh Arabic",serif}.footer{padding:70px 0;color:var(--muted);border-top:1px solid var(--line);margin-top:60px}.btn{display:inline-flex;margin-top:22px;padding:11px 17px;border-radius:12px;background:#f8fafc;color:#0b0d10;font-weight:700}.privacy{font-size:.82rem;color:#7f8a99}.rtl-note{direction:rtl;font-family:"Noto Naskh Arabic",serif}
+@media(max-width:850px){.wide,.side{grid-column:span 12}.receipt-wrap{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.hero{padding-top:60px}}@media(max-width:520px){.metrics{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap navin"><a class="brand" href="index.html">AAHB / Abdulla Bashir</a><a class="back" href="work.html">← Back to selected work</a></div></nav>
+<main>
+<section class="hero"><div class="wrap">
+<span class="eyebrow">HANDS-ON CASE STUDY · ODOO 19 POS</span>
+<h1>Arabic Kitchen Printing for AAHB Brand</h1>
+<p>Designed and implemented a browser-to-LAN thermal printing pipeline for Odoo POS, with Arabic shaping, dynamic order types, three-column kitchen receipts, and direct ESC/POS raster output for Rongta RP325 printers.</p>
+<div class="tags"><span class="tag">Odoo 19</span><span class="tag">OWL / JavaScript</span><span class="tag">Python</span><span class="tag">ESC/POS</span><span class="tag">Rongta RP325</span><span class="tag">Arabic RTL</span><span class="tag">LAN Printing</span></div>
+</div></section>
+<section class="wrap"><div class="metrics"><div class="metric"><strong>576px</strong><span>80mm raster target</span></div><div class="metric"><strong>9100</strong><span>Raw printer TCP port</span></div><div class="metric"><strong>3</strong><span>Kitchen receipt columns</span></div></div></section>
+<section class="wrap grid">
+<div class="card wide"><h2>The engineering problem</h2><p>Odoo POS data was available in the browser, but the thermal printer could not reliably render Arabic text through the printer's native code pages. The solution therefore moved Arabic rendering into Python instead of depending on the printer firmware's Arabic support.</p><p>The browser sends structured UTF-8 receipt data to a local print bridge. Python shapes Arabic using <code>arabic_reshaper</code> and BiDi processing, renders the complete receipt as a monochrome bitmap, converts it to ESC/POS raster commands, and sends the bytes directly to the printer over TCP.</p></div>
+<div class="card side"><h2>Key decision</h2><p>Render the <strong>entire receipt</strong> as an image rather than mixing printer text modes. This avoids code-page inconsistencies and keeps Arabic, English, numbers and layout under one rendering pipeline.</p></div>
+</section>
+<section class="wrap grid">
+<div class="card wide"><h2>Browser → Bridge → Printer</h2><div class="flow"><div class="step"><b>01 · Odoo POS</b><span>Collect order, lines, notes and preset.</span></div><div class="step"><b>02 · JS</b><span>Build UTF-8 kitchen receipt data.</span></div><div class="step"><b>03 · HTTP</b><span>POST Base64 payload to LAN bridge.</span></div><div class="step"><b>04 · Python</b><span>Arabic shaping + raster rendering.</span></div><div class="step"><b>05 · RP325</b><span>Raw TCP ESC/POS at port 9100.</span></div></div></div>
+<div class="card side"><h2>Dynamic order type</h2><p>The implementation avoids translated preset names for routing. It uses the preset's semantic identification and maps the result to stable internal values such as <code>dinein</code> and <code>takeaway</code>, while the printed Arabic label remains user-facing.</p></div>
+</section>
+<section class="wrap grid">
+<div class="card wide"><h2>Receipt layout</h2><div class="receipt-wrap"><div><p>The final kitchen ticket was designed around a compact thermal workflow: large kitchen title, order number, order type, tracking number and date, followed by exactly three operational columns.</p><div class="code">الصنف        الوحدة        الكمية
+---------------------------------
+برجر لحم      قطعة             2
+بطاطس         طبق              1
+مشروب غازي    كوب              2
+---------------------------------
+ملاحظة: بدون بصل</div><p class="privacy">Illustration only — no customer or production data is exposed here.</p></div>
+<div class="receipt"><div class="center big">فاتورة مطبخ</div><div class="center">AAHB Brand</div><div class="order">رقم الطلب: 00142</div><div>نوع الطلب: محلي</div><div>رقم التتبع: 8F42A1</div><div>التاريخ: 20/08/2026</div><hr><table><thead><tr><th>الصنف</th><th>الوحدة</th><th>الكمية</th></tr></thead><tbody><tr><td>برجر لحم</td><td>قطعة</td><td>2</td></tr><tr><td>بطاطس</td><td>طبق</td><td>1</td></tr><tr><td>مشروب غازي</td><td>كوب</td><td>2</td></tr></tbody></table><p class="note">ملاحظة: بدون بصل</p></div></div></div>
+<div class="card side"><h2>Why raster?</h2><ul><li>Consistent Arabic glyph shaping</li><li>No dependency on RP325 Arabic code pages</li><li>Exact pixel-level control over spacing and alignment</li><li>Same output path for Arabic and Latin content</li><li>Direct ESC/POS transport without a print server</li></ul></div>
+</section>
+<section class="wrap grid">
+<div class="card wide"><h2>What I implemented</h2><ul><li>Odoo POS JavaScript service for order-type printing.</li><li>UTF-8/Base64 browser transport to the local bridge.</li><li>Python HTTP bridge with CORS and Private Network Access support.</li><li>Arabic reshaping and BiDi rendering.</li><li>576-pixel monochrome receipt rendering for 80mm thermal output.</li><li>ESC/POS GS v 0 raster conversion and raw TCP printing.</li><li>Debug PNG generation to validate the receipt before physical printing.</li><li>Dynamic kitchen routing for different order types.</li></ul></div>
+<div class="card side"><h2>Result</h2><p>The result is a production-oriented POS printing path where Odoo remains responsible for business data, JavaScript prepares the receipt, Python owns typography/layout, and the RP325 receives printer-ready raster bytes.</p><a class="btn" href="work.html">View more work</a></div>
+</section>
+</main>
+<footer class="footer"><div class="wrap"><strong>Abdulla Bashir</strong><p>Python · Odoo · ERP · Linux · Infrastructure</p><p class="privacy">Portfolio case study prepared from hands-on implementation experience. Client-sensitive credentials, IP addresses and production data are intentionally omitted.</p></div></footer>
+</body>
+</html>
