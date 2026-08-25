@@ -1,272 +1,82 @@
-
-<html lang="en-us">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title > Resume | AAHB</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-	  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    
-    <!-- <link rel="stylesheet" href="main.css"> -->
-    <style type="text/css">
-        /*.firstdiv{
-      	border: solid blue;
-        }*/
-        .myimage{
-      	border: 10px solid #c5c5c5;
-      	border-radius: 50%;
-      	border-style: ridge;
-	    background-color: #004d85;
-	    /*border-top-right-radius: 25%;*/
-	    /*border-bottom-left-radius: 5%;*/
-		}
-		.topright{
-
-		}
-		.seconddiv{
-		  background-color: #73a5ef;
-		  border-radius: 10%;
-		  /*text-decoration-color: #73a5ef;*/
-		}
-		.leftheaders{
-		  border-radius: 25px;
-		  border-style: ridge;
-		  text-align: center;
-		  font-size: 1em;
-		  background-color: #c5c5c5;
-		  padding: 4px;
-		}
-		.skills{
-		  padding: 6px;
-		  border: solid #004d85;
-		  border-radius: 25px;
-
-		}
-		.hobbies{
-		  padding: 6px;
-		  border: solid #c5c5c5;
-		  border-radius: 25px;
-
-		}
-		.courses{
-		  color: #004d85;
-
-		}
-		.headers{
-		  font-size: 1em;
-		}
-		.myname{
-		  text-align: center;
-		   font-size: 2em;
-		}
-		.rightheaders{ 
-		  text-align: center;
-		  font-size: 1em;
-        }
-        .contacts{ 
-          border: solid white;
-		  border-radius: 8px;
-		  font-size: 1em;
-		  margin-right: 2px;
-        }
-		.workexperience{
-		  color: #004d85;
-		}
-		.designation{
-		  color: #004d85;
-		  font-size: 1em;
-		  text-align: center;
-		}
-		.center{
-			text-align: center;
-		}
-
-		/*============================================================================================*/
-		/*============================TimeLine Beggining======================================*/
-		.timeline {
-		  border-left: 1px solid hsl(0, 0%, 90%);
-		  position: relative;
-		  list-style: none;
-		}
-
-		.timeline .timeline-item {
-		  position: relative;
-		}
-
-		.timeline .timeline-item:after {
-		  position: absolute;
-		  display: block;
-		  top: 0;
-		}
-
-		.timeline .timeline-item:after {
-		  background-color: hsl(0, 0%, 90%);
-		  left: -38px;
-		  border-radius: 50%;
-		  height: 11px;
-		  width: 11px;
-		  content: "";
-		}
-	</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abdulla Bashir — CV</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1f33;--blue:#0b6efd;--light:#f5f7fa;--muted:#667085;--border:#e4e7ec}
+body{font-family:Inter,Arial,sans-serif;background:#eef2f6;color:#182230;line-height:1.55}
+.cv{max-width:1100px;margin:30px auto;background:#fff;box-shadow:0 18px 60px rgba(16,24,40,.12)}
+.header{background:var(--navy);color:#fff;padding:42px 48px}.header h1{font-size:42px;font-weight:800;margin:0 0 6px}.header .title{font-size:18px;color:#c8d7e8}.contact{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:18px;font-size:13px;color:#dce7f2}.contact a{color:#fff;text-decoration:none}
+.main{display:grid;grid-template-columns:300px 1fr}.sidebar{background:var(--light);padding:32px}.content{padding:34px 42px}.section{margin-bottom:30px}.section h2{font-size:14px;text-transform:uppercase;letter-spacing:.09em;color:var(--blue);font-weight:800;border-bottom:2px solid var(--border);padding-bottom:8px;margin-bottom:16px}.sidebar .section h2{color:var(--navy)}
+.profile{font-size:15px;color:#475467}.job{margin-bottom:25px}.job h3{font-size:17px;font-weight:800;margin:0}.job .meta{font-size:13px;color:var(--blue);font-weight:600;margin:3px 0 9px}.job ul{padding-left:20px;margin-bottom:0}.job li{margin-bottom:5px;color:#475467;font-size:14px}.skill{display:inline-block;background:#fff;border:1px solid var(--border);border-radius:20px;padding:5px 9px;margin:3px;font-size:12px;font-weight:600}.cert{margin-bottom:10px;font-size:13px}.cert strong{display:block}.muted{color:var(--muted)}
+.project{border-left:3px solid var(--blue);padding-left:14px;margin-bottom:16px}.project h3{font-size:15px;font-weight:700;margin-bottom:3px}.project p{font-size:13px;color:#475467;margin:0}.edu h3{font-size:15px;font-weight:700;margin-bottom:2px}.edu p{font-size:13px;margin:0;color:#475467}
+@media(max-width:800px){.cv{margin:0}.main{grid-template-columns:1fr}.sidebar{order:2}.header{padding:30px 24px}.content,.sidebar{padding:28px 24px}.header h1{font-size:34px}}
+@media print{body{background:#fff}.cv{margin:0;box-shadow:none}.header{print-color-adjust:exact;-webkit-print-color-adjust:exact}.sidebar{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
 </head>
 <body>
-  
-  <div class= "row text-break p-2">
-    <!-- First  ================================================================= -->
-    <!-- Column ================================================================= -->
-      <div class=" w-25 h-auto pr-4">
-      	<div class=" text-align-center m-4  ">
-      	<img src="abdalla.png" alt="CV Image" class="myimage w-100 h-auto p-1"/>
-        </div>        
-        <h1 class ="leftheaders text-uppercase fw-bold">Education</h1>
-        <h1 class ="headers text-uppercase fw-semibold ">Bachelor of Science</h1>
-        <h1 class ="headers ">
-          <span class=" fst-italic p-1">University of Khartoum<br></span><span
-           class=" fst-italic p-1"> Faculty of Mathematical </span>
-           <span class=" fst-italic p-1 mb-1">Sciences and Informatics </span>
-        / 2014 - 2021</h1>
-        <h1 class ="leftheaders text-uppercase fw-bold ">Online Courses</h1>
-        <div>
-           <i class="courses fw-semibold m-1">TryDjango</i>
-           <i class="courses fw-semibold m-1">Linux Administration CBT Nuggets</i>
-           <i class="courses fw-semibold m-1">Odoo Mate</i>
-	</div>
-	<h1 class ="leftheaders text-uppercase fw-bold ">Earned Certificates </h1>
-	<div>
-           <i class="courses fw-semibold m-1">Linux Fundmental</i>
-           <i class="courses fw-semibold m-1">AWS Cloud Practitioner</i>
-        </div>
-        <h1 class ="leftheaders text-uppercase fw-bold">Personal Skills</h1>
-        <ul >
-          <div class="row">
-            <div class="col-xs-6 "><li class=" fw-semibold">Problem Solving</li></div>
-           <div class="col-xs-6 "><li class=" fw-semibold">Analytical Thinking</li></div>
-           <div class="col-xs-6 "><li class=" fw-semibold">Team Work</li></div>
-            <div class="col-xs-6 "><li class=" fw-semibold">Self Learning</li></div>
-           <div class="col-xs-6 mb-1"><li class=" fw-semibold">Brutally Discipline</li></div>
-         </div>   
-        </ul>
-        <h1 class ="leftheaders text-uppercase fw-bold ">Hobbies</h1>
-        <div >
-           <label class="hobbies fw-semibold m-1">Gaming</label> 
-           <label class="hobbies fw-semibold m-1">Reading</label>
-           <label class="hobbies fw-semibold m-1">Cycling</label> 
-        </div>
-        <h1 class ="leftheaders center text-uppercase fw-bold mt-1">Skills</h1>
-        <div >
-           <label class="skills fw-semibold m-1">HTML</label> 
-           <label class="skills fw-semibold m-1">CSS</label>
-           <label class="skills fw-semibold m-1">Bootstrap</label> 
-           <label class="skills fw-semibold m-1">Python</label> 
-           <label class="skills fw-semibold m-1">java</label>
-           <label class="skills fw-semibold m-1">C++</label> 
-           <label class="skills fw-semibold m-1">LaTeX</label> 
-           <label class="skills fw-semibold m-1">Postman</label> 
-           <label class="skills fw-semibold m-1">REST API</label> 
-           <label class="skills fw-semibold m-1">Bash</label> 
-           <label class="skills fw-semibold m-1">Matlab</label> 
-           <label class="skills fw-semibold m-1">MySQL</label> 
-           <label class="skills fw-semibold m-1">PostegreSQL</label>
-           <label class="skills fw-semibold m-1">SQLite</label> 
-           <label class="skills fw-semibold m-1">AWS</label> 
-        </div>
-      </div> 
-
-    <!-- Second ============================================================================ -->
-    <!-- Column ============================================================================ -->
-
-      <div class=" col-xs-6 w-75 p-2">
-        <div class=" h-auto">
-        
-          <h1 class="myname text-uppercase text-align-center font-bold mt-3">Abdulla Bashir</h1>
-        
-        <div class=" h-auto">
-          <h1 class="designation text-uppercase font-bold m-3">Software Developer</h1>
-        </div>
-        <h1 class=" rightheaders text-uppercase fw-bold ">Contacts Information</h1>
-        <div class="center">
-          <label class="contacts fw-semibold">+966 5377 53236</label>
-          <label class="contacts fw-semibold">3bdalla995@gmail.com</label>
-          <label class="contacts fw-semibold">KSA ,Makkah</label>
-	  <label class="contacts fw-semibold"><a href="index.html">3bdalla3adil.github.io</a></label>
-        </div>
-        </div>
-        <h1 class=" rightheaders text-uppercase fw-bold mt-4">What Can I Do?</h1>
-        <hr class="">
-	<p class="text-muted">I can design, develop, and maintain python-based applications.
-		This includes creating custom modules mostly related to odoo (ERP System), 
-		django (content management system) and restful api working with databases.
-		Also i deploy new releases besides troubleshooting and debugging problems
-	        ,Moreover i configure and setup various cloud services in term of system 
-		administration 
-	         </p>
-
-	<h1 class=" rightheaders text-uppercase fw-bold mt-4">Work Experience</h1>
-	<hr class="">
-        <div class="row ">
-        <div class="col-xs-6 stepper"></div>
-          <div class=" ">
-            <section class="py-3">
-              <ul class="timeline">
-              	<li class="timeline-item mb-5">
-                  <h5 class="workexperience fw-bold">Odoo Developer Freelancer ~ Al hulool soft</h5>
-                  <p class="workexperience  mb-2 fw-bold">(Mar-2022– PRESENT)</p>
-                  <p class="text-muted">-I have developed an odoo app that allows to facilitate employee salary payslip with accounting module</p>
-                  <p class="workexperience  mb-2 fw-bold">(NOV-2022– FEB-2023)</p>
-                  <p class="text-muted">-I have developed an odoo api that allows user to send employees data to an external system</p>
-                 <p class="text-muted">-I have created an odoo module that allow user to generate a random date between two given 
-                 dates as an employee check-in/checkout 
-                 </p>
-                 <p class="text-muted">-I have created an odoo module that allow user to send an e-mail with an attachment</p>
-                 <p class="workexperience  mb-2 fw-bold">(JUL-2022– NOV-2022)</p>
-                  <p class="text-muted">-I have developed an odoo api that allows user to send employees data to an external system</p>
-                 <p class="text-muted">-I have created an odoo module that allow user to generate a random date between two given 
-                 dates as an employee check-in/checkout 
-                 </p>
-                 <p class="workexperience mb-2 fw-bold">(JUN-2022 – JUL-2022)</p>
-                  <p class="text-muted">
-                    -I have developed a python library that facilitate dealing with arabic keyword and its translation 
-                    beside a django rest api endpoint that allow the user to
-                    populate arabic keyword with it translations to the database
-                  </p>
-                 <p class="text-muted">-I have created an odoo module that allow user to send an e-mail with an attachment</p>
-                 <p class="workexperience  mb-2 fw-bold">(APR-2022 – MAY-2022)</p>
-                  <p class="text-muted">
-                   -I have developed a python script that allow user to chat with another user within the same lan
-                  </p>
-                  
-                </li>
-
-                <li class="timeline-item mb-5">
-                  <h5 class="workexperience fw-bold">IT Support Specialist</h5>
-                  <p class="workexperience mb-2 fw-bold">(MAY-2022 – JUN-2022)</p>
-                  <p class="text-muted">
-                   -I have configured a vpn server for a UK Based client to secure his network traffic
-                  </p>
-                  <p class="workexperience  mb-2 fw-bold">(APR-2019 – AUG-2019)</p>
-                  <p class="text-muted">
-                    I have managed "AutoBash Inc"  Odoo ESXI Server and 
-                    configured software and hardware .
-                  </p>
-                  
-                </li>
-
-                <li class="timeline-item mb-5">
-                  <h5 class="workexperience fw-bold">Android Developer</h5>
-                  <p class="workexperience mb-2 fw-bold">(MAR-2018 – SEP-2018)</p>
-                  <p class="text-muted">
-                    I have worked as a member of an android application development team to develop a prayers time application.
-                  </p>
-                  <p class="text-muted">
-                    I have developed a simple app interface for a local bakery that organizes bread line as a using  database operations assuming that every person has a unique card number.
-                  </p>
-                </li>
-              
-              </ul>
-            </section>
-        </div>
-    </div>
-  </div>
+<div class="cv">
+<header class="header">
+<h1>Abdulla Bashir</h1>
+<div class="title">Python &amp; Odoo Developer | Backend &amp; ERP Solutions | DevOps &amp; Linux</div>
+<div class="contact">
+<span>Doha, Qatar</span><span>+974 7120 3694</span><span>3bdalla995@gmail.com</span>
+<a href="https://3bdalla3adil.github.io/">Portfolio</a><a href="https://github.com/3bdalla3adil">GitHub</a><a href="https://www.linkedin.com/">LinkedIn</a>
+</div>
+</header>
+<div class="main">
+<aside class="sidebar">
+<div class="section">
+<h2>Technical Skills</h2>
+<div><span class="skill">Python</span><span class="skill">Odoo 14–19</span><span class="skill">Django</span><span class="skill">Flask</span><span class="skill">OWL / JavaScript</span><span class="skill">REST APIs</span><span class="skill">PostgreSQL</span><span class="skill">MySQL</span><span class="skill">SQL</span><span class="skill">Docker</span><span class="skill">Nginx</span><span class="skill">Git</span><span class="skill">Linux</span><span class="skill">AWS</span><span class="skill">Kubernetes</span><span class="skill">Portainer</span></div>
+</div>
+<div class="section">
+<h2>Core Strengths</h2>
+<ul class="mb-0 ps-3"><li>ERP customization &amp; implementation</li><li>Accounting, POS, HR &amp; inventory workflows</li><li>Backend/API development</li><li>Database administration &amp; migration</li><li>Dockerized deployments</li><li>System troubleshooting</li><li>Technical documentation</li></ul>
+</div>
+<div class="section">
+<h2>Education</h2>
+<div class="edu"><h3>Bachelor’s Degree in Mathematics &amp; Computer Sciences</h3><p>University of Khartoum</p><p>Graduated December 2021</p></div>
+</div>
+<div class="section">
+<h2>Certifications &amp; Training</h2>
+<div class="cert"><strong>Linux for LFCA</strong><span class="muted">Coursera / Linux Foundation</span></div>
+<div class="cert"><strong>Cybersecurity Foundation</strong><span class="muted">Coursera</span></div>
+<div class="cert"><strong>ISC2 Security Principles</strong></div>
+<div class="cert"><strong>Create Your First Web App with Python and Flask</strong><span class="muted">Coursera</span></div>
+<div class="cert"><strong>Backend Development Introduction</strong><span class="muted">Meta</span></div>
+<div class="cert"><strong>Deloitte Australia Cyber Job Simulation</strong><span class="muted">Forage — May 2025</span></div>
+<div class="cert"><strong>Business Writing</strong><span class="muted">Coursera</span></div>
+</div>
+<div class="section">
+<h2>Languages</h2><p class="mb-1"><strong>Arabic</strong> — Native</p><p><strong>English</strong> — Professional working proficiency</p>
+</div>
+<div class="section">
+<h2>Additional</h2><p class="mb-1">Valid Qatar ID / residency documentation</p><p>Qatar Driving License</p></div>
+</aside>
+<main class="content">
+<div class="section"><h2>Professional Summary</h2><p class="profile">Software Developer and Odoo Technical Specialist with 5+ years of practical experience building, customizing, upgrading and deploying business applications. Strong hands-on background in Python, Odoo, Django, PostgreSQL, REST APIs, Docker and Linux. Experienced in ERP implementations, accounting and finance reporting, POS, HR/payroll, inventory, property and healthcare systems. Comfortable working across development, database administration, integrations, deployment and production troubleshooting.</p></div>
+<div class="section"><h2>Professional Experience</h2>
+<div class="job"><h3>IT Application Developer / Odoo Technical Advisor — Al Taaluq Contracting &amp; Maintenance WLL, Qatar</h3><div class="meta">September 2024 – Present</div><ul><li>Lead development and customization of Odoo-based business applications supporting finance, operations, healthcare and property management.</li><li>Designed a clinic management solution covering appointments, patient management, doctor/nurse scheduling and medical/general supplies.</li><li>Designed a scalable property management system covering properties, units, contracts, tenant maintenance and post-dated cheque workflows.</li><li>Developed and maintained custom reports, automated workflows, security rules and integrations while supporting production users.</li><li>Worked with Docker, PostgreSQL, Linux administration and reverse-proxy infrastructure for reliable deployments.</li></ul></div>
+<div class="job"><h3>Full Stack Developer — Maven Technology, Qatar</h3><div class="meta">August 2023 – August 2024</div><ul><li>Upgraded and deployed complex Odoo ERP systems from v15 to v17 for clients in law and logistics.</li><li>Built dynamic finance reporting tools using Odoo OWL and JavaScript and resolved stock/inventory issues with custom business logic.</li><li>Managed multiple PostgreSQL databases through CLI and supported containerized deployments and production troubleshooting.</li><li>Developed custom Odoo modules and integrations across accounting, sales, inventory and HR processes.</li></ul></div>
+<div class="job"><h3>Freelance Software Engineer — Al Hulool Soft, Saudi Arabia (Remote)</h3><div class="meta">September 2022 – September 2023</div><ul><li>Built rental-car and dental/clinic management solutions using Python, Odoo and XML.</li><li>Administered Linux server instances, load balancing and Dockerized Odoo environments.</li><li>Developed contract payment automation and API integrations to reduce manual processing and billing errors.</li></ul></div>
+<div class="job"><h3>Software Engineer — Ingaz Group, Saudi Arabia</h3><div class="meta">January 2022 – November 2022</div><ul><li>Developed business automation tools and integrated B2B APIs with government services.</li><li>Designed a custom leave management system and deployed applications using Nginx, firewall controls and secure server configurations.</li></ul></div>
+<div class="job"><h3>Junior Software Developer — AutoBash Co. Ltd, Sudan</h3><div class="meta">May 2021 – September 2022</div><ul><li>Provided software support, investigated application defects and developed tools to improve ERP functionality and user experience.</li></ul></div>
+</div>
+<div class="section"><h2>Selected Projects</h2>
+<div class="project"><h3>Odoo ERP Upgrade &amp; Implementation</h3><p>Multiple Odoo upgrades and deployments including v12→v16 and v15→v17, with database integrity, custom module compatibility and production support.</p></div>
+<div class="project"><h3>Odoo Finance Reporting</h3><p>Developed OWL-based finance reporting and account-filter functionality for Odoo 17 Enterprise.</p></div>
+<div class="project"><h3>Cybersecurity API — Python / Django REST</h3><p>Ported a Golang cybersecurity utility to Python, processing Arabic keywords and exposing JSON results through a Django REST API.</p></div>
+<div class="project"><h3>POS Printing &amp; Local Print Bridge</h3><p>Developed Odoo POS integrations for thermal printers with local network print routing, including Dine-In and Takeaway workflows.</p></div>
+<div class="project"><h3>Healthcare &amp; Property Management</h3><p>Built specialized Odoo solutions for clinic operations and property lifecycle management with security, reporting and workflow automation.</p></div>
+</div>
+<div class="section"><h2>Volunteer Experience</h2><div class="job mb-0"><h3>Red Crescent Qatar — Fruitful Giving</h3><div class="meta">March 2025</div><p class="mb-0 muted">Supported logistical operations by organizing donation workflows and packing activities.</p></div></div>
+</main>
+</div>
+</div>
 </body>
 </html>
