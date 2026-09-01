@@ -202,7 +202,161 @@
       gap: 0.25rem;
     }
 
-    /* ─── Skills ─── */
+    /* ─── Clients ─── */
+    /* =========================================================
+          SUCCESS STORIES
+      ========================================================= */
+
+    .success-section {
+      background: var(--surface);
+      overflow: hidden;
+    }
+    
+    .client-slider {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .client-window {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+    
+    .client-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(.4, 0, .2, 1);
+    }
+    
+    .client-card {
+      min-width: 100%;
+      box-sizing: border-box;
+    
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 40px;
+      align-items: center;
+    
+      padding: 55px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+    }
+    
+    .client-icon {
+      width: 100px;
+      height: 100px;
+    
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
+      border-radius: 24px;
+    
+      background: var(--text);
+      color: var(--bg);
+    
+      font-size: 2.2rem;
+    }
+    
+    .client-role {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    
+    .client-card h3 {
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+    
+    .client-card p {
+      max-width: 700px;
+      line-height: 1.8;
+    }
+    
+    .client-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    
+    .client-nav {
+      flex: 0 0 46px;
+      width: 46px;
+      height: 46px;
+    
+      border: 1px solid var(--border);
+      border-radius: 50%;
+    
+      background: var(--bg);
+      color: var(--text);
+    
+      cursor: pointer;
+      transition: .25s;
+    }
+    
+    .client-nav:hover {
+      background: var(--text);
+      color: var(--bg);
+      transform: scale(1.05);
+    }
+    
+    .client-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 25px;
+    }
+    
+    .client-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+    
+      border: 0;
+      border-radius: 50%;
+    
+      background: var(--muted);
+      opacity: .35;
+    
+      cursor: pointer;
+      transition: .25s;
+    }
+    
+    .client-dot.active {
+      width: 28px;
+      border-radius: 10px;
+      opacity: 1;
+    }
+    
+    @media (max-width: 700px) {
+      .client-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        gap: 25px;
+      }
+    
+      .client-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
+      }
+    
+      .client-card h3 {
+        font-size: 1.5rem;
+      }
+    
+      .client-nav {
+        display: none;
+      }
+    }
+    
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -514,6 +668,30 @@
     </div>
   </section>
 
+  <!-- Success Stories -->
+<section id="clients" class="success-section">
+  <div class="container">
+    <p class="section-label">Success Stories</p>
+    <h2 class="mb-xl">Built for Real Businesses</h2>
+
+    <div class="client-slider">
+      <button class="client-nav prev" onclick="moveClient(-1)">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="client-window">
+        <div class="client-track" id="clientTrack"></div>
+      </div>
+
+      <button class="client-nav next" onclick="moveClient(1)">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="client-dots" id="clientDots"></div>
+  </div>
+</section>
+
   <!-- Skills -->
   <section id="skills" style="background: var(--surface);">
     <div class="container">
@@ -556,7 +734,7 @@
     <div class="cert-modal-counter" id="modalCounter">1 / 10</div>
   </div>
 
-  <!-- About -->uyù 
+  <!-- About -->
   <section id="about">
     <div class="container">
       <p class="section-label">Background</p>
@@ -635,11 +813,26 @@
     // ─── Data ───
     const projects = [
       {
+        title: "Arabic POS Order-Type Printer",
+        desc: "Production-ready Odoo POS printing solution that automatically routes Local, Family and Takeaway orders to dedicated thermal printers. Arabic receipts are rendered as images to guarantee correct RTL shaping and reliable Rongta RP325 output.",
+        tags: [
+          "Odoo 19",
+          "POS",
+          "OWL",
+          "Python",
+          "JavaScript",
+          "ESC/POS",
+          "Arabic RTL"
+        ],
+        icon: "fa-print",
+        link: "https://apps.odoo.com/apps/modules/19.0/order_type_printer"
+      },
+      {
         title: "Assembly/Disassembly Module",
         desc: "Simplifies creating and breaking down product bundles. Precise quantity tracking with full action history for inventory accuracy.",
         tags: ["Odoo", "Inventory", "Python"],
         icon: "fa-cubes",
-        link: "https://apps.odoo.com/apps/modules/16.0/product-odoo-da"
+        link: "product-odoo-da"
       },
   
       {
@@ -707,6 +900,37 @@
       }
     ];
 
+    const clients = [
+  {
+    name: "CyberMeStudio",
+    role: "Cybersecurity & Software Solutions",
+    icon: "fa-shield-halved",
+    desc: "Delivered software development and technical solutions with a focus on reliable backend systems and cybersecurity-oriented engineering.",
+    tags: ["Python", "Cybersecurity", "Backend"]
+  },
+  {
+    name: "Ingaz",
+    role: "Business & Digital Solutions",
+    icon: "fa-rocket",
+    desc: "Supported digital business solutions through custom software development, automation and technical implementation.",
+    tags: ["Odoo", "Automation", "Software"]
+  },
+  {
+    name: "Maven Technology",
+    role: "Odoo & ERP Development",
+    icon: "fa-gears",
+    desc: "Worked on Odoo development and ERP customization, helping translate business requirements into practical technical solutions.",
+    tags: ["Odoo", "ERP", "Python"]
+  },
+  {
+    name: "NextMove Business Solutions",
+    role: "ERP & Business Applications",
+    icon: "fa-building",
+    desc: "Delivered Odoo development, customization and upgrade work, including migration and business-process improvements.",
+    tags: ["Odoo", "Migration", "ERP"]
+  }
+];
+
     const skills = [
       "Python", "Odoo", "Django", "Flask", 
       "PostgreSQL", "Sqlite", "Docker", "Linux",
@@ -768,6 +992,61 @@
         </div>
       </article>
     `).join('');
+
+     // ─── Render Clients ───
+
+    let clientIndex = 0;
+
+    function renderClients() {
+      const track = document.getElementById("clientTrack");
+      const dots = document.getElementById("clientDots");
+    
+      track.innerHTML = clients.map((client, i) => `
+        <article class="client-card ${i === 0 ? "active" : ""}">
+          <div class="client-icon">
+            <i class="fas ${client.icon}"></i>
+          </div>
+    
+          <div class="client-content">
+            <p class="client-role">${client.role}</p>
+            <h3>${client.name}</h3>
+            <p>${client.desc}</p>
+    
+            <div class="client-tags">
+              ${client.tags.map(tag => `
+                <span class="tag">${tag}</span>
+              `).join("")}
+            </div>
+          </div>
+        </article>
+      `).join("");
+    
+            dots.innerHTML = clients.map((_, i) => `
+              <button
+                class="client-dot ${i === 0 ? "active" : ""}"
+                onclick="showClient(${i})"
+                aria-label="Show client ${i + 1}">
+              </button>
+            `).join("");
+          }
+          
+          function showClient(index) {
+            clientIndex = (index + clients.length) % clients.length;
+          
+            const track = document.getElementById("clientTrack");
+          
+            track.style.transform = `translateX(-${clientIndex * 100}%)`;
+          
+            document.querySelectorAll(".client-dot").forEach((dot, i) => {
+              dot.classList.toggle("active", i === clientIndex);
+            });
+          }
+          
+          function moveClient(direction) {
+            showClient(clientIndex + direction);
+          }
+          
+          renderClients();
 
     // ─── Render Skills ───
     document.getElementById('skillsGrid').innerHTML = skills.map(s => 
