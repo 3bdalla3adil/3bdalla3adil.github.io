@@ -23,6 +23,28 @@ export const projects = [
     ]
   },
   {
+    id: 'clinic-flow',
+    title: 'ClinicFlow — Clinic Appointment & Patient Booking System',
+    description: 'A lightweight clinic operations demo for appointment scheduling, doctor availability, patient booking and local data management.',
+    longDescription: 'ClinicFlow is a portfolio-ready browser application designed to demonstrate a practical clinic workflow without requiring a backend. It manages doctors, working hours, appointment slots, patient bookings, appointment status, basic patient contact records, exports and local JSON backup/restore. The public demo intentionally avoids real medical records and sensitive healthcare data.',
+    category: 'python',
+    tags: ['JavaScript', 'HTML5', 'CSS3', 'Healthcare', 'Scheduling', 'GitHub Pages'],
+    image: '/assets/img/odoo-hr.jpg',
+    github: 'https://github.com/3bdalla3adil/3bdalla3adil.github.io',
+    demo: './clinic-booking.html',
+    featured: true,
+    year: 2026,
+    client: 'Portfolio / Product Demo',
+    status: 'completed',
+    highlights: [
+      'Doctor working hours and appointment slot management',
+      'Patient booking and appointment workflow',
+      'Local browser storage with JSON backup and restore',
+      'Responsive UI with Arabic / English interface support',
+      'Privacy-first demo boundary for healthcare data'
+    ]
+  },
+  {
     id: 'odoo-assembly-disassembly',
     title: 'Odoo Assembly/Disassembly Module',
     description: 'Revolutionary Odoo 16 module for managing product bundles with precise quantity tracking and comprehensive history.',
