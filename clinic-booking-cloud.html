@@ -18,7 +18,7 @@
 </main>
 <footer class="wrap">ClinicFlow by Abdulla Bashir · Static frontend on GitHub Pages · Google Apps Script + Google Sheets backend</footer>
 <script>
-const CLINICFLOW_CONFIG={API_URL:'YOUR_APPS_SCRIPT_EXEC_URL'};
+const CLINICFLOW_CONFIG={API_URL:'https://script.google.com/macros/s/AKfycbyZ_Eh0YGlloWy_JuByR1STFeEuPHPLi_peBt2E9wt0YO82nmunVjtIeIm-hpW1KHJl/exec'};
 const $=id=>document.getElementById(id);
 let doctors=[];
 function apiUrl(action,params={}){const u=new URL(CLINICFLOW_CONFIG.API_URL);u.searchParams.set('action',action);Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));return u.toString()}
