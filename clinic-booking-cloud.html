@@ -135,7 +135,7 @@ loading:'جارٍ التحميل...',bookingSuccess:'تم حجز الموعد ب
 selectDoctorDate:'اختر الطبيب والتاريخ',noSlots:'لا توجد أوقات متاحة.'
 }};
 
-function configured(){return CLINICFLOW_CONFIG.API_URL && !CLINICFLOW_CONFIG.API_URL.includes('https://script.google.com/macros/s/AKfycbzhZHV03Ddjs4f2jMiFjRvM_0NOjkLsDdqUviKcpEgbiiF_2w844EoqKAXpEkok0excsg/exec')}
+function configured(){return typeof CLINICFLOW_CONFIG.API_URL==='string' && /^https:\/\/script\.google\.com\/macros\/s\/[^\s]+\/exec$/.test(CLINICFLOW_CONFIG.API_URL.trim())}
 function apiGet(params){
 if(!configured())return Promise.reject(new Error('ClinicFlow API is not configured. Add your Apps Script /exec URL in CLINICFLOW_CONFIG.API_URL.'));
 const url=new URL(CLINICFLOW_CONFIG.API_URL);Object.entries(params||{}).forEach(([k,v])=>url.searchParams.set(k,v));
