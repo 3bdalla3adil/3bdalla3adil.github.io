@@ -1546,7 +1546,7 @@ function isConfigured() {
     return (
         CLINICFLOW_CONFIG.API_URL &&
         CLINICFLOW_CONFIG.API_URL !==
-            'YOUR_APPS_SCRIPT_EXEC_URL'
+            'https://script.google.com/macros/s/AKfycbzhZHV03Ddjs4f2jMiFjRvM_0NOjkLsDdqUviKcpEgbiiF_2w844EoqKAXpEkok0excsg/exec'
     );
 }
 
@@ -1612,8 +1612,8 @@ async function apiPost(
 
     const response =
         await fetch(
-            'https://docs.google.com/spreadsheets/d/1oNDYGvTyf7fn0ytZ277CXG5P57s-5PWykvbFCKMpXnk/edit',
-            //CLINICFLOW_CONFIG.API_URL,
+            //'https://docs.google.com/spreadsheets/d/1oNDYGvTyf7fn0ytZ277CXG5P57s-5PWykvbFCKMpXnk/edit',
+            CLINICFLOW_CONFIG.API_URL,
             {
                 method: 'POST',
 
