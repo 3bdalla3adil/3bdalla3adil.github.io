@@ -94,17 +94,17 @@ footer{text-align:center;padding:30px;color:var(--m);font-size:13px}
 </section>
 
 <section id="doctors" class="section">
-<div class="hero"><h2 data-i18n="doctorsTitle">Doctors & Availability</h2><p data-i18n="doctorsDescription">Doctors are loaded directly from the ClinicFlow Google Sheets database.</p></div>
+<div class="hero"><h2 data-i18n="doctorsTitle">Doctors & Availability</h2><p data-i18n="doctorsDescription">Doctors are loaded directly from the ClinicFlow Firebase database.</p></div>
 <div class="card"><div id="doctorList" class="doctors"><div class="loading" style="color:#64748b"><span>Loading doctors...</span></div></div></div>
 </section>
 </div></main>
-<footer>ClinicFlow — Google Sheets + Google Apps Script</footer>
+<footer>ClinicFlow — Firebase Cloud Database · Odoo-ready data model</footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import {
   getFirestore, collection, getDocs, addDoc, query, where, limit,
-  updateDoc, doc, serverTimestamp
+  updateDoc, doc, setDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -186,7 +186,7 @@ return '';
 
 function normalizeDoctor(id,data){
 return {
-id:id||data.doctorId||data.id,
+id:data.doctorId||data.id||id,
 name:data.name||'',
 specialty:data.specialty||'',
 duration:Number(data.duration)||30,
@@ -205,7 +205,7 @@ const defaults=[
 {doctorId:'DOC-002',name:'Dr. Mohamed Ali',specialty:'Dermatology',duration:30,workingDays:[0,2,4],startTime:'10:00',endTime:'17:00',active:true},
 {doctorId:'DOC-003',name:'Dr. Huda Osman',specialty:'Dental',duration:45,workingDays:[1,3,5],startTime:'09:00',endTime:'13:00',active:true}
 ];
-for(const d of defaults)await addDoc(collection(db,'doctors'),{...d,createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
+for(const d of defaults)await setDoc(doc(db,'doctors',d.doctorId),{...d,createdAt:serverTimestamp(),updatedAt:serverTimestamp()},{merge:true});
 }
 
 async function getDoctors(){
@@ -266,7 +266,7 @@ time.disabled=false;
 
 function appointmentNumber(){
 const d=new Date(),date=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
-return 'APT-'+date+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+return 'APT-'+date+'-'+crypto.randomUUID().replace(/-/g,'').slice(0,6).toUpperCase();
 }
 
 async function findPatient(phone){
@@ -294,10 +294,11 @@ await updateDoc(doc(db,'patients',patient.id),{name:data.name,email:data.email,u
 const id=appointmentNumber();
 await addDoc(collection(db,'appointments'),{
 appointmentId:id,patientId:patient.id,patientName:data.name,phone:data.phone,email:data.email,
+source:'web_booking',clinicId:'CLINIC-001',
 doctorId:data.doctorId,doctorName:doctor.name,specialty:doctor.specialty,date:data.date,time:data.time,reason:data.reason,
 status:'confirmed',createdAt:serverTimestamp(),updatedAt:serverTimestamp()
 });
-await addDoc(collection(db,'auditLogs'),{action:'appointment_created',recordId:id,actor:'public_booking',timestamp:serverTimestamp(),details:{doctorId:data.doctorId,date:data.date,time:data.time}});
+await addDoc(collection(db,'auditLogs'),{action:'appointment_created',recordId:id,actor:'public_booking',timestamp:serverTimestamp(),entityType:'appointment',details:{doctorId:data.doctorId,date:data.date,time:data.time}});
 showConfirmation({appointmentId:id,patient:data.name,doctor:doctor.name,date:data.date,time:data.time,patientId:patient.id,status:'confirmed'},data);
 showStatus('bookingStatus','success',translations[currentLanguage].bookingSuccess);
 document.getElementById('confirmation').scrollIntoView({behavior:'smooth',block:'center'});
@@ -344,7 +345,7 @@ async function updateAppointmentStatus(status){
 if(!currentAppointment){showStatus('receptionStatus','error',translations[currentLanguage].appointmentNotFound);return}
 try{
 await updateDoc(doc(db,'appointments',currentAppointment.id),{status,updatedAt:serverTimestamp()});
-await addDoc(collection(db,'auditLogs'),{action:'appointment_status_updated',recordId:currentAppointment.appointmentId,actor:'reception',timestamp:serverTimestamp(),details:{status}});
+await addDoc(collection(db,'auditLogs'),{action:'appointment_status_updated',recordId:currentAppointment.appointmentId,actor:'reception',timestamp:serverTimestamp(),entityType:'appointment',details:{status}});
 currentAppointment.status=status;displayAppointment(currentAppointment);
 showStatus('receptionStatus','success',currentLanguage==='ar'?'تم تحديث الحالة.':'Status updated.');
 }catch(e){showStatus('receptionStatus','error',e.message)}
