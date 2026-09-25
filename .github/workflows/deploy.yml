@@ -18,7 +18,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    # 🔑 REQUIRED by GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -30,6 +29,16 @@ jobs:
       - name: Validate entry file
         run: |
           test -f index.html
+
+      # 🛠️ INJECT THE SINGLE FIREBASE_CONFIG JSON STRING
+      - name: Inject Firebase Configuration
+        env:
+          CONFIG_DATA: ${{ secrets.FIREBASE_CONFIG }}
+        run: |
+          # Creates a script payload using your JSON secret string
+          INJECTION_SCRIPT="<script>window.env = { FIREBASE_CONFIG: $CONFIG_DATA };</script></head>"
+          # Safely injects the script right before the closing </head> tag inside index.html
+          sed -i "s|<\/head>|${INJECTION_SCRIPT}|g" index.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
