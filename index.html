@@ -11,7 +11,8 @@
   <title>Abdulla Bashir — Enterprise Solutions Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#07111f;--bg2:#0b1728;--card:rgba(15,30,49,.72);--text:#eef5ff;--muted:#9db0c8;--line:rgba(158,181,211,.16);--accent:#64d8ff;--accent2:#8b7cff;--max:1160px;--r:24px}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 10%,rgba(100,216,255,.10),transparent 30%),radial-gradient(circle at 10% 35%,rgba(139,124,255,.10),transparent 28%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
@@ -37,7 +38,46 @@
     body.ar{direction:rtl}body.ar .hero,body.ar .section-head,body.ar .card,body.ar .project-body{text-align:right}body.ar .step{border-left:0;border-right:2px solid rgba(100,216,255,.35);padding-left:0;padding-right:22px}.ar-inline{display:inline}
     @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:70px}.profile{max-width:420px}.grid{grid-template-columns:repeat(2,1fr)}.architecture{grid-template-columns:1fr 1fr}.node:not(:last-child):after{display:none}.timeline{grid-template-columns:1fr}.links{display:none}.cta{flex-direction:column;align-items:flex-start}}
     @media(max-width:620px){.container{width:min(var(--max),calc(100% - 26px))}.hero{gap:35px;padding:55px 0}.hero p{font-size:1rem}section{padding:75px 0}.grid,.project-grid{grid-template-columns:1fr}.architecture{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:15px}.actions .btn.ghost{display:none}.cta{padding:30px}.footer-inner{flex-direction:column}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.cert-track{animation:none}}
+    /* Restored Success Stories + Certificates */
+    .success-section,.cert-section{overflow:hidden}
+    .client-slider{position:relative;display:flex;align-items:center;gap:16px}
+    .client-window{width:100%;overflow:hidden;border-radius:24px}
+    .client-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+    .client-card{min-width:100%;display:grid;grid-template-columns:110px 1fr;gap:32px;align-items:center;padding:38px;background:linear-gradient(145deg,rgba(20,39,62,.78),rgba(8,19,33,.72));border:1px solid var(--line);border-radius:24px}
+    .client-icon{width:96px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:22px;background:linear-gradient(135deg,var(--accent),#8b7cff);color:#06121f;font-size:2rem}
+    .client-role{margin:0 0 7px;color:var(--accent);font:600 .75rem "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
+    .client-card h3{margin:0 0 10px;font-size:1.8rem}
+    .client-card p{max-width:700px;margin:0;color:var(--muted)}
+    .client-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .client-nav{flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;transition:.25s}
+    .client-nav:hover{background:var(--accent);color:#06121f;transform:scale(1.05)}
+    .client-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+    .client-dot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--muted);opacity:.35;cursor:pointer;transition:.25s}
+    .client-dot.active{width:28px;border-radius:10px;opacity:1;background:var(--accent)}
+    .cert-header{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:28px}
+    .cert-count{color:var(--muted);font-size:.85rem}
+    .cert-carousel-wrapper{position:relative;width:100vw;left:50%;margin-left:-50vw;overflow:hidden;padding:8px 0}
+    .cert-track{display:flex;gap:16px;width:max-content;animation:certScroll 48s linear infinite}
+    .cert-track:hover{animation-play-state:paused}
+    @keyframes certScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .cert-card{flex-shrink:0;width:300px;background:rgba(15,30,49,.72);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s}
+    .cert-card:hover{transform:translateY(-5px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
+    .cert-card img{width:100%;height:205px;object-fit:cover;display:block;background:#152438}
+    .cert-card-info{padding:15px 17px}
+    .cert-card-info h4{margin:0 0 4px;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cert-card-info p{margin:0;color:var(--muted);font-size:.78rem}
+    .cert-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(10px)}
+    .cert-modal.show{display:flex}
+    .cert-modal-content{max-width:90vw;max-height:88vh}
+    .cert-modal-image{max-width:100%;max-height:82vh;object-fit:contain;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+    .cert-modal-close,.cert-modal-nav{position:fixed;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);transition:.2s}
+    .cert-modal-close{top:22px;right:22px;font-size:1.2rem}
+    .cert-modal-nav{top:50%;transform:translateY(-50%);font-size:1rem}
+    .cert-modal-close:hover,.cert-modal-nav:hover{background:rgba(255,255,255,.25)}
+    .cert-modal-prev{left:22px}.cert-modal-next{right:22px}
+    .cert-modal-counter{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-size:.85rem}
+    @media(max-width:700px){.client-card{grid-template-columns:1fr;padding:28px;gap:22px}.client-icon{width:72px;height:72px;font-size:1.5rem}.client-card h3{font-size:1.45rem}.client-nav{display:none}.cert-card{width:270px}.cert-modal-nav{display:none}.cert-header{display:block}.cert-count{display:block;margin-top:10px}}
   </style>
 </head>
 <body>
@@ -45,7 +85,7 @@
   <a class="brand" href="#">AB<span>.</span></a>
   <div class="links">
     <a href="#capabilities" data-en>Capabilities</a><a href="#capabilities" data-ar>المهارات</a>
-    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a>
+    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a><a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a><a href="#certs" data-en>Certificates</a><a href="#certs" data-ar>الشهادات</a>
     <a href="#path" data-en>Career Path</a><a href="#path" data-ar>المسار المهني</a>
     <a href="#contact" data-en>Contact</a><a href="#contact" data-ar>تواصل</a>
   </div>
@@ -114,6 +154,31 @@
   </div>
 </div></section>
 
+
+<section id="clients" class="success-section"><div class="container">
+  <div class="section-head"><div><div class="kicker">04 / Success Stories</div><h2 data-en>Built for real businesses.</h2><h2 data-ar>حلول لأعمال حقيقية.</h2></div><p data-en>A selection of organizations and business environments where I have delivered software, ERP and automation work.</p><p data-ar>نماذج من الجهات وبيئات الأعمال التي قدمت لها حلول البرمجيات وERP والأتمتة.</p></div>
+  <div class="client-slider">
+    <button class="client-nav prev" onclick="moveClient(-1)" aria-label="Previous client"><i class="fas fa-chevron-left"></i></button>
+    <div class="client-window"><div class="client-track" id="clientTrack"></div></div>
+    <button class="client-nav next" onclick="moveClient(1)" aria-label="Next client"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="client-dots" id="clientDots"></div>
+</div></section>
+
+<section id="certs" class="cert-section"><div class="container">
+  <div class="cert-header"><div><div class="kicker">05 / Credentials</div><h2 data-en>Certificates & learning.</h2><h2 data-ar>الشهادات والتعلم.</h2></div><span class="cert-count" id="certCount"></span></div>
+</div>
+<div class="cert-carousel-wrapper"><div class="cert-track" id="certTrack"></div></div>
+</section>
+
+<div id="certModal" class="cert-modal" aria-hidden="true">
+  <button class="cert-modal-close" onclick="closeModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+  <button class="cert-modal-nav cert-modal-prev" onclick="prevCert()" aria-label="Previous certificate"><i class="fas fa-chevron-left"></i></button>
+  <button class="cert-modal-nav cert-modal-next" onclick="nextCert()" aria-label="Next certificate"><i class="fas fa-chevron-right"></i></button>
+  <div class="cert-modal-content"><img id="modalImage" class="cert-modal-image" src="" alt="Certificate"></div>
+  <div class="cert-modal-counter" id="modalCounter">1 / 1</div>
+</div>
+
 <section id="path"><div class="container">
   <div class="section-head"><div><div class="kicker">04 / Career direction</div><h2 data-en>Growing from builder to architect.</h2><h2 data-ar>من مطور إلى مهندس حلول ومعماري أنظمة.</h2></div><p data-en>The long-term direction is to combine ERP depth with cloud, automation, security and AI — without losing hands-on engineering.</p><p data-ar>الهدف طويل المدى هو دمج خبرة ERP مع السحابة والأتمتة والأمن والذكاء الاصطناعي مع الحفاظ على الخبرة العملية في البرمجة.</p></div>
   <div class="timeline">
@@ -133,6 +198,90 @@
 <script>
   const body=document.body, btn=document.getElementById('langBtn');
   function setLang(ar){body.classList.toggle('ar',ar);document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';btn.textContent=ar?'English':'العربية';localStorage.setItem('portfolio-lang',ar?'ar':'en')}
+
+  const clients = [
+    {name:"CyberMeStudio",role:"Cybersecurity & Software Solutions",icon:"fa-shield-halved",desc:"Delivered software development and technical solutions with a focus on reliable backend systems and cybersecurity-oriented engineering.",tags:["Python","Cybersecurity","Backend"]},
+    {name:"Ingaz",role:"Business & Digital Solutions",icon:"fa-rocket",desc:"Supported digital business solutions through custom software development, automation and technical implementation.",tags:["Odoo","Automation","Software"]},
+    {name:"Maven Technology",role:"Odoo & ERP Development",icon:"fa-gears",desc:"Worked on Odoo development and ERP customization, helping translate business requirements into practical technical solutions.",tags:["Odoo","ERP","Python"]},
+    {name:"NextMove Business Solutions",role:"ERP & Business Applications",icon:"fa-building",desc:"Delivered Odoo development, customization and upgrade work, including migration and business-process improvements.",tags:["Odoo","Migration","ERP"]}
+  ];
+
+  const certificates = [
+    {title:"TEOFL",org:"Coursera",img:"assets/img/teofl_cert.png"},
+    {title:"Getting Started with Google Kubernetes Engine",org:"Coursera",img:"assets/img/gke_cert.png"},
+    {title:"Get Start Google Cloud",org:"Coursera",img:"assets/img/get_start_google_cloud.png"},
+    {title:"Introduction to Linux",org:"The Linux Foundation",img:"assets/img/lfs101.png"},
+    {title:"Introduction to Kubernetes",org:"The Linux Foundation",img:"assets/img/lfs158.png"},
+    {title:"Kubernetes Cloud Native Essentials",org:"The Linux Foundation",img:"assets/img/lfs250.png"},
+    {title:"Linux Fundamentals",org:"Coursera",img:"assets/img/linux_cert.png"},
+    {title:"Backend Development",org:"Meta / Coursera",img:"assets/img/backend_cert.png"},
+    {title:"Cybersecurity",org:"Coursera",img:"assets/img/isc2_cert.png"},
+    {title:"Linux Cloud & DevOps",org:"Coursera",img:"assets/img/linux_cloud_and_devops_cert.png"},
+    {title:"Managing Linux Systems",org:"Coursera",img:"assets/img/managing_linux_system_cert.png"},
+    {title:"Securing Linux Systems",org:"Coursera",img:"assets/img/securing_linux_system_cert.png"},
+    {title:"Linux Specialization",org:"Coursera",img:"assets/img/linux_specialization_cert.png"},
+    {title:"OS Foundations",org:"Coursera",img:"assets/img/operating_system_foundation_cert.png"},
+    {title:"Python Flask",org:"Coursera",img:"assets/img/python_flask_cert.png"},
+    {title:"Accounting Certificate",org:"Coursera",img:"assets/img/acc_cert.png"},
+    {title:"AWS Solutions Architect",org:"Amazon Web Services",img:"assets/img/architecting_solution_on_aws_cert.png"},
+    {title:"AWS Associate",org:"Amazon Web Services",img:"assets/img/aws_associate_cert.png"},
+    {title:"AWS General Certificate",org:"Amazon Web Services",img:"assets/img/aws_cert.png"},
+    {title:"AWS Specialization",org:"Amazon Web Services",img:"assets/img/aws_specialization_cert.png"},
+    {title:"Brand Certificate",org:"Coursera",img:"assets/img/brand_cert.png"},
+    {title:"Canva Design",org:"Canva",img:"assets/img/canva_cert.png"},
+    {title:"CompTIA Project+",org:"CompTIA",img:"assets/img/comptia_project_cert.png"},
+    {title:"Computer Hardware & Software",org:"Coursera",img:"assets/img/computer_hardware_and_software_cert.png"},
+    {title:"Computer Maintenance & Networking",org:"Coursera",img:"assets/img/computer_maintenance_and_networking_cert.png"},
+    {title:"Cyber Incident Response",org:"Coursera",img:"assets/img/cyber_incident_response_cert.png"},
+    {title:"Cyber Incident Response Specialization",org:"Coursera",img:"assets/img/cyber_incident_response_specialization_cert.png"},
+    {title:"Cybersecurity Foundations",org:"Coursera",img:"assets/img/cybersecurity_foundation_cert.png"},
+    {title:"Cybersecurity Foundations Specialization",org:"Coursera",img:"assets/img/cybersecurity_foundations_specialization_cert.png"},
+    {title:"Cybersecurity Policy Foundations",org:"Coursera",img:"assets/img/cybersecurity_policy_foundation_cert.png"},
+    {title:"Data Lake",org:"Coursera",img:"assets/img/data_lake_cert.png"},
+    {title:"Deep Dive",org:"Coursera",img:"assets/img/deep_dive_cert.png"},
+    {title:"Collaborate Effectively for Professional Success",org:"Coursera",img:"assets/img/effective_comunication_cert.png"},
+    {title:"University Certificate",org:"University of Khartoum",img:"assets/img/university_cert.png"}
+  ];
+
+  let clientIndex=0;
+  function renderClients(){
+    const track=document.getElementById("clientTrack"),dots=document.getElementById("clientDots");
+    if(!track||!dots)return;
+    track.innerHTML=clients.map((c,i)=>`<article class="client-card">
+      <div class="client-icon"><i class="fas ${c.icon}"></i></div>
+      <div><p class="client-role">${c.role}</p><h3>${c.name}</h3><p>${c.desc}</p>
+      <div class="client-tags">${c.tags.map(t=>`<span class="chip">${t}</span>`).join("")}</div></div>
+    </article>`).join("");
+    dots.innerHTML=clients.map((_,i)=>`<button class="client-dot ${i===0?"active":""}" onclick="showClient(${i})" aria-label="Show client ${i+1}"></button>`).join("");
+  }
+  function showClient(index){
+    clientIndex=(index+clients.length)%clients.length;
+    const track=document.getElementById("clientTrack");
+    if(track)track.style.transform=`translateX(-${clientIndex*100}%)`;
+    document.querySelectorAll(".client-dot").forEach((dot,i)=>dot.classList.toggle("active",i===clientIndex));
+  }
+  function moveClient(direction){showClient(clientIndex+direction)}
+
+  const certTrack=document.getElementById("certTrack"),certCount=document.getElementById("certCount");
+  if(certTrack){
+    certCount.textContent=`${certificates.length} certificates`;
+    const allCerts=[...certificates,...certificates];
+    certTrack.innerHTML=allCerts.map((c,i)=>`<article class="cert-card" onclick="openModal(${i%certificates.length})">
+      <img src="${c.img}" alt="${c.title}" loading="lazy">
+      <div class="cert-card-info"><h4>${c.title}</h4><p>${c.org}</p></div>
+    </article>`).join("");
+  }
+  let currentCertIndex=0;
+  const modal=document.getElementById("certModal"),modalImg=document.getElementById("modalImage"),modalCounter=document.getElementById("modalCounter");
+  function updateModal(){const c=certificates[currentCertIndex];if(!c)return;modalImg.src=c.img;modalImg.alt=c.title;modalCounter.textContent=`${currentCertIndex+1} / ${certificates.length}`;}
+  function openModal(index){currentCertIndex=index;updateModal();modal.classList.add("show");document.body.style.overflow="hidden";modal.setAttribute("aria-hidden","false");}
+  function closeModal(){modal.classList.remove("show");document.body.style.overflow="";modal.setAttribute("aria-hidden","true");}
+  function nextCert(){currentCertIndex=(currentCertIndex+1)%certificates.length;updateModal();}
+  function prevCert(){currentCertIndex=(currentCertIndex-1+certificates.length)%certificates.length;updateModal();}
+  document.addEventListener("keydown",e=>{if(!modal.classList.contains("show"))return;if(e.key==="Escape")closeModal();if(e.key==="ArrowRight")nextCert();if(e.key==="ArrowLeft")prevCert();});
+  modal.addEventListener("click",e=>{if(e.target===modal)closeModal();});
+  renderClients();
+
   setLang(localStorage.getItem('portfolio-lang')==='ar');
   btn.addEventListener('click',()=>setLang(!body.classList.contains('ar')));
 </script>
