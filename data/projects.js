@@ -50,7 +50,8 @@ export const projects = [
     status: 'active',
     highlights: ['Reception, doctor, laboratory and admin workflows','Appointments and consultations','Laboratory templates, requests, results and reports','Access groups and record rules','Automated medical workflow tests and OWL dashboard foundation']
   },
-
+  {
+    id: 'odoo-petro-integration',
     title: 'Odoo petro integration API Module',
     description: 'Revolutionary Odoo 18 module for managing fuel bundles with precise quantity tracking and comprehensive history.',
     longDescription: 'A brand-new Odoo 18 api module designed to revolutionize sales transaction and tank measurement processes for fuel. Simplifies and automating creating sales information, with accurate quantity calculations and detailed action history for enhanced traceability.',
