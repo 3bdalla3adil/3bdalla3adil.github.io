@@ -31,7 +31,7 @@
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(20,39,62,.78),rgba(8,19,33,.72));border-radius:var(--r);padding:26px}.card h3{margin:12px 0 8px;font-size:1.15rem}.card p{color:var(--muted);font-size:.92rem;margin:0}.icon{font-size:1.35rem;color:var(--accent)}
     .architecture{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.node{position:relative;padding:22px 15px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);text-align:center}.node:not(:last-child):after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:var(--accent);z-index:2}.node b{display:block;font-size:.9rem}.node small{display:block;color:var(--muted);margin-top:5px}
     .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project{overflow:hidden;padding:0}.project-top{height:145px;background:linear-gradient(135deg,rgba(100,216,255,.12),rgba(139,124,255,.14));display:flex;align-items:center;padding:25px}.project-top .mono{font-size:.78rem;color:#cfe7f8}.project-body{padding:24px}.project-body h3{font-size:1.3rem;margin:0 0 8px}.project-body p{margin:0 0 17px}.project-links{display:flex;gap:10px;flex-wrap:wrap}.mini{font-size:.78rem;padding:8px 11px}
-    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{border-left:2px solid rgba(100,216,255,.35);padding:3px 0 3px 22px}.step .year{color:var(--accent);font:600 .75rem "JetBrains Mono",monospace}.step h3{margin:8px 0}.step p{color:var(--muted);font-size:.9rem}
+    .experience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.experience-card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(20,39,62,.78),rgba(8,19,33,.72));border-radius:var(--r);padding:26px}.experience-card .period{color:var(--accent);font:600 .75rem "JetBrains Mono",monospace}.experience-card h3{margin:9px 0 4px;font-size:1.18rem}.experience-card .company{color:#cfe7f8;font-weight:600;margin-bottom:10px}.experience-card p{color:var(--muted);font-size:.9rem;margin:0}.experience-card ul{margin:14px 0 0;padding-left:18px;color:var(--muted);font-size:.86rem}.experience-card li{margin:6px 0}@media(max-width:900px){.experience-grid{grid-template-columns:1fr}}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{border-left:2px solid rgba(100,216,255,.35);padding:3px 0 3px 22px}.step .year{color:var(--accent);font:600 .75rem "JetBrains Mono",monospace}.step h3{margin:8px 0}.step p{color:var(--muted);font-size:.9rem}
     .cta{padding:45px;border-radius:32px;border:1px solid rgba(100,216,255,.22);background:radial-gradient(circle at 90% 0%,rgba(100,216,255,.13),transparent 35%),linear-gradient(135deg,rgba(17,38,62,.9),rgba(11,23,40,.8));display:flex;justify-content:space-between;align-items:center;gap:30px}.cta h2{font-size:clamp(2rem,4vw,3.4rem);letter-spacing:-.05em;line-height:1.05;margin:0 0 10px}.cta p{margin:0;color:var(--muted)}
     footer{border-top:1px solid var(--line);padding:35px 0;color:var(--muted);font-size:.85rem}.footer-inner{display:flex;justify-content:space-between;gap:20px}
     [data-ar]{display:none}body.ar [data-en]{display:none}body.ar [data-ar]{display:block}body.ar .links [data-ar],body.ar .actions [data-ar]{display:inline-flex}body.ar .links [data-en],body.ar .actions [data-en]{display:none}
@@ -85,7 +85,7 @@
   <a class="brand" href="#">AB<span>.</span></a>
   <div class="links">
     <a href="#capabilities" data-en>Capabilities</a><a href="#capabilities" data-ar>المهارات</a>
-    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a><a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a><a href="#certs" data-en>Certificates</a><a href="#certs" data-ar>الشهادات</a>
+    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a><a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a><a href="#experience" data-en>Experience</a><a href="#experience" data-ar>الخبرة</a><a href="#certs" data-en>Certificates</a><a href="#certs" data-ar>الشهادات</a>
     <a href="#path" data-en>Career Path</a><a href="#path" data-ar>المسار المهني</a>
     <a href="#contact" data-en>Contact</a><a href="#contact" data-ar>تواصل</a>
   </div>
@@ -159,7 +159,7 @@
 
 
 <section id="clients" class="success-section"><div class="container">
-  <div class="section-head"><div><div class="kicker">04 / Success Stories</div><h2 data-en>Built for real businesses.</h2><h2 data-ar>حلول لأعمال حقيقية.</h2></div><p data-en>A selection of organizations and business environments where I have delivered software, ERP and automation work.</p><p data-ar>نماذج من الجهات وبيئات الأعمال التي قدمت لها حلول البرمجيات وERP والأتمتة.</p></div>
+  <div class="section-head"><div><div class="kicker">05 / Success Stories</div><h2 data-en>Built for real businesses.</h2><h2 data-ar>حلول لأعمال حقيقية.</h2></div><p data-en>A selection of organizations and business environments where I have delivered software, ERP and automation work.</p><p data-ar>نماذج من الجهات وبيئات الأعمال التي قدمت لها حلول البرمجيات وERP والأتمتة.</p></div>
   <div class="client-slider">
     <button class="client-nav prev" onclick="moveClient(-1)" aria-label="Previous client"><i class="fas fa-chevron-left"></i></button>
     <div class="client-window"><div class="client-track" id="clientTrack"></div></div>
@@ -169,7 +169,7 @@
 </div></section>
 
 <section id="certs" class="cert-section"><div class="container">
-  <div class="cert-header"><div><div class="kicker">05 / Credentials</div><h2 data-en>Certificates & learning.</h2><h2 data-ar>الشهادات والتعلم.</h2></div><span class="cert-count" id="certCount"></span></div>
+  <div class="cert-header"><div><div class="kicker">06 / Credentials</div><h2 data-en>Certificates & learning.</h2><h2 data-ar>الشهادات والتعلم.</h2></div><span class="cert-count" id="certCount"></span></div>
 </div>
 <div class="cert-carousel-wrapper"><div class="cert-track" id="certTrack"></div></div>
 </section>
@@ -183,7 +183,7 @@
 </div>
 
 <section id="path"><div class="container">
-  <div class="section-head"><div><div class="kicker">04 / Career direction</div><h2 data-en>Growing from builder to architect.</h2><h2 data-ar>من مطور إلى مهندس حلول ومعماري أنظمة.</h2></div><p data-en>The long-term direction is to combine ERP depth with cloud, automation, security and AI — without losing hands-on engineering.</p><p data-ar>الهدف طويل المدى هو دمج خبرة ERP مع السحابة والأتمتة والأمن والذكاء الاصطناعي مع الحفاظ على الخبرة العملية في البرمجة.</p></div>
+  <div class="section-head"><div><div class="kicker">07 / Career direction</div><h2 data-en>Growing from builder to architect.</h2><h2 data-ar>من مطور إلى مهندس حلول ومعماري أنظمة.</h2></div><p data-en>The long-term direction is to combine ERP depth with cloud, automation, security and AI — without losing hands-on engineering.</p><p data-ar>الهدف طويل المدى هو دمج خبرة ERP مع السحابة والأتمتة والأمن والذكاء الاصطناعي مع الحفاظ على الخبرة العملية في البرمجة.</p></div>
   <div class="timeline">
     <div class="step"><div class="year">NOW</div><h3>Senior ERP / Odoo Engineer</h3><p>Deepen Odoo internals, Python, PostgreSQL, performance, testing, APIs and secure application design.</p></div>
     <div class="step"><div class="year">NEXT</div><h3>Solution & Integration Architect</h3><p>Design enterprise integrations, cloud platforms, deployment strategies, observability and resilient systems.</p></div>
@@ -212,20 +212,19 @@
   const certificates = [
     {title:"TEOFL",org:"Coursera",img:"assets/img/teofl_cert.png"},
     {title:"Getting Started with Google Kubernetes Engine",org:"Coursera",img:"assets/img/gke_cert.png"},
-    {title:"Get Start Google Cloud",org:"Coursera",img:"assets/img/get_start_google_cloud.png"},
+    {title:"Getting Started with Google Cloud",org:"Coursera",img:"assets/img/get_start_google_cloud.png"},
     {title:"Introduction to Linux",org:"The Linux Foundation",img:"assets/img/lfs101.png"},
     {title:"Introduction to Kubernetes",org:"The Linux Foundation",img:"assets/img/lfs158.png"},
     {title:"Kubernetes Cloud Native Essentials",org:"The Linux Foundation",img:"assets/img/lfs250.png"},
     {title:"Linux Fundamentals",org:"Coursera",img:"assets/img/linux_cert.png"},
-    {title:"Backend Development",org:"Meta / Coursera",img:"assets/img/backend_cert.png"},
-    {title:"Cybersecurity",org:"Coursera",img:"assets/img/isc2_cert.png"},
     {title:"Linux Cloud & DevOps",org:"Coursera",img:"assets/img/linux_cloud_and_devops_cert.png"},
     {title:"Managing Linux Systems",org:"Coursera",img:"assets/img/managing_linux_system_cert.png"},
     {title:"Securing Linux Systems",org:"Coursera",img:"assets/img/securing_linux_system_cert.png"},
     {title:"Linux Specialization",org:"Coursera",img:"assets/img/linux_specialization_cert.png"},
-    {title:"OS Foundations",org:"Coursera",img:"assets/img/operating_system_foundation_cert.png"},
+    {title:"Operating System Foundations",org:"Coursera",img:"assets/img/operating_system_foundation_cert.png"},
     {title:"Python Flask",org:"Coursera",img:"assets/img/python_flask_cert.png"},
-    {title:"Accounting Certificate",org:"Coursera",img:"assets/img/acc_cert.png"},
+    {title:"Backend Development",org:"Meta / Coursera",img:"assets/img/backend_cert.png"},
+    {title:"Accounting",org:"Coursera",img:"assets/img/acc_cert.png"},
     {title:"AWS Solutions Architect",org:"Amazon Web Services",img:"assets/img/architecting_solution_on_aws_cert.png"},
     {title:"AWS Associate",org:"Amazon Web Services",img:"assets/img/aws_associate_cert.png"},
     {title:"AWS General Certificate",org:"Amazon Web Services",img:"assets/img/aws_cert.png"},
@@ -235,17 +234,18 @@
     {title:"CompTIA Project+",org:"CompTIA",img:"assets/img/comptia_project_cert.png"},
     {title:"Computer Hardware & Software",org:"Coursera",img:"assets/img/computer_hardware_and_software_cert.png"},
     {title:"Computer Maintenance & Networking",org:"Coursera",img:"assets/img/computer_maintenance_and_networking_cert.png"},
+    {title:"Computer Maintenance & Network",org:"Coursera",img:"assets/img/computer_maintenance_and network_cert.png"},
     {title:"Cyber Incident Response",org:"Coursera",img:"assets/img/cyber_incident_response_cert.png"},
     {title:"Cyber Incident Response Specialization",org:"Coursera",img:"assets/img/cyber_incident_response_specialization_cert.png"},
-    {title:"Cybersecurity Foundations",org:"Coursera",img:"assets/img/cybersecurity_foundation_cert.png"},
+    {title:"Cybersecurity Foundation",org:"Coursera",img:"assets/img/cybersecurity_foundation_cert.png"},
     {title:"Cybersecurity Foundations Specialization",org:"Coursera",img:"assets/img/cybersecurity_foundations_specialization_cert.png"},
-    {title:"Cybersecurity Policy Foundations",org:"Coursera",img:"assets/img/cybersecurity_policy_foundation_cert.png"},
+    {title:"Cybersecurity Policy Foundation",org:"Coursera",img:"assets/img/cybersecurity_policy_foundation_cert.png"},
     {title:"Data Lake",org:"Coursera",img:"assets/img/data_lake_cert.png"},
     {title:"Deep Dive",org:"Coursera",img:"assets/img/deep_dive_cert.png"},
-    {title:"Collaborate Effectively for Professional Success",org:"Coursera",img:"assets/img/effective_comunication_cert.png"},
-    {title:"University Certificate",org:"University of Khartoum",img:"assets/img/university_cert.png"}
+    {title:"Effective Communication for Professional Success",org:"Coursera",img:"assets/img/effective_comunication_cert.png"},
+    {title:"University Certificate",org:"University of Khartoum",img:"assets/img/university_cert.png"},
+    {title:"Successful Presentation",org:"Coursera",img:null,url:"https://coursera.org/share/c20cd7c345a07f20f7f0c04da09df947"}
   ];
-
   let clientIndex=0;
   function renderClients(){
     const track=document.getElementById("clientTrack"),dots=document.getElementById("clientDots");
@@ -269,14 +269,13 @@
   if(certTrack){
     certCount.textContent=`${certificates.length} certificates`;
     const allCerts=[...certificates,...certificates];
-    certTrack.innerHTML=allCerts.map((c,i)=>`<article class="cert-card" onclick="openModal(${i%certificates.length})">
-      <img src="${c.img}" alt="${c.title}" loading="lazy">
-      <div class="cert-card-info"><h4>${c.title}</h4><p>${c.org}</p></div>
-    </article>`).join("");
+    certTrack.innerHTML=allCerts.map((c,i)=>`<article class="cert-card" onclick="${c.img ? `openModal(${i%certificates.length})` : c.url ? `window.open('${c.url}','_blank','noopener')` : ''}">
+      ${c.img ? `<img src="${c.img}" alt="${c.title}" loading="lazy">` : `<div style="height:205px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(100,216,255,.12),rgba(139,124,255,.14));font-size:2rem;color:var(--accent)">✓</div>`}
+      <div class="cert-card-info"><h4>${c.title}</h4><p>${c.org}${c.url ? ' · Verify ↗' : ''}</p></div></article>`).join("");
   }
   let currentCertIndex=0;
   const modal=document.getElementById("certModal"),modalImg=document.getElementById("modalImage"),modalCounter=document.getElementById("modalCounter");
-  function updateModal(){const c=certificates[currentCertIndex];if(!c)return;modalImg.src=c.img;modalImg.alt=c.title;modalCounter.textContent=`${currentCertIndex+1} / ${certificates.length}`;}
+  function updateModal(){const c=certificates[currentCertIndex];if(!c||!c.img)return;modalImg.src=c.img;modalImg.alt=c.title;modalCounter.textContent=`${currentCertIndex+1} / ${certificates.length}`;}
   function openModal(index){currentCertIndex=index;updateModal();modal.classList.add("show");document.body.style.overflow="hidden";modal.setAttribute("aria-hidden","false");}
   function closeModal(){modal.classList.remove("show");document.body.style.overflow="";modal.setAttribute("aria-hidden","true");}
   function nextCert(){currentCertIndex=(currentCertIndex+1)%certificates.length;updateModal();}
