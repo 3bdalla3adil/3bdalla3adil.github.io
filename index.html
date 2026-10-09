@@ -58,7 +58,7 @@
     .cert-header{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:28px}
     .cert-count{color:var(--muted);font-size:.85rem}
     .cert-carousel-wrapper{position:relative;width:100vw;left:50%;margin-left:-50vw;overflow:hidden;padding:8px 0}
-    .cert-track{display:flex;gap:16px;width:max-content;animation:certScroll 48s linear infinite}
+    .cert-track{display:flex;gap:16px;width:max-content;animation:certScroll 300s linear infinite;will-change:transform}
     .cert-track:hover{animation-play-state:paused}
     @keyframes certScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .cert-card{flex-shrink:0;width:300px;background:rgba(15,30,49,.72);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s}
