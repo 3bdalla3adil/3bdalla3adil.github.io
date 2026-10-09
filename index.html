@@ -38,12 +38,12 @@
     body.ar{direction:rtl}body.ar .hero,body.ar .section-head,body.ar .card,body.ar .project-body{text-align:right}body.ar .step{border-left:0;border-right:2px solid rgba(100,216,255,.35);padding-left:0;padding-right:22px}.ar-inline{display:inline}
     @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:70px}.profile{max-width:420px}.grid{grid-template-columns:repeat(2,1fr)}.architecture{grid-template-columns:1fr 1fr}.node:not(:last-child):after{display:none}.timeline{grid-template-columns:1fr}.links{display:none}.cta{flex-direction:column;align-items:flex-start}}
     @media(max-width:620px){.container{width:min(var(--max),calc(100% - 26px))}.hero{gap:35px;padding:55px 0}.hero p{font-size:1rem}section{padding:75px 0}.grid,.project-grid{grid-template-columns:1fr}.architecture{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:15px}.actions .btn.ghost{display:none}.cta{padding:30px}.footer-inner{flex-direction:column}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.cert-track{animation:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.cert-track,.client-track{animation:none;transition:none}}
     /* Restored Success Stories + Certificates */
     .success-section,.cert-section{overflow:hidden}
     .client-slider{position:relative;display:flex;align-items:center;gap:16px}
     .client-window{width:100%;overflow:hidden;border-radius:24px}
-    .client-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+    .client-track{display:flex;transition:transform 1.2s linear;will-change:transform}
     .client-card{min-width:100%;display:grid;grid-template-columns:110px 1fr;gap:32px;align-items:center;padding:38px;background:linear-gradient(145deg,rgba(20,39,62,.78),rgba(8,19,33,.72));border:1px solid var(--line);border-radius:24px}
     .client-icon{width:96px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:22px;background:linear-gradient(135deg,var(--accent),#8b7cff);color:#06121f;font-size:2rem}
     .client-role{margin:0 0 7px;color:var(--accent);font:600 .75rem "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
@@ -264,6 +264,23 @@
     document.querySelectorAll(".client-dot").forEach((dot,i)=>dot.classList.toggle("active",i===clientIndex));
   }
   function moveClient(direction){showClient(clientIndex+direction)}
+  let clientAutoSlide;
+  function startClientAutoSlide(){
+    if(clientAutoSlide)clearInterval(clientAutoSlide);
+    const slider=document.querySelector(".client-slider");
+    if(!slider||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    clientAutoSlide=setInterval(()=>showClient(clientIndex+1),300000);
+    slider.addEventListener("mouseenter",()=>clearInterval(clientAutoSlide));
+    slider.addEventListener("mouseleave",()=>{
+      clearInterval(clientAutoSlide);
+      clientAutoSlide=setInterval(()=>showClient(clientIndex+1),300000);
+    });
+    slider.addEventListener("focusin",()=>clearInterval(clientAutoSlide));
+    slider.addEventListener("focusout",()=>{
+      clearInterval(clientAutoSlide);
+      clientAutoSlide=setInterval(()=>showClient(clientIndex+1),300000);
+    });
+  }
 
   const certTrack=document.getElementById("certTrack"),certCount=document.getElementById("certCount");
   if(certTrack){
@@ -283,6 +300,7 @@
   document.addEventListener("keydown",e=>{if(!modal.classList.contains("show"))return;if(e.key==="Escape")closeModal();if(e.key==="ArrowRight")nextCert();if(e.key==="ArrowLeft")prevCert();});
   modal.addEventListener("click",e=>{if(e.target===modal)closeModal();});
   renderClients();
+  startClientAutoSlide();
 
   setLang(localStorage.getItem('portfolio-lang')==='ar');
   btn.addEventListener('click',()=>setLang(!body.classList.contains('ar')));
