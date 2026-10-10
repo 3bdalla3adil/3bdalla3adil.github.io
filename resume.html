@@ -3,214 +3,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abdulla Bashir | Application Developer</title>
-  <meta name="description" content="Abdulla Bashir — Application Developer, Python and Odoo specialist with experience in REST APIs, SQL, systems integration, Docker and Linux.">
+  <meta name="description" content="Abdulla Bashir — Enterprise Solutions Engineer specializing in Odoo ERP, Python, integrations, automation, cloud infrastructure and security.">
+  <meta name="theme-color" content="#183b3b">
+  <title>Abdulla Bashir | Enterprise Solutions Engineer — Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#183b3b;--teal:#176b67;--teal2:#0f5653;--soft:#eaf4f3;--line:#d7e4e3;--text:#253333;--muted:#607070;--white:#fff}
-    *{box-sizing:border-box} body{margin:0;background:#edf2f1;color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.5}
-    a{color:inherit} .resume{width:min(1100px,100%);margin:28px auto;background:var(--white);box-shadow:0 16px 45px rgba(24,59,59,.14);display:grid;grid-template-columns:285px 1fr;min-height:100vh}
-    .sidebar{background:var(--ink);color:#eef7f6;padding:30px 25px}.main{padding:34px 38px 42px}.name{font-size:30px;line-height:1.05;margin:0;text-transform:uppercase;letter-spacing:.03em;font-weight:800}.target{margin:9px 0 28px;color:#9ed5d0;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-    .side-section{margin-top:25px}.side-title,.section-title{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin:0 0 10px}.side-title{color:#79c5bf}.side-section p,.side-section li{font-size:12.5px;margin:5px 0;color:#d8e8e7}.side-section ul{padding-left:16px;margin:0}.contact a{color:#d8e8e7;text-decoration:none}.pill{display:inline-block;border:1px solid rgba(158,213,208,.35);border-radius:20px;padding:4px 8px;margin:3px 2px 0 0;font-size:11px;color:#d9efed}
-    .header{border-bottom:3px solid var(--teal);padding-bottom:16px;margin-bottom:22px}.header h1{font-size:28px;margin:0;color:var(--ink);text-transform:uppercase;letter-spacing:.04em}.header .role{margin:6px 0 0;color:var(--teal);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.section{margin-bottom:23px}.section-title{color:var(--teal);border-bottom:1px solid var(--line);padding-bottom:6px}.summary{font-size:13px;color:#435252;margin:0}.job{margin:0 0 18px;padding-left:15px;border-left:2px solid #b8d9d6}.job:last-child{margin-bottom:0}.job-head{display:flex;justify-content:space-between;gap:14px;align-items:baseline}.job-title{font-size:14px;font-weight:800;color:var(--ink)}.date{font-size:11px;color:var(--muted);font-weight:700;white-space:nowrap}.company{font-size:12px;color:var(--teal);font-weight:700;margin:2px 0 5px}.job ul,.project-list{margin:5px 0 0;padding-left:18px}.job li,.project-list li{font-size:12.5px;margin:4px 0;color:#445252}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.project-list li strong{color:var(--ink)}.edu{font-size:12.5px}.edu strong{display:block;color:var(--ink)}.footer-note{font-size:10px;color:#809090;margin-top:24px}
-    @media(max-width:800px){.resume{grid-template-columns:1fr;margin:0}.sidebar{padding:24px}.main{padding:26px 24px}.job-head{display:block}.date{display:block;margin-top:2px}.grid{grid-template-columns:1fr}}
-    @media print{body{background:#fff}.resume{width:100%;margin:0;box-shadow:none}.sidebar{break-inside:avoid}.job{break-inside:avoid}}
+    :root{--ink:#183b3b;--teal:#176b67;--soft:#eaf4f3;--line:#d7e4e3;--text:#253333;--muted:#607070;--white:#fff}
+    *{box-sizing:border-box}body{margin:0;background:#edf2f1;color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.5}
+    a{color:inherit}.toolbar{width:min(1100px,100%);margin:18px auto 0;display:flex;justify-content:flex-end;gap:10px;padding:0 10px}.toolbar a,.toolbar button{border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:#fff;color:var(--ink);font:600 12px Inter,Arial;cursor:pointer;text-decoration:none}
+    .resume{width:min(1100px,100%);margin:12px auto 28px;background:var(--white);box-shadow:0 16px 45px rgba(24,59,59,.14);display:grid;grid-template-columns:285px 1fr}
+    .sidebar{background:var(--ink);color:#eef7f6;padding:30px 25px}.main{padding:34px 38px 42px}.name{font-size:29px;line-height:1.05;margin:0;text-transform:uppercase;letter-spacing:.02em;font-weight:800}.target{margin:9px 0 28px;color:#9ed5d0;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .side-section{margin-top:25px}.side-title,.section-title{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin:0 0 10px}.side-title{color:#79c5bf}.side-section p,.side-section li{font-size:11.5px;margin:5px 0;color:#d8e8e7;overflow-wrap:anywhere}.side-section ul{padding-left:16px;margin:0}.contact a{color:#d8e8e7;text-decoration:none}.pill{display:inline-block;border:1px solid rgba(158,213,208,.35);border-radius:20px;padding:4px 7px;margin:3px 2px 0 0;font-size:10px;color:#d9efed}
+    .header{border-bottom:3px solid var(--teal);padding-bottom:16px;margin-bottom:22px}.header h1{font-size:27px;margin:0;color:var(--ink);text-transform:uppercase;letter-spacing:.03em}.header .role{margin:6px 0 0;color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .section{margin-bottom:22px}.section-title{color:var(--teal);border-bottom:1px solid var(--line);padding-bottom:6px}.summary{font-size:12px;color:#435252;margin:0}.job{margin:0 0 17px;padding-left:13px;border-left:2px solid #b8d9d6;break-inside:avoid}.job:last-child{margin-bottom:0}.job-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.job-title{font-size:13px;font-weight:800;color:var(--ink)}.date{font-size:10px;color:var(--muted);font-weight:700;white-space:nowrap}.company{font-size:11px;color:var(--teal);font-weight:700;margin:2px 0 5px}.job ul,.project-list{margin:5px 0 0;padding-left:17px}.job li,.project-list li{font-size:11.5px;margin:3px 0;color:#445252}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.edu{font-size:12px}.edu strong{display:block;color:var(--ink)}.footer-note{font-size:9px;color:#809090;margin-top:20px}
+    @media(max-width:800px){.resume{grid-template-columns:1fr;margin:10px auto}.sidebar{padding:24px}.main{padding:26px 24px}.job-head{display:block}.date{display:block;margin-top:2px}.grid{grid-template-columns:1fr}.toolbar{margin-top:10px}}
+    @media print{@page{size:A4;margin:9mm}body{background:#fff;font-size:10pt}.toolbar{display:none}.resume{width:100%;margin:0;box-shadow:none;grid-template-columns:245px 1fr}.sidebar{padding:22px 18px}.main{padding:24px 26px}.job,.section{break-inside:avoid}.job li,.project-list li{font-size:9.5pt}.summary{font-size:10pt}}
   </style>
 </head>
 <body>
+<div class="toolbar"><a href="index.html">← Portfolio</a><button onclick="window.print()">Print / Save PDF ↗</button></div>
 <main class="resume" aria-label="Resume of Abdulla Bashir">
   <aside class="sidebar">
     <h1 class="name">Abdulla Bashir</h1>
-    <div class="target">Application Developer | Python • Odoo • Integration</div>
-
-    <section class="side-section contact">
-      <h2 class="side-title">Contact</h2>
-      <p>Port Sudan, Sudan</p>
+    <div class="target">Enterprise Solutions Engineer</div>
+    <section class="side-section contact"><h2 class="side-title">Contact</h2>
+      <p>Sudan / Open to regional and remote opportunities</p>
       <p><a href="tel:+249114648721">+249 1146 48721</a></p>
       <p><a href="mailto:3bdalla995@gmail.com">3bdalla995@gmail.com</a></p>
-      <p><a href="https://linkedin.com/in/abdulla-bashir-2a4311169" target="_blank" rel="noopener">LinkedIn</a></p>
-      <p><a href="https://github.com/3bdalla3adil" target="_blank" rel="noopener">GitHub</a></p>
+      <p><a href="https://www.linkedin.com/in/abdulla-bashir-2a4311169/" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+      <p><a href="https://github.com/3bdalla3adil" target="_blank" rel="noopener">GitHub Profile</a></p>
+      <p><a href="https://3bdalla3adil.github.io/" target="_blank" rel="noopener">Portfolio Website</a></p>
     </section>
-
-    <section class="side-section">
-      <h2 class="side-title">Education</h2>
-      <p><strong>Bachelor’s Degree in Mathematical Sciences &amp; Computer Sciences</strong></p>
-      <p>University of Khartoum</p>
-      <p>Graduated December 2021</p>
-    </section>
-
-    <section class="side-section">
-      <h2 class="side-title">Technical Skills</h2>
-      <div>
-        <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Odoo</span><span class="pill">Django</span><span class="pill">Flask</span>
-        <span class="pill">REST APIs</span><span class="pill">PostgreSQL</span><span class="pill">Docker</span><span class="pill">Kubernetes</span>
-        <span class="pill">Linux</span><span class="pill">Nginx</span><span class="pill">Git</span><span class="pill">JavaScript</span><span class="pill">OWL</span>
-        <span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">Bootstrap</span><span class="pill">XML/QWeb</span>
-      </div>
-    </section>
-
-    <section class="side-section">
-      <h2 class="side-title">Languages</h2>
-      <p>Arabic — Native</p><p>English — Intermediate / Professional Working Proficiency</p>
-    </section>
-
-    <section class="side-section">
-      <h2 class="side-title">Core Strengths</h2>
-      <ul><li>Application development</li><li>Systems integration</li><li>Analytical problem solving</li><li>Business requirements analysis</li><li>Technical troubleshooting</li><li>Team collaboration</li><li>Documentation &amp; user support</li></ul>
-    </section>
-
-    <section class="side-section">
-      <h2 class="side-title">Certifications</h2>
-      <ul>
-        <li>Introduction to Linux — The Linux Foundation</li>
-        <li>Introduction to Kubernetes — The Linux Foundation</li>
-        <li>Kubernetes Cloud Native Essentials — The Linux Foundation</li>
-        <li>Linux for LFCA — Coursera</li>
-        <li>Cybersecurity Foundation</li>
-        <li>ISC2 Certified in Cybersecurity — Coursera</li>
-        <li>Backend Development Introduction — Meta</li>
-        <li>Create Your First Web App with Python &amp; Flask</li>
-        <li>Computer Maintenance &amp; Network</li>
-        <li>Business Writing</li>
-        <li>Qatar Driving License</li>
-      </ul>
-    </section>
+    <section class="side-section"><h2 class="side-title">Education</h2><p><strong>Bachelor’s Degree in Mathematical Sciences &amp; Computer Sciences</strong></p><p>University of Khartoum</p><p>Graduated December 2021</p></section>
+    <section class="side-section"><h2 class="side-title">Technical Skills</h2><div>
+      <span class="pill">Python</span><span class="pill">JavaScript</span><span class="pill">SQL</span><span class="pill">Odoo 13–19</span><span class="pill">OWL</span><span class="pill">Django</span><span class="pill">Flask</span><span class="pill">REST APIs</span><span class="pill">OAuth2</span><span class="pill">PostgreSQL</span><span class="pill">MySQL</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">Linux</span><span class="pill">Nginx</span><span class="pill">CI/CD</span><span class="pill">GitHub Actions</span><span class="pill">AWS</span><span class="pill">Firebase</span><span class="pill">Flutter</span><span class="pill">HTML/CSS</span><span class="pill">XML/QWeb</span><span class="pill">Portainer</span>
+    </div></section>
+    <section class="side-section"><h2 class="side-title">Core Strengths</h2><ul><li>ERP implementation and customization</li><li>Business analysis and workflow automation</li><li>API and system integration</li><li>Database design and troubleshooting</li><li>Linux infrastructure and deployment</li><li>Testing, CI/CD and documentation</li><li>Security-aware application design</li></ul></section>
+    <section class="side-section"><h2 class="side-title">Languages</h2><p>Arabic — Native</p><p>English — Intermediate (spoken and written)</p></section>
+    <section class="side-section"><h2 class="side-title">Selected Learning &amp; Certifications</h2><ul><li>Introduction to Linux — The Linux Foundation</li><li>Introduction to Kubernetes — The Linux Foundation</li><li>Kubernetes Cloud Native Essentials — The Linux Foundation</li><li>AWS Cloud Technical Essentials / Architecting on AWS</li><li>Cybersecurity Foundations and Network Security — ISC2 learning</li><li>Backend Development — Meta</li><li>Python &amp; Flask</li><li>Linux and DevOps learning paths</li></ul></section>
   </aside>
-
   <section class="main">
-    <header class="header">
-      <h1>Abdulla Bashir</h1>
-      <div class="role">Application Developer | Python &amp; Odoo | REST APIs | SQL | Systems Integration</div>
-    </header>
-
-    <section class="section">
-      <h2 class="section-title">Professional Profile</h2>
-      <p class="summary">Application-focused software developer and business analyst with 5+ years of combined experience delivering ERP and business applications, backend services, REST APIs, database-driven solutions, and Linux-based deployments. Strong hands-on background in Python, SQL/PostgreSQL, Odoo, Django, Flask, Docker, JavaScript and API integration. Experienced in translating business requirements into maintainable applications, integrating enterprise systems, troubleshooting production issues, improving data consistency, and supporting application lifecycle activities from development through deployment and maintenance.</p>
+    <header class="header"><h1>Abdulla Bashir</h1><div class="role">ERP • Python • Integrations • Cloud • Automation • Security</div></header>
+    <section class="section"><h2 class="section-title">Professional Profile</h2><p class="summary">Enterprise solutions and software engineer with 5+ years of experience across Odoo ERP, Python backend development, business-process automation, REST API integrations, database-driven applications and Linux infrastructure. Delivers solutions spanning requirements analysis, custom development, migration, testing, deployment and production support. Combines hands-on engineering with a business-first approach to reliability, maintainability, access control and operational efficiency.</p></section>
+    <section class="section"><h2 class="section-title">Selected Achievements</h2><ul class="project-list">
+      <li><strong>Property management digital transformation:</strong> Built a property platform from the ground up for long-term use, covering properties, unit categorization, contracts, tenant maintenance, PDC cheques, multi-company operations and audit logging.</li>
+      <li><strong>Measurable cost reduction:</strong> Delivered attendance and leave-request integration addressing a recurring issue estimated to cost approximately <strong>SAR 4,000 per month</strong>.</li>
+      <li><strong>Saudi HR integration:</strong> Built a B2B API integration to exchange employee attendance and worked-hours data with Saudi Ministry of Human Resources services.</li>
+      <li><strong>Infrastructure consolidation:</strong> Operated nine Linux/Odoo server instances on one machine using Docker, reverse proxying, subdomains and deployment tools.</li>
+      <li><strong>Odoo modernization:</strong> Worked on major upgrades including v12→v16, v15→v17 and v16→v17, alongside custom modules, OWL interfaces, reporting and production support.</li>
+      <li><strong>Cybersecurity-oriented tool:</strong> Ported a Go information-gathering utility to Python and developed Django REST functionality for cleaned and translated Arabic keyword processing.</li>
+      <li><strong>Healthcare platforms:</strong> Developed healthcare workflows across Odoo and Flutter/Firebase projects, including Ekram Medical, Badria Dermatology, MediBook and ClinicFlow.</li>
+      <li><strong>Offline Islamic mobile app:</strong> Extended a prayer-time application with bundled Qur’an content, prayer calculations, Athan reminders, Qibla compass and Hijri calendar features; contributed automated build and test workflows.</li>
+      <li><strong>AI solution architecture:</strong> Designed an Agentic RAG architecture using Azure Functions, Blob Storage, Document Intelligence, Azure OpenAI, AI Search, Cosmos DB, Next.js and CI/CD, including Arabic/English document processing and hybrid retrieval.</li>
+      <li><strong>Business automation:</strong> Delivered Odoo POS, payroll, finance, contract invoicing, inventory, API and PostgreSQL-backed workflow solutions.</li>
+    </ul></section>
+    <section class="section"><h2 class="section-title">Professional Experience</h2>
+      <article class="job"><div class="job-head"><div class="job-title">Python Developer — CityArt Solutions (Remote)</div><div class="date">Oct 2025 – Present</div></div><div class="company">Python Backend • Odoo Integration • Infrastructure</div><ul><li>Upgrade and maintain Odoo applications and custom modules, following controlled development and release practices.</li><li>Build Python REST APIs and integrate Odoo modules and business workflows across applications.</li><li>Work with PostgreSQL, Docker and Linux server configuration to support reproducible deployments and troubleshoot application issues.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">IT Application Developer — Al Taaluq Contracting &amp; Maintenance WLL</div><div class="date">Sep 2024 – Present</div></div><div class="company">Qatar • Business Applications &amp; Digital Transformation</div><ul><li>Designed and built a property-management application from scratch, including property/unit records, rental contracts, tenant maintenance tracking and post-dated cheque management.</li><li>Implemented multi-company operation and audit logging to improve traceability, data governance and operational control.</li><li>Translated business requirements into maintainable application workflows and supported database, deployment and production troubleshooting.</li><li>Used Docker, Linux, Nginx Proxy Manager and Portainer to manage application environments.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">Odoo Technical Advisor / Developer — Contract Engagements</div><div class="date">2024 – 2025</div></div><div class="company">Odoo Architecture • Upgrades • Technical Guidance</div><ul><li>Advised on Odoo implementation, custom-module design, migration risks, integrations and production troubleshooting.</li><li>Supported Odoo upgrades, including migration planning and compatibility checks for custom modules and business workflows.</li><li>Helped teams translate operational requirements into practical ERP configuration and development tasks.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">IT Supervisor / Developer — Al Narjis Real Estate</div><div class="date">2024 – 2025 · Project/engagement experience</div></div><div class="company">Real Estate Systems • Application Support</div><ul><li>Worked across application development and IT operations for real-estate workflows, emphasizing property data, business processes and reliable system support.</li><li>Applied Odoo/Python and infrastructure skills to improve application maintainability and operational visibility.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">Odoo Developer — Maven Technology</div><div class="date">Aug 2023 – Aug 2024</div></div><div class="company">Qatar • ERP Development &amp; Deployment</div><ul><li>Customized and upgraded Odoo systems, including v15→v17 work for client business workflows.</li><li>Developed OWL-based reporting/user interfaces and inventory bundle assembly/disassembly functionality.</li><li>Used PostgreSQL CLI for troubleshooting and deployed applications with Docker, Nginx Proxy Manager and Portainer.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">Freelance Odoo Developer — Al Hulool Soft</div><div class="date">Sep 2022 – Sep 2023</div></div><div class="company">Saudi Arabia • Remote</div><ul><li>Deployed and maintained Odoo community environments and managed nine Linux/Odoo instances with Docker and reverse-proxy routing.</li><li>Developed dental-clinic and rental-car management features, contract-payment invoicing, XML reports and Python payroll fixes.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">Odoo Developer — Ingaz Group</div><div class="date">Jan 2022 – Nov 2022</div></div><div class="company">Saudi Arabia • ERP &amp; Government API Integration</div><ul><li>Built custom Odoo modules and a B2B integration for employee attendance/worked-hours data exchange with Saudi HR services.</li><li>Automated leave-management processes and configured Nginx reverse proxy and firewall controls.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">Odoo Technical Developer — AutoBash Co. Ltd</div><div class="date">Sep 2018 – Sep 2019</div></div><div class="company">Sudan • Application Support</div><ul><li>Provided Odoo technical support, investigated application issues and implemented fixes to help maintain business continuity.</li></ul></article>
+      <article class="job"><div class="job-head"><div class="job-title">Freelance Software &amp; Infrastructure Developer</div><div class="date">Project-based / ongoing</div></div><div class="company">Remote • Web, API, mobile and deployment projects</div><ul><li>Delivered Python/Django/Flask APIs, Odoo integrations, database-backed web applications, mobile-app features and Linux/Docker deployment support.</li><li>Built and maintained portfolio projects in healthcare, Islamic utilities, POS printing, automation and cybersecurity-oriented information processing.</li></ul></article>
     </section>
-
-    <section class="section">
-      <h2 class="section-title">Key Achievements</h2>
-      <ul class="project-list">
-        <li><strong>Led digital transformation at Al Taaluq:</strong> Built a property-management platform from the ground up for long-term operational use, covering properties, units, contracts, tenant maintenance, PDC cheques, multi-company operations and audit logging.</li>
-        <li><strong>Reduced recurring operational cost:</strong> Developed an attendance and leave-request integration that resolved a business issue costing approximately <strong>SAR 4,000 per month</strong>.</li>
-        <li><strong>Saudi Ministry of Human Resources integration:</strong> Built a B2B API integration for employee attendance/worked-hours data and automated HR data exchange.</li>
-        <li><strong>Infrastructure consolidation:</strong> Managed <strong>9 Linux/Odoo server instances on one machine</strong> using Docker, subdomains, reverse proxying and load-balancing techniques.</li>
-        <li><strong>Odoo modernization:</strong> Delivered multiple version upgrades including v12→v16, v15→v17 and v16→v17, alongside custom modules, OWL interfaces, reporting and production support.</li>
-        <li><strong>Cybersecurity tooling:</strong> Ported a Go-based information-gathering tool to Python and exposed Arabic-keyword processing through Django REST Framework after cleaning and translating Arabic input data.</li>
-        <li><strong>Healthcare application development:</strong> Built and modernized medical-management solutions including Badria Dermatology, Ekram Medical and Flutter/Firebase clinic-management applications.</li>
-        <li><strong>Islamic mobile application modernization:</strong> Extended the Android Prayer Times project with offline Qur’an reading, prayer times, Qibla, Hijri/Gregorian calendar, reminders and automated Flutter CI validation/builds.</li>
-        <li><strong>Android application engineering:</strong> Repaired and extended the original Java Android application while preserving its legacy prayer-calculation defaults and existing behavior.</li>
-        <li><strong>Fully offline Qur’an experience:</strong> Integrated 114 surahs and 6,236 ayahs as bundled APK assets, enabling Qur’an reading and search without runtime Internet access or API dependency.</li>
-        <li><strong>Prayer and notification reliability:</strong> Implemented local astronomical prayer-time calculation, Fajr/Dhuhr/Asr/Maghrib/Isha scheduling, local Athan MP3 playback, prayer notifications and alarm restoration after device reboot/update.</li>
-        <li><strong>Islamic utility features:</strong> Added offline Hijri/Gregorian calendar support and an offline Qibla compass using device sensors.</li>
-        <li><strong>Build automation and quality:</strong> Added Gradle-based asset generation, reproducible builds, unit tests and GitHub Actions CI that builds the debug APK and publishes it as a workflow artifact.</li>
-        <li><strong>Modern AI architecture:</strong> Designed a production-oriented Agentic RAG chatbot architecture using Azure Functions, Blob Storage, Document Intelligence, Azure OpenAI, AI Search, Cosmos DB, Next.js and CI/CD, with Arabic/English OCR and hybrid/vector retrieval.</li>
-        <li><strong>Enterprise automation:</strong> Delivered Odoo integrations, payroll/finance automation, POS workflows, REST APIs and PostgreSQL-backed business applications across multiple client environments.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Professional Experience</h2>
-
-      <article class="job">
-        <div class="job-head"><div class="job-title">Python Developer — Freelancer, Remote</div><div class="date">Oct 2025 – Present</div></div>
-        <div class="company">Application Development &amp; Odoo Integration</div>
-        <ul>
-          <li>Upgrade and maintain Odoo applications following development best practices and controlled release workflows.</li>
-          <li>Build REST APIs with Python and integrate Odoo modules and business processes across applications.</li>
-          <li>Work with PostgreSQL and Docker to support scalable, reproducible application environments.</li>
-          <li>Configure and troubleshoot application servers to maintain reliable instance operation.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head"><div class="job-title">IT Application Developer — Al Taaluq Contracting &amp; Maintenance</div><div class="date">Sep 2024 – Present</div></div>
-        <div class="company">Qatar</div>
-        <ul>
-          <li>Delivered a property management application from the ground up covering property identification, unit categorization, contracts, tenant maintenance and PDC cheque management.</li>
-          <li>Implemented multi-company capabilities and audit logging to improve data control, traceability and security.</li>
-          <li>Developed and maintained business applications and Odoo workflows, translating operational requirements into practical technical solutions.</li>
-          <li>Supported application deployment, Linux servers, PostgreSQL databases, Docker environments and production troubleshooting.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head"><div class="job-title">Odoo Developer — Maven Technology</div><div class="date">Aug 2023 – Aug 2024</div></div>
-        <div class="company">Qatar</div>
-        <ul>
-          <li>Upgraded Odoo systems from v15 to v17 for local clients, delivering solutions for stock and law-firm workflows.</li>
-          <li>Built a finance reporting solution using the OWL framework and managed multiple PostgreSQL databases through the CLI for troubleshooting.</li>
-          <li>Developed bundle-product assembly/disassembly functionality to resolve a critical inventory process issue.</li>
-          <li>Deployed and maintained applications using Docker, Nginx Proxy Manager and Portainer, and supported production issues.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head"><div class="job-title">Freelance Odoo Developer — Al Hulool Soft</div><div class="date">Sep 2022 – Sep 2023</div></div>
-        <div class="company">Saudi Arabia — Remote</div>
-        <ul>
-          <li>Implemented Odoo solutions on community servers and managed nine Linux server instances with multiple subdomains and load balancing.</li>
-          <li>Dockerized Odoo and database instances to reduce manual operational effort and improve deployment consistency.</li>
-          <li>Developed a dental management system for a Saudi client and a rental-car management module.</li>
-          <li>Built a contract-payment invoicing system, customized invoice reports using XML and resolved payroll issues using Python.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head"><div class="job-title">Odoo Developer — Ingaz Group</div><div class="date">Jan 2022 – Nov 2022</div></div>
-        <div class="company">Saudi Arabia</div>
-        <ul>
-          <li>Developed custom Odoo modules and integrated B2B APIs with the Ministry of Human Resources.</li>
-          <li>Designed an automated leave-management workflow that addressed a recurring operational cost issue.</li>
-          <li>Configured Nginx as a reverse proxy and enabled firewall controls to strengthen server security.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head"><div class="job-title">Odoo Technical Developer — AutoBash Co. Ltd</div><div class="date">Sep 2018 – Sep 2019</div></div>
-        <div class="company">Sudan</div>
-        <ul><li>Provided Odoo technical support, investigated application issues and implemented solutions to maintain business continuity.</li></ul>
-      </article>
-    </section>
-
     <div class="grid">
-      <section class="section">
-        <h2 class="section-title">Selected Projects</h2>
-        <ul class="project-list">
-          <li><strong>Property Management System:</strong> Application for property identification, units, contracts, tenant maintenance, PDCs, audit logging and multi-company operations.</li>
-          <li><strong>Badria Dermatology Management:</strong> Digital transformation project automating clinic workflows and reducing manual data entry.</li>
-          <li><strong>Odoo Upgrade Projects:</strong> Upgraded NextMoveBS systems across v12→v16, v15→v17 and v16→v17.</li>
-          <li><strong>Cybersecurity API:</strong> Ported a Golang information-gathering tool to Python and exposed Arabic-keyword processing through Django REST Framework.</li>
-          <li><strong>MediBook:</strong> Arabic-first Flutter medical appointment and telehealth application with modern mobile architecture and CI validation.</li>
-          <li><strong>Salawat:</strong> Offline-first Islamic companion with Qur’an, prayer times, Qibla, Hijri/Gregorian calendar and reminders.</li>
-          <li><strong>Ekram Medical:</strong> Odoo 18 healthcare management platform covering reception, laboratory, doctor and administration workflows.</li>
-          <li><strong>ClinicFlow:</strong> Flutter/Firebase clinic management platform covering patient and appointment workflows.</li>
-          <li><strong>Arabic Order-Type Printer:</strong> Odoo POS integration supporting local LAN receipt printing and Arabic/English invoice workflows.</li>
-          <li><strong>World Cup 2022 Inspection System:</strong> Consulted on 4G Wi-Fi device connectivity for remote control of mobile inspection systems.</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2 class="section-title">Application Development Focus</h2>
-        <ul class="project-list">
-          <li>Backend application development with Python, Django, Flask and Odoo.</li>
-          <li>REST API design, integration and JSON-based data exchange.</li>
-          <li>SQL/PostgreSQL database operations, troubleshooting and data integrity.</li>
-          <li>Containerized deployments with Docker and Linux server administration.</li>
-          <li>Web technologies: JavaScript, OWL, HTML5, CSS, Bootstrap and XML/QWeb.</li>
-          <li>Business analysis, requirements translation, technical troubleshooting and documentation.</li>
-        </ul>
-      </section>
+      <section class="section"><h2 class="section-title">Selected Projects</h2><ul class="project-list">
+        <li><strong>Property Management:</strong> Properties, units, contracts, maintenance, PDCs, audit logs and multi-company operation.</li>
+        <li><strong>Odoo POS Arabic Printer:</strong> Odoo POS + Python local bridge for Arabic/English 80mm thermal receipt printing.</li>
+        <li><strong>Ekram Medical:</strong> Odoo 18 medical-center system with reception, appointments, consultations, laboratory and role-based workflows.</li>
+        <li><strong>MediBook / ClinicFlow:</strong> Arabic-first Flutter/web healthcare scheduling, patient and appointment workflows.</li>
+        <li><strong>Salawat / Prayer Times:</strong> Offline Qur’an, prayer times, Athan alerts, Qibla and Hijri calendar.</li>
+        <li><strong>Cybersecurity Information Tool:</strong> Python/Django REST API with Arabic keyword processing.</li>
+        <li><strong>Odoo Upgrade Engagements:</strong> Multi-version migrations, module adaptation and operational validation.</li>
+        <li><strong>Agentic RAG:</strong> Azure-based bilingual document understanding and retrieval architecture.</li>
+        <li><strong>Petro Integration API:</strong> Odoo fuel sales and tank-measurement workflows.</li>
+      </ul></section>
+      <section class="section"><h2 class="section-title">Engineering Focus</h2><ul class="project-list">
+        <li>Odoo ORM, custom modules, OWL, XML/QWeb, POS, payroll, finance and inventory workflows.</li>
+        <li>Python services, Django/Flask, REST APIs, OAuth2 and system integration.</li>
+        <li>PostgreSQL/MySQL, SQL troubleshooting, data integrity and reporting.</li>
+        <li>Docker, Linux, Nginx, Portainer, Kubernetes fundamentals and CI/CD.</li>
+        <li>Flutter/mobile development, offline-first data and GitHub Actions workflows.</li>
+        <li>Security-conscious access control, secrets handling and application reliability.</li>
+      </ul></section>
     </div>
-
-    <section class="section">
-      <h2 class="section-title">Volunteer Experience</h2>
-      <p class="summary"><strong>Red Crescent Qatar — Fruitful Giving</strong> | Mar 2025 – Apr 2025 — Supported logistical operations by categorizing and packing donated clothing into age-based containers.</p>
-    </section>
-
-    <p class="footer-note">Targeted toward Application Developer / Systems Integration roles. This resume emphasizes application development, REST APIs, SQL, integration, DevOps fundamentals and business-process automation.</p>
+    <section class="section"><h2 class="section-title">Volunteer Experience</h2><p class="summary"><strong>Red Crescent Qatar — Fruitful Giving</strong> | Mar 2025 – Apr 2025 — Supported logistics by categorizing and packing donated clothing into age-based containers. Also participates in AI and cybersecurity learning communities.</p></section>
+    <p class="footer-note">This resume summarizes employment, contract and project-based experience. Some engagements overlapped; dates and engagement labels are shown where known. Project descriptions avoid confidential client information.</p>
   </section>
 </main>
 </body>
