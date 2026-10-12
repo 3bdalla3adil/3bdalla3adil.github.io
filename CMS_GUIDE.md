@@ -9,7 +9,7 @@ This site is published on GitHub Pages and uses [Pages CMS](https://pagescms.org
 3. Select this repository and the `master` branch after the CMS configuration has been merged.
 4. Use **Portfolio projects** to add, edit, reorder, feature, or remove project cards. Add a title, short description, tags, optional cover image, and a link.
 5. Use **Site settings** to update the SEO description and public contact/social links.
-6. Use **Case studies and articles** to create long-form project stories. The initial collection is CMS-ready; publishing a case-study page into the main navigation may require a separate layout integration.
+6. Use **Case studies** to add or update the challenge, solution, outcome, tags, image and related-project link. The case-study cards appear automatically on the homepage; the expandable details show the full story.
 
 ## Adding a project
 
@@ -21,7 +21,7 @@ This site is published on GitHub Pages and uses [Pages CMS](https://pagescms.org
 
 ## Contact form
 
-The contact form uses FormSubmit with a hidden honeypot and CAPTCHA enabled. The first submission may require confirming the receiving mailbox. Confirm the activation email before announcing the form publicly. If the endpoint is not activated, visitors can still use the direct email link shown beside the form.
+The contact form uses FormSubmit with a hidden honeypot and CAPTCHA enabled. The first submission may require confirming the receiving mailbox. Confirm the activation email before announcing the form publicly. The recipient is controlled by **Site settings → Contact email**. If the endpoint is not activated, visitors can still use the direct email link shown beside the form.
 
 ## Deployment and ownership
 
