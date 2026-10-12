@@ -304,7 +304,7 @@
     const url=String(value||'').trim();
     if(!url)return '';
     if(/^https:\/\//i.test(url))return url;
-    if(/^(?!\/\/)[a-z0-9._/-]+(?:#[a-z0-9_-]+)?(?:\?[a-z0-9_=&%-]+)?$/i.test(url))return url;
+    if(/^(?!\/\/)(?:\/?[a-z0-9._/-]+)(?:#[a-z0-9_-]+)?(?:\?[a-z0-9_=&%-]+)?$/i.test(url))return url;
     return '';
   }
   function renderPortfolioProjects(){
@@ -337,7 +337,7 @@
       if(!response.ok)throw new Error('Project content could not be loaded');
       const data=await response.json();
       if(!Array.isArray(data))throw new Error('Project content must be a list');
-      portfolioProjects=data.filter(item=>item&&item.title&&item.description);
+      portfolioProjects=data.filter(item=>item&&item.title&&item.description).sort((a,b)=>Number(Boolean(b.featured))-Number(Boolean(a.featured)));
       renderPortfolioProjects();
     }catch(error){
       if(projectGrid)projectGrid.innerHTML='<p class="muted">Selected projects could not load right now. Please check back soon.</p>';
@@ -390,6 +390,23 @@
     }
   }
   loadCaseStudies();
+
+  async function loadSiteSettings(){
+    try{
+      const response=await fetch('data/site-settings.json',{cache:'no-cache'});
+      if(!response.ok)throw new Error('Site settings could not be loaded');
+      const settings=await response.json();
+      if(settings.title){document.title=String(settings.title);const ogTitle=document.querySelector('meta[property="og:title"]');if(ogTitle)ogTitle.content=String(settings.title)}
+      if(settings.description){const description=document.querySelector('meta[name="description"]');if(description)description.content=String(settings.description);const ogDescription=document.querySelector('meta[property="og:description"]');if(ogDescription)ogDescription.content=String(settings.description)}
+      if(settings.contactEmail){
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link=>{link.href='mailto:'+settings.contactEmail;if(link.textContent.includes('@'))link.textContent=settings.contactEmail});
+        const form=document.querySelector('.contact-form');if(form)form.action='https://formsubmit.co/'+encodeURIComponent(settings.contactEmail);
+      }
+      if(settings.linkedin)document.querySelectorAll('a[href*="linkedin.com/in/"]').forEach(link=>{link.href=settings.linkedin});
+      if(settings.github)document.querySelectorAll('a[href*="github.com/3bdalla3adil"]').forEach(link=>{link.href=settings.github});
+    }catch(error){console.error('Site settings error:',error)}
+  }
+  loadSiteSettings();
 
   const clients = [
     {name:"CyberMeStudio",role:"Cybersecurity & Software Solutions",icon:"fa-shield-halved",desc:"Delivered software development and technical solutions with a focus on reliable backend systems and cybersecurity-oriented engineering.",tags:["Python","Cybersecurity","Backend"]},
