@@ -1,0 +1,62 @@
+[
+  {
+    "id": "property-platform",
+    "title": "Modernizing Property Operations",
+    "titleAr": "تطوير عمليات إدارة العقارات",
+    "summary": "Designed a maintainable property-management platform around real operational workflows rather than disconnected spreadsheets.",
+    "summaryAr": "تصميم منصة قابلة للصيانة لإدارة العقارات بناءً على سير العمل الفعلي بدلاً من جداول بيانات منفصلة.",
+    "challenge": "Property, unit, contract, tenant maintenance and post-dated cheque information needed a shared operational record with clear ownership and history.",
+    "solution": "Built a structured application with property/unit classification, rental contracts, maintenance tracking, cheque schedules, multi-company support and audit logging.",
+    "outcome": "A single operational foundation designed for long-term use, traceability and future extension.",
+    "outcomeAr": "قاعدة تشغيلية موحدة للاستخدام طويل الأجل والتتبع والتوسع مستقبلاً.",
+    "category": "ERP / Real Estate",
+    "tags": [
+      "Odoo",
+      "Python",
+      "Workflow design",
+      "Audit trail"
+    ],
+    "link": "",
+    "image": "assets/img/odoo.png"
+  },
+  {
+    "id": "hr-integration",
+    "title": "Attendance Integration & Cost Control",
+    "titleAr": "تكامل الحضور وضبط التكاليف",
+    "summary": "Connected attendance and leave workflows to reduce recurring manual handling and improve data consistency.",
+    "summaryAr": "ربط إجراءات الحضور والإجازات لتقليل المعالجة اليدوية المتكررة وتحسين اتساق البيانات.",
+    "challenge": "Attendance and leave discrepancies were creating recurring operational rework and an estimated cost impact of around SAR 4,000 per month.",
+    "solution": "Developed API-based attendance/worked-hours exchange with Saudi HR services and automated leave-request workflow handling.",
+    "outcome": "Reduced manual reconciliation and addressed a recurring issue associated with approximately SAR 4,000 per month in cost.",
+    "outcomeAr": "تقليل المطابقة اليدوية ومعالجة مشكلة متكررة مرتبطة بتكلفة تقارب ٤٬٠٠٠ ريال سعودي شهرياً.",
+    "category": "API / Business Automation",
+    "tags": [
+      "Python",
+      "REST API",
+      "Odoo",
+      "HR"
+    ],
+    "link": "",
+    "image": ""
+  },
+  {
+    "id": "container-platform",
+    "title": "Consolidated Odoo Infrastructure",
+    "titleAr": "توحيد البنية التحتية لـ Odoo",
+    "summary": "Organized multiple Linux/Odoo application environments on a single host with consistent routing and container operations.",
+    "summaryAr": "تنظيم عدة بيئات Linux وOdoo على خادم واحد مع توجيه موحد وتشغيل الحاويات.",
+    "challenge": "Several application instances needed independent service configuration and reliable access without multiplying physical infrastructure.",
+    "solution": "Used Docker, Linux services, reverse proxy routing, SSL configuration and Portainer to isolate and manage deployments.",
+    "outcome": "Operated nine server/application instances on one machine with a repeatable, easier-to-maintain deployment approach.",
+    "outcomeAr": "تشغيل تسع بيئات خوادم وتطبيقات على جهاز واحد بأسلوب نشر قابل للتكرار وأسهل في الصيانة.",
+    "category": "Infrastructure / DevOps",
+    "tags": [
+      "Docker",
+      "Linux",
+      "Nginx",
+      "Portainer"
+    ],
+    "link": "odo-deployment.html",
+    "image": ""
+  }
+]
