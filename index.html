@@ -8,6 +8,9 @@
   <meta property="og:title" content="Abdulla Bashir — Enterprise Solutions Engineer">
   <meta property="og:description" content="ERP • Automation • Cloud • Security • AI">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://3bdalla3adil.github.io/">
+  <link rel="canonical" href="https://3bdalla3adil.github.io/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <title>Abdulla Bashir — Enterprise Solutions Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,6 +111,23 @@
     @media(max-width:760px){.contact-layout{grid-template-columns:1fr}.contact-form{padding:21px}.project-cover,.project-art{height:165px}.project-body{height:calc(100% - 165px)}}
     @media(prefers-reduced-motion:reduce){.project{transition:none}.project:hover{transform:none}}
 
+  
+    .case-study-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+    .case-study-card{display:flex;flex-direction:column;min-width:0}
+    .case-study-cover{height:145px;width:100%;object-fit:cover;display:block;border-radius:14px;background:#102238;margin-bottom:18px}
+    .case-study-art{height:145px;border-radius:14px;margin-bottom:18px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 80% 20%,rgba(100,216,255,.2),transparent 35%),linear-gradient(135deg,#12253b,#0a1425)}
+    .case-study-art i{font-size:1.8rem;color:var(--accent)}
+    .case-study-card h3{margin:9px 0}
+    .case-study-card>p{color:var(--muted);font-size:.9rem}
+    .case-study-card .project-tags{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 16px}
+    .case-study-card details{border-top:1px solid var(--line);padding:12px 0}
+    .case-study-card summary{cursor:pointer;font-weight:700;font-size:.86rem;color:#dce9f8}
+    .case-study-card details p{color:var(--muted);font-size:.85rem;margin:10px 0 0}
+    .case-study-card .outcome{border-left:2px solid var(--accent);padding-left:12px;margin-top:10px}
+    .case-study-card .case-link{margin-top:auto;align-self:flex-start}
+    @media(max-width:950px){.case-study-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:620px){.case-study-grid{grid-template-columns:1fr}}
+
   </style>
 </head>
 <body>
@@ -115,7 +135,7 @@
   <a class="brand" href="#">AB<span>.</span></a>
   <div class="links">
     <a href="#capabilities" data-en>Capabilities</a><a href="#capabilities" data-ar>المهارات</a>
-    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a><a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a><a href="#experience" data-en>Experience</a><a href="#experience" data-ar>الخبرة</a><a href="#certs" data-en>Certificates</a><a href="#certs" data-ar>الشهادات</a>
+    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a><a href="#case-studies" data-en>Case studies</a><a href="#case-studies" data-ar>دراسات الحالة</a><a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a><a href="#experience" data-en>Experience</a><a href="#experience" data-ar>الخبرة</a><a href="#certs" data-en>Certificates</a><a href="#certs" data-ar>الشهادات</a>
     <a href="#path" data-en>Career Path</a><a href="#path" data-ar>المسار المهني</a>
     <a href="#contact" data-en>Contact</a><a href="#contact" data-ar>تواصل</a>
   </div>
@@ -180,6 +200,11 @@
 </div></section>
 
 
+
+<section id="case-studies"><div class="container">
+  <div class="section-head"><div><div class="kicker">04 / Case studies</div><h2 data-en>What changed, and why.</h2><h2 data-ar>ما الذي تغير، ولماذا.</h2></div><p data-en>Selected examples of business problems, engineering decisions and outcomes. Expand each story for the details.</p><p data-ar>نماذج مختارة من مشكلات الأعمال والقرارات الهندسية والنتائج. افتح كل قصة لقراءة التفاصيل.</p></div>
+  <div class="case-study-grid" id="caseStudyGrid" aria-live="polite"><p class="muted" data-en>Loading case studies…</p><p class="muted" data-ar>جارٍ تحميل دراسات الحالة…</p></div>
+</div></section>
 
 <section id="experience"><div class="container">
   <div class="section-head"><div><div class="kicker">04 / Professional experience</div><h2 data-en>Experience across business-critical systems.</h2><h2 data-ar>خبرة في أنظمة الأعمال الحيوية.</h2></div><p data-en>From ERP development and business automation to infrastructure, APIs and healthcare applications. My career includes employment, client engagements and independent projects.</p><p data-ar>من تطوير أنظمة ERP وأتمتة الأعمال إلى البنية التحتية وواجهات API وتطبيقات الرعاية الصحية، تجمع خبرتي بين الوظائف والتعاقدات والمشاريع المستقلة.</p></div>
@@ -257,7 +282,7 @@
 <footer><div class="container footer-inner"><span>© 2026 Abdulla Bashir</span><span class="mono">ERP • AUTOMATION • CLOUD • SECURITY • AI</span></div></footer>
 <script>
   const body=document.body, btn=document.getElementById('langBtn');
-  function setLang(ar){body.classList.toggle('ar',ar);document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';btn.textContent=ar?'English':'العربية';localStorage.setItem('portfolio-lang',ar?'ar':'en');if(typeof renderPortfolioProjects==='function')renderPortfolioProjects()}
+  function setLang(ar){body.classList.toggle('ar',ar);document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';btn.textContent=ar?'English':'العربية';localStorage.setItem('portfolio-lang',ar?'ar':'en');if(typeof renderPortfolioProjects==='function')renderPortfolioProjects();if(typeof renderCaseStudies==='function')renderCaseStudies()}
 
 
   // Portfolio projects are stored as editable JSON and managed in Pages CMS.
@@ -320,6 +345,51 @@
     }
   }
   loadPortfolioProjects();
+
+
+  const caseStudyGrid=document.getElementById('caseStudyGrid');
+  let portfolioCaseStudies=[];
+  function renderCaseStudies(){
+    if(!caseStudyGrid)return;
+    const isArabic=body.classList.contains('ar');
+    if(!portfolioCaseStudies.length){
+      caseStudyGrid.innerHTML='<p class="muted">Case studies are temporarily unavailable.</p>';
+      return;
+    }
+    caseStudyGrid.innerHTML=portfolioCaseStudies.map(item=>{
+      const title=isArabic?(item.titleAr||item.title):(item.title||'Case study');
+      const summary=isArabic?(item.summaryAr||item.summary):(item.summary||'');
+      const outcome=isArabic?(item.outcomeAr||item.outcome):(item.outcome||'');
+      const image=safeProjectURL(item.image);
+      const link=safeProjectURL(item.link);
+      const tags=Array.isArray(item.tags)?item.tags:[];
+      const cover=image
+        ? '<img class="case-study-cover" src="'+escapeHTML(image)+'" alt="'+escapeHTML(title)+' cover" loading="lazy" decoding="async">'
+        : '<div class="case-study-art" aria-hidden="true"><span class="art-id">'+escapeHTML(item.category||'Case study')+'</span><i class="fas fa-diagram-project"></i><span class="art-label">'+escapeHTML(tags.slice(0,3).join(' · '))+'</span></div>';
+      const details=(item.challenge||item.solution||outcome)
+        ? '<details><summary>'+(isArabic?'التحدي والحل والنتيجة':'Challenge, solution & outcome')+'</summary>'+
+          (item.challenge?'<p><strong>'+(isArabic?'التحدي:':'Challenge:')+'</strong> '+escapeHTML(item.challenge)+'</p>':'')+
+          (item.solution?'<p><strong>'+(isArabic?'الحل:':'Solution:')+'</strong> '+escapeHTML(item.solution)+'</p>':'')+
+          (outcome?'<p class="outcome"><strong>'+(isArabic?'النتيجة:':'Outcome:')+'</strong> '+escapeHTML(outcome)+'</p>':'')+'</details>'
+        : '';
+      const action=link?'<a class="btn ghost mini case-link" href="'+escapeHTML(link)+'"'+(/^https:\/\//i.test(link)?' target="_blank" rel="noopener noreferrer"':'')+'>'+(isArabic?'المشروع المرتبط ↗':'Related project ↗')+'</a>':'';
+      return '<article class="card case-study-card">'+cover+'<div class="project-category">'+escapeHTML(item.category||'Case study')+'</div><h3>'+escapeHTML(title)+'</h3><p>'+escapeHTML(summary)+'</p><div class="project-tags">'+tags.map(tag=>'<span class="chip">'+escapeHTML(tag)+'</span>').join('')+'</div>'+details+action+'</article>';
+    }).join('');
+  }
+  async function loadCaseStudies(){
+    try{
+      const response=await fetch('data/case-studies.json',{cache:'no-cache'});
+      if(!response.ok)throw new Error('Case studies could not be loaded');
+      const data=await response.json();
+      if(!Array.isArray(data))throw new Error('Case studies must be a list');
+      portfolioCaseStudies=data.filter(item=>item&&item.title&&item.summary);
+      renderCaseStudies();
+    }catch(error){
+      if(caseStudyGrid)caseStudyGrid.innerHTML='<p class="muted">Case studies could not load right now.</p>';
+      console.error('Case study content error:',error);
+    }
+  }
+  loadCaseStudies();
 
   const clients = [
     {name:"CyberMeStudio",role:"Cybersecurity & Software Solutions",icon:"fa-shield-halved",desc:"Delivered software development and technical solutions with a focus on reliable backend systems and cybersecurity-oriented engineering.",tags:["Python","Cybersecurity","Backend"]},
