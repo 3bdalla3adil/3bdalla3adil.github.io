@@ -51,3 +51,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: GitHub Workflow Cleaner Action
+        uses: rokibhasansagar/slimhub_actions@v25.42.5
