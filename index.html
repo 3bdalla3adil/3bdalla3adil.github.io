@@ -78,6 +78,36 @@
     .cert-modal-prev{left:22px}.cert-modal-next{right:22px}
     .cert-modal-counter{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-size:.85rem}
     @media(max-width:700px){.client-card{grid-template-columns:1fr;padding:28px;gap:22px}.client-icon{width:72px;height:72px;font-size:1.5rem}.client-card h3{font-size:1.45rem}.client-nav{display:none}.cert-card{width:270px}.cert-modal-nav{display:none}.cert-header{display:block}.cert-count{display:block;margin-top:10px}}
+  
+    /* CMS-driven portfolio cards */
+    .project-grid{align-items:stretch}
+    .project{min-width:0;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+    .project:hover{transform:translateY(-4px);border-color:rgba(100,216,255,.42);box-shadow:0 20px 48px rgba(0,0,0,.22)}
+    .project-cover{width:100%;height:190px;object-fit:cover;display:block;background:#102238}
+    .project-art{height:190px;display:flex;flex-direction:column;justify-content:space-between;padding:22px;background:radial-gradient(circle at 80% 20%,rgba(100,216,255,.22),transparent 35%),linear-gradient(135deg,#12253b,#0a1425);border-bottom:1px solid var(--line)}
+    .project-art .art-icon{font-size:2rem;color:var(--accent)}
+    .project-art .art-label{font:600 .76rem "JetBrains Mono",monospace;color:#c6d8eb;max-width:100%;overflow-wrap:anywhere}
+    .project-art .art-id{font:500 .68rem "JetBrains Mono",monospace;color:#7f9ab6;text-transform:uppercase;letter-spacing:.12em}
+    .project-body{height:calc(100% - 190px);display:flex;flex-direction:column;align-items:flex-start}
+    .project-body .project-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 18px}
+    .project-body .project-links{margin-top:auto}
+    .project-category{font:600 .7rem "JetBrains Mono",monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+    .contact-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:18px;align-items:stretch}
+    .contact-form{display:grid;gap:16px;padding:28px;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(145deg,rgba(20,39,62,.78),rgba(8,19,33,.72))}
+    .contact-form label{display:grid;gap:7px;color:#d9e7f6;font-size:.88rem;font-weight:600}
+    .contact-form input,.contact-form select,.contact-form textarea{width:100%;min-width:0;border:1px solid rgba(158,181,211,.25);border-radius:12px;padding:12px 14px;background:rgba(4,13,25,.72);color:var(--text);font:inherit;outline:none}
+    .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(100,216,255,.12)}
+    .contact-form textarea{resize:vertical;min-height:130px}
+    .contact-form button{justify-self:start}
+    .form-note{font-size:.78rem;color:var(--muted);margin:0}
+    .honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important}
+    .contact-aside{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:13px}
+    .contact-aside .btn{max-width:100%;overflow-wrap:anywhere}
+    .contact-aside p{color:var(--muted);margin:0}
+    .contact-socials{display:flex;gap:16px;margin-top:12px;color:var(--accent);font-size:.9rem}
+    @media(max-width:760px){.contact-layout{grid-template-columns:1fr}.contact-form{padding:21px}.project-cover,.project-art{height:165px}.project-body{height:calc(100% - 165px)}}
+    @media(prefers-reduced-motion:reduce){.project{transition:none}.project:hover{transform:none}}
+
   </style>
 </head>
 <body>
@@ -144,16 +174,8 @@
 
 <section id="projects"><div class="container">
   <div class="section-head"><div><div class="kicker">03 / Selected work</div><h2 data-en>Proof through real systems.</h2><h2 data-ar>الخبرة تظهر في الأنظمة الحقيقية.</h2></div><p data-en>A selection of ERP, healthcare, infrastructure, API and security-oriented work from the portfolio.</p><p data-ar>نماذج من أعمال ERP والرعاية الصحية والبنية التحتية وواجهات API والأمن.</p></div>
-  <div class="project-grid">
-    <article class="card project"><div class="project-top"><span class="mono">Odoo 18 / Python / API</span></div><div class="project-body"><h3>Petro Integration API</h3><p>Fuel sales and tank-measurement workflows with quantity tracking and operational history.</p><div class="project-links"><a class="btn ghost mini" href="https://apps.odoo.com/apps/modules/18.0/petro_integration" target="_blank" rel="noopener">View module ↗</a><span class="chip">ERP</span><span class="chip">Integration</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Healthcare / Web / Privacy-first</span></div><div class="project-body"><h3>ClinicFlow</h3><p>Clinic scheduling demo covering doctors, working hours, appointments, booking and local JSON backup/restore.</p><div class="project-links"><a class="btn ghost mini" href="clinic-booking.html">Open demo ↗</a><span class="chip">Healthcare</span><span class="chip">JS</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Odoo 17–19 / Reporting</span></div><div class="project-body"><h3>Account Reports Filter</h3><p>Account-report filtering work focused on usability, reporting workflows and Odoo framework integration.</p><div class="project-links"><a class="btn ghost mini" href="https://apps.odoo.com/apps/modules/17.0/finance-odoo-filter" target="_blank" rel="noopener">View module ↗</a><span class="chip">Odoo</span><span class="chip">Reports</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Linux / Docker / Nginx</span></div><div class="project-body"><h3>Odoo Infrastructure</h3><p>Containerized Odoo environments, reverse proxies, SSL and deployment automation for maintainable operations.</p><div class="project-links"><a class="btn ghost mini" href="odo-deployment.html">Architecture ↗</a><span class="chip">DevOps</span><span class="chip">Linux</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Python / Django REST / Security</span></div><div class="project-body"><h3>Cybersecurity Information Tool</h3><p>Python/Django REST work for structured information gathering, keyword processing and API-based retrieval.</p><div class="project-links"><a class="btn ghost mini" href="https://github.com/3bdalla3adil/DjangoArabicTranslation_API" target="_blank" rel="noopener">GitHub ↗</a><span class="chip">Security</span><span class="chip">API</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Flutter / Healthcare / Clean Architecture</span></div><div class="project-body"><h3>MediBook</h3><p>Arabic-first multi-clinic appointment and telehealth foundation with offline caching, secure sessions, patient workflows and Android/iOS CI.</p><div class="project-links"><a class="btn ghost mini" href="https://github.com/3bdalla3adil/medibook" target="_blank" rel="noopener">GitHub ↗</a><span class="chip">Flutter</span><span class="chip">Healthcare</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Android / Offline / Quran / Athan</span></div><div class="project-body"><h3>Salawat — Offline Islamic Companion</h3><p>Prayer times, automatic Athan alarms, offline Quran, Qibla compass and Hijri calendar with no runtime API dependency.</p><div class="project-links"><a class="btn ghost mini" href="https://github.com/3bdalla3adil/AndroidPrayerTimesApp" target="_blank" rel="noopener">GitHub ↗</a><span class="chip">Android</span><span class="chip">Quran</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Odoo 18 / Healthcare / OWL</span></div><div class="project-body"><h3>Ekram Medical</h3><p>Odoo 18 medical-center system covering reception, appointments, consultations, laboratory workflows, security and tests.</p><div class="project-links"><a class="btn ghost mini" href="https://github.com/3bdalla3adil/ekram_medical" target="_blank" rel="noopener">GitHub ↗</a><span class="chip">Odoo</span><span class="chip">Healthcare</span></div></div></article>
-    <article class="card project"><div class="project-top"><span class="mono">Android / Kotlin / APIs</span></div><div class="project-body"><h3>Prayer Times App</h3><p>Mobile application combining prayer times, Qibla direction, Hijri calendar and device sensor capabilities.</p><div class="project-links"><a class="btn ghost mini" href="https://github.com/3bdalla3adil/AndroidPrayerTimesApp" target="_blank" rel="noopener">GitHub ↗</a><span class="chip">Android</span><span class="chip">Mobile</span></div></div></article>
+  <div class="project-grid" id="portfolioProjectGrid" aria-live="polite">
+    <p class="muted" data-en>Loading selected projects…</p><p class="muted" data-ar>جارٍ تحميل المشاريع…</p>
   </div>
 </div></section>
 
@@ -206,16 +228,98 @@
   </div>
 </div></section>
 
-<section id="contact"><div class="container"><div class="cta">
-  <div><h2 data-en>Have a business problem worth engineering?</h2><h2 data-ar>لديك مشكلة أعمال تستحق حلاً هندسيًا؟</h2><p data-en>Let's turn the workflow into a reliable system.</p><p data-ar>لنحوّل سير العمل إلى نظام موثوق وقابل للتوسع.</p></div>
-  <div class="hero-actions" style="margin:0"><a class="btn primary" href="mailto:abdulla.bashir.dev@gmail.com">Start a conversation ↗</a><a class="btn ghost" href="work.html" data-en>View all work</a><a class="btn ghost" href="work.html" data-ar>كل الأعمال</a></div>
-</div></div></section>
+<section id="contact"><div class="container">
+  <div class="section-head"><div><div class="kicker">07 / Contact</div><h2 data-en>Let’s build something useful.</h2><h2 data-ar>لنبنِ حلاً مفيداً معاً.</h2></div><p data-en>Tell me about the workflow, product or integration you want to improve. I’ll get back to you by email.</p><p data-ar>أخبرني عن سير العمل أو المنتج أو التكامل الذي تريد تطويره، وسأرد عليك عبر البريد الإلكتروني.</p></div>
+  <div class="contact-layout">
+    <form class="contact-form" action="https://formsubmit.co/abdulla.bashir.dev@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New portfolio inquiry — Abdulla Bashir">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label><span data-en>Your name</span><span data-ar>اسمك</span><input name="name" type="text" autocomplete="name" maxlength="100" required></label>
+      <label><span data-en>Email address</span><span data-ar>البريد الإلكتروني</span><input name="email" type="email" autocomplete="email" maxlength="200" required></label>
+      <label><span data-en>What can I help with?</span><span data-ar>كيف يمكنني مساعدتك؟</span><select name="topic" required><option value="" disabled selected>Select a topic / اختر موضوعاً</option><option>Odoo / ERP</option><option>Python / API integration</option><option>Web or mobile application</option><option>Cloud / DevOps</option><option>Consulting / Other</option></select></label>
+      <label><span data-en>Project details</span><span data-ar>تفاصيل المشروع</span><textarea name="message" rows="5" minlength="10" maxlength="5000" required></textarea></label>
+      <button class="btn primary" type="submit"><span data-en>Send inquiry ↗</span><span data-ar>إرسال الرسالة ↗</span></button>
+      <p class="form-note" data-en>Spam protection is enabled. You may be asked to complete a CAPTCHA.</p><p class="form-note" data-ar>تم تفعيل الحماية من الرسائل المزعجة، وقد يُطلب منك إكمال اختبار CAPTCHA.</p>
+    </form>
+    <aside class="contact-aside card">
+      <div class="icon"><i class="fas fa-paper-plane" aria-hidden="true"></i></div>
+      <h3 data-en>Prefer email?</h3><h3 data-ar>تفضل البريد الإلكتروني؟</h3>
+      <p data-en>You can reach me directly for project inquiries and collaboration.</p><p data-ar>يمكنك التواصل معي مباشرة للاستفسارات والتعاون.</p>
+      <a class="btn ghost" href="mailto:abdulla.bashir.dev@gmail.com">abdulla.bashir.dev@gmail.com</a>
+      <div class="contact-socials"><a href="https://github.com/3bdalla3adil" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/abdulla-bashir-2a4311169/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+    </aside>
+  </div>
+</div></section>
 </main>
 
 <footer><div class="container footer-inner"><span>© 2026 Abdulla Bashir</span><span class="mono">ERP • AUTOMATION • CLOUD • SECURITY • AI</span></div></footer>
 <script>
   const body=document.body, btn=document.getElementById('langBtn');
-  function setLang(ar){body.classList.toggle('ar',ar);document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';btn.textContent=ar?'English':'العربية';localStorage.setItem('portfolio-lang',ar?'ar':'en')}
+  function setLang(ar){body.classList.toggle('ar',ar);document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';btn.textContent=ar?'English':'العربية';localStorage.setItem('portfolio-lang',ar?'ar':'en');if(typeof renderPortfolioProjects==='function')renderPortfolioProjects()}
+
+
+  // Portfolio projects are stored as editable JSON and managed in Pages CMS.
+  const projectGrid = document.getElementById('portfolioProjectGrid');
+  let portfolioProjects = [];
+  const projectIcons = {
+    'ERP & Business Automation':'fa-building',
+    'Healthcare':'fa-heart-pulse',
+    'Mobile Applications':'fa-mobile-screen-button',
+    'ERP & Integrations':'fa-plug',
+    'Infrastructure & DevOps':'fa-server',
+    'Security':'fa-shield-halved',
+    'ERP & Reporting':'fa-chart-column'
+  };
+  function escapeHTML(value){
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+  function safeProjectURL(value){
+    const url=String(value||'').trim();
+    if(!url)return '';
+    if(/^https:\/\//i.test(url))return url;
+    if(/^(?!\/\/)[a-z0-9._/-]+(?:#[a-z0-9_-]+)?(?:\?[a-z0-9_=&%-]+)?$/i.test(url))return url;
+    return '';
+  }
+  function renderPortfolioProjects(){
+    if(!projectGrid)return;
+    const isArabic=body.classList.contains('ar');
+    if(!portfolioProjects.length){
+      projectGrid.innerHTML='<p class="muted">Projects are temporarily unavailable. Please use the contact section to request the portfolio.</p>';
+      return;
+    }
+    projectGrid.innerHTML=portfolioProjects.map(project=>{
+      const title=isArabic?(project.titleAr||project.title):(project.title||'Project');
+      const description=isArabic?(project.descriptionAr||project.description):(project.description||'');
+      const label=isArabic?(project.linkLabelAr||project.linkLabel||'Details'):(project.linkLabel||'Details');
+      const image=safeProjectURL(project.image);
+      const link=safeProjectURL(project.link);
+      const tags=Array.isArray(project.tags)?project.tags:[];
+      const icon=projectIcons[project.category]||'fa-layer-group';
+      const cover=image
+        ? '<img class="project-cover" src="'+escapeHTML(image)+'" alt="'+escapeHTML(title)+' project cover" loading="lazy" decoding="async">'
+        : '<div class="project-art" aria-hidden="true"><span class="art-id">'+escapeHTML(project.category||'Selected work')+'</span><i class="fas '+escapeHTML(icon)+' art-icon"></i><span class="art-label">'+escapeHTML(project.techLine||project.category||'Software engineering')+'</span></div>';
+      const linkMarkup=link
+        ? '<a class="btn ghost mini" href="'+escapeHTML(link)+'"'+(/^https:\/\//i.test(link)?' target="_blank" rel="noopener noreferrer"':'')+'>'+escapeHTML(label)+' ↗</a>'
+        : '';
+      return '<article class="card project">'+cover+'<div class="project-body"><div class="project-category">'+escapeHTML(project.category||'Selected work')+'</div><h3>'+escapeHTML(title)+'</h3><p>'+escapeHTML(description)+'</p><div class="project-tags">'+tags.map(tag=>'<span class="chip">'+escapeHTML(tag)+'</span>').join('')+'</div><div class="project-links">'+linkMarkup+'</div></div></article>';
+    }).join('');
+  }
+  async function loadPortfolioProjects(){
+    try{
+      const response=await fetch('data/portfolio-projects.json',{cache:'no-cache'});
+      if(!response.ok)throw new Error('Project content could not be loaded');
+      const data=await response.json();
+      if(!Array.isArray(data))throw new Error('Project content must be a list');
+      portfolioProjects=data.filter(item=>item&&item.title&&item.description);
+      renderPortfolioProjects();
+    }catch(error){
+      if(projectGrid)projectGrid.innerHTML='<p class="muted">Selected projects could not load right now. Please check back soon.</p>';
+      console.error('Portfolio content error:',error);
+    }
+  }
+  loadPortfolioProjects();
 
   const clients = [
     {name:"CyberMeStudio",role:"Cybersecurity & Software Solutions",icon:"fa-shield-halved",desc:"Delivered software development and technical solutions with a focus on reliable backend systems and cybersecurity-oriented engineering.",tags:["Python","Cybersecurity","Backend"]},
