@@ -403,7 +403,7 @@
         const form=document.querySelector('.contact-form');if(form)form.action='https://formsubmit.co/'+encodeURIComponent(settings.contactEmail);
       }
       if(settings.linkedin)document.querySelectorAll('a[href*="linkedin.com/in/"]').forEach(link=>{link.href=settings.linkedin});
-      if(settings.github)document.querySelectorAll('a[href*="github.com/3bdalla3adil"]').forEach(link=>{link.href=settings.github});
+      if(settings.github)document.querySelectorAll('a[href="https://github.com/3bdalla3adil"],a[href="https://github.com/3bdalla3adil/"]').forEach(link=>{link.href=settings.github});
     }catch(error){console.error('Site settings error:',error)}
   }
   loadSiteSettings();
