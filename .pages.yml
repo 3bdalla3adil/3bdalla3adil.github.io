@@ -1,0 +1,113 @@
+media:
+  input: assets/img
+  output: /assets/img
+
+content:
+  - name: projects
+    label: Portfolio projects
+    type: file
+    path: data/portfolio-projects.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Unique ID
+        type: string
+        required: true
+      - name: title
+        label: Project title (English)
+        type: string
+        required: true
+      - name: titleAr
+        label: Project title (Arabic)
+        type: string
+      - name: description
+        label: Description (English)
+        type: text
+        required: true
+      - name: descriptionAr
+        label: Description (Arabic)
+        type: text
+      - name: category
+        label: Category
+        type: string
+      - name: techLine
+        label: Technology summary
+        type: string
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: image
+        label: Cover image
+        type: image
+      - name: link
+        label: Project or case-study URL
+        type: string
+      - name: linkLabel
+        label: Link button (English)
+        type: string
+      - name: linkLabelAr
+        label: Link button (Arabic)
+        type: string
+      - name: featured
+        label: Feature on portfolio
+        type: boolean
+
+  - name: site
+    label: Site settings
+    type: file
+    path: data/site-settings.json
+    format: json
+    fields:
+      - name: title
+        label: Site title
+        type: string
+      - name: description
+        label: SEO description
+        type: text
+      - name: contactEmail
+        label: Contact email
+        type: string
+      - name: linkedin
+        label: LinkedIn URL
+        type: string
+      - name: github
+        label: GitHub URL
+        type: string
+
+  - name: posts
+    label: Case studies and articles
+    type: collection
+    path: content/case-studies
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title, category, date]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Short summary
+        type: text
+      - name: category
+        label: Category
+        type: string
+      - name: date
+        label: Date
+        type: date
+      - name: cover
+        label: Cover image
+        type: image
+      - name: body
+        label: Case study
+        type: rich-text
+
+settings:
+  content:
+    merge: true
