@@ -1,0 +1,173 @@
+[
+  {
+    "id": "property-management",
+    "title": "Property Management Platform",
+    "titleAr": "منصة إدارة العقارات",
+    "description": "A long-term property operations platform for property and unit records, rental contracts, tenant maintenance, PDC cheques, multi-company workflows and audit history.",
+    "descriptionAr": "منصة لإدارة العقارات والوحدات والعقود والصيانة وشيكات الإيجار، مع تعدد الشركات وسجل التدقيق.",
+    "category": "ERP & Business Automation",
+    "techLine": "Odoo / Python / PostgreSQL / Docker",
+    "tags": [
+      "Odoo",
+      "Python",
+      "Real Estate"
+    ],
+    "image": "assets/img/odoo.png",
+    "link": "",
+    "linkLabel": "Case study",
+    "linkLabelAr": "دراسة الحالة",
+    "featured": true
+  },
+  {
+    "id": "ekram-medical",
+    "title": "Ekram Medical",
+    "titleAr": "إكرام الطبي",
+    "description": "Odoo 18 medical-center system covering reception, appointments, consultations, laboratory workflows, access controls and testable RPC-backed dashboards.",
+    "descriptionAr": "نظام مركز طبي على Odoo 18 يشمل الاستقبال والمواعيد والاستشارات والمختبر والصلاحيات ولوحات معلومات مرتبطة بالخادم.",
+    "category": "Healthcare",
+    "techLine": "Odoo 18 / Python / OWL",
+    "tags": [
+      "Odoo",
+      "Healthcare",
+      "OWL"
+    ],
+    "image": "",
+    "link": "https://github.com/3bdalla3adil/ekram_medical",
+    "linkLabel": "View repository",
+    "linkLabelAr": "عرض المستودع",
+    "featured": true
+  },
+  {
+    "id": "medibook",
+    "title": "MediBook",
+    "titleAr": "MediBook",
+    "description": "Arabic-first multi-clinic appointment and telehealth foundation with offline caching, secure sessions, patient workflows and Android/iOS CI.",
+    "descriptionAr": "أساس لتطبيق مواعيد وطب عن بُعد متعدد العيادات، يدعم العربية والتخزين المؤقت والجلسات الآمنة وسير عمل المرضى وبناء Android وiOS.",
+    "category": "Healthcare",
+    "techLine": "Flutter / Firebase / CI",
+    "tags": [
+      "Flutter",
+      "Healthcare",
+      "Mobile"
+    ],
+    "image": "",
+    "link": "https://github.com/3bdalla3adil/medibook",
+    "linkLabel": "View repository",
+    "linkLabelAr": "عرض المستودع",
+    "featured": true
+  },
+  {
+    "id": "clinicflow",
+    "title": "ClinicFlow",
+    "titleAr": "ClinicFlow",
+    "description": "Clinic scheduling demo for doctors, availability, appointments and booking, with local JSON backup and restore.",
+    "descriptionAr": "نموذج لحجز مواعيد العيادات يشمل الأطباء والتوفر والمواعيد والحجز والنسخ الاحتياطي والاستعادة عبر JSON محلي.",
+    "category": "Healthcare",
+    "techLine": "Web / JavaScript / JSON",
+    "tags": [
+      "JavaScript",
+      "Scheduling",
+      "Privacy-first"
+    ],
+    "image": "",
+    "link": "clinic-booking.html",
+    "linkLabel": "Open demo",
+    "linkLabelAr": "فتح النموذج",
+    "featured": false
+  },
+  {
+    "id": "salawat",
+    "title": "Salawat — Offline Islamic Companion",
+    "titleAr": "صلوات — رفيق إسلامي دون اتصال",
+    "description": "Offline Qur’an, prayer times, Athan reminders, Qibla compass and Hijri calendar, designed to work without runtime API dependency.",
+    "descriptionAr": "قرآن دون اتصال ومواقيت الصلاة وتنبيهات الأذان والبوصلة والرزنامة الهجرية دون اعتماد على واجهات API وقت التشغيل.",
+    "category": "Mobile Applications",
+    "techLine": "Android / Flutter / Offline-first",
+    "tags": [
+      "Qur’an",
+      "Prayer times",
+      "Mobile"
+    ],
+    "image": "",
+    "link": "https://github.com/3bdalla3adil/AndroidPrayerTimesApp",
+    "linkLabel": "View repository",
+    "linkLabelAr": "عرض المستودع",
+    "featured": true
+  },
+  {
+    "id": "petro-api",
+    "title": "Petro Integration API",
+    "titleAr": "تكامل Petro API",
+    "description": "Odoo module for fuel sales and tank-measurement workflows with quantity tracking and operational history.",
+    "descriptionAr": "وحدة Odoo لمبيعات الوقود وقياسات الخزانات مع تتبع الكميات والسجل التشغيلي.",
+    "category": "ERP & Integrations",
+    "techLine": "Odoo 18 / Python / API",
+    "tags": [
+      "ERP",
+      "API",
+      "Operations"
+    ],
+    "image": "",
+    "link": "https://apps.odoo.com/apps/modules/18.0/petro_integration",
+    "linkLabel": "View module",
+    "linkLabelAr": "عرض الوحدة",
+    "featured": false
+  },
+  {
+    "id": "odoo-infrastructure",
+    "title": "Odoo Infrastructure",
+    "titleAr": "بنية Odoo التحتية",
+    "description": "Containerized Odoo environments, reverse proxies, SSL and repeatable deployment patterns designed for reliable operations.",
+    "descriptionAr": "بيئات Odoo بالحاويات والوكيل العكسي وSSL وأنماط نشر قابلة للتكرار لضمان تشغيل موثوق.",
+    "category": "Infrastructure & DevOps",
+    "techLine": "Linux / Docker / Nginx",
+    "tags": [
+      "Linux",
+      "Docker",
+      "DevOps"
+    ],
+    "image": "",
+    "link": "odo-deployment.html",
+    "linkLabel": "View architecture",
+    "linkLabelAr": "عرض البنية",
+    "featured": false
+  },
+  {
+    "id": "cybersecurity-tool",
+    "title": "Cybersecurity Information Tool",
+    "titleAr": "أداة جمع معلومات للأمن السيبراني",
+    "description": "Python/Django REST work for structured information gathering, Arabic keyword processing and API-based retrieval.",
+    "descriptionAr": "حل باستخدام Python وDjango REST لجمع المعلومات ومعالجة الكلمات المفتاحية العربية والاسترجاع عبر API.",
+    "category": "Security",
+    "techLine": "Python / Django REST / Security",
+    "tags": [
+      "Python",
+      "Security",
+      "API"
+    ],
+    "image": "",
+    "link": "https://github.com/3bdalla3adil/DjangoArabicTranslation_API",
+    "linkLabel": "View repository",
+    "linkLabelAr": "عرض المستودع",
+    "featured": false
+  },
+  {
+    "id": "account-reports",
+    "title": "Account Reports Filter",
+    "titleAr": "تصفية تقارير الحسابات",
+    "description": "Odoo accounting-report filtering focused on usability, reporting workflows and framework integration.",
+    "descriptionAr": "تصفية تقارير المحاسبة في Odoo مع التركيز على سهولة الاستخدام وسير التقارير والتكامل مع الإطار.",
+    "category": "ERP & Reporting",
+    "techLine": "Odoo 17–19 / Python",
+    "tags": [
+      "Odoo",
+      "Reporting",
+      "Finance"
+    ],
+    "image": "",
+    "link": "https://apps.odoo.com/apps/modules/17.0/finance-odoo-filter",
+    "linkLabel": "View module",
+    "linkLabelAr": "عرض الوحدة",
+    "featured": false
+  }
+]
