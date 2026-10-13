@@ -173,14 +173,49 @@
       .project-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
     }
     .project-thumb {
-      aspect-ratio: 16/10;
+      display: flex;
+      gap: 0;
+      height: 250px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
       background: linear-gradient(135deg, #e8e8ed 0%, #d2d2d7 100%);
+      color: var(--muted);
+      -webkit-overflow-scrolling: touch;
+    }
+    .project-thumb-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
-      color: var(--muted);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      overflow: hidden;
+      background: var(--surface);
     }
+    .project-thumb-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .project-thumb-slide i { font-size: 2.5rem; }
+    .project-gallery-hint {
+      padding: .35rem .75rem;
+      font-size: .75rem;
+      color: var(--muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+    .project-gallery-hint strong { color: var(--accent); font-weight: 600; }
     .project-info { padding: var(--space-md); }
     .project-info h3 { margin-bottom: var(--space-xs); }
     .project-info p { font-size: 0.9375rem; margin-bottom: var(--space-sm); color: var(--muted); }
@@ -208,12 +243,13 @@
 
     /* Project detail gallery */
     .project-card { cursor: pointer; }
-    .project-thumb { overflow: hidden; }
-    .project-thumb img {
-      display: block; width: 100%; height: 100%; object-fit: cover;
-      aspect-ratio: 16 / 10; transition: transform .25s ease;
-    }
-    .project-card:hover .project-thumb img { transform: scale(1.035); }
+    .project-thumb img { transition: transform .25s ease; }
+    .project-thumb-slide:hover img { transform: scale(1.025); }
+    .project-thumb::-webkit-scrollbar { height: 5px; }
+    .project-thumb::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+    .project-thumb::-webkit-scrollbar-track { background: transparent; }
+    .project-thumb-slide:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+    .project-open-hint { cursor: pointer; }
     .project-open-hint { display: block; margin-top: .8rem; font-size: .8rem; color: var(--accent); }
     .project-modal {
       position: fixed; inset: 0; z-index: 1000; display: none; overflow-y: auto;
@@ -607,24 +643,49 @@
       "JavaScript", "REST APIs", "QWeb", "Bash"
     ];
 
-    // Render project cards. Projects with screenshots open an on-page case-study gallery.
+    // Render each project's own screenshots as a swipeable, horizontal gallery inside its card.
     const projectsGrid = document.getElementById('projectsGrid');
-    projectsGrid.innerHTML = projects.map((p, index) => `
-      <article class="project-card" data-project-index="${index}" tabindex="0" role="button" aria-label="Open ${p.title} project details">
-        <div class="project-thumb">
-          ${p.cover ? `<img src="${p.cover}" alt="${p.title} app screenshot" loading="lazy">` : `<i class="fas ${p.icon}" aria-hidden="true"></i>`}
-        </div>
-        <div class="project-info">
-          <h3>${p.title}</h3>
-          <p>${p.desc}</p>
-          <div class="project-meta">
-            <div>${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-            ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-link" data-project-external>GitHub <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a>` : ''}
+    projectsGrid.innerHTML = projects.map((p, index) => {
+      const shots = p.screenshots && p.screenshots.length
+        ? p.screenshots.map((filename, shotIndex) => `
+            <div class="project-thumb-slide" role="group" aria-label="Screenshot ${shotIndex + 1} of ${p.screenshots.length}">
+              <img src="assets/img/${filename}" alt="${p.title} screenshot ${shotIndex + 1}" loading="lazy" draggable="false">
+            </div>`).join('')
+        : `<div class="project-thumb-slide"><i class="fas ${p.icon}" aria-hidden="true"></i></div>`;
+      return `
+        <article class="project-card" data-project-index="${index}" tabindex="0" role="button" aria-label="Open ${p.title} project details">
+          <div class="project-thumb" data-project-carousel aria-label="${p.title} screenshots. Swipe or scroll horizontally to view more." tabindex="0">
+            ${shots}
           </div>
-          ${p.screenshots ? '<span class="project-open-hint">View screenshots & project details →</span>' : ''}
-        </div>
-      </article>
-    `).join('');
+          ${p.screenshots && p.screenshots.length > 1 ? `<div class="project-gallery-hint"><span>Swipe or scroll to browse screenshots</span><strong>1 / ${p.screenshots.length}</strong></div>` : ''}
+          <div class="project-info">
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            <div class="project-meta">
+              <div>${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+              ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-link" data-project-external>GitHub <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a>` : ''}
+            </div>
+            ${p.screenshots ? '<span class="project-open-hint" data-open-project-details>View project details →</span>' : ''}
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    // Update each screenshot counter as the user swipes or scrolls within a card.
+    projectsGrid.querySelectorAll('[data-project-carousel]').forEach(carousel => {
+      const card = carousel.closest('[data-project-index]');
+      const counter = card.querySelector('.project-gallery-hint strong');
+      const slides = carousel.querySelectorAll('.project-thumb-slide');
+      if (!counter || slides.length < 2) return;
+      let scrollTimer;
+      carousel.addEventListener('scroll', () => {
+        window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(() => {
+          const current = Math.min(slides.length, Math.max(1, Math.round(carousel.scrollLeft / carousel.clientWidth) + 1));
+          counter.textContent = current + ' / ' + slides.length;
+        }, 80);
+      }, { passive: true });
+    });
 
     const projectModal = document.getElementById('projectModal');
     const projectModalTitle = document.getElementById('projectModalTitle');
@@ -688,10 +749,26 @@
 
     projectsGrid.addEventListener('click', event => {
       if (event.target.closest('[data-project-external]')) return;
+      // Swiping/tapping the screenshot strip must stay inside the card gallery.
+      if (event.target.closest('[data-project-carousel]')) return;
       const card = event.target.closest('[data-project-index]');
+      if (!card) return;
+      openProjectDetails(projects[Number(card.dataset.projectIndex)]);
+    });
+    projectsGrid.addEventListener('click', event => {
+      const detailsTrigger = event.target.closest('[data-open-project-details]');
+      if (!detailsTrigger) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const card = detailsTrigger.closest('[data-project-index]');
       if (card) openProjectDetails(projects[Number(card.dataset.projectIndex)]);
     });
     projectsGrid.addEventListener('keydown', event => {
+      if (event.target.matches('[data-project-carousel]') && ['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+        event.preventDefault();
+        event.target.scrollBy({ left: (event.key === 'ArrowRight' ? 1 : -1) * event.target.clientWidth, behavior: 'smooth' });
+        return;
+      }
       if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-project-index]')) {
         event.preventDefault();
         openProjectDetails(projects[Number(event.target.dataset.projectIndex)]);
