@@ -206,6 +206,54 @@
       gap: 0.25rem;
     }
 
+    /* Project detail gallery */
+    .project-card { cursor: pointer; }
+    .project-thumb { overflow: hidden; }
+    .project-thumb img {
+      display: block; width: 100%; height: 100%; object-fit: cover;
+      aspect-ratio: 16 / 10; transition: transform .25s ease;
+    }
+    .project-card:hover .project-thumb img { transform: scale(1.035); }
+    .project-open-hint { display: block; margin-top: .8rem; font-size: .8rem; color: var(--accent); }
+    .project-modal {
+      position: fixed; inset: 0; z-index: 1000; display: none; overflow-y: auto;
+      padding: clamp(1rem, 4vw, 3rem); background: rgba(0,0,0,.78);
+      align-items: flex-start; justify-content: center;
+    }
+    .project-modal.open { display: flex; }
+    .project-modal-panel {
+      width: min(100%, 1000px); margin: auto; padding: clamp(1rem, 3vw, 2rem);
+      background: var(--surface); color: var(--text); border: 1px solid var(--border);
+      border-radius: var(--radius); position: relative;
+    }
+    .project-modal-header { display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+    .project-modal-header h2 { font-size: clamp(1.35rem, 3vw, 2rem); padding-right: .5rem; }
+    .project-modal-close {
+      flex: 0 0 auto; border: 1px solid var(--border); border-radius: 50%;
+      background: var(--bg); color: var(--text); width: 42px; height: 42px;
+      font-size: 1.5rem; cursor: pointer;
+    }
+    .project-modal-description { margin-bottom: 1rem; }
+    .project-gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      gap: 1rem; margin: 1.25rem 0;
+    }
+    .project-gallery figure { margin: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .project-gallery img { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; cursor: zoom-in; }
+    .project-gallery figcaption { padding: .55rem .75rem; color: var(--muted); font-size: .8rem; }
+    .project-modal-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+    .gallery-empty { color: var(--muted); padding: 1rem; }
+    .image-viewer { position: fixed; inset: 0; z-index: 1100; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(0,0,0,.92); }
+    .image-viewer.open { display: flex; }
+    .image-viewer img { max-width: 100%; max-height: 90vh; object-fit: contain; }
+    .image-viewer button { position: absolute; top: 1rem; right: 1rem; border: 0; border-radius: 50%; width: 44px; height: 44px; font-size: 1.5rem; cursor: pointer; }
+    body.modal-open { overflow: hidden; }
+    @media (max-width: 600px) {
+      .project-modal { padding: .5rem; }
+      .project-modal-panel { border-radius: 14px; padding: 1rem; }
+      .project-gallery { grid-template-columns: 1fr; }
+    }
+
     /* ─── Skills ─── */
     .skills-grid {
       display: grid;
@@ -356,6 +404,23 @@
     </div>
   </section>
 
+  <!-- Project detail modal: screenshots are shown when a real project card is selected -->
+  <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle" aria-hidden="true">
+    <div class="project-modal-panel">
+      <div class="project-modal-header">
+        <h2 id="projectModalTitle">Project screenshots</h2>
+        <button class="project-modal-close" id="projectModalClose" type="button" aria-label="Close project details">×</button>
+      </div>
+      <p class="project-modal-description" id="projectModalDescription"></p>
+      <div class="project-gallery" id="projectGallery"></div>
+      <div class="project-modal-actions" id="projectModalActions"></div>
+    </div>
+  </div>
+  <div class="image-viewer" id="imageViewer" role="dialog" aria-modal="true" aria-label="Expanded screenshot">
+    <button id="imageViewerClose" type="button" aria-label="Close expanded screenshot">×</button>
+    <img id="imageViewerImage" src="" alt="">
+  </div>
+
   <!-- Skills -->
   <section id="skills">
     <div class="container">
@@ -450,6 +515,8 @@
         desc: "Arabic-first Flutter healthcare foundation with multi-clinic appointments, offline synchronization, patient workflows and telehealth abstractions.",
         tags: ["Flutter", "Healthcare", "BLoC", "Clean Architecture"],
         icon: "fa-heart-pulse",
+        cover: "assets/img/IMG_6259.png",
+        screenshots: ["IMG_6259.png", "IMG_6263.png", "IMG_6264.png", "IMG_6265.png"],
         link: "https://github.com/3bdalla3adil/medibook"
       },
       {
@@ -457,6 +524,8 @@
         desc: "Modernized Android app with offline prayer calculations, Quran, Qibla, Hijri calendar, local Athan audio and reboot-safe alarms.",
         tags: ["Android", "Quran", "Athan", "Offline"],
         icon: "fa-mosque",
+        cover: "assets/img/IMG_6266.png",
+        screenshots: ["IMG_6266.png", "IMG_6267.png", "IMG_6268.png", "IMG_6269.png", "IMG_6270.png", "IMG_6271.png", "IMG_6272.png"],
         link: "https://github.com/3bdalla3adil/AndroidPrayerTimesApp"
       },
       {
@@ -538,25 +607,110 @@
       "JavaScript", "REST APIs", "QWeb", "Bash"
     ];
 
-    // Render Projects
+    // Render project cards. Projects with screenshots open an on-page case-study gallery.
     const projectsGrid = document.getElementById('projectsGrid');
-    projectsGrid.innerHTML = projects.map(p => `
-      <article class="project-card">
+    projectsGrid.innerHTML = projects.map((p, index) => `
+      <article class="project-card" data-project-index="${index}" tabindex="0" role="button" aria-label="Open ${p.title} project details">
         <div class="project-thumb">
-          <i class="fas ${p.icon}"></i>
+          ${p.cover ? `<img src="${p.cover}" alt="${p.title} app screenshot" loading="lazy">` : `<i class="fas ${p.icon}" aria-hidden="true"></i>`}
         </div>
         <div class="project-info">
           <h3>${p.title}</h3>
           <p>${p.desc}</p>
           <div class="project-meta">
-            <div>
-              ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-            </div>
-            ${p.link ? `<a href="${p.link}" target="_blank" class="project-link">View <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a>` : ''}
+            <div>${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+            ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-link" data-project-external>GitHub <i class="fas fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a>` : ''}
           </div>
+          ${p.screenshots ? '<span class="project-open-hint">View screenshots & project details →</span>' : ''}
         </div>
       </article>
     `).join('');
+
+    const projectModal = document.getElementById('projectModal');
+    const projectModalTitle = document.getElementById('projectModalTitle');
+    const projectModalDescription = document.getElementById('projectModalDescription');
+    const projectGallery = document.getElementById('projectGallery');
+    const projectModalActions = document.getElementById('projectModalActions');
+    const imageViewer = document.getElementById('imageViewer');
+    const imageViewerImage = document.getElementById('imageViewerImage');
+    let lastFocusedElement = null;
+
+    function openProjectDetails(project) {
+      lastFocusedElement = document.activeElement;
+      projectModalTitle.textContent = project.title;
+      projectModalDescription.textContent = project.desc;
+      projectGallery.innerHTML = '';
+      if (project.screenshots && project.screenshots.length) {
+        project.screenshots.forEach((filename, index) => {
+          const figure = document.createElement('figure');
+          const img = document.createElement('img');
+          img.src = 'assets/img/' + filename;
+          img.alt = project.title + ' screenshot ' + (index + 1);
+          img.loading = 'lazy';
+          img.addEventListener('click', () => openImageViewer(img.src, img.alt));
+          const caption = document.createElement('figcaption');
+          caption.textContent = 'Screenshot ' + (index + 1);
+          figure.append(img, caption);
+          projectGallery.appendChild(figure);
+        });
+      } else {
+        projectGallery.innerHTML = '<p class="gallery-empty">Screenshots for this project have not been added yet.</p>';
+      }
+      projectModalActions.innerHTML = project.link
+        ? '<a class="btn btn-primary" href="' + project.link + '" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View repository</a>'
+        : '';
+      projectModal.classList.add('open');
+      projectModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      document.getElementById('projectModalClose').focus();
+    }
+
+    function closeProjectDetails() {
+      projectModal.classList.remove('open');
+      projectModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    function openImageViewer(src, alt) {
+      imageViewerImage.src = src;
+      imageViewerImage.alt = alt;
+      imageViewer.classList.add('open');
+      imageViewer.style.display = 'flex';
+      document.getElementById('imageViewerClose').focus();
+    }
+
+    function closeImageViewer() {
+      imageViewer.classList.remove('open');
+      imageViewer.style.display = '';
+      imageViewerImage.src = '';
+    }
+
+    projectsGrid.addEventListener('click', event => {
+      if (event.target.closest('[data-project-external]')) return;
+      const card = event.target.closest('[data-project-index]');
+      if (card) openProjectDetails(projects[Number(card.dataset.projectIndex)]);
+    });
+    projectsGrid.addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-project-index]')) {
+        event.preventDefault();
+        openProjectDetails(projects[Number(event.target.dataset.projectIndex)]);
+      }
+    });
+    document.getElementById('projectModalClose').addEventListener('click', closeProjectDetails);
+    projectModal.addEventListener('click', event => {
+      if (event.target === projectModal) closeProjectDetails();
+    });
+    document.getElementById('imageViewerClose').addEventListener('click', closeImageViewer);
+    imageViewer.addEventListener('click', event => {
+      if (event.target === imageViewer) closeImageViewer();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        if (imageViewer.classList.contains('open')) closeImageViewer();
+        else if (projectModal.classList.contains('open')) closeProjectDetails();
+      }
+    });
 
     // Render Skills
     document.getElementById('skillsGrid').innerHTML = skills.map(s => 
