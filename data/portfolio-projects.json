@@ -50,11 +50,17 @@
       "Healthcare",
       "Mobile"
     ],
-    "image": "",
+    "image": "assets/img/IMG_6259.png",
     "link": "https://github.com/3bdalla3adil/medibook",
     "linkLabel": "View repository",
     "linkLabelAr": "عرض المستودع",
-    "featured": true
+    "featured": true,
+    "screenshots": [
+      "assets/img/IMG_6259.png",
+      "assets/img/IMG_6263.png",
+      "assets/img/IMG_6264.png",
+      "assets/img/IMG_6265.png"
+    ]
   },
   {
     "id": "clinicflow",
@@ -88,11 +94,20 @@
       "Prayer times",
       "Mobile"
     ],
-    "image": "",
+    "image": "assets/img/IMG_6266.png",
     "link": "https://github.com/3bdalla3adil/AndroidPrayerTimesApp",
     "linkLabel": "View repository",
     "linkLabelAr": "عرض المستودع",
-    "featured": true
+    "featured": true,
+    "screenshots": [
+      "assets/img/IMG_6266.png",
+      "assets/img/IMG_6267.png",
+      "assets/img/IMG_6268.png",
+      "assets/img/IMG_6269.png",
+      "assets/img/IMG_6270.png",
+      "assets/img/IMG_6271.png",
+      "assets/img/IMG_6272.png"
+    ]
   },
   {
     "id": "petro-api",
