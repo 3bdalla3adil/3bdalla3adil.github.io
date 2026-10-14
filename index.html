@@ -87,6 +87,22 @@
     .project{min-width:0;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
     .project:hover{transform:translateY(-4px);border-color:rgba(100,216,255,.42);box-shadow:0 20px 48px rgba(0,0,0,.22)}
     .project-cover{width:100%;height:190px;object-fit:cover;display:block;background:#102238}
+    /* Per-project screenshot carousels on the homepage */
+    .project-gallery{position:relative;height:220px;overflow:hidden;background:#081321;direction:ltr;isolation:isolate}
+    .project-gallery-track{display:flex;height:100%;width:100%;transition:transform .35s ease;will-change:transform}
+    .project-gallery-slide{flex:0 0 100%;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .project-gallery-slide img{display:block;width:100%;height:100%;object-fit:contain;background:#081321}
+    .project-gallery-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(3,12,23,.72);color:#fff;cursor:pointer;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+    .project-gallery-nav:hover{background:var(--accent);color:#03111d}
+    .project-gallery-nav:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    .project-gallery-prev{left:12px}.project-gallery-next{right:12px}
+    .project-gallery-status{position:absolute;right:12px;bottom:12px;z-index:2;padding:4px 9px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(3,12,23,.76);color:#fff;font:600 .72rem "JetBrains Mono",monospace}
+    .project-gallery-dots{position:absolute;left:50%;bottom:16px;z-index:2;display:flex;gap:5px;transform:translateX(-50%);max-width:45%;overflow:hidden}
+    .project-gallery-dot{width:6px;height:6px;flex:0 0 6px;border:0;border-radius:999px;padding:0;background:rgba(255,255,255,.55);cursor:pointer}
+    .project-gallery-dot.active{width:18px;flex-basis:18px;background:var(--accent)}
+    .project-gallery .project-gallery-nav[disabled]{opacity:.45;cursor:default}
+    @media(max-width:760px){.project-gallery{height:230px}.project-gallery-nav{width:36px;height:36px}}
+    @media(prefers-reduced-motion:reduce){.project-gallery-track{transition:none}}
     .project-art{height:190px;display:flex;flex-direction:column;justify-content:space-between;padding:22px;background:radial-gradient(circle at 80% 20%,rgba(100,216,255,.22),transparent 35%),linear-gradient(135deg,#12253b,#0a1425);border-bottom:1px solid var(--line)}
     .project-art .art-icon{font-size:2rem;color:var(--accent)}
     .project-art .art-label{font:600 .76rem "JetBrains Mono",monospace;color:#c6d8eb;max-width:100%;overflow-wrap:anywhere}
@@ -322,15 +338,72 @@
       const link=safeProjectURL(project.link);
       const tags=Array.isArray(project.tags)?project.tags:[];
       const icon=projectIcons[project.category]||'fa-layer-group';
-      const cover=image
-        ? '<img class="project-cover" src="'+escapeHTML(image)+'" alt="'+escapeHTML(title)+' project cover" loading="lazy" decoding="async">'
-        : '<div class="project-art" aria-hidden="true"><span class="art-id">'+escapeHTML(project.category||'Selected work')+'</span><i class="fas '+escapeHTML(icon)+' art-icon"></i><span class="art-label">'+escapeHTML(project.techLine||project.category||'Software engineering')+'</span></div>';
+      const screenshots=Array.isArray(project.screenshots)?project.screenshots.filter(path=>safeProjectURL(path)): [];
+      const cover=screenshots.length
+        ? '<div class="project-gallery" data-project-gallery data-index="0" role="region" aria-label="'+escapeHTML(title)+' screenshots">'+
+            '<div class="project-gallery-track">'+screenshots.map((path,i)=>'<div class="project-gallery-slide"><img src="'+escapeHTML(path)+'" alt="'+escapeHTML(title)+' screenshot '+(i+1)+' of '+screenshots.length+'" loading="'+(i===0?'eager':'lazy')+'" decoding="async"></div>').join('')+'</div>'+
+            (screenshots.length>1?'<button type="button" class="project-gallery-nav project-gallery-prev" data-gallery-prev aria-label="Previous screenshot"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button type="button" class="project-gallery-nav project-gallery-next" data-gallery-next aria-label="Next screenshot"><i class="fas fa-chevron-right" aria-hidden="true"></i></button><div class="project-gallery-dots">'+screenshots.map((_,i)=>'<button type="button" class="project-gallery-dot '+(i===0?'active':'')+'" data-gallery-dot="'+i+'" aria-label="Show screenshot '+(i+1)+'" aria-pressed="'+(i===0?'true':'false')+'"></button>').join('')+'</div><span class="project-gallery-status" aria-live="polite">1 / '+screenshots.length+'</span>':'')+
+          '</div>'
+        : image
+          ? '<img class="project-cover" src="'+escapeHTML(image)+'" alt="'+escapeHTML(title)+' project cover" loading="lazy" decoding="async">'
+          : '<div class="project-art" aria-hidden="true"><span class="art-id">'+escapeHTML(project.category||'Selected work')+'</span><i class="fas '+escapeHTML(icon)+' art-icon"></i><span class="art-label">'+escapeHTML(project.techLine||project.category||'Software engineering')+'</span></div>';
       const linkMarkup=link
         ? '<a class="btn ghost mini" href="'+escapeHTML(link)+'"'+(/^https:\/\//i.test(link)?' target="_blank" rel="noopener noreferrer"':'')+'>'+escapeHTML(label)+' ↗</a>'
         : '';
       return '<article class="card project">'+cover+'<div class="project-body"><div class="project-category">'+escapeHTML(project.category||'Selected work')+'</div><h3>'+escapeHTML(title)+'</h3><p>'+escapeHTML(description)+'</p><div class="project-tags">'+tags.map(tag=>'<span class="chip">'+escapeHTML(tag)+'</span>').join('')+'</div><div class="project-links">'+linkMarkup+'</div></div></article>';
     }).join('');
   }
+  // Independent carousel controls: each project keeps its own current screenshot.
+  function setProjectGalleryIndex(gallery,index){
+    if(!gallery)return;
+    const track=gallery.querySelector('.project-gallery-track');
+    const slides=gallery.querySelectorAll('.project-gallery-slide');
+    const status=gallery.querySelector('.project-gallery-status');
+    const dots=gallery.querySelectorAll('[data-gallery-dot]');
+    if(!track||!slides.length)return;
+    const nextIndex=(index+slides.length)%slides.length;
+    gallery.dataset.index=String(nextIndex);
+    track.style.transform='translateX(-'+(nextIndex*100)+'%)';
+    if(status)status.textContent=(nextIndex+1)+' / '+slides.length;
+    dots.forEach((dot,i)=>{const active=i===nextIndex;dot.classList.toggle('active',active);dot.setAttribute('aria-pressed',active?'true':'false')});
+    const prev=gallery.querySelector('[data-gallery-prev]'),next=gallery.querySelector('[data-gallery-next]');
+    if(prev)prev.disabled=slides.length<2;
+    if(next)next.disabled=slides.length<2;
+  }
+  if(projectGrid){
+    projectGrid.addEventListener('click',event=>{
+      const control=event.target.closest('[data-gallery-prev],[data-gallery-next],[data-gallery-dot]');
+      if(!control)return;
+      event.preventDefault();
+      event.stopPropagation();
+      const gallery=control.closest('[data-project-gallery]');
+      if(!gallery)return;
+      const current=Number(gallery.dataset.index||0);
+      if(control.hasAttribute('data-gallery-prev'))setProjectGalleryIndex(gallery,current-1);
+      else if(control.hasAttribute('data-gallery-next'))setProjectGalleryIndex(gallery,current+1);
+      else setProjectGalleryIndex(gallery,Number(control.dataset.galleryDot));
+    });
+    projectGrid.addEventListener('keydown',event=>{
+      const gallery=event.target.closest('[data-project-gallery]');
+      if(!gallery||!['ArrowLeft','ArrowRight'].includes(event.key))return;
+      if(event.target.matches('button'))return;
+      event.preventDefault();
+      setProjectGalleryIndex(gallery,Number(gallery.dataset.index||0)+(event.key==='ArrowRight'?1:-1));
+    });
+    let touchStartX=0;
+    projectGrid.addEventListener('touchstart',event=>{
+      const gallery=event.target.closest('[data-project-gallery]');
+      if(gallery)gallery.dataset.touchStartX=String(event.changedTouches[0].clientX);
+    },{passive:true});
+    projectGrid.addEventListener('touchend',event=>{
+      const gallery=event.target.closest('[data-project-gallery]');
+      if(!gallery)return;
+      const start=Number(gallery.dataset.touchStartX||0),delta=event.changedTouches[0].clientX-start;
+      if(Math.abs(delta)>45)setProjectGalleryIndex(gallery,Number(gallery.dataset.index||0)+(delta<0?1:-1));
+      delete gallery.dataset.touchStartX;
+    },{passive:true});
+  }
+
   async function loadPortfolioProjects(){
     try{
       const response=await fetch('data/portfolio-projects.json',{cache:'no-cache'});
