@@ -155,6 +155,33 @@
     .download-note{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:auto!important}
     .download-card .download-source{font-size:.88rem;color:var(--accent);font-weight:700}
     @media(max-width:700px){.download-grid{grid-template-columns:1fr}}
+
+    /* Abdulla Bashir picture puzzle */
+    .puzzle-section{padding-top:28px}
+    .puzzle-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.7fr);gap:24px;align-items:center;padding:24px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(20,39,62,.8),rgba(8,19,33,.78))}
+    .puzzle-board{display:grid;grid-template-columns:repeat(var(--puzzle-size,3),minmax(0,1fr));gap:4px;width:100%;max-width:440px;aspect-ratio:1;margin:auto;padding:7px;border-radius:18px;background:#050c16;border:1px solid var(--line);touch-action:manipulation}
+    .puzzle-tile{min-width:0;min-height:0;padding:0;border:0;border-radius:5px;background-color:#152438;background-image:url('abdalla.png');background-repeat:no-repeat;background-size:var(--puzzle-bg-size,300%) var(--puzzle-bg-size,300%);cursor:pointer;transition:filter .15s,transform .15s;position:relative}
+    .puzzle-tile:hover{filter:brightness(1.12)}
+    .puzzle-tile:focus-visible{outline:3px solid var(--accent);outline-offset:1px;z-index:1}
+    .puzzle-tile.selected{outline:3px solid var(--accent);outline-offset:-3px;filter:brightness(1.18)}
+    .puzzle-tile.empty{background-image:none!important;background:rgba(255,255,255,.035);border:1px dashed rgba(158,181,211,.18);cursor:default}
+    .puzzle-tile:disabled{cursor:default}
+    .puzzle-info{min-width:0}
+    .puzzle-info h3{font-size:1.5rem;letter-spacing:-.04em;margin:8px 0}
+    .puzzle-info p{color:var(--muted);font-size:.92rem}
+    .puzzle-controls{display:grid;gap:12px;margin-top:18px}
+    .puzzle-controls label{display:grid;gap:7px;font-weight:700;font-size:.86rem;color:#d9e7f6}
+    .puzzle-controls select{width:100%;min-height:46px;padding:10px 12px;border:1px solid rgba(158,181,211,.25);border-radius:12px;background:#0a1727;color:var(--text);font:inherit}
+    .puzzle-actions{display:flex;flex-wrap:wrap;gap:9px}
+    .puzzle-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+    .puzzle-stat{flex:1 1 90px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}
+    .puzzle-stat span{display:block;color:var(--muted);font-size:.75rem}
+    .puzzle-stat strong{display:block;font:600 1.1rem "JetBrains Mono",monospace}
+    .puzzle-message{min-height:26px;margin-top:12px;color:var(--accent);font-weight:700;font-size:.88rem}
+    .puzzle-hint{font-size:.78rem!important}
+    @media(max-width:760px){.puzzle-shell{grid-template-columns:1fr;padding:16px}.puzzle-board{max-width:420px}.puzzle-info h3{font-size:1.3rem}}
+    @media(prefers-reduced-motion:reduce){.puzzle-tile{transition:none}}
+
   </style>
 </head>
 <body>
@@ -193,6 +220,39 @@
     <div class="profile-card">
       <img src="abdalla.png" alt="Abdulla Bashir" loading="eager">
       <div class="profile-meta"><strong>Abdulla Bashir</strong><span>Python • Odoo • Cloud • Automation • Security</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="puzzle-section" id="picture-puzzle">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">Mini game / 01</div><h2 data-en>Piece by piece.</h2><h2 data-ar>ركّب الصورة قطعةً قطعة.</h2></div>
+      <p data-en>A quick little challenge: rearrange the tiles to reveal Abdulla Bashir’s picture. Pick a difficulty and make it whole.</p>
+      <p data-ar>تحدٍّ صغير: رتّب القطع لتظهر صورة عبد الله بشير كاملة. اختر مستوى الصعوبة وأكمل الصورة.</p>
+    </div>
+    <div class="puzzle-shell">
+      <div class="puzzle-board" id="abdullaPuzzleBoard" role="group" aria-label="Abdulla Bashir picture puzzle" data-en-label="Abdulla Bashir picture puzzle"></div>
+      <div class="puzzle-info">
+        <span class="eyebrow"><span class="dot"></span><span data-en>Ready when you are</span><span data-ar>هل أنت مستعد؟</span></span>
+        <h3 data-en>Can you put me back together?</h3><h3 data-ar>هل تستطيع تجميع صورتي؟</h3>
+        <p data-en>Tap a tile next to the empty space to move it. Finish the portrait using as few moves as you can.</p>
+        <p data-ar>اضغط على قطعة بجانب المساحة الفارغة لتحريكها. أكمل الصورة بأقل عدد ممكن من الحركات.</p>
+        <div class="puzzle-controls">
+          <label><span data-en>Difficulty</span><span data-ar>مستوى الصعوبة</span>
+            <select id="abdullaPuzzleDifficulty" aria-label="Puzzle difficulty">
+              <option value="3" data-en>Easy · 3 × 3</option><option value="3" data-ar>سهل · ٣ × ٣</option>
+              <option value="4" data-en>Medium · 4 × 4</option><option value="4" data-ar>متوسط · ٤ × ٤</option>
+              <option value="5" data-en>Hard · 5 × 5</option><option value="5" data-ar>صعب · ٥ × ٥</option>
+            </select>
+          </label>
+          <div class="puzzle-actions"><button class="btn primary" type="button" id="abdullaPuzzleStart"><span data-en>Shuffle & play</span><span data-ar>ابدأ اللعب</span></button><button class="btn ghost" type="button" id="abdullaPuzzlePreview"><span data-en>Show picture</span><span data-ar>عرض الصورة</span></button></div>
+        </div>
+        <div class="puzzle-stats"><div class="puzzle-stat"><span data-en>Moves</span><span data-ar>الحركات</span><strong id="abdullaPuzzleMoves">0</strong></div><div class="puzzle-stat"><span data-en>Time</span><span data-ar>الوقت</span><strong id="abdullaPuzzleTime">00:00</strong></div><div class="puzzle-stat"><span data-en>Tiles</span><span data-ar>القطع</span><strong id="abdullaPuzzleTiles">9</strong></div></div>
+        <div class="puzzle-message" id="abdullaPuzzleMessage" role="status" aria-live="polite"></div>
+        <p class="puzzle-hint" data-en>Tip: start with Easy, then try Medium and Hard. The puzzle is solvable every time.</p><p class="puzzle-hint" data-ar>نصيحة: ابدأ بالسهل ثم جرّب المتوسط والصعب. اللغز قابل للحل في كل مرة.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -620,6 +680,107 @@
   modal.addEventListener("click",e=>{if(e.target===modal)closeModal();});
   renderClients();
   startClientAutoSlide();
+
+
+  // Accessible sliding picture puzzle. Every shuffle is made with legal moves.
+  (function initAbdullaPicturePuzzle(){
+    const board=document.getElementById('abdullaPuzzleBoard');
+    const difficulty=document.getElementById('abdullaPuzzleDifficulty');
+    const startButton=document.getElementById('abdullaPuzzleStart');
+    const previewButton=document.getElementById('abdullaPuzzlePreview');
+    const movesOutput=document.getElementById('abdullaPuzzleMoves');
+    const timeOutput=document.getElementById('abdullaPuzzleTime');
+    const tilesOutput=document.getElementById('abdullaPuzzleTiles');
+    const message=document.getElementById('abdullaPuzzleMessage');
+    if(!board||!difficulty||!startButton||!previewButton)return;
+    let size=3,tiles=[],empty=8,moves=0,startedAt=0,timerId=null,completed=false,previewTimeout=null,selected=-1;
+    const isArabic=()=>document.body.classList.contains('ar');
+    const word=(en,ar)=>isArabic()?ar:en;
+    const shuffleNeighbors=index=>{
+      const row=Math.floor(index/size),col=index%size,neighbors=[];
+      if(row>0)neighbors.push(index-size);
+      if(row<size-1)neighbors.push(index+size);
+      if(col>0)neighbors.push(index-1);
+      if(col<size-1)neighbors.push(index+1);
+      return neighbors;
+    };
+    const formatTime=seconds=>String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');
+    function updateStats(){
+      movesOutput.textContent=String(moves);
+      tilesOutput.textContent=String(size*size-1);
+      timeOutput.textContent=formatTime(startedAt?Math.floor((Date.now()-startedAt)/1000):0);
+    }
+    function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}}
+    function solved(){return tiles.every((value,index)=>value===index)}
+    function render(){
+      board.style.setProperty('--puzzle-size',String(size));
+      board.style.setProperty('--puzzle-bg-size',(size*100)+'%');
+      board.innerHTML='';
+      tiles.forEach((value,index)=>{
+        const button=document.createElement('button');
+        button.type='button';
+        button.className='puzzle-tile'+(value===size*size-1?' empty':'')+(selected===index?' selected':'');
+        button.setAttribute('aria-label',value===size*size-1?word('Empty space','مساحة فارغة'):word('Move picture tile '+(value+1),'حرّك قطعة الصورة '+(value+1)));
+        button.setAttribute('aria-pressed',selected===index?'true':'false');
+        if(value===size*size-1){button.disabled=true;button.setAttribute('aria-label',word('Empty space','مساحة فارغة'))}
+        else{
+          const row=Math.floor(value/size),col=value%size;
+          button.style.backgroundPosition=(size===1?'0%':(col/(size-1)*100)+'%')+' '+(size===1?'0%':(row/(size-1)*100)+'%');
+          button.addEventListener('click',()=>moveTile(index));
+        }
+        board.appendChild(button);
+      });
+      updateStats();
+    }
+    function moveTile(index){
+      if(completed||tiles[index]===size*size-1)return;
+      if(!shuffleNeighbors(empty).includes(index)){
+        selected=index;
+        message.textContent=word('Choose a tile beside the empty space.','اختر قطعة بجانب المساحة الفارغة.');
+        render();
+        return;
+      }
+      [tiles[index],tiles[empty]]=[tiles[empty],tiles[index]];
+      empty=index;selected=-1;moves++;
+      if(!startedAt){startedAt=Date.now();timerId=setInterval(updateStats,1000)}
+      if(solved()){
+        completed=true;stopTimer();
+        message.textContent=word('Picture complete — brilliant! Moves: ','اكتملت الصورة — أحسنت! عدد الحركات: ')+moves;
+      }else message.textContent='';
+      render();
+    }
+    function newGame(){
+      stopTimer();if(previewTimeout)clearTimeout(previewTimeout);
+      size=Math.max(3,Math.min(5,Number.parseInt(difficulty.value,10)||3));
+      difficulty.value=String(size);
+      tiles=Array.from({length:size*size},(_,i)=>i);empty=tiles.length-1;moves=0;startedAt=0;completed=false;selected=-1;
+      let previous=-1;
+      const steps=size*size*size*8;
+      for(let i=0;i<steps;i++){
+        const choices=shuffleNeighbors(empty).filter(index=>index!==previous);
+        const next=choices[Math.floor(Math.random()*choices.length)];
+        [tiles[next],tiles[empty]]=[tiles[empty],tiles[next]];
+        previous=empty;empty=next;
+      }
+      if(solved()){const next=shuffleNeighbors(empty)[0];[tiles[next],tiles[empty]]=[tiles[empty],tiles[next]];empty=next}
+      message.textContent=word('Puzzle shuffled. You’ve got this!','تم خلط اللغز. بالتوفيق!');
+      render();
+    }
+    startButton.addEventListener('click',newGame);
+    difficulty.addEventListener('change',newGame);
+    previewButton.addEventListener('click',()=>{
+      if(previewTimeout)clearTimeout(previewTimeout);
+      board.classList.add('puzzle-preview');
+      const oldTiles=tiles.slice();
+      tiles=Array.from({length:size*size},(_,i)=>i);empty=tiles.length-1;selected=-1;render();
+      message.textContent=word('Picture preview — the puzzle will return in 2 seconds.','معاينة الصورة — سيعود اللغز بعد ثانيتين.');
+      previewTimeout=setTimeout(()=>{
+        tiles=oldTiles;empty=tiles.indexOf(size*size-1);board.classList.remove('puzzle-preview');render();
+        message.textContent=completed?word('Picture complete!','اكتملت الصورة!'):word('Keep going!','واصل المحاولة!');
+      },2000);
+    });
+    newGame();
+  })();
 
   setLang(localStorage.getItem('portfolio-lang')==='ar');
   btn.addEventListener('click',()=>setLang(!body.classList.contains('ar')));
