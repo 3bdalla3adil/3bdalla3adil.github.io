@@ -1,6 +1,10 @@
 name: Build and Publish MediBook Downloads
 
 on:
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/build-medibook-downloads.yml"
   workflow_dispatch:
     inputs:
       source_ref:
