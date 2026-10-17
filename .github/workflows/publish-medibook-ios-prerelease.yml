@@ -1,0 +1,82 @@
+name: Publish MediBook iOS IPA Prerelease
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/publish-medibook-ios-prerelease.yml"
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: Successful MediBook workflow run containing medibook-ios-unsigned-ipa
+        required: true
+        default: "38111089225"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-medibook-ios-prerelease
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Copy successful MediBook IPA into public prerelease
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Validate private source token
+        env:
+          MEDIBOOK_ACCESS_TOKEN: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$MEDIBOOK_ACCESS_TOKEN" ]; then
+            echo "::error title=Missing repository secret::Add MEDIBOOK_ACCESS_TOKEN to this repository's Actions secrets. It needs Actions: Read and Contents: Read access to private repository 3bdalla3adil/medibook."
+            exit 1
+          fi
+
+      - name: Download IPA artifact from latest successful source build
+        uses: actions/download-artifact@v4
+        with:
+          name: medibook-ios-unsigned-ipa
+          path: downloaded/ipa
+          repository: 3bdalla3adil/medibook
+          run-id: ${{ inputs.source_run_id || '38111089225' }}
+          github-token: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
+
+      - name: Verify and prepare IPA copy
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_ipa="$(find downloaded/ipa -type f -name '*.ipa' -print -quit)"
+          test -n "$source_ipa"
+          test -s "$source_ipa"
+          unzip -t "$source_ipa"
+          mkdir -p dist
+          cp "$source_ipa" dist/medibook-unsigned.ipa
+          cat > dist/README.txt <<'EOF'
+          MediBook iOS prerelease
+
+          This file is copied directly from a successful MediBook iOS workflow artifact.
+          It is an unsigned IPA. Apple signing and provisioning are required before installation on an iPhone.
+          Staging/evaluation only; not a production clinical deployment.
+          EOF
+          shasum -a 256 "$source_ipa" dist/medibook-unsigned.ipa
+
+      - name: Publish public prerelease asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: medibook-downloads
+          name: MediBook staging downloads
+          body: |
+            MediBook iOS IPA copied from successful workflow run 38111089225.
+
+            The IPA is unsigned and requires Apple signing and provisioning before installation. Staging/evaluation only; not a production clinical deployment.
+          prerelease: true
+          make_latest: false
+          overwrite_files: true
+          files: |
+            dist/medibook-unsigned.ipa
+            dist/README.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
