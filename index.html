@@ -144,6 +144,15 @@
     @media(max-width:950px){.case-study-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:620px){.case-study-grid{grid-template-columns:1fr}}
 
+      .download-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .download-card{padding:28px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);display:flex;flex-direction:column;gap:14px;min-width:0}
+    .download-card .download-kicker{font:600 .75rem "JetBrains Mono",monospace;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
+    .download-card h3{font-size:1.45rem;letter-spacing:-.035em;margin:0}
+    .download-card p{color:var(--muted);margin:0}
+    .download-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .download-note{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:auto!important}
+    .download-card .download-source{font-size:.88rem;color:var(--accent);font-weight:700}
+    @media(max-width:700px){.download-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -153,6 +162,7 @@
     <a href="#capabilities" data-en>Capabilities</a><a href="#capabilities" data-ar>المهارات</a>
     <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a><a href="#case-studies" data-en>Case studies</a><a href="#case-studies" data-ar>دراسات الحالة</a><a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a><a href="#experience" data-en>Experience</a><a href="#experience" data-ar>الخبرة</a><a href="#certs" data-en>Certificates</a><a href="#certs" data-ar>الشهادات</a>
     <a href="#path" data-en>Career Path</a><a href="#path" data-ar>المسار المهني</a>
+    <a href="#downloads" data-en>Downloads</a><a href="#downloads" data-ar>التنزيلات</a>
     <a href="#contact" data-en>Contact</a><a href="#contact" data-ar>تواصل</a>
   </div>
   <div class="actions">
@@ -269,8 +279,36 @@
   </div>
 </div></section>
 
+<section id="downloads"><div class="container">
+  <div class="section-head"><div><div class="kicker">07 / App downloads</div><h2 data-en>Try the apps.</h2><h2 data-ar>جرّب التطبيقات.</h2></div><p data-en>Download the latest CI-published Android packages, or get the iOS build for signing and testing.</p><p data-ar>حمّل أحدث حزم أندرويد المنشورة عبر التكامل المستمر، أو احصل على نسخة iOS للتوقيع والاختبار.</p></div>
+  <div class="download-grid">
+    <article class="download-card">
+      <div class="download-kicker">ISLAMIC COMPANION</div>
+      <h3>Salawat — Prayer Times & Quran</h3>
+      <p data-en>Offline Quran reader, prayer times, Athan reminders, Qibla compass and Hijri calendar.</p><p data-ar>قارئ قرآن دون اتصال، ومواقيت الصلاة، وتنبيهات الأذان، والقبلة والتقويم الهجري.</p>
+      <div class="download-actions">
+        <a class="btn primary" href="https://github.com/3bdalla3adil/AndroidPrayerTimesApp/releases/download/portfolio-downloads/salawat-quran.apk"><i class="fa-brands fa-android" aria-hidden="true"></i><span data-en>Download APK</span><span data-ar>تحميل APK</span></a>
+        <a class="btn ghost" href="https://github.com/3bdalla3adil/AndroidPrayerTimesApp/releases/download/portfolio-downloads/salawat-quran-unsigned.ipa"><i class="fa-brands fa-apple" aria-hidden="true"></i><span data-en>Download iOS IPA</span><span data-ar>تحميل IPA لـ iOS</span></a>
+      </div>
+      <p class="download-note" data-en>iOS note: the IPA is unsigned and needs Apple signing and provisioning before it can be installed on an iPhone.</p><p class="download-note" data-ar>ملاحظة iOS: ملف IPA غير موقّع، ويحتاج إلى توقيع Apple وملف provisioning قبل تثبيته على iPhone.</p>
+      <a class="download-source" href="https://github.com/3bdalla3adil/AndroidPrayerTimesApp/actions/workflows/publish-downloads.yml" target="_blank" rel="noopener"><span data-en>Build status ↗</span><span data-ar>حالة البناء ↗</span></a>
+    </article>
+    <article class="download-card">
+      <div class="download-kicker">HEALTHCARE</div>
+      <h3>MediBook — Clinic & Appointments</h3>
+      <p data-en>Arabic-first healthcare app foundation for patient profiles, appointment workflows and telehealth integration.</p><p data-ar>منصة رعاية صحية عربية أولاً لملفات المرضى والمواعيد والتكامل مع الاستشارات عن بُعد.</p>
+      <div class="download-actions">
+        <a class="btn primary" href="https://github.com/3bdalla3adil/medibook/releases/download/portfolio-downloads/medibook.apk"><i class="fa-brands fa-android" aria-hidden="true"></i><span data-en>Download APK</span><span data-ar>تحميل APK</span></a>
+        <a class="btn ghost" href="https://github.com/3bdalla3adil/medibook/releases/download/portfolio-downloads/medibook-unsigned.ipa"><i class="fa-brands fa-apple" aria-hidden="true"></i><span data-en>Download iOS IPA</span><span data-ar>تحميل IPA لـ iOS</span></a>
+      </div>
+      <p class="download-note" data-en>iOS note: the IPA is unsigned and needs Apple signing and provisioning before it can be installed on an iPhone. MediBook is a staging foundation, not a production clinical service.</p><p class="download-note" data-ar>ملاحظة iOS: ملف IPA غير موقّع ويحتاج إلى توقيع Apple وملف provisioning. MediBook نسخة تجريبية وليست خدمة سريرية جاهزة للإنتاج.</p>
+      <a class="download-source" href="https://github.com/3bdalla3adil/medibook/actions/workflows/ci.yml" target="_blank" rel="noopener"><span data-en>Build status ↗</span><span data-ar>حالة البناء ↗</span></a>
+    </article>
+  </div>
+</div></section>
+
 <section id="contact"><div class="container">
-  <div class="section-head"><div><div class="kicker">07 / Contact</div><h2 data-en>Let’s build something useful.</h2><h2 data-ar>لنبنِ حلاً مفيداً معاً.</h2></div><p data-en>Tell me about the workflow, product or integration you want to improve. I’ll get back to you by email.</p><p data-ar>أخبرني عن سير العمل أو المنتج أو التكامل الذي تريد تطويره، وسأرد عليك عبر البريد الإلكتروني.</p></div>
+  <div class="section-head"><div><div class="kicker">08 / Contact</div><h2 data-en>Let’s build something useful.</h2><h2 data-ar>لنبنِ حلاً مفيداً معاً.</h2></div><p data-en>Tell me about the workflow, product or integration you want to improve. I’ll get back to you by email.</p><p data-ar>أخبرني عن سير العمل أو المنتج أو التكامل الذي تريد تطويره، وسأرد عليك عبر البريد الإلكتروني.</p></div>
   <div class="contact-layout">
     <form class="contact-form" action="https://formsubmit.co/3bdalla995@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New portfolio inquiry — Abdulla Bashir">
