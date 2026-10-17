@@ -1,0 +1,220 @@
+name: Build and Publish MediBook Downloads
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: Private MediBook branch or tag to build
+        required: true
+        default: feature/clinic-operations-core
+        type: string
+  schedule:
+    - cron: "17 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-medibook-downloads
+  cancel-in-progress: false
+
+jobs:
+  build-apk:
+    name: Build MediBook Android APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Verify private source access token is configured
+        env:
+          MEDIBOOK_ACCESS_TOKEN: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$MEDIBOOK_ACCESS_TOKEN" ]; then
+            echo "::error::Add MEDIBOOK_ACCESS_TOKEN in this public portfolio repository's Actions secrets. It needs read access to the private 3bdalla3adil/medibook repository."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      - name: Checkout private MediBook source
+        uses: actions/checkout@v4
+        with:
+          repository: 3bdalla3adil/medibook
+          ref: ${{ inputs.source_ref || 'feature/clinic-operations-core' }}
+          token: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
+          path: medibook-src
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: "3.47.2"
+          cache: true
+      - name: Generate Android platform files
+        working-directory: medibook-src
+        run: flutter create --platforms=android --org com.medibook --project-name medibook .
+      - name: Disable Google Services plugin for demo-mode package
+        working-directory: medibook-src
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("android/app/build.gradle.kts")
+          s = p.read_text()
+          s = s.replace('    id("com.google.gms.google-services")\n', "")
+          p.write_text(s)
+          print("Google Services plugin disabled for the no-secret demo build.")
+          PY
+      - name: Install dependencies and generate localizations
+        working-directory: medibook-src
+        run: |
+          flutter pub get
+          if [ -f l10n.yaml ]; then flutter gen-l10n; fi
+      - name: Build demo-mode APK
+        working-directory: medibook-src
+        run: flutter build apk --release --dart-define-from-file=config/ci-demo.json
+      - name: Verify APK
+        working-directory: medibook-src
+        run: test -s build/app/outputs/flutter-apk/app-release.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: medibook-download-apk
+          path: medibook-src/build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+          retention-days: 14
+
+  build-ipa:
+    name: Build MediBook unsigned iOS IPA
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - name: Verify private source access token is configured
+        env:
+          MEDIBOOK_ACCESS_TOKEN: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$MEDIBOOK_ACCESS_TOKEN" ]; then
+            echo "::error::Add MEDIBOOK_ACCESS_TOKEN in this public portfolio repository's Actions secrets. It needs read access to the private 3bdalla3adil/medibook repository."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      - name: Checkout private MediBook source
+        uses: actions/checkout@v4
+        with:
+          repository: 3bdalla3adil/medibook
+          ref: ${{ inputs.source_ref || 'feature/clinic-operations-core' }}
+          token: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
+          path: medibook-src
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: "3.47.2"
+          cache: true
+      - name: Generate iOS platform files
+        working-directory: medibook-src
+        run: flutter create --platforms=ios --org com.medibook --project-name medibook .
+      - name: Install dependencies and generate localizations
+        working-directory: medibook-src
+        run: |
+          flutter pub get
+          if [ -f l10n.yaml ]; then flutter gen-l10n; fi
+      - name: Generate Flutter iOS build configuration without signing
+        working-directory: medibook-src
+        run: flutter build ios --config-only --release --no-codesign --dart-define-from-file=config/ci-demo.json
+      - name: Disable Xcode code signing for CI
+        working-directory: medibook-src
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("ios/Runner.xcodeproj/project.pbxproj")
+          s = p.read_text()
+          s = s.replace(
+              "buildSettings = {",
+              "buildSettings = {\n\t\t\t\tCODE_SIGNING_ALLOWED = NO;\n\t\t\t\tCODE_SIGNING_REQUIRED = NO;",
+          )
+          p.write_text(s)
+          PY
+      - name: Build unsigned iOS app
+        working-directory: medibook-src
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -workspace ios/Runner.xcworkspace \
+            -scheme Runner \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/ios \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            PROVISIONING_PROFILE_SPECIFIER="" \
+            build
+      - name: Package and verify unsigned IPA
+        working-directory: medibook-src
+        run: |
+          set -euo pipefail
+          app="build/ios/Build/Products/Release-iphoneos/Runner.app"
+          test -d "$app"
+          mkdir -p build/ios/ipa/Payload
+          cp -R "$app" build/ios/ipa/Payload/Runner.app
+          cd build/ios/ipa
+          /usr/bin/ditto -c -k --sequesterRsrc --keepParent Payload medibook-unsigned.ipa
+          test -s medibook-unsigned.ipa
+          unzip -l medibook-unsigned.ipa | grep -q 'Payload/Runner.app/'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: medibook-download-ipa
+          path: medibook-src/build/ios/ipa/medibook-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
+
+  publish-downloads:
+    name: Publish public MediBook release assets
+    needs: [build-apk, build-ipa]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: medibook-download-apk
+          path: downloaded/apk
+      - uses: actions/download-artifact@v4
+        with:
+          name: medibook-download-ipa
+          path: downloaded/ipa
+      - name: Prepare stable download assets
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          apk="$(find downloaded/apk -type f -name '*.apk' -print -quit)"
+          ipa="$(find downloaded/ipa -type f -name '*.ipa' -print -quit)"
+          test -n "$apk" && test -s "$apk"
+          test -n "$ipa" && test -s "$ipa"
+          cp "$apk" dist/medibook.apk
+          cp "$ipa" dist/medibook-unsigned.ipa
+          cat > dist/README.txt <<'EOF'
+          MediBook staging downloads
+
+          APK: Demo-mode Android package for evaluating the current app foundation.
+          IPA: Unsigned iOS package; Apple signing and provisioning are required before installation.
+          These builds use the checked-in CI demo configuration and do not contain production Firebase credentials. They are not production clinical deployments.
+          EOF
+      - name: Publish public release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: medibook-downloads
+          name: MediBook staging downloads
+          body: |
+            MediBook staging downloads generated from the selected private source branch.
+
+            - Android APK: demo-mode evaluation build.
+            - iOS IPA: unsigned; Apple signing and provisioning are required before installation.
+            - Not a production clinical deployment.
+          prerelease: true
+          make_latest: false
+          overwrite_files: true
+          files: |
+            dist/medibook.apk
+            dist/medibook-unsigned.ipa
+            dist/README.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
