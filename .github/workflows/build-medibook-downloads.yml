@@ -23,19 +23,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-apk:
-    name: Build MediBook Android APK
+  preflight:
+    name: Validate source access and build configuration
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 5
     steps:
-      - name: Verify private source access token is configured
+      - name: Require private source access token
         env:
           MEDIBOOK_ACCESS_TOKEN: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
         run: |
           if [ -z "$MEDIBOOK_ACCESS_TOKEN" ]; then
-            echo "::error::Add MEDIBOOK_ACCESS_TOKEN in this public portfolio repository's Actions secrets. It needs read access to the private 3bdalla3adil/medibook repository."
+            echo "::error title=Missing repository secret::Add MEDIBOOK_ACCESS_TOKEN in 3bdalla3adil/3bdalla3adil.github.io > Settings > Secrets and variables > Actions. Use a fine-grained token with Contents: Read-only access to private repository 3bdalla3adil/medibook."
             exit 1
           fi
+      - name: Validate private source branch and token
+        uses: actions/checkout@v4
+        with:
+          repository: 3bdalla3adil/medibook
+          ref: ${{ inputs.source_ref || 'feature/clinic-operations-core' }}
+          token: ${{ secrets.MEDIBOOK_ACCESS_TOKEN }}
+          path: medibook-src
+          persist-credentials: false
+      - name: Validate demo configuration
+        working-directory: medibook-src
+        run: |
+          test -s pubspec.yaml
+          test -s config/ci-demo.json
+          python3 -m json.tool config/ci-demo.json >/dev/null
+
+  build-apk:
+    needs: preflight
+    name: Build MediBook Android APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
       - uses: actions/checkout@v4
       - name: Checkout private MediBook source
         uses: actions/checkout@v4
@@ -86,6 +107,7 @@ jobs:
           retention-days: 14
 
   build-ipa:
+    needs: preflight
     name: Build MediBook unsigned iOS IPA
     runs-on: macos-latest
     timeout-minutes: 45
