@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#07111f">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/logo.svg">
-  <meta name="description" content="Abdulla Bashir — Enterprise Solutions Engineer specializing in Odoo, Python, automation, cloud infrastructure, security and AI-enabled business systems.">
-  <meta property="og:title" content="Abdulla Bashir — Enterprise Solutions Engineer">
-  <meta property="og:description" content="ERP • Automation • Cloud • Security • AI">
+  <meta name="description" content="Abdulla Bashir builds practical software, Odoo ERP solutions, healthcare and mobile applications, integrations, automation and reliable digital systems.">
+  <meta property="og:title" content="Abdulla Bashir — Software & Digital Systems Engineer">
+  <meta property="og:description" content="Software • ERP • Mobile Apps • Automation • Cloud">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://3bdalla3adil.github.io/">
   <link rel="canonical" href="https://3bdalla3adil.github.io/">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <title>Abdulla Bashir — Enterprise Solutions Engineer</title>
+  <title>Abdulla Bashir — Software & Digital Systems Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -182,16 +182,72 @@
     @media(max-width:760px){.puzzle-shell{grid-template-columns:1fr;padding:16px}.puzzle-board{max-width:420px}.puzzle-info h3{font-size:1.3rem}}
     @media(prefers-reduced-motion:reduce){.puzzle-tile{transition:none}}
 
+
+    /* Inspired refresh: premium software-studio feel while preserving the existing portfolio content */
+    :root{--bg:#080c0d;--bg2:#101718;--card:rgba(19,29,28,.84);--text:#f4f8f5;--muted:#a5b4ad;--line:rgba(184,218,197,.15);--accent:#a8f06a;--accent2:#4dd8bb;--max:1180px;--r:22px}
+    body{background:radial-gradient(circle at 88% 5%,rgba(168,240,106,.10),transparent 28%),radial-gradient(circle at 5% 34%,rgba(77,216,187,.08),transparent 30%),var(--bg)}
+    nav{background:rgba(8,12,13,.84);border-bottom-color:rgba(184,218,197,.13)}
+    .links{gap:18px}
+    .links a{font-size:.84rem;color:#d2ddd6;white-space:nowrap}
+    .links a:hover{color:var(--accent)}
+    .hero{gap:clamp(30px,5vw,70px)}
+    .hero h1{max-width:900px;font-size:clamp(3.1rem,7.2vw,6.9rem);letter-spacing:-.075em}
+    .gradient{background:linear-gradient(110deg,#f7fff8 4%,var(--accent) 56%,var(--accent2));-webkit-background-clip:text;background-clip:text}
+    .eyebrow{border-color:rgba(168,240,106,.23);background:rgba(168,240,106,.045)}
+    .primary{background:linear-gradient(135deg,var(--accent),#d0ff9c);color:#10170b}
+    .btn:hover{border-color:rgba(168,240,106,.6)}
+    .card,.experience-card,.client-card,.contact-form,.download-card{background:linear-gradient(145deg,rgba(20,32,29,.88),rgba(10,17,17,.88))}
+    .project-art,.case-study-art{background:radial-gradient(circle at 80% 20%,rgba(168,240,106,.18),transparent 36%),linear-gradient(135deg,#192821,#0b1312)}
+    .project:hover{border-color:rgba(168,240,106,.45)}
+    .client-icon{background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .client-nav:hover{background:var(--accent);color:#11180c}
+    .cert-card{background:rgba(17,27,25,.94)}
+    .cta{border-color:rgba(168,240,106,.24);background:radial-gradient(circle at 90% 0%,rgba(168,240,106,.13),transparent 35%),linear-gradient(135deg,rgba(23,39,31,.94),rgba(10,18,17,.92))}
+    .about-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:16px;align-items:stretch}
+    .about-copy{padding:clamp(24px,4vw,42px)}
+    .about-copy h3{font-size:1.5rem;margin:12px 0}
+    .about-copy p,.principle-card p{color:var(--muted);font-size:.94rem}
+    .about-stack{margin-top:22px}
+    .about-principles{display:grid;gap:12px}
+    .principle-card{position:relative;padding:22px 24px 20px 78px}
+    .principle-number{position:absolute;left:23px;top:22px;color:var(--accent);font:600 .8rem "JetBrains Mono",monospace}
+    .principle-card h3{margin:0 0 6px;font-size:1rem}
+    .principle-card p{margin:0}
+    body.ar .principle-card{padding:22px 78px 20px 24px}
+    body.ar .principle-number{left:auto;right:23px}
+    .puzzle-section{padding-top:65px}
+    @media(max-width:900px){
+      nav .inner{height:auto;min-height:70px;flex-wrap:wrap;padding:12px 0}
+      .links{display:flex;order:3;width:100%;max-width:100%;overflow-x:auto;gap:18px;padding:8px 0 2px;scrollbar-width:none}
+      .links::-webkit-scrollbar{display:none}
+      .actions{margin-left:auto}
+      .hero{grid-template-columns:1fr}
+      .profile{max-width:380px}
+      .about-layout{grid-template-columns:1fr}
+    }
+    @media(max-width:620px){
+      .hero h1{font-size:clamp(2.85rem,13vw,4.5rem)}
+      .links{gap:16px}
+      .links a{font-size:.82rem}
+      .about-copy{padding:24px}
+      .principle-card{padding:20px 20px 20px 62px}
+      body.ar .principle-card{padding:20px 62px 20px 20px}
+      .principle-number{left:19px;top:20px}
+      body.ar .principle-number{right:19px}
+    }
+
   </style>
 </head>
 <body>
 <nav><div class="container inner">
   <a class="brand" href="#top" aria-label="Abdulla Bashir home"><img src="assets/logo.svg" alt="" width="42" height="42"><span class="brand-name">Abdulla<span>.</span></span></a>
   <div class="links">
-    <a href="#capabilities" data-en>Capabilities</a><a href="#capabilities" data-ar>المهارات</a>
-    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a><a href="#case-studies" data-en>Case studies</a><a href="#case-studies" data-ar>دراسات الحالة</a><a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a><a href="#experience" data-en>Experience</a><a href="#experience" data-ar>الخبرة</a><a href="#certs" data-en>Certificates</a><a href="#certs" data-ar>الشهادات</a>
-    <a href="#path" data-en>Career Path</a><a href="#path" data-ar>المسار المهني</a>
-    <a href="#downloads" data-en>Downloads</a><a href="#downloads" data-ar>التنزيلات</a>
+    <a href="#about" data-en>About</a><a href="#about" data-ar>نبذة عني</a>
+    <a href="#capabilities" data-en>What I Do</a><a href="#capabilities" data-ar>ما أقدمه</a>
+    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a>
+    <a href="#clients" data-en>Clients</a><a href="#clients" data-ar>العملاء</a>
+    <a href="#experience" data-en>Experience</a><a href="#experience" data-ar>الخبرة</a>
+    <a href="#certs" data-en>Certifications</a><a href="#certs" data-ar>الشهادات</a>
     <a href="#contact" data-en>Contact</a><a href="#contact" data-ar>تواصل</a>
   </div>
   <div class="actions">
@@ -204,9 +260,9 @@
 <section class="hero container">
   <div>
     <span class="eyebrow"><span class="dot"></span><span data-en>Building reliable enterprise systems</span><span data-ar>أبني أنظمة مؤسسية موثوقة</span></span>
-    <h1><span data-en>Enterprise<br><span class="gradient">Solutions Engineer.</span></span><span data-ar>مهندس حلول<br><span class="gradient">مؤسسية متكاملة.</span></span></h1>
-    <p data-en>I design and build business systems across <strong>ERP, automation, cloud infrastructure, security and AI</strong> — turning real operational problems into maintainable software.</p>
-    <p data-ar>أصمم وأبني أنظمة الأعمال عبر <strong>ERP والأتمتة والبنية السحابية والأمن والذكاء الاصطناعي</strong>، وأحوّل المشاكل التشغيلية الحقيقية إلى حلول برمجية قابلة للتوسع والصيانة.</p>
+    <h1><span data-en>I build<br><span class="gradient">useful digital systems.</span></span><span data-ar>أبني<br><span class="gradient">أنظمة رقمية مفيدة.</span></span></h1>
+    <p data-en>I turn real business needs into reliable software — from <strong>ERP and automation to healthcare apps, mobile experiences, APIs and cloud deployment</strong>.</p>
+    <p data-ar>أحوّل احتياجات الأعمال إلى حلول برمجية موثوقة، من <strong>أنظمة ERP والأتمتة إلى التطبيقات الطبية والجوال وواجهات API والنشر السحابي</strong>.</p>
     <div class="hero-actions">
       <a class="btn primary" href="#projects" data-en>Explore my work →</a><a class="btn primary" href="#projects" data-ar>استعرض أعمالي ←</a>
       <a class="btn ghost" href="https://github.com/3bdalla3adil" target="_blank" rel="noopener">GitHub ↗</a>
@@ -224,38 +280,31 @@
   </div>
 </section>
 
-
-<section class="puzzle-section" id="picture-puzzle">
-  <div class="container">
-    <div class="section-head">
-      <div><div class="kicker">Mini game / 01</div><h2 data-en>Piece by piece.</h2><h2 data-ar>ركّب الصورة قطعةً قطعة.</h2></div>
-      <p data-en>A quick little challenge: rearrange the tiles to reveal Abdulla Bashir’s picture. Pick a difficulty and make it whole.</p>
-      <p data-ar>تحدٍّ صغير: رتّب القطع لتظهر صورة عبد الله بشير كاملة. اختر مستوى الصعوبة وأكمل الصورة.</p>
+<section id="about" class="about-section"><div class="container">
+  <div class="section-head">
+    <div><div class="kicker">01 / About</div><h2 data-en>Engineering with the whole picture in mind.</h2><h2 data-ar>هندسة تنظر إلى الصورة الكاملة.</h2></div>
+    <p data-en>I connect the people, workflows and technology behind useful digital products — not just the code that powers them.</p>
+    <p data-ar>أربط بين الأشخاص وسير العمل والتقنية التي تصنع المنتجات الرقمية المفيدة، وليس الشيفرة البرمجية وحدها.</p>
+  </div>
+  <div class="about-layout">
+    <div class="about-copy card">
+      <span class="icon"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i></span>
+      <h3 data-en>About Abdulla</h3><h3 data-ar>عن عبد الله</h3>
+      <p data-en>I'm a software developer focused on practical business systems, Odoo ERP, Python integrations and applications for web and mobile. My work spans property management, healthcare workflows, offline-first mobile utilities, deployment and automation. I enjoy taking a problem from requirements through implementation, integration and support — with an emphasis on maintainability and clear user workflows.</p>
+      <p data-ar>أنا مطور برمجيات أركز على أنظمة الأعمال العملية وOdoo ERP وتكاملات Python وتطبيقات الويب والجوال. تشمل أعمالي إدارة العقارات وسير عمل الرعاية الصحية وتطبيقات الجوال التي تعمل دون اتصال والنشر والأتمتة. أستمتع بتحويل المشكلة إلى حل متكامل يبدأ من فهم المتطلبات ويمر بالتنفيذ والربط والدعم، مع التركيز على سهولة الاستخدام وقابلية الصيانة.</p>
+      <div class="stack about-stack"><span class="chip">Business-first</span><span class="chip">End-to-end delivery</span><span class="chip">Reliable systems</span><span class="chip">Continuous learning</span></div>
     </div>
-    <div class="puzzle-shell">
-      <div class="puzzle-board" id="abdullaPuzzleBoard" role="group" aria-label="Abdulla Bashir picture puzzle" data-en-label="Abdulla Bashir picture puzzle"></div>
-      <div class="puzzle-info">
-        <span class="eyebrow"><span class="dot"></span><span data-en>Ready when you are</span><span data-ar>هل أنت مستعد؟</span></span>
-        <h3 data-en>Can you put me back together?</h3><h3 data-ar>هل تستطيع تجميع صورتي؟</h3>
-        <p data-en>Tap a tile next to the empty space to move it. Finish the portrait using as few moves as you can.</p>
-        <p data-ar>اضغط على قطعة بجانب المساحة الفارغة لتحريكها. أكمل الصورة بأقل عدد ممكن من الحركات.</p>
-        <div class="puzzle-controls">
-          <label><span data-en>Difficulty</span><span data-ar>مستوى الصعوبة</span>
-            <select id="abdullaPuzzleDifficulty" aria-label="Puzzle difficulty">
-              <option value="3" data-en>Easy · 3 × 3</option><option value="3" data-ar>سهل · ٣ × ٣</option>
-              <option value="4" data-en>Medium · 4 × 4</option><option value="4" data-ar>متوسط · ٤ × ٤</option>
-              <option value="5" data-en>Hard · 5 × 5</option><option value="5" data-ar>صعب · ٥ × ٥</option>
-            </select>
-          </label>
-          <div class="puzzle-actions"><button class="btn primary" type="button" id="abdullaPuzzleStart"><span data-en>Shuffle & play</span><span data-ar>ابدأ اللعب</span></button><button class="btn ghost" type="button" id="abdullaPuzzlePreview"><span data-en>Show picture</span><span data-ar>عرض الصورة</span></button></div>
-        </div>
-        <div class="puzzle-stats"><div class="puzzle-stat"><span data-en>Moves</span><span data-ar>الحركات</span><strong id="abdullaPuzzleMoves">0</strong></div><div class="puzzle-stat"><span data-en>Time</span><span data-ar>الوقت</span><strong id="abdullaPuzzleTime">00:00</strong></div><div class="puzzle-stat"><span data-en>Tiles</span><span data-ar>القطع</span><strong id="abdullaPuzzleTiles">9</strong></div></div>
-        <div class="puzzle-message" id="abdullaPuzzleMessage" role="status" aria-live="polite"></div>
-        <p class="puzzle-hint" data-en>Tip: start with Easy, then try Medium and Hard. The puzzle is solvable every time.</p><p class="puzzle-hint" data-ar>نصيحة: ابدأ بالسهل ثم جرّب المتوسط والصعب. اللغز قابل للحل في كل مرة.</p>
-      </div>
+    <div class="about-principles">
+      <article class="card principle-card"><span class="principle-number">01</span><h3 data-en>Understand the workflow</h3><h3 data-ar>فهم سير العمل</h3><p data-en>Start with the people, constraints and real process before choosing the technical solution.</p><p data-ar>أبدأ بفهم المستخدمين والقيود والعملية الفعلية قبل اختيار الحل التقني.</p></article>
+      <article class="card principle-card"><span class="principle-number">02</span><h3 data-en>Build across the stack</h3><h3 data-ar>تطوير الحل بشكل متكامل</h3><p data-en>Connect interfaces, business logic, data and deployment into a coherent product.</p><p data-ar>أربط الواجهات ومنطق الأعمال والبيانات والنشر في منتج متكامل.</p></article>
+      <article class="card principle-card"><span class="principle-number">03</span><h3 data-en>Make it maintainable</h3><h3 data-ar>قابلية الصيانة</h3><p data-en>Favor clear structure, traceability and dependable operation over quick fixes.</p><p data-ar>أفضّل البنية الواضحة وإمكانية التتبع والتشغيل الموثوق بدلاً من الحلول المؤقتة.</p></article>
     </div>
   </div>
-</section>
+</div></section>
+
+
+
+
 
 <section id="capabilities"><div class="container">
   <div class="section-head"><div><div class="kicker">01 / Capabilities</div><h2 data-en>From business problem to production.</h2><h2 data-ar>من مشكلة العمل إلى نظام جاهز للإنتاج.</h2></div><p data-en>I work across the layers that make enterprise software useful: business workflows, application code, data, infrastructure and security.</p><p data-ar>أعمل عبر الطبقات التي تجعل أنظمة المؤسسات فعّالة: إجراءات العمل، البرمجة، البيانات، البنية التحتية والأمن.</p></div>
@@ -369,6 +418,38 @@
     </article>
   </div>
 </div></section>
+
+<section class="puzzle-section" id="picture-puzzle">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">Mini game / 01</div><h2 data-en>Piece by piece.</h2><h2 data-ar>ركّب الصورة قطعةً قطعة.</h2></div>
+      <p data-en>A quick little challenge: rearrange the tiles to reveal Abdulla Bashir’s picture. Pick a difficulty and make it whole.</p>
+      <p data-ar>تحدٍّ صغير: رتّب القطع لتظهر صورة عبد الله بشير كاملة. اختر مستوى الصعوبة وأكمل الصورة.</p>
+    </div>
+    <div class="puzzle-shell">
+      <div class="puzzle-board" id="abdullaPuzzleBoard" role="group" aria-label="Abdulla Bashir picture puzzle" data-en-label="Abdulla Bashir picture puzzle"></div>
+      <div class="puzzle-info">
+        <span class="eyebrow"><span class="dot"></span><span data-en>Ready when you are</span><span data-ar>هل أنت مستعد؟</span></span>
+        <h3 data-en>Can you put me back together?</h3><h3 data-ar>هل تستطيع تجميع صورتي؟</h3>
+        <p data-en>Tap a tile next to the empty space to move it. Finish the portrait using as few moves as you can.</p>
+        <p data-ar>اضغط على قطعة بجانب المساحة الفارغة لتحريكها. أكمل الصورة بأقل عدد ممكن من الحركات.</p>
+        <div class="puzzle-controls">
+          <label><span data-en>Difficulty</span><span data-ar>مستوى الصعوبة</span>
+            <select id="abdullaPuzzleDifficulty" aria-label="Puzzle difficulty">
+              <option value="3" data-en>Easy · 3 × 3</option><option value="3" data-ar>سهل · ٣ × ٣</option>
+              <option value="4" data-en>Medium · 4 × 4</option><option value="4" data-ar>متوسط · ٤ × ٤</option>
+              <option value="5" data-en>Hard · 5 × 5</option><option value="5" data-ar>صعب · ٥ × ٥</option>
+            </select>
+          </label>
+          <div class="puzzle-actions"><button class="btn primary" type="button" id="abdullaPuzzleStart"><span data-en>Shuffle & play</span><span data-ar>ابدأ اللعب</span></button><button class="btn ghost" type="button" id="abdullaPuzzlePreview"><span data-en>Show picture</span><span data-ar>عرض الصورة</span></button></div>
+        </div>
+        <div class="puzzle-stats"><div class="puzzle-stat"><span data-en>Moves</span><span data-ar>الحركات</span><strong id="abdullaPuzzleMoves">0</strong></div><div class="puzzle-stat"><span data-en>Time</span><span data-ar>الوقت</span><strong id="abdullaPuzzleTime">00:00</strong></div><div class="puzzle-stat"><span data-en>Tiles</span><span data-ar>القطع</span><strong id="abdullaPuzzleTiles">9</strong></div></div>
+        <div class="puzzle-message" id="abdullaPuzzleMessage" role="status" aria-live="polite"></div>
+        <p class="puzzle-hint" data-en>Tip: start with Easy, then try Medium and Hard. The puzzle is solvable every time.</p><p class="puzzle-hint" data-ar>نصيحة: ابدأ بالسهل ثم جرّب المتوسط والصعب. اللغز قابل للحل في كل مرة.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="contact"><div class="container">
   <div class="section-head"><div><div class="kicker">08 / Contact</div><h2 data-en>Let’s build something useful.</h2><h2 data-ar>لنبنِ حلاً مفيداً معاً.</h2></div><p data-en>Tell me about the workflow, product or integration you want to improve. I’ll get back to you by email.</p><p data-ar>أخبرني عن سير العمل أو المنتج أو التكامل الذي تريد تطويره، وسأرد عليك عبر البريد الإلكتروني.</p></div>
