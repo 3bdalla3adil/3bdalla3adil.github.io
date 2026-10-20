@@ -20,6 +20,28 @@
     "image": "assets/img/odoo.png"
   },
   {
+    "id": "rag-ai-chatbot",
+    "title": "Building a Retrieval-Augmented AI Chatbot",
+    "titleAr": "بناء روبوت محادثة بالذكاء الاصطناعي وتقنية RAG",
+    "summary": "Built a web-based AI chat experience that combines retrieval-augmented generation with a serverless Azure backend and a locally hosted language model.",
+    "summaryAr": "بناء تجربة محادثة ويب بالذكاء الاصطناعي تجمع بين تقنية RAG وخلفية سحابية باستخدام Azure ونموذج لغوي يعمل محلياً.",
+    "challenge": "Create a chatbot application with a web chat interface, validated backend data, persistent storage, and a language model that can run locally.",
+    "solution": "Connected a Next.js chat frontend to Azure Functions, used Azure Cosmos DB for data storage, Pydantic for data validation, and Ollama to run the local LLM within the RAG workflow.",
+    "outcome": "Delivered an integrated RAG chatbot architecture spanning the web interface, serverless API, database, validation layer, and local LLM runtime.",
+    "outcomeAr": "تقديم بنية متكاملة لروبوت محادثة بتقنية RAG تشمل واجهة الويب وواجهة API بلا خوادم وقاعدة البيانات وطبقة التحقق من البيانات وتشغيل النموذج اللغوي محلياً.",
+    "category": "Generative AI / Cloud",
+    "tags": [
+      "RAG",
+      "Azure Functions",
+      "Cosmos DB",
+      "Pydantic",
+      "Ollama",
+      "Next.js"
+    ],
+    "link": "",
+    "image": ""
+  },
+  {
     "id": "hr-integration",
     "title": "Attendance Integration & Cost Control",
     "titleAr": "تكامل الحضور وضبط التكاليف",
