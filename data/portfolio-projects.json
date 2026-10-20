@@ -19,6 +19,29 @@
     "featured": true
   },
   {
+    "id": "rag-ai-chatbot",
+    "title": "RAG AI Chatbot",
+    "titleAr": "روبوت محادثة ذكي بتقنية RAG",
+    "description": "Built a retrieval-augmented generation (RAG) chatbot with an Azure Functions backend, Azure Cosmos DB, Pydantic-based data validation, and a locally hosted Ollama LLM, paired with a Next.js web chat frontend.",
+    "descriptionAr": "تطوير روبوت محادثة بتقنية التوليد المعزز بالاسترجاع (RAG)، مع خلفية باستخدام Azure Functions وقاعدة Azure Cosmos DB والتحقق من البيانات عبر Pydantic ونموذج لغوي محلي باستخدام Ollama، وواجهة محادثة ويب مبنية بـ Next.js.",
+    "category": "Generative AI / Cloud",
+    "techLine": "Azure Functions / Cosmos DB / Pydantic / Ollama / Next.js",
+    "tags": [
+      "RAG",
+      "Generative AI",
+      "Azure Functions",
+      "Cosmos DB",
+      "Pydantic",
+      "Ollama",
+      "Next.js"
+    ],
+    "image": "",
+    "link": "",
+    "linkLabel": "Project details",
+    "linkLabelAr": "تفاصيل المشروع",
+    "featured": true
+  },
+  {
     "id": "ekram-medical",
     "title": "Ekram Medical",
     "titleAr": "إكرام الطبي",
