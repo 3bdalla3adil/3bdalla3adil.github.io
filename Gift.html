@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body { background:#fdf8f0; font-family:sans-serif; }
+.email-wrapper { max-width:600px; margin:auto; background:#fffdf9; border-radius:24px; overflow:hidden; box-shadow:0 20px 60px rgba(198,138,46,0.15); }
+.header { background:#fff9e6; padding:24px; text-align:center; }
+.hero { text-align:center; padding:40px 30px 20px; }
+.arabic { font-size:42px; color:#c49a3c; margin-bottom:20px; }
+.gift-container { margin:20px auto; width:280px; cursor:pointer; display:block; }
+#gift-toggle { display:none; }
+.gift-lid { height:80px; background:#1a1f4d; border:2px solid #c49a3c; border-radius:12px; transition:1s; }
+#gift-toggle:checked + .gift-box .gift-lid { transform:rotate(-110deg); }
+.duaa-content { max-height:0; overflow:hidden; opacity:0; transition:1s; }
+#gift-toggle:checked ~ .duaa-content { max-height:2000px; opacity:1; padding:30px; }
+.duaa-block { background:#fff9e6; border-left:4px solid #c49a3c; border-radius:12px; padding:18px; margin:16px 0; text-align:left; }
+.final-duaa { background:#1a1f4d; color:#f9e7a0; border-radius:16px; padding:24px; margin:28px 0; text-align:center; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+  <div class="header">✨ A GIFT EMAIL • TAP TO OPEN ✨<br>To: Jane Doe</div>
+  <div class="hero">
+    <div class="arabic">دُعَاءٌ مُبَارَكٌ</div>
+    <label class="gift-container" for="gift-toggle">
+      <input type="checkbox" id="gift-toggle">
+      <div class="gift-box"><div class="gift-lid" style="display:flex;align-items:center;justify-content:center;font-size:50px">🎁</div><div style="height:140px;background:#1e2452;border:2px solid #c49a3c;border-radius:0 0 12px 12px;display:flex;align-items:center;justify-content:center;color:#f9e7a0">TAP TO OPEN</div></div>
+      <div style="color:#c49a3c;font-size:13px;margin-top:16px;">▼ TAP THE GIFT TO OPEN YOUR DUAA ▼</div>
+
+      <div class="duaa-content">
+        <h2 style="color:#8a6a2a;">A Special Duaa Gift For Jane Doe</h2>
+        <p style="color:#b89a5a;">— For Reunification, Peace, Protection from Evil, and Jannat al Firdaws —</p>
+
+        <div class="duaa-block"><h3>🤲 For Reunification</h3><p>Ya Allah, reunite Jane with everyone she loves. Heal distances, mend hearts, bring her family together in love and mercy.</p></div>
+        <div class="duaa-block"><h3>🕊️ For Peace</h3><p>Ya Salam, fill Jane's heart with Sakoon, her home with tranquility, and her life with lasting peace.</p></div>
+        <div class="duaa-block"><h3>🛡️ For Protection from Evil</h3><p>Ya Hafiz, protect Jane from evil eye, harm, jealousy, and unseen evil. Be her shield always.</p></div>
+        <div class="duaa-block"><h3>🌸 For Jannat al Firdaws</h3><p>Ya Rahman, forgive her sins, multiply her good deeds, and grant her Jannat al Firdaws without reckoning.</p></div>
+
+        <div class="final-duaa">Ya Allah, accept this duaa for my dear friend Jane Doe.<br>Make it a light for her in this dunya and a reason for her happiness in Akhirah.<br><br><strong>Ameen Ya Rabbal Alameen 🤲✨</strong></div>
+        <p style="color:#8a6a2a;">You are cherished, Jane. 💛</p>
+      </div>
+    </label>
+  </div>
+</div>
+</body>
+</html>
