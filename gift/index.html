@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#170f2f">
+<meta name="description" content="A little interactive digital gift made to brighten someone's day.">
+<title>A Little Surprise For You ✨</title>
+<style>
+:root{--night:#170f2f;--pink:#ff9fca;--gold:#ffd98c;--cream:#fff8f2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;padding:24px;display:grid;place-items:center;color:var(--cream);font-family:system-ui,-apple-system,"Trebuchet MS",sans-serif;background:radial-gradient(circle at 50% 15%,#56366f,#291b47 45%,var(--night) 85%);overflow-x:hidden}
+.stars,.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden}.star{position:absolute;color:#fff4c8;animation:twinkle 2.5s infinite alternate}@keyframes twinkle{to{opacity:.2;transform:scale(.7)}}
+.card{width:min(720px,100%);position:relative;text-align:center;padding:clamp(26px,6vw,56px) clamp(20px,5vw,48px);border:1px solid #ffffff30;border-radius:30px;background:linear-gradient(145deg,#ffffff1f,#ffffff09);box-shadow:0 25px 80px #0005;backdrop-filter:blur(12px)}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:.74rem;color:#f4cde2}h1{font-size:clamp(2rem,7vw,3.5rem);line-height:1.06;margin:14px 0}.sub{max-width:500px;margin:auto;color:#e8dff3;line-height:1.7}
+.scene{height:230px;display:grid;place-items:center;position:relative;margin:20px 0 5px}.glow{position:absolute;width:210px;height:150px;border-radius:50%;background:var(--pink);filter:blur(60px);opacity:.25}
+.gift{width:150px;height:125px;position:relative;cursor:pointer;border:0;background:none;padding:0;transition:transform .35s}.gift:hover{transform:translateY(-7px) rotate(-2deg)}.gift:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:5px}
+.box{position:absolute;left:10px;bottom:5px;width:130px;height:88px;border-radius:7px 7px 13px 13px;background:linear-gradient(135deg,#ff6fae,#d83f88);box-shadow:0 18px 30px #10091e70}
+.lid{position:absolute;z-index:2;left:2px;top:28px;width:146px;height:28px;border-radius:7px;background:linear-gradient(135deg,#ffb4d4,#f46ba7);transform-origin:12% 90%;transition:transform .75s cubic-bezier(.2,.8,.2,1)}
+.rv{position:absolute;z-index:3;left:65px;bottom:5px;width:20px;height:88px;background:linear-gradient(90deg,#ffe9a9,#ffd36b)}.rh{position:absolute;z-index:3;left:10px;bottom:38px;width:130px;height:18px;background:linear-gradient(#ffe9a9,#ffd36b)}
+.bow{position:absolute;z-index:4;top:3px;left:53px;width:45px;height:28px}.bow:before,.bow:after{content:"";position:absolute;width:26px;height:19px;border:7px solid var(--gold);border-radius:70% 70% 20% 70%}.bow:before{left:-2px;transform:rotate(25deg)}.bow:after{right:-2px;transform:scaleX(-1) rotate(25deg)}
+.gift.open .lid{transform:translate(-23px,-58px) rotate(-28deg)}.hint{color:#f7d5e7;font-size:.9rem;margin-top:6px}
+.message{display:none;margin:22px auto 0;max-width:540px;animation:rise .8s ease both}.message.show{display:block}.message h2{color:var(--gold);font-size:clamp(1.6rem,5vw,2.3rem);margin:0 0 12px}.message p{line-height:1.85;color:#fff3fa}.signature{color:var(--pink);font-weight:700}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}.btn{border:0;border-radius:999px;padding:13px 20px;cursor:pointer;font:inherit;font-weight:700}.primary{background:linear-gradient(135deg,var(--gold),#ffb4d4);color:#321a42}.secondary{background:#ffffff19;border:1px solid #ffffff40;color:var(--cream)}.footer{margin-top:28px;font-size:.78rem;color:#cbbad9}
+.confetti{position:absolute;top:-20px;width:9px;height:14px;border-radius:2px;animation:fall 3.2s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(780deg);opacity:.9}}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div><div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+<main class="card">
+<div class="eyebrow">A tiny moment of magic</div>
+<h1>Hey, you. <span style="color:#ff9fca">♡</span></h1>
+<p class="sub">I made you a little something. No occasion needed — some people deserve a surprise just because they’re them.</p>
+<div class="scene"><div class="glow"></div><button class="gift" id="gift" aria-label="Open your surprise gift"><span class="lid"></span><span class="bow"></span><span class="box"></span><span class="rv"></span><span class="rh"></span></button></div>
+<div class="hint" id="hint">Tap the gift to open it ✨</div>
+<section class="message" id="message" aria-live="polite">
+<h2>A little reminder for you 🌟</h2>
+<p>I hope life gives you a hundred little reasons to smile — a favourite song at the perfect time, a message when you need one, a peaceful moment after a long day, and people who make you feel appreciated.</p>
+<p>Here’s one reminder you can keep: you matter, your presence makes a difference, and you deserve good things even on ordinary days.</p>
+<p>So consider this a pocket-sized bundle of happiness, sent with a big smile and absolutely no reason other than wanting to make your day a little brighter. 💛</p>
+<p class="signature">From your friend, with love and good vibes ♡</p>
+<div class="actions"><button class="btn primary" id="again">Open the magic again ✨</button><button class="btn secondary" id="music">Play a little melody ♫</button></div>
+</section>
+<div class="footer">Made especially to brighten your day · Keep the smile, pass it on.</div>
+</main>
+<script>
+const stars=document.getElementById('stars');for(let i=0;i<48;i++){const s=document.createElement('span');s.className='star';s.textContent=Math.random()>.5?'✦':'·';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(8+Math.random()*15)+'px';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
+const gift=document.getElementById('gift'),message=document.getElementById('message'),hint=document.getElementById('hint'),confetti=document.getElementById('confetti');let audioCtx=null;
+function burst(){const colors=['#ff9fca','#ffd98c','#b8f2e6','#c7b8ff','#fff'];for(let i=0;i<95;i++){const p=document.createElement('i');p.className='confetti';p.style.left=Math.random()*100+'%';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.animationDelay=Math.random()*.75+'s';p.style.width=5+Math.random()*7+'px';p.style.height=8+Math.random()*10+'px';confetti.appendChild(p);setTimeout(()=>p.remove(),4300)}}
+function openGift(){gift.classList.add('open');message.classList.add('show');hint.textContent='Surprise! This little moment is all yours 💖';burst()}
+gift.addEventListener('click',openGift);document.getElementById('again').addEventListener('click',()=>{burst();message.classList.remove('show');void message.offsetWidth;message.classList.add('show')});
+document.getElementById('music').addEventListener('click',()=>{try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();const now=audioCtx.currentTime;[523.25,659.25,783.99,1046.5].forEach((freq,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.0001,now+i*.17);g.gain.exponentialRampToValueAtTime(.12,now+i*.17+.03);g.gain.exponentialRampToValueAtTime(.0001,now+i*.17+.42);o.connect(g);g.connect(audioCtx.destination);o.start(now+i*.17);o.stop(now+i*.17+.45)})}catch(e){alert('The surprise is still yours 💛')}})
+</script>
+</body></html>
