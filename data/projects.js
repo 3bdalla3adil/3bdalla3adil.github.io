@@ -196,6 +196,8 @@ export const projects = [
     tags: ['Android', 'Java', 'Kotlin', 'Offline-first', 'Quran', 'Athan', 'Mobile'],
     image: '/assets/img/prayer-app.jpg',
     github: 'https://github.com/3bdalla3adil/AndroidPrayerTimesApp',
+    downloadApk: 'https://github.com/3bdalla3adil/AndroidPrayerTimesApp/releases/download/portfolio-downloads/salawat-quran.apk',
+    downloadIpa: 'https://github.com/3bdalla3adil/AndroidPrayerTimesApp/releases/download/portfolio-downloads/salawat-quran-unsigned.ipa',
     demo: null,
     featured: true,
     year: 2021,
