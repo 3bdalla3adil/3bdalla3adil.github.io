@@ -59,6 +59,8 @@ export function createProjectCard(project) {
         <div class="bento-card__actions">
           ${project.github ? `<a href="${escapeHtml(project.github)}" class="btn btn--ghost btn--sm" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.title)} on GitHub"><i class="fab fa-github" aria-hidden="true"></i> Code</a>` : ''}
           ${project.demo ? `<a href="${escapeHtml(project.demo)}" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(project.title)} demo"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Demo</a>` : ''}
+          ${project.downloadApk ? `<a href="${escapeHtml(project.downloadApk)}" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Download Android APK for ${escapeHtml(project.title)}"><i class="fab fa-android" aria-hidden="true"></i> APK</a>` : ''}
+          ${project.downloadIpa ? `<a href="${escapeHtml(project.downloadIpa)}" class="btn btn--outline btn--sm" target="_blank" rel="noopener noreferrer" aria-label="Download unsigned iOS IPA for ${escapeHtml(project.title)}"><i class="fab fa-apple" aria-hidden="true"></i> iOS IPA</a>` : ''}
           <button class="btn btn--text btn--sm project-details-btn" 
                   data-project-id="${project.id}"
                   aria-label="View details for ${escapeHtml(project.title)}">
