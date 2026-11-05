@@ -207,5 +207,31 @@
     "linkLabel": "View module",
     "linkLabelAr": "عرض الوحدة",
     "featured": false
+  },
+  {
+    "id": "clinicflow-mobile",
+    "title": "ClinicFlow — Flutter Clinic Management App",
+    "titleAr": "ClinicFlow — تطبيق إدارة العيادات",
+    "description": "Firebase-backed Flutter mobile application foundation for clinic booking, patient authentication and appointment workflows on Android and iOS.",
+    "descriptionAr": "تطبيق Flutter مرتبط بـ Firebase كأساس لحجز العيادات وتسجيل المرضى وإدارة المواعيد على Android وiOS.",
+    "category": "Healthcare / Mobile Applications",
+    "techLine": "Flutter / Firebase / Firestore / GitHub Actions",
+    "tags": [
+      "Flutter",
+      "Firebase",
+      "Healthcare",
+      "Android",
+      "iOS"
+    ],
+    "image": "assets/img/IMG_6267.png",
+    "link": "https://github.com/3bdalla3adil/clinicflow",
+    "linkLabel": "View repository",
+    "linkLabelAr": "عرض المستودع",
+    "featured": true,
+    "downloads": {
+      "android": "https://github.com/3bdalla3adil/clinicflow/releases/download/clinicflow-downloads/clinicflow.apk",
+      "ios": "https://github.com/3bdalla3adil/clinicflow/releases/download/clinicflow-downloads/clinicflow-unsigned.ipa",
+      "combined": "https://github.com/3bdalla3adil/clinicflow/releases/download/clinicflow-downloads/clinicflow-mobile-downloads.zip"
+    }
   }
 ]
