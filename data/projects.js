@@ -19,6 +19,24 @@ export const projects = [
     highlights: ['Arabic-first RTL healthcare experience with English support','Offline appointment cache and outbox synchronization','Secure session/token storage and centralized API error handling','Patient dashboard, appointments, profile and telehealth abstractions','Unit, BLoC and widget tests with CI Android/iOS builds']
   },
   {
+    id: 'clinicflow-mobile',
+    title: 'ClinicFlow — Flutter Clinic Management App',
+    description: 'Firebase-backed clinic booking and patient workflow foundation for Android and iOS, with authentication, clinic operations and automated mobile builds.',
+    longDescription: 'ClinicFlow is a Flutter/Firebase mobile application foundation with patient and staff authentication flows, clinic and appointment workflows, Firestore-backed data, and CI validation. Android APK and unsigned iOS IPA are published together as versioned prerelease assets.',
+    category: 'mobile',
+    tags: ['Flutter', 'Firebase', 'Healthcare', 'Android', 'iOS', 'GitHub Actions'],
+    image: '/assets/img/IMG_6267.png',
+    github: 'https://github.com/3bdalla3adil/clinicflow',
+    downloadApk: 'https://github.com/3bdalla3adil/clinicflow/releases/download/clinicflow-downloads/clinicflow.apk',
+    downloadIpa: 'https://github.com/3bdalla3adil/clinicflow/releases/download/clinicflow-downloads/clinicflow-unsigned.ipa',
+    demo: null,
+    featured: true,
+    year: 2026,
+    client: 'Personal / Product Foundation',
+    status: 'active',
+    highlights: ['Flutter Android and iOS application foundation','Firebase Authentication and Firestore integration','Clinic and appointment workflow foundations','Combined Android APK and unsigned iOS IPA prerelease']
+  },
+  {
     id: 'salawat-islamic-companion',
     title: 'Salawat — Offline Islamic Companion',
     description: 'Offline Islamic companion with prayer times, Quran, Qibla, Hijri calendar and automatic Athan notifications.',
